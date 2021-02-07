@@ -1,0 +1,348 @@
+.img-fluid
+    &--partners
+        width: 150px
+        height: auto
+        object-fit: cover
+        margin-bottom: 50px
+
+*:focus,
+*:active
+    outline: none !important
+    box-shadow: none !important
+
+.select2
+    width: 100% !important
+
+.select-custom
+    + .select2
+        width: 180px !important
+        @media (max-width: 992px)
+            width: 100% !important
+            
+
+.select2-container 
+    .select2-selection--single
+        height: 100%
+
+    &--default 
+        .select2-selection--single
+            border: none
+            .select2-selection__rendered
+                color: #6c757d
+                font-family: Geometria
+                line-height: 38px
+
+            .select2-selection__arrow
+                top: 5px
+                
+                &>b
+                    border-style: none !important
+                    position: relative
+
+                    &::before
+                        content: ''
+                        position: absolute
+                        width: 6px
+                        height: 2px
+                        left: 0
+                        background-color: #0076c1
+                        display: flex
+                        flex-wrap: wrap
+                        transform: rotate(135deg)
+                        transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8)
+
+                    &::after
+                        content: ''
+                        position: absolute
+                        width: 6px
+                        right: -3px
+                        height: 2px
+                        background-color: #0076c1
+                        display: flex
+                        flex-wrap: wrap
+                        transform: rotate(-135deg)
+                        transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8)
+
+.select2-dropdown
+    border: 1px solid #E1E1E1
+
+.b-arrow
+    border-style: none !important
+    position: relative
+
+    &::before
+        content: ''
+        position: absolute
+        width: 6px
+        height: 2px
+        left: 0
+        background-color: #0076c1
+        display: flex
+        flex-wrap: wrap
+        transform: rotate(135deg)
+        transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8)
+
+    &::after
+        content: ''
+        position: absolute
+        width: 6px
+        right: -3px
+        height: 2px
+        background-color: #0076c1
+        display: flex
+        flex-wrap: wrap
+        transform: rotate(-135deg)
+        transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8)
+
+.b-arrow
+    width: 0px
+    margin-right: 15px
+    padding-top: 15px
+    display: flex
+    flex-wrap: wrap
+    position: relative
+    margin-left: auto
+
+.mobile-frame
+    height: 100%
+    @media (max-width: 992px)
+        height: calc(550px - 30px)
+        width: 100%
+
+.price-form,
+.rooms-form,
+.square-form
+    @media (max-width: 992px)        
+        margin: auto !important
+
+.pop-full-screen-info-content
+    @media (max-width: 768px)        
+        overflow: auto
+        height: calc( 100vh - 100px)
+
+.select2-container--default .select2-selection--single .select2-selection__rendered
+    padding-left: 16px !important
+
+.slick-slide img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+#switch-map
+    width: max-content
+    padding: 0 15px
+    height: 40px
+    background: #0076C1
+    border-radius: 26px
+    border: none
+    font-family: Geometria
+    font-size: 18px
+    color: #FFFFFF
+
+.Map
+    width: 100% !important
+
+.content-residential
+    @media (max-width: 1200px)
+        max-width: 100%
+
+#switch-map,
+#map
+    @media (max-width: 992px)
+        display: none
+
+#map
+    width: calc( 35% - 15px )
+    margin-left: auto
+    margin-right: -15px
+    &.active
+        display: none
+        width: auto
+    .App
+        height: 100%
+    .Map
+        height: 726px
+        position: sticky
+        top: 0
+
+.logo
+    &__header
+        width: 106px
+        height: 71px
+        @media (max-width: 768px)
+            width: 104px
+            height: 50px
+
+        &--mobile
+            height: 55px
+            object-fit: cover
+
+    &__footer
+        height: 118px
+        width: 225px
+        object-fit: cover
+        object-position: center center
+
+.socials-fixed
+    position: absolute
+    right: -40px
+    top: 375px
+    
+#modal-map
+    overflow-x: auto
+    width: 100%
+
+#modal-map .Environments
+    margin-top: -15px
+    
+.content-list-item
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+    background: #fff
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.09)
+    border-radius: 8px
+    padding: 0 0 10px
+    opacity: 1
+    overflow: hidden
+    margin: 1px 5px 27px 1px
+
+.content-list-item-residence
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+    max-height: 350px
+    background: #fff
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.09)
+    border-radius: 8px
+    padding: 0 0 10px
+    opacity: 1
+    overflow: hidden
+    margin: 1px 5px 27px 1px
+    
+
+.content-list-item-residence
+    &__modify
+        width: calc((100% - 24px)/ 4)
+        @media (max-width: 992px)
+            width: calc((100% - 18px)/ 3)
+        @media (max-width: 768px)
+            width: calc((100% - 12px)/ 2)
+        @media (max-width: 576px)
+
+        .residential-object-price-text
+            margin-top: -3px
+        
+        .residential-object-adress-marker
+            padding-top: 0
+
+        .residential-object-adress-text
+            padding-top: 0
+
+        .residential-object__h3
+            padding-top: 0
+
+        p
+            margin-bottom: 0
+            line-height: 1.2
+
+.content-list-item
+    &__modify
+        width: calc((100% - 24px)/ 4)
+        @media (max-width: 992px)
+            width: calc((100% - 18px)/ 3)
+        @media (max-width: 768px)
+            width: calc((100% - 12px)/ 2)
+        @media (max-width: 576px)
+            width: 100%
+            max-width: 350px
+            margin: 0 auto 30px
+        .content-specials-choice
+            padding-top: 0
+        
+        .residential-object-adress-text
+            p
+                margin-bottom: 0
+        .content-specials-pref-list-info
+            margin-bottom: 0
+
+        .residential-object__h3
+            margin-bottom: 0
+#cards
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    height: 100%
+    &.active
+        width: calc( 68% - 15px )
+        @media (max-width: 992px)
+            width: 100%
+
+    @media (max-width: 992px)
+        width: 100%
+
+
+#cards
+    &.active
+        & .content-list-item-residence
+            &__modify
+                width: calc((100% - 18px)/ 3)
+                padding-bottom: 0
+                @media (max-width: 768px)
+                    width: calc((100% - 12px) / 2)
+                @media (max-width: 576px)
+                    width: 100%
+                    max-width: 350px
+                    margin: 0 auto 30px 
+
+        & .content-list-item
+            &__modify
+                width: calc((100% - 18px)/ 3)
+                @media (max-width: 1200px)
+                    width: calc((100% - 12px)/ 2)
+                @media (max-width: 992px)
+                    width: calc((100% - 18px)/ 3)
+                @media (max-width: 768px)
+                    width: calc((100% - 12px)/ 2)
+                @media (max-width: 576px)
+                    width: 100%
+                    max-width: 350px
+                    margin: 0 auto 30px
+
+.Button
+    cursor: pointer
+    i
+        pointer-events: none
+
+.fb-icon
+    height: 35.25px
+
+.yt-icon
+    height: 26.25px
+
+.content-specials_position,
+.content-specials-list-slider
+    .owl-stage
+        display: flex
+    .content-specials-list-slider-info
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+
+        .content-specials-price__p
+            margin-top: 0
+            padding-right: 10px
+        .content-specials-adress
+            padding-top: 0
+        .content-specials-pref-list-info
+            align-items: flex-end
+            margin-bottom: 0
+        .content-specials-pref-list-info__text
+            margin-top: 0
+        .content-specials-choice
+            padding-top: 0
+        .content-specials-price-info__p
+            margin-top: 5px
+            line-height: 1
+        .content-specials-pref-list-info__ico
+            line-height: 1

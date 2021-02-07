@@ -1,0 +1,27 @@
+.pagination
+  margin-top: 20px
+
+.page-link
+  border: none
+  padding: 2px 5px
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 50%
+  color: #000
+  line-height: 1
+  font-size: 14px
+  line-height: 1.2
+  width: 18px
+  height: 18px
+  &:hover
+    background-color: transparent
+    
+.page-item
+  display: flex
+  flex-wrap: wrap
+  &:not(:last-child)
+    margin-right: 10px
+  &.disabled
+    display: none
+

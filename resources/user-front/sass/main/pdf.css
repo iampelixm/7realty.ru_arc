@@ -1,0 +1,91 @@
+.main-header_position {
+	max-width: 475px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+}
+.header-logo-text_position {
+	width: 100px;
+	height: 100%;
+    border-left: 1px solid;
+}
+.header-logo-text_position > p {
+	font-family: Geometria;
+	font-size: 8px;
+	margin: 0 0 0 0;
+}
+.header-logo-text_position > p > a {
+	color: #000000;
+}
+.header-logo-tel__p {
+    font-family: Geometria;
+    font-size: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    margin: -4px 0 0 0;
+}
+.header-logo-tel__p > i {
+	font-size: 15px;
+    margin: 0 3px 0 3px;
+}
+.header-logo-tel__p:hover {
+	color: #0076C1;
+}
+.header-logo-tel__p:hover > i {
+	color: #0076C1;
+}
+/* content */
+.content-pdf {
+	max-width: 475px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+}
+.content-pdf-image {
+	height: 150px;
+	max-width: 225px;
+	border-radius: 6px;
+}
+.content-pdf__img {
+	height: 100%x;
+	width: 100%;
+	border-radius: 6px;
+	object-fit: cover;
+}
+.content-pdf__h2 {
+	font-family: Geometria;
+	font-weight: bold;
+	font-size: 24px;
+	color: #000000;
+}
+.content-pdf__h3 {
+	font-family: Geometria;
+	font-weight: 500;
+	font-size: 16px;
+	color: #777777;
+}
+.content-pdf__p {
+	font-family: Geometria;
+	font-size: 12px;
+}
+.content-pdf__p > a {
+	text-decoration-line: underline;
+	color: #777777;
+}
+.content-pdf-info > ul > li {
+	font-family: Geometria;
+	font-size: 16px;
+	color: #000000;
+}
+.content-pdf__h4 {
+	font-family: Geometria;
+	font-size: 16px;
+	line-height: 20px;
+	text-indent: 14px;
+	color: #000000;
+}
+.content-pdf-map {
+	height: 340px;
+}
+.content-pdf__h4 > a {
+	color: #000000;
+	text-decoration:  underline;
+}

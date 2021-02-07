@@ -1,0 +1,134 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <!-- <img alt="image" class="rounded-circle" src="/images/user.jpg"/> -->
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="block m-t-xs font-bold"></span>
+                        <span class="text-muted text-xs block">
+                            {{ Auth::user()->name }}
+                            <!-- <b class="caret"></b> -->
+                        </span>
+                    </a>
+                    <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a class="dropdown-item"
+                               href=""></a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href=""></a>
+                        </li>
+                    </ul> -->
+                </div>
+                <div class="logo-element">
+                    {{ config('app.name', 'Laravel') }}
+                </div>
+            </li>
+            <li class="">
+                <a href="{{ route('admin.index') }}">
+                    <i class="fa fa-home"></i>
+                    <span class="nav-label">{{ __('admin.index') }}</span>
+                </a>
+            </li>
+
+            <li class="{{ (Request::is('admin/items*') ? 'mm-active' : '') }}">
+                <a href="{{ route('admin.items.index') }}">
+                    <i class="fas fa-building"></i>
+                    <span class="nav-label">{{ __('admin.menu-objects') }}</span>
+                </a>
+            </li>
+
+            <li class="{{ (Request::is('admin/special/offers*') ? 'mm-active' : '') }}">
+                <a href="#">
+                    <i class="fas fa-certificate"></i>
+                    <span class="nav-label">{{ __('admin.menu-offers') }}</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+                     <li class="{{ (Request::is('admin/special/offers/items*') ? 'mm-active' : '') }}">
+                        <a href="{{ route('admin.items.offers.list') }}">
+                            <i class="fas fa-certificate"></i>
+                            <span class="nav-label"> {{ __('admin.menu-objects') }}</span>
+                        </a>
+                    </li>
+
+                     <li class="{{ (Request::is('admin/special/offers/category*') ? 'mm-active' : '') }}">
+                        <a href="{{ route('admin.category.offers.list') }}">
+                            <i class="fas fa-certificate"></i>
+                            <span class="nav-label"> {{ __('admin.menu-categories') }}</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </li>
+
+           
+
+            <li class="{{ (Request::is('admin/type*') ? 'mm-active' : '') }}">
+                <a href="{{ route('admin.type.index') }}">
+                    <i class="fa fa-filter"></i>
+                    <span class="nav-label">{{ __('admin.menu-types') }}</span>
+                </a>
+            </li>
+
+            <li class="{{ (Request::is('admin/options*') ? 'mm-active' : '') }}">
+                <a href="{{ route('admin.options.index') }}">
+                    <i class="fas fa-boxes"></i>
+                    <span class="nav-label">{{ __('admin.menu-options') }}</span>
+                </a>
+            </li>
+
+            <li class="{{ (Request::is('admin/areas*') ? 'mm-active' : '') }}">
+                <a href="{{ route('admin.areas.index') }}">
+                    <i class="fas fa-share-alt"></i>
+                    <span class="nav-label">{{ __('admin.menu-areas') }}</span>
+                </a>
+            </li>
+
+            <li class="{{ (Request::is('admin/categories*') ? 'mm-active' : '') }}">
+                <a href="{{ route('admin.categories.index') }}">
+                    <i class="fas fa-align-justify"></i>
+                    <span class="nav-label">{{ __('admin.menu-categories') }}</span>
+                </a>
+            </li>
+
+             <li class="{{ (Request::is('admin/rescategories*') ? 'mm-active' : '') }}">
+                <a href="{{ route('admin.rescategories.index') }}">
+                    <i class="fas fa-align-justify"></i>
+                    <span class="nav-label">{{ __('admin.menu-rescategories') }}</span>
+                </a>
+            </li>
+
+
+            <li class="{{ (Request::is('admin/residences*') ? 'mm-active' : '') }}">
+                <a href="{{ route('admin.residences.index') }}">
+                    <i class="fas fa-city"></i>
+                    <span class="nav-label">{{ __('admin.menu-complex') }}</span>
+                </a>
+            </li>
+
+            <li class="{{ (Request::is('admin/pages*') ? 'mm-active' : '') }}">
+                <a href="{{ route('admin.pages.index') }}">
+                    <i class="fas fa-columns"></i>
+                    <span class="nav-label">{{ __('admin.menu-pages') }}</span>
+                </a>
+            </li>
+
+            <li class="{{ (Request::is('admin/settings/users*') ? 'mm-active' : '') }}">
+                <a href="{{ route('admin.settings.users.list') }}">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-label">{{ __('admin.menu-settings-user') }}</span>
+                </a>
+            </li>
+
+             <li class="{{ (Request::is('admin/settings/clients*') ? 'mm-active' : '') }}">
+                <a href="{{ route('admin.settings.clients.list') }}">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-label">{{ __('admin.menu-settings-clients') }}</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>

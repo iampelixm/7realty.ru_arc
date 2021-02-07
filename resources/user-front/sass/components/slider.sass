@@ -1,0 +1,107 @@
+.owl-nav
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+    z-index: 0
+    .owl-next
+        position: absolute
+        right: 10px
+    .owl-prev
+        position: absolute
+        left: 10px
+
+.owl-stage-outer
+    height: 100%
+    z-index: 5
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next
+    font-size: 42px
+
+.owl-carousel 
+    .owl-item 
+        img
+            height: 100%
+            object-fit: cover
+            object-position: center center
+
+// .slider-custom
+//     &--small
+//         .owl-item
+//             height: 210px
+.slider
+    height: auto
+    @media (max-width: 768px)
+        margin-top: 60px
+        
+  
+.slider,
+.slider1
+    z-index: 0
+    overflow: hidden
+    border-radius: 8px
+    .owl-nav
+        z-index: 10
+    .owl-next
+        margin-right: 15px
+        color: #fff !important
+    .owl-prev
+        margin-left: 15px
+        color: #fff !important
+
+    .item
+        height: 490px
+        &::before
+            content: ''
+            background-color: #000000
+            opacity: .2
+            width: 100%
+            height: 100%
+            position: absolute
+            right: 0
+            left: 0
+            top: 0
+            bottom: 0
+
+.thumbnails,
+.thumbnails1
+    z-index: 0
+    margin: 15px 0
+    height: 130px
+    .item
+        overflow: hidden
+        border-radius: 8px
+        height: 130px
+
+.slider-content
+    position: absolute
+    right: 30px
+    left: -5px
+    @media (max-width: 768px)
+        top: 50px
+        
+
+.slick-dots li button
+   font-size: 0
+
+.slick-prev,
+.slick-next
+    background-color: transparent
+    border: 0
+    color: #fff
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    z-index: 5
+    height: 100%
+    &:hover
+        background-color: rgba(0, 0, 0, .5)
+
+.slick-next
+    right: 0

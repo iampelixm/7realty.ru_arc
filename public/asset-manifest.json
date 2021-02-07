@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b4c1df24.chunk.css",
+    "main.js": "/static/js/main.875966de.chunk.js",
+    "main.js.map": "/static/js/main.875966de.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.98d28f6c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.98d28f6c.js.map",
+    "static/css/2.8f118048.chunk.css": "/static/css/2.8f118048.chunk.css",
+    "static/js/2.5f8db1f9.chunk.js": "/static/js/2.5f8db1f9.chunk.js",
+    "static/js/2.5f8db1f9.chunk.js.map": "/static/js/2.5f8db1f9.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.4f1022c1215ffe65b26a87bd56922e48.js": "/precache-manifest.4f1022c1215ffe65b26a87bd56922e48.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.8f118048.chunk.css.map": "/static/css/2.8f118048.chunk.css.map",
+    "static/css/main.b4c1df24.chunk.css.map": "/static/css/main.b4c1df24.chunk.css.map",
+    "static/js/2.5f8db1f9.chunk.js.LICENSE.txt": "/static/js/2.5f8db1f9.chunk.js.LICENSE.txt",
+    "static/media/marker.svg": "/static/media/marker.abb35158.svg",
+    "static/media/markerActive.svg": "/static/media/markerActive.0e2e30d6.svg",
+    "static/media/minimap.png": "/static/media/minimap.50eff278.png",
+    "static/media/schools.jpg": "/static/media/schools.12533eaf.jpg",
+    "static/media/street.png": "/static/media/street.1bdf9ba7.png",
+    "static/media/streetView.jpg": "/static/media/streetView.62e348e7.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.98d28f6c.js",
+    "static/css/2.8f118048.chunk.css",
+    "static/js/2.5f8db1f9.chunk.js",
+    "static/css/main.b4c1df24.chunk.css",
+    "static/js/main.875966de.chunk.js"
+  ]
+}
