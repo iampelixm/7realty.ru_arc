@@ -46,6 +46,7 @@
                       <div class="col-lg-10">
                         <select name="role" class="input-sm form-control input-s-sm inline">
                             <option value="admin" >Администратор</option>
+							<option value="admin" >Модератор</option>
                             <option value="guest" >Гость</option>
                         </select>
                        <!--  <span class="help-block m-b-0">Hint here</span> -->

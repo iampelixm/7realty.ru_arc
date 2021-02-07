@@ -68,8 +68,6 @@ class ResidenceController extends Controller
                 } else {
                     return abort(404);
                 }
-                
-    			
     	}
 
          // Meta tag - data-backend

@@ -1,10 +1,10 @@
 {
-    "/admins/js/app.js": "/admins/js/app.js?id=edc40cb17f98b43598f7",
-    "/users/js/app.js": "/users/js/app.js?id=b751b3a5a14d85777aef",
-    "/users/css/app.css": "/users/css/app.css?id=429460e83b0fec1b98b2",
-    "/admins/css/app.css": "/admins/css/app.css?id=2e541b4d1ad0cb2816a0",
-    "/users/js/app.min.js": "/users/js/app.min.js?id=b751b3a5a14d85777aef",
-    "/users/css/app.min.css": "/users/css/app.min.css?id=429460e83b0fec1b98b2",
-    "/admins/js/app.min.js": "/admins/js/app.min.js?id=edc40cb17f98b43598f7",
-    "/admins/css/app.min.css": "/admins/css/app.min.css?id=2e541b4d1ad0cb2816a0"
+    "/admins/js/app.js": "/admins/js/app.js",
+    "/users/js/app.js": "/users/js/app.js",
+    "/users/css/app.css": "/users/css/app.css",
+    "/admins/css/app.css": "/admins/css/app.css",
+    "/users/js/app.min.js": "/users/js/app.min.js",
+    "/users/css/app.min.css": "/users/css/app.min.css",
+    "/admins/js/app.min.js": "/admins/js/app.min.js",
+    "/admins/css/app.min.css": "/admins/css/app.min.css"
 }

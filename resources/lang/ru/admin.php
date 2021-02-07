@@ -147,6 +147,8 @@ return [
 	'modal_delete_success'		=> 'Операция выполнена успешно',
 
 	'role-admin'				=> 'Администратор',
+	'role-moderator'			=> 'Модератор',
+	'role-broker'				=> 'Брокер',
 	'role-guest'				=> 'Гость',
 	'role-user'					=> 'Пользователь',
 	'role-block'				=> 'Заблокирован',
