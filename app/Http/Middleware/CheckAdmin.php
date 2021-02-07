@@ -18,8 +18,10 @@ class CheckAdmin
     {
         if (Auth::guard($guard)->check()) {
 
-            if (Auth::guard($guard)->user()->role != 'admin') {
-                abort(403);
+            if (Auth::guard($guard)->user()->role != 'admin' &&
+                Auth::guard($guard)->user()->role != 'broker' &&
+                Auth::guard($guard)->user()->role != 'moderator') {
+                abort(403, 'Нет доступа к административной панели');
             }
         }
         return $next($request);

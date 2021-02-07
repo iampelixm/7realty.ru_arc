@@ -46,7 +46,10 @@
                       <div class="col-lg-10">
                         <select name="role" class="input-sm form-control input-s-sm inline">
                            
-                           <option value="admin" @if($user->role === 'admin')selected="" @endif>Администратор</option>
+                           <option value="admin" {{$user->role === 'admin' ? 'selected' : ''}}>Администратор</option>
+						   <option value="moderator" {{$user->role === 'moderator' ? 'selected' : ''}}>Модератор</option>
+						   <option value="broker" {{$user->role === 'broker' ? 'selected' : ''}}>Брокер</option>
+						   <option value="blocked" {{$user->role === 'blocked' ? 'selected' : ''}}>Уволен</option>
                            <option value="guest" @if($user->role === 'guest')selected="" @endif>Гость</option>
                            
                         </select>
