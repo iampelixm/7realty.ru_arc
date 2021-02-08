@@ -6,7 +6,7 @@
             <div class="ibox">
 
                 <div class="ibox-title">
-                    <h5>Users list</h5>
+                    <h5>{{ __('admin.admin-users-list') }}</h5>
                     <div class="ibox-tools">
                         <a href="{{ route('admin.settings.users.new') }}"  >
                              <i class="fa fa-plus" ></i>

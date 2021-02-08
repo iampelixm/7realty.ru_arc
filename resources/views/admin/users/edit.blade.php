@@ -6,7 +6,7 @@
 	<div class="col-lg-12">
 		<div class="ibox">
 			<div class="ibox-title">
-				<h5>{{ trans('admin.admin-users-edit') }}</h5>
+				<h5>{{ __('admin.admin-users-edit') }}</h5>
 				<div class="ibox-tools">
 					<a href="{{ route('admin.settings.users.list') }}">
 						<i class="fa fa-th-list"></i>
