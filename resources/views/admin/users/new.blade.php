@@ -45,8 +45,10 @@
                     <label class="control-label col-lg-2" for="">Роль</label>
                       <div class="col-lg-10">
                         <select name="role" class="input-sm form-control input-s-sm inline">
-                            <option value="admin" >Администратор</option>
-                            <option value="guest" >Гость</option>
+                            <option value="admin">Администратор</option>
+							<option value="moderator">Модератор</option>
+							<option value="broker">Брокер</option>
+                            <option value="guest">Гость</option>
                         </select>
                        <!--  <span class="help-block m-b-0">Hint here</span> -->
                       </div>

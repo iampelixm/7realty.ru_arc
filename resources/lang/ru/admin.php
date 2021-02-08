@@ -147,6 +147,8 @@ return [
 	'modal_delete_success'		=> 'Операция выполнена успешно',
 
 	'role-admin'				=> 'Администратор',
+	'role-moderator'			=> 'Модератор',
+	'role-broker'				=> 'Брокер',
 	'role-guest'				=> 'Гость',
 	'role-user'					=> 'Пользователь',
 	'role-block'				=> 'Заблокирован',
@@ -164,4 +166,8 @@ return [
 	'page_created'				=> 'Страница создана',
 	
 	'save'						=> 'Сохранить',
+
+	'admin-users-edit'			=> 'Редактирование пользователя',
+	'admin-users-list'			=> 'Список пользователей',
+	
 ];
