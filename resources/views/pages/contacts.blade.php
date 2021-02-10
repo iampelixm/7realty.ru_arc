@@ -49,7 +49,7 @@
           <h2 class="office-content__h2 p-3">Офис Москва</h2>
           <a href="tel:+79857000077" class="office-content__p p-3"><i class="fas fa-phone-alt"></i> +7 985 700-00-77</a>
           <a href="mailto:info@7realty.ru" class="office-content__p p-3"><i class="fas fa-mail-bulk"></i> info@7realty.ru</a>
-          <p class="office-content__p p-3">г. Москва какая-то улица, дом 13 к83 </p>
+          <p class="office-content__p p-3">г.  Москва, Знаменка д. 13, стр. 3 </p>
         </div>
         <div class="col-11 mx-auto text-center">
           <img class="office-content__img img-fluid" src="/users/image/contacts/moscow.jpg" alt="moscow">
@@ -63,7 +63,7 @@
           <h2 class="office-content__h2 p-3">Офис Сочи</h2>
           <a href="tel:+79857000077" class="office-content__p p-3"><i class="fas fa-phone-alt"></i> +7 985 700-00-77</a>
           <a href="mailto:info@7realty.ru" class="office-content__p p-3"><i class="fas fa-mail-bulk"></i> info@7realty.ru</a>
-          <p class="office-content__p p-3">г. Сочи какая-то улица, дом 13 к83 </p>
+          <p class="office-content__p p-3">г. Сочи, ул. Горького, д. 53</p>
         </div>
         <div class="col-11 mx-auto text-center">
           <img class="office-content__img img-fluid" src="/users/image/contacts/city.jpg" alt="moscow">

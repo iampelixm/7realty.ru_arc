@@ -75,8 +75,8 @@
               <div class="col">
                 <h3 class="footer-links-div__h3">Компания</h3>
                 <p class="footer-links-div__p"><a href="{{ route('site.get_page', 'why_we') }}">Наша команда</a></p>
-                <p class="footer-links-div__p"><a href="{{ route('site.get_page', 'about_us') }}">О нас</a></p>
-                <p class="footer-links-div__p"><a href="{{ route('site.get_page', 'work') }}">Работа у нас</a></p>
+                <p class="footer-links-div__p"><a href="{{ route('site.get_page', 'about_us') }}">О компании</a></p>
+                <p class="footer-links-div__p"><a href="{{ route('site.get_page', 'work') }}">Работа в Seven</a></p>
                 <p class="footer-links-div__p"><a href="{{ route('site.get_page', 'clients') }}">Наши клиенты</a></p>
                 <p class="footer-links-div__p"><a href="{{ route('site.contacts') }}">Контакты</a></p>
               </div>
@@ -107,7 +107,7 @@
       </div>
     </div>
     <div class="copyright">
-      <p>© Seven 2003-2020</p>
+      <p>© Seven 2007-2021</p>
     </div>
   </div>
   <!-- mobile-footer -->
@@ -135,12 +135,12 @@
     </div>
     <div class="mobile-footer-content-locations-info-adress">
       <h4 class="mobile-footer-content-locations-info__h4">
-        <a href="#"><i class="fas fa-map-marker-alt"></i> Москва, Рублево-Успенское ш., дом 6, БЦ «1-й км»</a>
+        <a href="#"><i class="fas fa-map-marker-alt"></i> ул. Горького, д. 53</a>
       </h4>
     </div>
     <div class="mobile-footer-content-locations-contacts">
       <h3 class="mobile-footer-content-locations-contacts__h3">
-        <a href="email:example@mail.com">example@mail.com</a>
+        <a href="email:example@mail.com">info@7realty.ru</a>
       </h3>
     </div>
     <div class="mobile-footer-content-locations-contacts">
@@ -194,10 +194,11 @@
         <div>
           <p class="mobile-footer-content-for-life__p">Компания</p>
         </div>
-        <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.company') }}">О компании</a></div>
-        <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.aboutus') }}">Помему мы?</a></div>
+        <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.team') }}">Наша команда</a></div>
+        <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.aboutus') }}">О компании</a></div>
+        <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.get_page', 'work') }}">Работа в Seven</a></div>
+        {{--<div><a class="mobile-footer-content-for-life__a" href="{{ route('site.aboutus') }}">Помему мы?</a></div>--}}
         <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.clients') }}">Наши клиенты</a></div>
-        <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.team') }}">Команда / Карьера</a></div>
         <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.contacts') }}">Контакты</a></div>
       </div>
       <div>
@@ -218,6 +219,6 @@
       <div class="mobile-footer-content__div-yt"><a href="#"><img src="/users/image/yt.png" alt="yt"></a></div>
     </div>
     <div class="mobile-footer-content__div_border_orange"></div>
-    <div class="mobile-footer-content-copyright">© Seven 2003-2020</div>
+    <div class="mobile-footer-content-copyright">© Seven 2007-2021</div>
   </div>
 </footer>

@@ -8,7 +8,7 @@
               		</a>
             		</div>
 	            	<div class="header-logo-text header-logo-text_position">
-	             		<p><a href="{{ route('home') }}">Счастливое число твоей покупки</a></p>
+	             		<p><a href="{{ route('home') }}">Счастливое число вашей сделки</a></p>
 	            	</div>
 		  		</div>
 	  			<div class="header-logo-tel header-logo-tel_position col d-none d-lg-block">
@@ -27,23 +27,23 @@
                         </div>
 	            	</div>
                     @endguest
-                    
+
                     @auth
                 <div class="header-logo-body-img-auth header-logo-body-img_position d-block">
                 <!-- Логин С входом -->
                   <div class="user-login row row-cols-2 align-items-center justify-content-between text-center no-gutters py-2">
                     <div class="col user-login-bnt">
-                        @php 
-                            $colorArr = ['#007882', '#0076c1']; 
-                            $rand_keys = array_rand($colorArr, 1); 
+                        @php
+                            $colorArr = ['#007882', '#0076c1'];
+                            $rand_keys = array_rand($colorArr, 1);
                         @endphp
                         <a href="{{ route('site.favorites') }}"
-                           style="background-color: {{ $colorArr[$rand_keys] }};"  
+                           style="background-color: {{ $colorArr[$rand_keys] }};"
                         >@if(auth()->user()->name){{ mb_substr(auth()->user()->name, 0, 1) }}@else{{ 'A' }}@endif
                         </a>
                     </div>
                     <div class="col">
-                      <a href="{{ route('logout') }}" 
+                      <a href="{{ route('logout') }}"
                           onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
                         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,9 +62,9 @@
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                            
-                        
-                    </div> 
+
+
+                    </div>
                   </div>
                 </div>
                 @endauth
@@ -95,7 +95,7 @@
                                         <p class="drop-down-menu__p"><a class="drop-down-menu__a" href="{{ route('site.res.residences', $resCat->slug) }}">{{ $resCat->name }}</a></p>
                                     @endif
                                 @endforeach
-                                
+
                             </div>
                             <div>
                                 @foreach ($current_areas as $resArea)
@@ -103,7 +103,7 @@
                                     <p class="drop-down-menu__p"><a class="drop-down-menu__a" href="{{ route('site.res.residences', 'all') }}?area={{ $resArea->id }}">{{ $resArea->name }}</a></p>
                                     @endif
                                 @endforeach
-                                
+
                             </div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                         @foreach($category->children as $subcategory)
                             <p class="drop-down-menu__p"><a class="drop-down-menu__a" href="@if($subcategory->slug != null){{ route('site.get_category', $subcategory->slug) }}@endif">{{ $subcategory->name }}</a></p>
                         @endforeach
-                            
+
                     </div>
                         <div>
                             @foreach ($current_areas as $resArea)
@@ -139,23 +139,23 @@
                                 <p class="drop-down-menu__p"><a class="drop-down-menu__a" href="@if($category->slug != null){{ route('site.get_category', $category->slug) }}?area={{ $resArea->id }}@endif">{{ $resArea->name }}</a></p>
                                 @endif
                             @endforeach
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
 
             @endforeach
-	  			
-          
-	  			
+
+
+
 	  			<div class="main-header-navi main-header-navi_position">
 	  				<p class="main-header-navi__p"><a href="{{ route('site.get_page', 'about_us') }}">Компания</a></p>
 	  			</div>
 	  			<div class="main-header-navi main-header-navi_position">
 	  				<p class="main-header-navi__p"><a href="{{ route('site.contacts') }}">Контакты</a></p>
 	  			</div>
-	  		</div>	
+	  		</div>
 	  	</div>
 	  	<!--Mobile header -->
 	  	<div class="main-header-mobile-content d-md-none">
@@ -166,7 +166,7 @@
                 <img class="logo logo__header logo__header--mobile"src="/users/image/2000.png" />
               </a>
             </div>
-	  				<div class="main-header-mobile__p"><p><a href="{{ route('home') }}">Счастливое число твоей покупки</a></p>
+	  				<div class="main-header-mobile__p"><p><a href="{{ route('home') }}">Счастливое число вашей сделки</a></p>
             </div>
 	  			</div>
 	  			<div class="main-header-mobile__div main-header-mobile__div_display_flex">
@@ -177,7 +177,7 @@
 	  	</div>
       <div class="main-header-mobile-content-active d-none d-md-none">
         <div class="mx-auto text-center py-2">
-          <h2 class="main-header-mobile-content-active__h2">    
+          <h2 class="main-header-mobile-content-active__h2">
             <a href="#" class="mobile-up-menu-adress"><i class="fas fa-map-marker-alt fa-map-marker-alt_position"></i> {{ $current_city_title }} </a>
             <i class="fas fa-chevron-down fa-chevron-down_position"></i>
           </h2>
@@ -216,15 +216,15 @@
                 @if(in_array($resArea->id, $residenceArea))
                      <p class="main-header-mobile-content-active__p py-1"><a class="mobile-d-menu-residentials" href="{{ route('site.res.residences', 'all') }}?area={{ $resArea->id }}">{{ $resArea->name }}</a></p>
                 @endif
-               
+
             @endforeach
-           
+
           </div>
         </div>
 
          @foreach($category_menu as $category)
             <div class="mx-auto text-center py-2">
-                    
+
             <h2 class="main-header-mobile-content-active__h2">
                 <a href="#" class="mobile-up-menu-houses">{{ $category->name }} </a>
                 <i class="fas fa-chevron-down fa-chevron-down_position"></i>
@@ -235,7 +235,7 @@
                         @foreach($category->children as $subcategory)
                             <p class="main-header-mobile-content-active__p"><a class="mobile-d-menu-houses" href="@if($subcategory->slug != null){{ route('site.get_category', $subcategory->slug) }}@endif">{{ $subcategory->name }}</a></p>
                         @endforeach
-                            
+
                     </div>
                         <div>
                             @foreach ($current_areas as $resArea)
@@ -243,7 +243,7 @@
                                 <p class="main-header-mobile-content-active__p"><a class="mobile-d-menu-houses" href="@if($category->slug != null){{ route('site.get_category', $category->slug) }}?area={{ $resArea->id }}@endif">{{ $resArea->name }}</a></p>
                                 @endif
                             @endforeach
-                            
+
                         </div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@
 
             @endforeach
 
-        
+
 
         <div class="mx-auto text-center py-2">
           <h2 class="main-header-mobile-content-active__h2">
@@ -271,23 +271,23 @@
                         </div>
                     </div>
                     @endguest
-                    
+
                     @auth
                 <div class="header-logo-body-img-auth header-logo-body-img_position d-block" style="margin: auto;">
                 <!-- Логин С входом -->
                   <div class="user-login row row-cols-2 align-items-center justify-content-between text-center no-gutters py-2">
                     <div class="col user-login-bnt">
-                        @php 
-                            $colorArr = ['#007882', '#0076c1']; 
-                            $rand_keys = array_rand($colorArr, 1); 
+                        @php
+                            $colorArr = ['#007882', '#0076c1'];
+                            $rand_keys = array_rand($colorArr, 1);
                         @endphp
                         <a href="{{ route('site.favorites') }}"
-                           style="background-color: {{ $colorArr[$rand_keys] }};"  
+                           style="background-color: {{ $colorArr[$rand_keys] }};"
                         >{{ auth()->user()->name['0'] ?? '' }}
                         </a>
                     </div>
                     <div class="col">
-                      <a href="{{ route('logout') }}" 
+                      <a href="{{ route('logout') }}"
                           onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
                         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -306,9 +306,9 @@
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                            
-                        
-                    </div> 
+
+
+                    </div>
                   </div>
                 </div>
                 @endauth
