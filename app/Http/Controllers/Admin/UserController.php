@@ -73,6 +73,7 @@ class UserController extends Controller
                  'phone'    => '']
             )
         );
+        $user->assign($r->role);
         return redirect()->route('admin.settings.users.list')->with('success', 'Пользователь создан');
     }
 
@@ -90,7 +91,6 @@ class UserController extends Controller
         $valid =  Validator::make($r->all(), [
             'name'          => 'string|max:190',
             'email'         => 'email',
-            'password'      => ['string', 'min:8'],
             'role'          => 'required',
         ]);
         $user = User::find($id);
@@ -108,10 +108,25 @@ class UserController extends Controller
         if($other_user){
             return redirect()->back()->with('error','E-mail занят');
         }
-        $user->update(array_merge(
-                $r->except('password'),
-                ['password' => Hash::make($r->password)]
-            ));
+        $user_data=$r->except('password');
+        $user->update($user_data);
+
+        if($r->password != '')
+        {
+            $validate_password=$r->validate(
+                [
+                    'password'=>'string|min:8'
+                ]
+                );
+            if(!$validate_password)
+                return redirect()->back()->withErrors($validate_password);
+            $user->password=Hash::make($r->password);
+            $user->save();
+        }
+
+        $user->roles()->detach();
+        $user->assign($r->role);
+
         return redirect()->route('admin.settings.users.list')->with('success', 'Пользователь обновлен!'); 
     }
 

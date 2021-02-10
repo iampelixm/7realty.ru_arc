@@ -41,7 +41,6 @@ class AreaController extends Controller
      */
     public function store(AreaRequest $r)
     {
-        
         $itemArea = Area::create($r->validated());
         $itemArea->slug = Str::slug($r->name);
         $itemArea->save();

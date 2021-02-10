@@ -6,7 +6,7 @@
 	<div class="col-lg-12">
 		<div class="ibox">
 			<div class="ibox-title">
-				<h5>Створити користувача</h5>
+				<h5>Создание пользователя бэкэнда</h5>
 				<div class="ibox-tools">
 					<a href="{{ route('admin.settings.users.list') }}">
 						<i class="fa fa-th-list"></i>
@@ -48,7 +48,6 @@
                             <option value="admin">Администратор</option>
 							<option value="moderator">Модератор</option>
 							<option value="broker">Брокер</option>
-                            <option value="guest">Гость</option>
                         </select>
                        <!--  <span class="help-block m-b-0">Hint here</span> -->
                       </div>

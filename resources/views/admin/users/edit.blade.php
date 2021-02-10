@@ -7,11 +7,13 @@
 		<div class="ibox">
 			<div class="ibox-title">
 				<h5>{{ __('admin.admin-users-edit') }}</h5>
+				{{-- Под вопросом оставить или убрать этот элемент
 				<div class="ibox-tools">
 					<a href="{{ route('admin.settings.users.list') }}">
 						<i class="fa fa-th-list"></i>
 					</a>
 				</div>
+				--}}
 			</div>
 			<div class="ibox-content">
 				<form class="form-horizontal" action="{{ route('admin.settings.users.post_edit', $user->id) }}" method="post">
@@ -46,11 +48,10 @@
                       <div class="col-lg-10">
                         <select name="role" class="input-sm form-control input-s-sm inline">
                            
-                           <option value="admin" {{$user->role === 'admin' ? 'selected' : ''}}>Администратор</option>
-						   <option value="moderator" {{$user->role === 'moderator' ? 'selected' : ''}}>Модератор</option>
-						   <option value="broker" {{$user->role === 'broker' ? 'selected' : ''}}>Брокер</option>
-						   <option value="blocked" {{$user->role === 'blocked' ? 'selected' : ''}}>Уволен</option>
-                           <option value="guest" @if($user->role === 'guest')selected="" @endif>Гость</option>
+                           <option value="admin" {{$user->isA('admin') ? 'selected' : ''}}>Администратор</option>
+						   <option value="moderator" {{$user->isA('moderator') ? 'selected' : ''}}>Модератор</option>
+						   <option value="broker" {{$user->isA('broker') ? 'selected' : ''}}>Брокер</option>
+						   <option value="blocked" {{$user->isA('blocked') ? 'selected' : ''}}>Уволен</option>
                            
                         </select>
                         <!-- <span class="help-block m-b-0">Hint here</span> -->

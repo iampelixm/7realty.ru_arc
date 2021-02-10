@@ -5,7 +5,7 @@
         <h5>{{ __('admin.items_list') }}</h5>
         <div class="ibox-tools">
             <a href="{{ route('admin.items.create') }}">
-                <i class="fa fa-plus"></i>
+                Добавить <i class="fa fa-plus"></i> 
             </a>
         </div>
     </div>
@@ -27,9 +27,12 @@
                         <th>{{ __('admin.item_images_count') }}</th>
                         <th>{{ __('admin.item-residence-name') }}</th>
                         <th>{{ __('admin.item_type') }}</th>
+                        @can('manageItemActivity')
                         <th>{{ __('admin.active') }}</th>
+                        @endcan
+                        @can('manageSpecialOffer')
                         <th>{{ __('admin.item-offers') }}</th>
-                        
+                        @endcan
                         <th class="buttons__"></th>
                     </tr>
                     </thead>
@@ -62,8 +65,9 @@
                              </td>
                             <td> @if ($item->area != null) {{ $item->area->name  }} @endif</td>
                             <td>{{ $item->images->count() }} <a href="{{ route('admin.items.images.list', $item->id) }}"><i class="far fa-edit"></i> Ред.</a></td>
-                            <td>@if($item->residence){{ $item->residence->name }}@else нету @endif</td>
-                            <td>@if($item->type){{ $item->type->name }}@else нету @endif</td>
+                            <td>@if($item->residence){{ $item->residence->name }}@else -- @endif</td>
+                            <td>@if($item->type){{ $item->type->name }}@else -- @endif</td>
+                            @can('manageItemActivity')
                             <td>
                                 <input data-url="{{ route('admin.api.item.edit_status', $item->id) }}"  
                                        name="status" 
@@ -72,6 +76,9 @@
                                        @if($item->active) checked  @endif
                                 >
                             </td>
+                            @endcan
+
+                            @can('manageSpecialOffer')
                             <td>
                                 <input data-url="{{ route('admin.api.item.edit_offer', $item->id) }}"  
                                        name="status" 
@@ -80,6 +87,8 @@
                                        @if($item->offer_index > 0) checked  @endif
                                 > ({{ $item->offer_index }})
                             </td>
+                            @endcan
+                            
                             <td class="buttons__">
                                 {{-- <a href="{{ route('admin.items.show', [$item->id]) }}">
                                     <i class="far fa-eye"></i>
@@ -87,7 +96,7 @@
                                 <a href="{{ route('admin.items.edit', [$item->id]) }}">
                                     <i class="far fa-edit"></i>
                                 </a>
-                                <a class="btn btn-delete delete-alert"
+                                <a class="ml-3 btn btn-delete delete-alert"
                                    data-action="{{ route('admin.items.destroy',[$item->id]) }}"
                                    data-title="{{ __('admin.modal_delete_title') }}"
                                    data-text="{{ __('admin.modal_delete_text') }}"
