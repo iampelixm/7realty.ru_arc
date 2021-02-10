@@ -14,7 +14,7 @@ class AddItemOwnerToItems extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreignId('user_id')->nullable()->references('id')->on('users')->onDelete('set null');
         });
     }
 
