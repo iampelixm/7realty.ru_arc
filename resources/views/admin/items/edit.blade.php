@@ -13,6 +13,16 @@
                 <input type="text" class="form-control" name="name" placeholder="{{ __('admin.item_name') }}"
                        value="{{ old('name') ?? $item->name ?? '' }}" required="">
             </div>
+            @can('manageItemUser')
+            <div class="form-group">
+                <label for="item_user">{{ __('admin.item_user') }}</label>
+                <select class="js-example-basic-multiple-type form-control" name="user_id" placeholder="{{ __('admin.item_user') }}">
+                    @foreach(App\Models\User::whereIs('broker')->get() as $item_user)
+                        <option value="{{$item_user->id}}">{{$item_user->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            @endcan
              <div class="form-group">
                 <label for="">SLUG</label>
                 <div class="row">
@@ -22,21 +32,21 @@
                     </div>
                     <div class="col-lg-6">
                         Изменить url
-                        <input type="checkbox" class="form-control" name="slug_change" > 
+                        <input type="checkbox" class="form-control" name="slug_change" >
                     </div>
                 </div>
             </div>
 
-            
+
 
             <div class="form-group">
                 <label for="type_order">{{ __('admin.item_type_order') }}</label>
                  <select class="js-example-basic-multiple-type form-control" name="type_order" id="type_order" required="true">
                     <option value="sale" @if ($item->type_order == 'sale') selected @endif>{{ __('admin.item_type_order_sale') }}</option>
                     <option value="orenda" @if ($item->type_order == 'orenda') selected @endif>{{ __('admin.item_type_order_orenda') }}</option>
-                    
+
                 </select>
-                
+
             </div>
 
              <div class="form-group">
@@ -47,7 +57,7 @@
                         <option value="{{ $cat->id }}" @if ($cat->id == $item->type_id) selected @endif>{{ $cat->name }}</option>
                     @endforeach
                 </select>
-                
+
             </div>
 
             <div class="form-group">
@@ -58,11 +68,11 @@
                         <option value="{{ $cat->id }}" @if(in_array($cat->id, $itemcategorys)) selected @endif>{{ $cat->name }}</option>
                     @endforeach
                 </select>
-                
+
             </div>
 
 
-           
+
             <div class="form-group">
                 <div class="row">
                      <div class="col-sm-3">
@@ -89,7 +99,7 @@
                        value="{{ old('bath_rooms') ?? $item->bath_rooms ?? '' }}" required="true">
                     </div>
                 </div>
-               
+
             </div>
 
             <div class="form-group">
@@ -97,7 +107,7 @@
                 <textarea class="form-control" name="description" id="summernote" required="true">
                     {{ old('description') ?? $item->description ?? '' }}
                 </textarea>
-               
+
             </div>
 
             <div class="ibox ">
@@ -145,18 +155,18 @@
                                     </tr>
                                     @php $itemoptionarray[$itemoptioncount] = $value->option_id @endphp
                                     @php $itemoptioncount ++ @endphp
-                                    
+
                                 @endforeach
-                            @endif    
+                            @endif
                         </tbody>
                     </table>
                      <div class="row">
                         <div class="col-lg-3">
                              <button class="btn btn-primary btn-outline " type="button" onclick="addvalue()"><i class="fa fa-plus"></i>&nbsp;Добавить значение</button>
                         </div>
-                        
+
                     </div>
-                   
+
                 </div>
             </div>
 
@@ -170,7 +180,7 @@
                     @endif
                 </div>
                 <input type="file" class="form-control" name="photos[]" multiple />
-                
+
             </div>
 
              <div class="form-group">
@@ -178,17 +188,17 @@
                 <select class="js-example-basic-multiple form-control" name="area_id" required="">
                     <option></option>
                     @foreach($areas as $rez)
-                        
+
                         <option value="{{ $rez->id }}" @if ($rez->id == $item->area_id) selected @endif>{{ $rez->name }}</option>
                     @endforeach
                 </select>
-                
+
             </div>
 
-            
 
-            
-            
+
+
+
             <div style="display: block; background-color: #eefbea; padding: 20px; border: solid 1px green; margin: 10px;">
                  <div class="form-group">
                     <label for="" style="font-size: 20px;">{{ __('admin.item_adress_find') }}</label>
@@ -207,7 +217,7 @@
 
                 <div class="form-group">
                     <div class="row">
-                         
+
 
                         <div class="col-sm-3">
                             <label for="">{{ __('admin.item_latitude') }}</label>
@@ -222,13 +232,13 @@
                         </div>
 
                     </div>
-                   
+
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="">{{ __('admin.item_address') }}</label>
-                
+
                   <input
                     class="form-control"
                     placeholder="Введите адрес"
@@ -237,7 +247,7 @@
                     name="address"
                     value="{{ old('address') ?? $item->address ?? '' }}"
                   />
-             
+
             </div>
 
             <div class="form-group">
@@ -255,21 +265,25 @@
                         <option value="{{ $rez->id }}" @if ($rez->id == $item->residence_id) selected @endif>{{ $rez->name }}</option>
                     @endforeach
                 </select>
-                
+
             </div>
 
              <div class="form-group">
                 <label for="">{{ __('admin.video_url') }}</label>
-                <input type="text" class="form-control" name="video_url" placeholder="{{ __('admin.video_url') }}"  
+                <input type="text" class="form-control" name="video_url" placeholder="{{ __('admin.video_url') }}"
                        value="{{ old('video_url') ?? $item->video_url ?? '' }}">
             </div>
-  
 
-            <div class="form-group">
-                <label for="active">{{ __('admin.item_active') }}</label>
-                <input type="hidden" name="active" value="0">
-                <input type="checkbox" class="form-control" name="active" @if ($item->active) checked @endif value="1"> 
-            </div>
+            @can('manageItemActivity')
+                <div class="form-group">
+                    <label for="active">{{ __('admin.item_active') }}</label>
+                    <input type="hidden" name="active" value="0">
+                    <input type="checkbox" class="form-control" name="active" @if ($item->active) checked @endif value="1">
+                </div>
+            @else
+                <input type="hidden" name="active" value="{{ $item->active }}">
+            @endcan
+
              <div class="form-group">
                 <label for="active">{{ __('admin.special-offer-shot') }}</label>
                 <select class="js-example-basic-multiple-type form-control" name="offer_index">
@@ -278,7 +292,7 @@
                     @endfor
                 </select>
             </div>
-            
+
             <button type="submit" class="btn btn-primary">{{ __('admin.save') }}</button>
         </form>
     </div>
@@ -318,14 +332,14 @@
         var oldtype = document.getElementById('type_id').value;;
         @foreach($itemoptionarray as $key => $option)
             @php echo('optionSelected['.$key.']='.$option.';') @endphp
-        @endforeach 
+        @endforeach
 
         $(document).ready(function(){
             $('.js-data-example-ajax').select2({
               ajax: {
                 url: '{{ route('api.getoption') }}',
                 dataType: 'json',
-               
+
               }
             });
 
@@ -352,16 +366,16 @@
                 dataType: 'json',
                 cache: false,
                 success: function(response) {
-                    
+
                     $("#category-select").html('');
                     response['list'].forEach(function(item, i, arr) {
                         newOption = new Option(item['text'], item['id']);
                         $("#category-select").append(newOption);
                     });
-                    
+
                     console.log(response['list']);
                     //console.log(indexvalue);
-                    
+
                 },
                 error: function (e) {
                     console.log(response);
@@ -387,16 +401,16 @@
                 dataType: 'json',
                 cache: false,
                 success: function(response) {
-                    
+
                     $("#category-select").html('');
                     response['list'].forEach(function(item, i, arr) {
                         newOption = new Option(item['text'], item['id']);
                         $("#category-select").append(newOption);
                     });
-                    
+
                     console.log(response['list']);
                     //console.log(indexvalue);
-                    
+
                 },
                 error: function (e) {
                     console.log(response);
@@ -416,7 +430,7 @@
                 success: function(response) {
                     indexvalue = 0;
                     $("#valuetable").html('');
-                    
+
                     response.forEach(function(item, i, arr) {
                         console.log(item['text']);
                         addvaluebyid(item['id'], item['text'])
@@ -425,7 +439,7 @@
                         optionSelected[indexvalue] = item['id'];
                         indexvalue = indexvalue+1;
                      });
-                    
+
                 },
                 error: function (e) {
                     console.log(response);
@@ -433,7 +447,7 @@
             });
 
             console.log(typeElement);
-            
+
         }
 
         function createoption(id, index){
@@ -448,7 +462,7 @@
                 dataType: 'json',
                 cache: false,
                 success: function(response) {
-                    
+
                     if (response['type'] == 'select'){
 
                         response['list'].forEach(function(item, i, arr) {
@@ -465,17 +479,17 @@
                         $("#selecetvalue"+index+"block").append(input);
                     }
 
-                    
-                    
+
+
                 },
                 error: function (e) {
                     console.log(response);
                 }
             });
         }
-   
 
-        
+
+
         function addvaluebyid(id, name){
 
             var inputprocent = "<select class=\"form-control\" id=\"selecetvalue"+indexvalue+"\" name=\"option["+indexvalue+"][option]\" data-id=\""+indexvalue+"\"><option value=\""+id+"\">"+name+"</option></select>";
@@ -485,9 +499,9 @@
 
             $("#valuetable").append(str);
 
-           
+
         }
-        
+
 
          function addvalue(){
 
@@ -517,13 +531,13 @@
                         }
                         return query;
                     }
-                    
+
                 }
             });
 
 
             $('#selecetvalue'+index).on('select2:select', function (e) {
-                var name = this.id; 
+                var name = this.id;
                 var idSelect = this.getAttribute('data-id');
                 var data = e.params.data;
                 optionSelected[index] = data['id'];
@@ -538,7 +552,7 @@
                     dataType: 'json',
                     cache: false,
                     success: function(response) {
-                        
+
                         if (response['type'] == 'select'){
                             $("#"+name+"value").html('');
                             response['list'].forEach(function(item, i, arr) {
@@ -554,7 +568,7 @@
                         }
                         //console.log(response['list']);
                         //console.log(indexvalue);
-                        
+
                     },
                     error: function (e) {
                         console.log(response);
@@ -579,11 +593,11 @@
 
     <script
       src="https://maps.googleapis.com/maps/api/js?key={{ $googleMapsKey }}&callback=initAutocomplete&libraries=places&language=ru&v=weekly"
-      defer> 
+      defer>
     </script>
 
     <script type="text/javascript">
-     
+
     let placeSearch;
     let autocomplete;
     const componentForm = {
@@ -629,7 +643,7 @@
       //          document.getElementById('latitude').value = response['lat'];
       //          document.getElementById('longitude').value = response['lng'];
       //          //console.log(response);
-                
+
       //       },
       //       error: function (e) {
       //           console.log(response);

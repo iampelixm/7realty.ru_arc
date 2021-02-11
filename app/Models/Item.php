@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-	protected $table = 'items';
-    protected $fillable = ['price', 'name', 'description', 'type_id', 'type_order', 'added_at', 'special', 'square', 'latitude', 'longitude', 'address', 'all_rooms', 'bed_rooms', 'bath_rooms', 'active', 'option', 'residence_id', 'area_id', 'offer_index', 'video_url', 'slug'];
+    protected $table = 'items';
+    protected $fillable = ['price', 'user_id', 'name', 'description', 'type_id', 'type_order', 'added_at', 'special', 'square', 'latitude', 'longitude', 'address', 'all_rooms', 'bed_rooms', 'bath_rooms', 'active', 'option', 'residence_id', 'area_id', 'offer_index', 'video_url', 'slug'];
 
     protected $appends = ['data_id', 'url'];
 
     public function type()
     {
-    	return $this->belongsTo(Type::class);
+        return $this->belongsTo(Type::class);
     }
 
     public function residence()
@@ -46,7 +46,7 @@ class Item extends Model
         $images =  $this->imagesActive()->get();
         $arr = [];
         foreach ($images as $key => $image) {
-            $arr[$key] = url('storage/items/'.$image->item_id.'/'.$image->file);
+            $arr[$key] = url('storage/items/' . $image->item_id . '/' . $image->file);
         }
 
         return $arr;
@@ -54,7 +54,7 @@ class Item extends Model
 
     public function getDataIdAttribute()
     {
-        return "kv".$this->id;
+        return "kv" . $this->id;
     }
 
     public function getUrlAttribute()
@@ -84,23 +84,31 @@ class Item extends Model
     }
 
 
-    public function categories() {
+    public function categories()
+    {
         return $this->hasManyThrough(
             'App\Models\Category',
-            'App\Models\ItemCategory', 
+            'App\Models\ItemCategory',
             'item_id',
             'id',
             'id',
-            'category_id');
+            'category_id'
+        );
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->hasMany('App\Models\ItemCategory', 'item_id', 'id');
     }
 
     public function scopeMain($query, $areas)
     {
         return $this->where('active', 1)
-                    ->whereIn('area_id', $areas);
+            ->whereIn('area_id', $areas);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
     }
 }

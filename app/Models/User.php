@@ -38,13 +38,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function favorites() {
+    public function favorites()
+    {
         return $this->hasManyThrough(
             'App\Models\Item',
-            'App\Models\UserFavorite', 
+            'App\Models\UserFavorite',
             'user_id',
             'id',
             'id',
-            'item_id');
+            'item_id'
+        );
     }
 }
