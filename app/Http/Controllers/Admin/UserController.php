@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Log;
 use Auth;
-use Validator;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 use App\Models\User;
 
@@ -36,7 +38,7 @@ class UserController extends Controller
 
     public function list()
     {
-        $users = User::where('role', '!=', 'user')->get();
+        $users = User::whereIs('admin', 'moderator', 'broker')->get();
         return view('admin.users.list', compact('users'));
     }
 
@@ -59,28 +61,41 @@ class UserController extends Controller
             'password'      => ['required', 'string', 'min:8'],
             'role'          => 'required',
         ]);
-        if($valid->fails()){
+        if ($valid->fails()) {
             $msgs = '';
             foreach ($valid->errors()->all() as $message) {
-                $msgs = $msgs.$message.' ';
+                $msgs = $msgs . $message . ' ';
             }
             return redirect()->back()->withErrors($valid)->with('error', $msgs);;
         }
+
+        if ($r->hasFile('avatar')) {
+            $image = $r->file('avatar');
+            $extension = $image->getClientOriginalExtension();
+            Storage::putFileAs('public/avatar', $image, $r->email . "." . $extension);
+            Storage::delete('public/avatar', $image, $r->email . "." . $extension);
+            Image::make('storage/avatar/' . $r->email . "." . $extension)->fit(300)->encode('jpg')->save('storage/avatar/' . $r->email . ".jpg");
+            Storage::delete('public/avatar', $image, $r->email . "." . $extension);
+        }
+
         $user = User::create(
             array_merge(
                 $r->except('password'),
-                ['password' => Hash::make($r->password),
-                 'phone'    => '']
+                [
+                    'password' => Hash::make($r->password),
+                    'phone'    => ''
+                ]
             )
         );
         $user->assign($r->role);
+
         return redirect()->route('admin.settings.users.list')->with('success', 'Пользователь создан');
     }
 
     public function edit($id)
     {
         $user = User::find($id);
-        if(!$user){
+        if (!$user) {
             return redirect()->route('admin.settings.users.list')->with('error', 'Пользователь не найден!');
         }
         return view('admin.users.edit', compact('user'));
@@ -94,53 +109,65 @@ class UserController extends Controller
             'role'          => 'required',
         ]);
         $user = User::find($id);
-        if(!$user){
+        if (!$user) {
             return redirect()->route('admin.users.list')->with('error', 'Пользователь не найден!');
         }
-        if($valid->fails()){
+        if ($valid->fails()) {
             $msgs = '';
             foreach ($valid->errors()->all() as $message) {
-                $msgs = $msgs.$message.' ';
+                $msgs = $msgs . $message . ' ';
             }
             return redirect()->back()->withErrors($valid)->with('error', $msgs);
         }
         $other_user = User::where('email', $r->email)->where('id', '!=', $id)->first();
-        if($other_user){
-            return redirect()->back()->with('error','E-mail занят');
+        if ($other_user) {
+            return redirect()->back()->with('error', 'E-mail занят');
         }
-        $user_data=$r->except('password');
+        $user_data = $r->except('password');
         $user->update($user_data);
 
-        if($r->password != '')
-        {
-            $validate_password=$r->validate(
+        if ($r->hasFile('avatar')) {
+            $image = $r->file('avatar');
+
+            $extension = $image->getClientOriginalExtension();
+
+            if (Storage::exists('public/avatar/' . $r->email . ".jpg"))
+                Storage::delete('public/avatar' . $r->email . ".jpg");
+
+            Storage::putFileAs('public/avatar', $image, $r->email . "." . $extension);
+            Storage::delete('public/avatar', $image, $r->email . "." . $extension);
+            Image::make('storage/avatar/' . $r->email . "." . $extension)->fit(300)->encode('jpg')->save('storage/avatar/' . $r->email . ".jpg");
+            Storage::delete('public/avatar', $image, $r->email . "." . $extension);
+        }
+
+        if ($r->password != '') {
+            $validate_password = $r->validate(
                 [
-                    'password'=>'string|min:8'
+                    'password' => 'string|min:8'
                 ]
-                );
-            if(!$validate_password)
+            );
+            if (!$validate_password)
                 return redirect()->back()->withErrors($validate_password);
-            $user->password=Hash::make($r->password);
+            $user->password = Hash::make($r->password);
             $user->save();
         }
 
         $user->roles()->detach();
         $user->assign($r->role);
 
-        return redirect()->route('admin.settings.users.list')->with('success', 'Пользователь обновлен!'); 
+        return redirect()->route('admin.settings.users.list')->with('success', 'Пользователь обновлен!');
     }
 
 
     public function post_delete(Request $r, $id)
     {
         $user = User::find($id);
-        if($user){
+        if ($user) {
             $user->delete();
-             return ['success' => 'Успешно удалено'];
+            return ['success' => 'Успешно удалено'];
         } else {
-           return ['error' => 'Записи не найдено'];
+            return ['error' => 'Записи не найдено'];
         }
-
     }
 
     public function __call($method, $parameters)

@@ -7,7 +7,7 @@ use Str;
 
 class ItemEditRequest extends FormRequest
 {
-    
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -15,7 +15,6 @@ class ItemEditRequest extends FormRequest
      */
     public function rules()
     {
-        //dd($this->route());
         return [
             'name'          =>  'required|string',
             'type_order'    =>  'required|string',
@@ -34,24 +33,25 @@ class ItemEditRequest extends FormRequest
             'area_id'       =>  'required',
             'offer_index'   =>  'nullable|numeric|max:100',
             'active'        =>  'required|boolean',
-            'slug'          =>  'unique:items,slug,'.$this->route()->parameter('item')->id,
+            'slug'          =>  'unique:items,slug,' . $this->route()->parameter('item')->id,
+            'user_id'       =>  'nullable'
 
         ];
     }
 
     /**
-    * @return array
+     * @return array
      */
     public function validationData()
     {
         if (!isset($this->slug_change)) {
-            $this->except('slug'); 
+            $this->except('slug');
         } else {
             $this->merge([
                 'slug' => Str::slug($this->name),
-            ]); 
-        } 
-        
+            ]);
+        }
+
 
         return $this->all();;
     }

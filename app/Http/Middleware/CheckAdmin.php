@@ -24,6 +24,6 @@ class CheckAdmin
                 abort(403, 'Нет доступа к административной панели');
             }
         }
-        return $next($request);
+        return $next($request); 
     }
 }

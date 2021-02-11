@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Residence extends Model
 {
     protected $table = 'residences';
-    protected $fillable = ['name', 'description', 'all_flats', 'build_at', 'address', 'all_rooms', 'bed_rooms', 'bath_rooms', 'active', 'latitude', 'longitude', 'area_id', 'video_url', 'show_menu'];
+    protected $fillable = ['name', 'user_id', 'description', 'all_flats', 'build_at', 'address', 'all_rooms', 'bed_rooms', 'bath_rooms', 'active', 'latitude', 'longitude', 'area_id', 'video_url', 'show_menu'];
 
     protected $appends = ['data_id', 'url'];
 
@@ -37,7 +37,7 @@ class Residence extends Model
         $images =  $this->imagesActive()->get();
         $arr = [];
         foreach ($images as $key => $image) {
-            $arr[$key] = url('storage/residences/'.$this->id.'/'.$image->file);
+            $arr[$key] = url('storage/residences/' . $this->id . '/' . $image->file);
         }
 
         return $arr;
@@ -51,7 +51,7 @@ class Residence extends Model
     public function getmaxPriceAttribute()
     {
         return $this->items()->max('price');
-    } 
+    }
 
     public function getminSquareAttribute()
     {
@@ -61,7 +61,7 @@ class Residence extends Model
     public function getmaxSquareAttribute()
     {
         return $this->items()->max('square');
-    }    
+    }
 
     public function comments()
     {
@@ -75,13 +75,13 @@ class Residence extends Model
 
     public function getItemsCountAttribute()
     {
-    	return $this->items()->count();
+        return $this->items()->count();
     }
 
     public function scopeMain($query, $areas)
     {
         return $this->where('active', 1)
-                    ->whereIn('area_id', $areas);
+            ->whereIn('area_id', $areas);
     }
 
     public function imagesActive()
@@ -89,27 +89,35 @@ class Residence extends Model
         return $this->hasMany('App\Models\ResidenceImage', 'residence_id', 'id')->where('active', 1)->orderBy('order_number', 'ASC');
     }
 
-    public function categories() {
+    public function categories()
+    {
         return $this->hasManyThrough(
             'App\Models\ResCategory',
-            'App\Models\ResidenceCategory', 
+            'App\Models\ResidenceCategory',
             'residence_id',
             'id',
             'id',
-            'category_id');
+            'category_id'
+        );
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->hasMany('App\Models\ResidenceCategory', 'category_id', 'id');
     }
 
     public function getDataIdAttribute()
     {
-        return "zk".$this->id;
+        return "zk" . $this->id;
     }
 
     public function getUrlAttribute()
     {
-            return route('site.residences_items', $this->id);
+        return route('site.residences_items', $this->id);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
     }
 }

@@ -16,6 +16,7 @@ use App\Models\Option;
 use App\Models\Type;
 use App\Models\Area;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\Auth;
 
 class ItemsController extends Controller
 {
@@ -24,9 +25,19 @@ class ItemsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $r)
     {
-        $list = Item::paginate(20);
+        if (Auth::user()->isA('admin', 'moderator')) {
+            $list = new Item;
+        } elseif (Auth::user()->isA('broker')) {
+            $list = Item::where('user_id', Auth::user()->id);
+        } else {
+            abort(403, 'Вам не дали доступ к объектам');
+        }
+
+        $list = $list->where($r->query());
+        $list = $list->paginate(20);
+
         return view('admin.items.index', compact('list'));
     }
 
@@ -37,7 +48,7 @@ class ItemsController extends Controller
      */
     public function create(Request $r)
     {
-    	$types     = Type::all();
+        $types     = Type::all();
         $categorys = Category::all();
         $options   = Option::all();
         $residence = Residence::all();
@@ -75,12 +86,12 @@ class ItemsController extends Controller
             }
         }
 
-        if ($r->photos){
-            $path = 'public/items/'.$item->id;
+        if ($r->photos) {
+            $path = 'public/items/' . $item->id;
             $i = 1;
             foreach ($r->photos as $photo) {
                 $token = Uuid::uuid4();
-                $filename = $token.'.'.$photo->getClientOriginalExtension();
+                $filename = $token . '.' . $photo->getClientOriginalExtension();
                 $photo->storeAs($path, $filename);
                 $item->images()->create([
                     'file'          =>  $filename,
@@ -113,7 +124,7 @@ class ItemsController extends Controller
      */
     public function edit(Item $item)
     {
-        $item->load( 'images', 'categories');
+        $item->load('images', 'categories');
         $types     = Type::all();
         $categorys = Category::all();
         $options   = Option::all();
@@ -136,14 +147,12 @@ class ItemsController extends Controller
      */
     public function update(ItemEditRequest $r, Item $item)
     {
-        
         $item->update($r->validated());
-        
+
         $options = $this->getOption($r->option);
 
         $item->option = json_encode($options);
         if ($r->slug_change) {
-            
             $item->slug = Str::slug($r->name);
         }
 
@@ -162,12 +171,12 @@ class ItemsController extends Controller
             }
         }
 
-        if ($r->photos){
-            $path = 'public/items/'.$item->id;
-            $i = $item->images->count()+1;
+        if ($r->photos) {
+            $path = 'public/items/' . $item->id;
+            $i = $item->images->count() + 1;
             foreach ($r->photos as $photo) {
                 $token = Uuid::uuid4();
-                $filename = $token.'.'.$photo->getClientOriginalExtension();
+                $filename = $token . '.' . $photo->getClientOriginalExtension();
                 $photo->storeAs($path, $filename);
                 $item->images()->create([
                     'file'  =>  $filename,
@@ -193,13 +202,13 @@ class ItemsController extends Controller
             $item->delete();
         } catch (\Exception $e) {
             return response()->json([
-                    'success' => false,
-                    'errors'  => $e->getMessage(),
+                'success' => false,
+                'errors'  => $e->getMessage(),
             ]);
         }
 
         return response()->json([
-                'success' => true,
+            'success' => true,
         ]);
     }
 
@@ -211,7 +220,7 @@ class ItemsController extends Controller
 
     public function editStatus(Request $r, Item $item)
     {
-        if($item) {
+        if ($item) {
             $item->active = (int) $r->active;
             $item->save();
             return ['success' => 'Статус изменен'];
@@ -222,10 +231,10 @@ class ItemsController extends Controller
 
     public function editOffer(Request $r, Item $item)
     {
-        if($r->active) {
-            $item->offer_index = 100;     
+        if ($r->active) {
+            $item->offer_index = 100;
         } else {
-            $item->offer_index = 0;  
+            $item->offer_index = 0;
         }
 
         $item->save();
@@ -242,16 +251,15 @@ class ItemsController extends Controller
                     $itemOption['option_title'] = $this->getOptionTitle($value['option']);
                     $itemOption['option_type'] = $this->getOptionType($value['option']);
 
-                    if (isset($value['value'])){
-                       $itemOption['value_id'] = $value['value']; 
-                       $itemOption['value_title'] = $this->getOptionValue($value['option'], $value['value']);
+                    if (isset($value['value'])) {
+                        $itemOption['value_id'] = $value['value'];
+                        $itemOption['value_title'] = $this->getOptionValue($value['option'], $value['value']);
                     } else {
                         $itemOption['value_id'] = 0;
                         $itemOption['value_title'] = '';
                     }
-                
-                    $option[] = $itemOption;
 
+                    $option[] = $itemOption;
                 }
             }
         }
@@ -264,9 +272,9 @@ class ItemsController extends Controller
         $option = Option::find($option_id);
         if ($option) {
             return $option->name;
-        } 
-        
-        return ''; 
+        }
+
+        return '';
     }
 
     protected function getOptionType($option_id)
@@ -274,9 +282,9 @@ class ItemsController extends Controller
         $option = Option::find($option_id);
         if ($option) {
             return $option->method_input;
-        } 
-        
-        return ''; 
+        }
+
+        return '';
     }
 
     protected function getOptionValue($option_id, $value_id)
@@ -284,19 +292,19 @@ class ItemsController extends Controller
         $option = Option::find($option_id);
         if ($option and ($option->method_input == 'select')) {
             $values = json_decode($option->values);
-            if ($values != null){
+            if ($values != null) {
                 foreach ($values as $key => $item) {
-                   if ($key == $value_id) {
+                    if ($key == $value_id) {
                         return $item;
-                   }
-                }   
+                    }
+                }
             }
-        } 
+        }
 
         if ($option and ($option->method_input == 'hand')) {
-             return $value_id;
+            return $value_id;
         }
-        
-        return ''; 
+
+        return '';
     }
 }

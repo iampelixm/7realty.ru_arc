@@ -12,6 +12,7 @@ use App\Models\Item;
 use App\Models\Area;
 use App\Models\ResidenceResidence;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\Auth;
 
 class ResidenceController extends Controller
 {
@@ -22,7 +23,13 @@ class ResidenceController extends Controller
      */
     public function index()
     {
-        $list = Residence::paginate(20);
+        if (Auth::user()->isA('admin', 'moderator')) {
+            $list = Residence::paginate(20);
+        } elseif (Auth::user()->isA('broker')) {
+            $list = Residence::where('user_id', Auth::user()->id)->paginate(20);
+        } else {
+            abord(403, 'У вас нет доступа к этой странице');
+        }
         return view('admin.residences.index', compact('list'));
     }
 
@@ -60,12 +67,12 @@ class ResidenceController extends Controller
         }
 
         $type = 'residences';
-        if ($r->photos){
-            $path = 'public/'.$type.'/'.$item->id;
+        if ($r->photos) {
+            $path = 'public/' . $type . '/' . $item->id;
             $i = 1;
             foreach ($r->photos as $photo) {
                 $token = Uuid::uuid4();
-                $filename = $token.'.'.$photo->getClientOriginalExtension();
+                $filename = $token . '.' . $photo->getClientOriginalExtension();
                 $photo->storeAs($path, $filename);
                 $item->images()->create([
                     'file'          =>  $filename,
@@ -116,8 +123,8 @@ class ResidenceController extends Controller
      */
     public function update(ResidenceRequest $r, Residence $residence)
     {
-       
-        $residence->update($r->validated()); 
+
+        $residence->update($r->validated());
 
         ResidenceCategory::where('residence_id', $residence->id)->delete();
 
@@ -130,14 +137,14 @@ class ResidenceController extends Controller
                     'category_id'   =>  $itemCategory,
                 ]);
             }
-        }  
-       
-        if ($r->photos){
-            $path = 'public/residences/'.$residence->id;
-            $i = $residence->images->count()+1;
+        }
+
+        if ($r->photos) {
+            $path = 'public/residences/' . $residence->id;
+            $i = $residence->images->count() + 1;
             foreach ($r->photos as $photo) {
                 $token = Uuid::uuid4();
-                $filename = $token.'.'.$photo->getClientOriginalExtension();
+                $filename = $token . '.' . $photo->getClientOriginalExtension();
                 $photo->storeAs($path, $filename);
                 $residence->images()->create([
                     'file'  =>  $filename,
@@ -163,13 +170,13 @@ class ResidenceController extends Controller
             $residence->delete();
         } catch (\Exception $e) {
             return response()->json([
-                    'success' => false,
-                    'errors'  => $e->getMessage(),
+                'success' => false,
+                'errors'  => $e->getMessage(),
             ]);
         }
 
         return response()->json([
-                'success' => true,
+            'success' => true,
         ]);
     }
 
@@ -181,7 +188,7 @@ class ResidenceController extends Controller
 
     public function editStatus(Request $r, Residence $residence)
     {
-        if($residence) {
+        if ($residence) {
             $residence->active = (int) $r->active;
             $residence->save();
             return ['success' => 'Статус изменен'];

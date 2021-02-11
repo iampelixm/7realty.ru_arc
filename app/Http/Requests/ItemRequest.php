@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Str; 
+use Str;
 
 class ItemRequest extends FormRequest
 {
@@ -29,7 +29,7 @@ class ItemRequest extends FormRequest
         //     'slug' => Str::slug($this->name),
         // ]);
 
-       
+
         return [
             'name'          =>  'required|string',
             'type_order'    =>  'required|string',
@@ -49,13 +49,14 @@ class ItemRequest extends FormRequest
             'offer_index'   =>  'nullable|numeric|max:100',
             'active'        =>  'required|boolean',
             'slug'          =>  'unique:items,slug',
-            'photos'        =>  'required|array|min:3'
+            'photos'        =>  'required|array|min:3',
+            'user_id'       =>  'nullable'
 
         ];
     }
 
     /**
-    * @return array
+     * @return array
      */
     public function validationData()
     {
@@ -63,7 +64,7 @@ class ItemRequest extends FormRequest
             'slug' => Str::slug($this->name),
         ]);
 
-        //$this->except('photos'); 
+        //$this->except('photos');
 
         return $this->all();;
     }

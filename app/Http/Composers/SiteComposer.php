@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Composers;
 
@@ -20,7 +20,8 @@ use URL;
 use DB;
 
 
-class SiteComposer {
+class SiteComposer
+{
 
     /**
      * Create a new profile composer.
@@ -28,7 +29,6 @@ class SiteComposer {
      */
     public function __construct()
     {
-        
     }
 
     /**
@@ -39,7 +39,7 @@ class SiteComposer {
      */
     public function compose(View $view)
     {
-        $title = 'Seven - счастливое число вашей сделки';
+        $title = 'Seven - Счастливое Число Вашей Сделки';
         $cities = City::all();
 
         $current_city = Cookie::get('current_city');
@@ -65,7 +65,7 @@ class SiteComposer {
 
         $types = Type::where('active', 1)->where('show_menu', 1)->get();
         //$resMenu = Residence::where('active', 1)->where('show_menu', 1)->get();
-        
+
         $category_life = Category::main()->where('type', 'life')->with('children')->get();
         $category_bizness = Category::Main()->where('type', 'bizness')->with('children')->get();
         $category_menu = Category::Menu()->with('children')->get();
@@ -78,20 +78,19 @@ class SiteComposer {
             $cat_areas_id = Item::whereIn('area_id', $current_areas_arr)->WhereHas('categories',  function ($query) use ($cat_id_array) {
                 $query = $query->whereIn('categories.id', $cat_id_array);
             })->select('area_id')->groupBy('area_id')->pluck('area_id')->toArray();
-            
-            $areaMas[$main_cat->id] = $cat_areas_id;
 
+            $areaMas[$main_cat->id] = $cat_areas_id;
         }
 
         //dd($areaMas);
 
 
-        $massFav =[];
+        $massFav = [];
         $user = auth()->user();
-        if ($user){
+        if ($user) {
             $massFav = UserFavorite::where('user_id', $user->id)->pluck('item_id')->toArray();
         }
-      
+
         $view->with([
             'active'              => Route::currentRouteName(),
             'action'              => URL::current(),
@@ -114,7 +113,6 @@ class SiteComposer {
             'category_menu'       => $category_menu,
             'areaMas'             => $areaMas,
 
-		]);
+        ]);
     }
-
 }
