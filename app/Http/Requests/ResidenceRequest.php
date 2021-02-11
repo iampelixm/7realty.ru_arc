@@ -29,7 +29,7 @@ class ResidenceRequest extends FormRequest
             'address'        =>  'nullable|string',
             'longitude'     =>  'nullable|numeric|max:99',
             'latitude'      =>  'nullable|numeric|max:99',
-            'all_flats'     =>  'nullable|numeric',
+            'all_flats'     =>  'nullable|numeric|min:0|max:2147483648',
             'area_id'       =>  'nullable',
             'active'        =>  'required|boolean',
             'show_menu'     =>  'required|boolean',
