@@ -3,7 +3,7 @@
     <!-- desktop-footer -->
     <div class="desktop-footer-content d-none d-md-block">
         <div class="main-footer-logo">
-            <h2 class="main-footer-logo__h2 main-footer-logo-h2_position_center">Seven - счастливое число вашей сделки
+            <h2 class="main-footer-logo__h2 main-footer-logo-h2_position_center">Seven - Счастливое Число Вашей Сделки
             </h2>
             <div class="main-footer-logo__div main-footer-logo__div_position_center">
                 <a href="{{ route('home') }}" class="d-flex justify-content-center">
@@ -127,7 +127,7 @@
     <!-- mobile-footer -->
     <div class="mobile-footer-content d-md-none">
         <div class="mobile-footer-content-info">
-            <p class="mobile-footer-content-info__p">Seven - счастливое число вашей сделки</p>
+            <p class="mobile-footer-content-info__p">Seven - Счастливое Число Вашей Сделки</p>
         </div>
         <div class="mobile-footer-content-logo">
             <a href="index.html">

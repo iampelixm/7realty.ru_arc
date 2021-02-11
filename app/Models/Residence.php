@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Residence extends Model
 {
     protected $table = 'residences';
-    protected $fillable = ['name', 'description', 'all_flats', 'build_at', 'address', 'all_rooms', 'bed_rooms', 'bath_rooms', 'active', 'latitude', 'longitude', 'area_id', 'video_url', 'show_menu'];
+    protected $fillable = ['name', 'user_id', 'description', 'all_flats', 'build_at', 'address', 'all_rooms', 'bed_rooms', 'bath_rooms', 'active', 'latitude', 'longitude', 'area_id', 'video_url', 'show_menu'];
 
     protected $appends = ['data_id', 'url'];
 

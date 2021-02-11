@@ -109,15 +109,17 @@
                                     <a href="{{ route('admin.items.edit', [$item->id]) }}">
                                         <i class="far fa-edit"></i>
                                     </a>
-                                    <a class="ml-3 btn btn-delete delete-alert"
-                                        data-action="{{ route('admin.items.destroy', [$item->id]) }}"
-                                        data-title="{{ __('admin.modal_delete_title') }}"
-                                        data-text="{{ __('admin.modal_delete_text') }}"
-                                        data-success="{{ __('admin.modal_delete_success') }}"
-                                        data-error-title="{{ __('admin.modal_error_title') }}"
-                                        data-error="{{ __('admin.modal_error') }}" href="#">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
+                                    @can('delete', 'App\Models\Item')
+                                        <a class="ml-3 btn btn-delete delete-alert"
+                                            data-action="{{ route('admin.items.destroy', [$item->id]) }}"
+                                            data-title="{{ __('admin.modal_delete_title') }}"
+                                            data-text="{{ __('admin.modal_delete_text') }}"
+                                            data-success="{{ __('admin.modal_delete_success') }}"
+                                            data-error-title="{{ __('admin.modal_error_title') }}"
+                                            data-error="{{ __('admin.modal_error') }}" href="#">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach

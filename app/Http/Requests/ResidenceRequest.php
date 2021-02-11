@@ -35,6 +35,7 @@ class ResidenceRequest extends FormRequest
             'show_menu'     =>  'required|boolean',
             'build_at'      =>  'nullable|date',
             'video_url'     =>  'nullable',
+            'user_id'       =>  'nullable'
         ];
     }
 }

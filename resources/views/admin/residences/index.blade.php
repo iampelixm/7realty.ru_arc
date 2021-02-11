@@ -5,7 +5,7 @@
         <h5>{{ __('admin.items_list') }}</h5>
         <div class="ibox-tools">
             <a href="{{ route('admin.residences.create') }}">
-                <i class="fa fa-plus"></i>
+                Добавить <i class="fa fa-plus"></i>
             </a>
         </div>
     </div>
@@ -29,7 +29,9 @@
                             <th>{{ __('admin.areas_name') }}</th>
                             <th>{{ __('admin.item_images_count') }}</th>
                             <th>{{ __('admin.comments') }}</th>
-                            <th>{{ __('admin.active') }}</th>
+                            @can('manageItemActivity')
+                                <th>{{ __('admin.active') }}</th>
+                            @endcan
 
                             <th class="buttons__"></th>
                         </tr>
@@ -80,10 +82,12 @@
                                         <i class="far fa-comment"></i>
                                     </a>
                                 </td>
-                                <td>
-                                    <input data-url="{{ route('admin.api.residence.edit_status', $item->id) }}"
-                                        name="status" type="checkbox" class="ajaxBtnInput" @if ($item->active) checked @endif>
-                                </td>
+                                @can('manageItemActivity')
+                                    <td>
+                                        <input data-url="{{ route('admin.api.residence.edit_status', $item->id) }}"
+                                            name="status" type="checkbox" class="ajaxBtnInput" @if ($item->active) checked @endif>
+                                    </td>
+                                @endcan
                                 <td class="buttons__">
                                     {{-- <a href="{{ route('admin.items.show', [$item->id]) }}">
                                     <i class="far fa-eye"></i>
@@ -91,16 +95,17 @@
                                     <a href="{{ route('admin.residences.edit', [$item->id]) }}">
                                         <i class="far fa-edit"></i>
                                     </a>
-
-                                    <a class="btn btn-delete delete-alert"
-                                        data-action="{{ route('admin.residences.destroy', [$item->id]) }}"
-                                        data-title="{{ __('admin.modal_delete_title') }}"
-                                        data-text="{{ __('admin.modal_delete_text') }}"
-                                        data-success="{{ __('admin.modal_delete_success') }}"
-                                        data-error-title="{{ __('admin.modal_error_title') }}"
-                                        data-error="{{ __('admin.modal_error') }}" href="#">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
+                                    @can('delete', 'App\Models\Residence')
+                                        <a class="btn btn-delete delete-alert"
+                                            data-action="{{ route('admin.residences.destroy', [$item->id]) }}"
+                                            data-title="{{ __('admin.modal_delete_title') }}"
+                                            data-text="{{ __('admin.modal_delete_text') }}"
+                                            data-success="{{ __('admin.modal_delete_success') }}"
+                                            data-error-title="{{ __('admin.modal_error_title') }}"
+                                            data-error="{{ __('admin.modal_error') }}" href="#">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach

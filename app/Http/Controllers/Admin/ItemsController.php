@@ -16,6 +16,7 @@ use App\Models\Option;
 use App\Models\Type;
 use App\Models\Area;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\Auth;
 
 class ItemsController extends Controller
 {
@@ -24,9 +25,19 @@ class ItemsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $r)
     {
-        $list = Item::paginate(20);
+        if (Auth::user()->isA('admin', 'moderator')) {
+            $list = new Item;
+        } elseif (Auth::user()->isA('broker')) {
+            $list = Item::where('user_id', Auth::user()->id);
+        } else {
+            abort(403, 'Вам не дали доступ к объектам');
+        }
+
+        $list = $list->where($r->query());
+        $list = $list->paginate(20);
+
         return view('admin.items.index', compact('list'));
     }
 
