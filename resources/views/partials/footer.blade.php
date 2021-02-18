@@ -79,9 +79,9 @@
                                 <h3 class="footer-links-div__h3">Компания</h3>
                                 <p class="footer-links-div__p"><a href="{{ route('site.get_page', 'why_we') }}">Наша
                                         команда</a></p>
-                                <p class="footer-links-div__p"><a href="{{ route('site.get_page', 'about_us') }}">О
+                                <p class="footer-links-div__p"><a href="/about">О
                                         компании</a></p>
-                                <p class="footer-links-div__p"><a href="{{ route('site.get_page', 'work') }}">Работа
+                                <p class="footer-links-div__p"><a href="/work">Работа
                                         в Se7en</a></p>
                                 <p class="footer-links-div__p"><a href="{{ route('site.get_page', 'clients') }}">Наши
                                         клиенты</a></p>

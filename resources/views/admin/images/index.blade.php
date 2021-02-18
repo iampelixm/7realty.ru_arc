@@ -9,7 +9,7 @@
     <div class="ibox-content">
         <div class="table-responsive">
             @if ($item->images != null)
-                <table class="table table-striped">
+                <table class="table table-striped imagestable">
                     <thead>
                         <tr>
                             <th>id</th>
