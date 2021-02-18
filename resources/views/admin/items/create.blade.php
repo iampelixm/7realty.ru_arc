@@ -97,10 +97,8 @@
 
             <div class="form-group">
                 <label for="">{{ __('admin.item_description') }}</label>
-                <textarea class="form-control" name="description" id="summernote" required="required">
-                                                                                                                                                                                                                                                                                                                            {{ old('description') ?? '' }}
-                                                                                                                                                                                                                                                                                                                        </textarea>
-
+                <textarea class="form-control" name="description" id="summernote"
+                    required="required">{{ old('description') ?? '' }}</textarea>
             </div>
 
             <div class="ibox ">
@@ -168,7 +166,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" {!! Auth::user()->isA('broker') ? 'style="display: none;"' : '' !!}>
                     <div class="row">
 
 
@@ -184,7 +182,6 @@
                                 placeholder="{{ __('admin.item_longitude') }}" value="{{ old('longitude') ?? '' }}">
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -419,52 +416,60 @@
 
         function addvaluebyid(id, name) {
 
-            var inputprocent = `
-                                                        <select class="form-control" id="selecetvalue${indexvalue}" name="option[${indexvalue}][option]"
-                                                            data-id="${indexvalue}">
-                                                            <option value="${id}">${name}</option>
-                                                        </select>`;
-            var inputval = `
-                                                        <select class="form-control" id="selecetvalue${indexvalue}value" required="" name="option[${indexvalue}][value]">
-                                                            <option disabled>Выбрать</option>
-                                                        </select>`;
-            var delbutton = `
-                                                        <button type="button" class="btn btn-outline btn-danger" onclick="deleterow('valuerow', ${indexvalue}")">
-                                                            Удалить
-                                                        </button>`;
-            var row = `
-                                                        <tr id="valuerow${indexvalue}">
-                                                            <td>${indexvalue}</td>
-                                                            <td>${inputprocent}</td>
-                                                            <td id="selecetvalue${indexvalue}block">${inputval}</td>
-                                                            <td>${delbutton}</td>
-                                                        </tr>`;
+            var inputprocent =
+                `
+                                                                                                                        <select class="form-control" id="selecetvalue${indexvalue}" name="option[${indexvalue}][option]"
+                                                                                                                            data-id="${indexvalue}">
+                                                                                                                            <option value="${id}">${name}</option>
+                                                                                                                        </select>`;
+            var inputval =
+                `
+                                                                                                                        <select class="form-control" id="selecetvalue${indexvalue}value" required="" name="option[${indexvalue}][value]">
+                                                                                                                            <option disabled>Выбрать</option>
+                                                                                                                        </select>`;
+            var delbutton =
+                `
+                                                                                                                        <button type="button" class="btn btn-outline btn-danger" onclick="deleterow('valuerow', ${indexvalue}")">
+                                                                                                                            Удалить
+                                                                                                                        </button>`;
+            var row =
+                `
+                                                                                                                        <tr id="valuerow${indexvalue}">
+                                                                                                                            <td>${indexvalue}</td>
+                                                                                                                            <td>${inputprocent}</td>
+                                                                                                                            <td id="selecetvalue${indexvalue}block">${inputval}</td>
+                                                                                                                            <td>${delbutton}</td>
+                                                                                                                        </tr>`;
 
             $("#valuetable").append(row);
         }
 
         function addvalue() {
 
-            var inputprocent = `
-                                                    <select class="form-control" id="selecetvalue${indexvalue}" name="option[${indexvalue}][option]"
-                                                        data-id="${indexvalue}">
-                                                        <option>Выбрать</option>
-                                                    </select>`;
-            var inputval = `
-                                                    <select class="form-control" id="selecetvalue${indexvalue}value" name="option[${indexvalue}][value]">
-                                                        <option>Выбрать</option>
-                                                    </select>`;
-            var delbutton = `
-                                                        <button type="button" class="btn btn-outline btn-danger" onclick="deleterow('valuerow', ${indexvalue}")">
-                                                            Удалить
-                                                        </button>`;
-            var row = `
-                                                        <tr id="valuerow${indexvalue}">
-                                                            <td>${indexvalue}</td>
-                                                            <td>${inputprocent}</td>
-                                                            <td id="selecetvalue${indexvalue}block">${inputval}</td>
-                                                            <td>${delbutton}</td>
-                                                        </tr>`;
+            var inputprocent =
+                `
+                                                                                                                    <select class="form-control" id="selecetvalue${indexvalue}" name="option[${indexvalue}][option]"
+                                                                                                                        data-id="${indexvalue}">
+                                                                                                                        <option>Выбрать</option>
+                                                                                                                    </select>`;
+            var inputval =
+                `
+                                                                                                                    <select class="form-control" id="selecetvalue${indexvalue}value" name="option[${indexvalue}][value]">
+                                                                                                                        <option>Выбрать</option>
+                                                                                                                    </select>`;
+            var delbutton =
+                `
+                                                                                                                        <button type="button" class="btn btn-outline btn-danger" onclick="deleterow('valuerow', ${indexvalue}")">
+                                                                                                                            Удалить
+                                                                                                                        </button>`;
+            var row =
+                `
+                                                                                                                        <tr id="valuerow${indexvalue}">
+                                                                                                                            <td>${indexvalue}</td>
+                                                                                                                            <td>${inputprocent}</td>
+                                                                                                                            <td id="selecetvalue${indexvalue}block">${inputval}</td>
+                                                                                                                            <td>${delbutton}</td>
+                                                                                                                        </tr>`;
 
             $("#valuetable").append(row);
 

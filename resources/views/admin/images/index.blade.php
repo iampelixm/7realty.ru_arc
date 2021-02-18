@@ -4,9 +4,6 @@
     <div class="ibox-title">
         <h2>{{ __('admin.images_list') }}: {{ $item->name }}</h2>
         <div class="ibox-tools">
-            <a href="{{ route('admin.items.create') }}">
-                <i class="fa fa-plus"></i>
-            </a>
         </div>
     </div>
     <div class="ibox-content">

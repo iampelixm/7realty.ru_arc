@@ -467,16 +467,18 @@
                         торговые
                         комплексы и крупнейший в Европе гостиничный комплекс. С ними Вы можете познакомится ниже.
                     </p>
+                    <h6 class="text-center textgold" style="text-transform: uppercase">Наша миссия</h6>
                     <p>
-                        Наша миссия -<br>
                         «Мы Помогаем Людям Купить Недвижимость!»
                     </p>
+                    <h6 class="text-center textgold" style="text-transform: uppercase">Наше кредо</h6>
                     <p>
-                        Наше кредо - <br>
                         Люди для Людей
                     </p>
                     <p>
-                        Звоните, пишите или просто приходите в наши офисы!<br>
+                        Звоните, пишите или просто приходите в наши офисы!
+                    </p>
+                    <p>
                         Мы всегда будем рады Вас видеть и помочь Вам купить или продать недвижимость! А также решить любые
                         другие
                         вопросы в этой сфере!
@@ -594,9 +596,10 @@
             </div>
             <p>&nbsp;</p>
         </div>
-        <div class="titlebox" satyle="text-transform: uppercase; background: transparent; white-space: nowrap">
+        <div class="titlebox"
+            satyle="text-transform: uppercase; background: transparent; white-space: nowrap; text-align: center">
             <h3>Помогаем людям</h3>
-            <h4>купить / продать недвижимость</h4>
+            <h4 style="text-transform: uppercase; white-space: nowrap">купить / продать недвижимость</h4>
         </div>
     </div>
     <p>&nbsp;</p>

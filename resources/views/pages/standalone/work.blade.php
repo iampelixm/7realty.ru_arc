@@ -167,7 +167,7 @@
         </p>
 
         <div class="sevengoldbox">
-            <h3 class="seventitle text__sevengold sevenboxtitle">Seven Realty</h3>
+            <h3 class="seventitle text__sevengold sevenboxtitle" style="white-space: nowrap">Seven Realty</h3>
             <p>
                 Компания <span class="text__sevengold">Seven</span> – это группа экспертов, работающая на рынке недвижимости
                 с 2007 года. Наша компания
@@ -191,6 +191,9 @@
             </p>
 
         </div>
+        <a href="/vakansii" class="sevenboxtitle"
+            style="text-decration: none; border: 1px solid #C1A771; border-radius: 25px; white-space: nowrap">НАШИ
+            ВАКАНСИИ</a>
     </div>
     <p>&nbsp;</p>
 @endsection

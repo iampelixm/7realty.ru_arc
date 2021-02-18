@@ -66,9 +66,9 @@ return [
     'item_all_rooms'            => 'Всех комнат',
     'item_bed_rooms'            => 'Спальных комнат',
     'item_bath_rooms'            => 'Ванных комнат',
-    'item_adress'                => 'Адрес на сайте',
-    'item_address'                => 'Адрес на сайте',
-    'item_adress_find'            => 'Поиск координат',
+    'item_adress'                => 'Адрес на сайте(только улица)',
+    'item_address'                => 'Адрес на сайте(только улица)',
+    'item_adress_find'            => 'Укажите адрес для карты на сайте (Город, Улица, номер дома)',
     'item_description'            => 'Описание',
     'item_square'                => 'Площадь',
     'item_latitude'                => 'Широта',
@@ -177,5 +177,12 @@ return [
     'item_user'                     => 'Ответственный',
     'profile'                       => 'Мой профиль',
     'menu-objects-moderate'         => 'Модерация объектов',
+
+    'created_at'                    => 'Создано',
+    'updated_at'                    => 'Изменено',
+
+    'filter_by_city'                => 'Город',
+    'filter_by_broker'              => 'Ответственный',
+    'filter_by_active'              => 'Активность',
 
 ];

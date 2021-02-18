@@ -6,12 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Area;
-use Cookie;
 use Storage;
-use PDF;
-use View;
+//use PDF;
+use Barryvdh\DomPDF\PDF;
+use Illuminate\Support\Facades\View;
 use Redirect;
-use Image;
+//use Image;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\DB;
 
 
 class ItemController extends Controller
@@ -25,15 +28,23 @@ class ItemController extends Controller
 
         $areaId = $item->area->id ?? 0;
         $categoryArr = $item->category()->pluck('category_id')->toArray();
+        //Непонятно что хотели сказать этим куском кода
+        // $similarItems = Item::where('area_id', $areaId)->with(['category' => function ($query) use ($categoryArr) {
+        //     $query->whereIn('category_id', $categoryArr);
+        // }])->get();
 
-        $similarItems = Item::where('area_id', $areaId)->with(['category' => function ($query) use ($categoryArr) {
-            $query->whereIn('category_id', $categoryArr);
-        }])->get();
+        //Похожие элементы - это элементы из тех же категорий что и текущий
+        $similarItems = Item::where('area_id', $areaId)
+            ->join('item_categories', 'items.id', '=', 'item_categories.item_id')
+            ->whereIn('item_categories.category_id', $categoryArr)
+            ->where('items.id', '<>', $item->id)
+            ->select('items.*')->groupBy('items.id')
+            ->get();
 
         $newItems = Item::where('area_id', $areaId)->with(['category' => function ($query) use ($categoryArr) {
             $query->whereIn('category_id', $categoryArr);
         }])->latest()->take(4)->get();
-        //dd($similarItem);
+
         $page_title = $item->name . " | Seven";
         $template_data = compact('item', 'itemoptions', 'similarItems', 'newItems', 'meta_lon', 'meta_lat', 'page_title');
         if (view()->exists('pages.item.' . $item->type->slug)) {
@@ -45,8 +56,6 @@ class ItemController extends Controller
 
     public function apartments(Request $r, $type)
     {
-
-
         $current_city = Cookie::get('current_city');
         if (!$current_city) {
             $current_city = 2;
@@ -115,8 +124,6 @@ class ItemController extends Controller
 
     public function apartmentsReact(Request $r, $type)
     {
-
-
         $current_city = Cookie::get('current_city');
         if (!$current_city) {
             $current_city = 2;
@@ -187,8 +194,6 @@ class ItemController extends Controller
         $item->load('area', 'residence', 'type', 'imagesActive', 'commentsActive');
         $itemoptions = json_decode($item->option);
         $text = View::make('pages.pdf_text', compact('item', 'itemoptions'))->render();
-
-
 
         $pdf_name = 'apartments' . $item->id . '.pdf';
         $path = public_path('/pdf/' . $pdf_name);

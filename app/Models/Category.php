@@ -8,107 +8,117 @@ use Cookie;
 
 class Category extends Model
 {
-	protected $table = 'categories';
+    protected $table = 'categories';
     protected $fillable = ['name', 'type', 'active', 'main', 'offer_index', 'show_main', 'slug'];
 
-    public function parent() {
+    public function parent()
+    {
         return $this->hasManyThrough(
             'App\Models\Category',
-            'App\Models\CategoryToCategory', 
+            'App\Models\CategoryToCategory',
             'category_id',
             'id',
             'id',
-            'main_id');
+            'main_id'
+        );
     }
 
-    public function children() {
+    public function children()
+    {
         return $this->hasManyThrough(
             'App\Models\Category',
-            'App\Models\CategoryToCategory', 
+            'App\Models\CategoryToCategory',
             'main_id',
             'id',
             'id',
-            'category_id');
+            'category_id'
+        );
     }
 
-    public function items() {
+    public function items()
+    {
         return $this->hasManyThrough(
             'App\Models\Item',
-            'App\Models\ItemCategory', 
+            'App\Models\ItemCategory',
             'category_id',
             'id',
             'id',
-            'item_id');
+            'item_id'
+        );
     }
 
-    public function offerItems() {
+    public function offerItems()
+    {
 
         return $this->hasManyThrough(
             'App\Models\Item',
-            'App\Models\ItemCategory', 
+            'App\Models\ItemCategory',
             'category_id',
             'id',
             'id',
-            'item_id')->where('offer_index', '>', 0)
-                      ->orderBy('offer_index', 'DESC');
+            'item_id'
+        )->where('offer_index', '>', 0)
+            ->orderBy('offer_index', 'DESC');
     }
 
-    public function areaItems() {
-
-        
+    public function areaItems()
+    {
 
         return $this->hasManyThrough(
             'App\Models\Item',
-            'App\Models\ItemCategory', 
+            'App\Models\ItemCategory',
             'category_id',
             'id',
             'id',
-            'item_id')->orderBy('offer_index', 'DESC');
+            'item_id'
+        )->orderBy('offer_index', 'DESC');
     }
 
-    public function areaResidence() { 
+    public function areaResidence()
+    {
 
         return $this->hasManyThrough(
             'App\Models\Residence',
-            'App\Models\ResidenceCategory', 
+            'App\Models\ResidenceCategory',
             'category_id',
             'id',
             'id',
-            'residence_id');
+            'residence_id'
+        );
     }
 
     public function scopeOffers()
     {
         return $this->where('main', 1)
-                    ->where('offer_index', '>', 0)
-                    ->orderBy('offer_index', 'DESC');
+            ->where('offer_index', '>', 0)
+            ->orderBy('offer_index', 'DESC');
     }
 
     public function scopeMain()
     {
         return $this->where('main', 1)
-                    ->where('show_main', 1);
+            ->where('show_main', 1);
     }
 
-     public function scopeMenu()
+    public function scopeMenu()
     {
         return $this->where('menu_active', 1);
     }
 
-    public function types() {
+    public function types()
+    {
         return $this->hasManyThrough(
             'App\Models\Type',
-            'App\Models\CategoryType', 
+            'App\Models\CategoryType',
             'category_id',
             'id',
             'id',
-            'type_id');
+            'type_id'
+        );
     }
 
     public function typesId()
     {
         return $this->hasMany('App\Models\CategoryType', 'category_id', 'id');
     }
-
-    
 }

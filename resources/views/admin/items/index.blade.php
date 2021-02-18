@@ -11,6 +11,47 @@
         </div>
     </div>
     <div class="ibox-content">
+        <form method="GET">
+            <div class="row">
+                <input type="hidden" name="type_id" value="{{ request()->get('type_id') ?? '' }}">
+                @if (!Auth::user()->isA('broker'))
+                    <div class="form-group">
+                        <label form="filter_broker">{{ __('admin.filter_by_broker') }}</label>
+                        <select name="user_id" id="filter_broker" class="form-control">
+                            <option value="">Все</option>
+                            @foreach (App\Models\User::whereIs('broker')->get() as $broker)
+                                <option value="{{ $broker->id }}"
+                                    {{ request()->get('user_id') == $broker->id ? 'selected' : '' }}>
+                                    {{ $broker->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endif
+                <div class="form-group">
+                    <label form="filter_city">{{ __('admin.filter_by_city') }}</label>
+                    <select name="city_id" id="filter_city" class="form-control">
+                        <option value="">Все</option>
+                        @foreach (App\Models\City::all() as $city)
+                            <option value="{{ $city->id }}"
+                                {{ request()->get('city_id') == $city->id ? 'selected' : '' }}>
+                                {{ $city->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label form="filter_active">{{ __('admin.filter_by_active') }}</label>
+                    <select name="active" id="filter_active" class="form-control">
+                        <option value="">Все</option>
+                        <option value="1" {{ request()->get('active') == '1' ? 'selected' : '' }}>Активные</option>
+                        <option value="0" {{ request()->get('active') == '0' ? 'selected' : '' }}>Неактивные</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-info form-control">Фильтр</button>
+                </div>
+            </div>
+        </form>
         <div class="table-responsive">
             @if ($list->isNotEmpty())
                 <table class="table table-striped">
@@ -28,6 +69,8 @@
                             <th>{{ __('admin.item_options_count') }}</th>
                             <th>{{ __('admin.comments') }}</th>
                             <th>{{ __('admin.areas_name') }}</th>
+                            <th>{{ __('admin.created_at') }}</th>
+                            <th>{{ __('admin.updated_at') }}</th>
                             <th>{{ __('admin.item_images_count') }}</th>
                             <th>{{ __('admin.item-residence-name') }}</th>
                             <th>{{ __('admin.item_type') }}</th>
@@ -76,9 +119,16 @@
                                 <td>
                                     {{ $item->area->name ?? '' }}
                                 </td>
+                                <td>
+                                    {{ $item->created_at ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $item->updated_at ?? '' }}
+                                </td>
                                 <td>{{ $item->images->count() }} <a
                                         href="{{ route('admin.items.images.list', $item->id) }}"><i
-                                            class="far fa-edit"></i> Ред.</a></td>
+                                            class="far fa-edit"></i>
+                                        Ред.</a></td>
                                 <td>
                                     {{ $item->residence->name ?? '--' }}
                                 </td>
