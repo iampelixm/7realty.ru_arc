@@ -2,7 +2,7 @@
 @section('title', 'Список ЖК')
 @section('content')
     <div class="ibox-title">
-        <h5>{{ __('admin.items_list') }}</h5>
+        <h2>{{ __('admin.items_list') }}</h2>
         <div class="ibox-tools">
             <a href="{{ route('admin.residences.create') }}">
                 Добавить <i class="fa fa-plus"></i>

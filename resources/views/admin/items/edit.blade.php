@@ -2,7 +2,7 @@
 @section('title', 'Редактировать обьекта')
 @section('content')
     <div class="ibox-title">
-        <h5>{{ __('admin.item_create') }}</h5>
+        <h2>{{ __('admin.item_create') }}</h2>
     </div>
     <div class="ibox-content">
         <form action="{{ route('admin.items.update', $item->id) }}" enctype="multipart/form-data" method="POST" role="form">
@@ -71,8 +71,6 @@
 
             </div>
 
-
-
             <div class="form-group">
                 <div class="row">
                      <div class="col-sm-3">
@@ -112,7 +110,7 @@
 
             <div class="ibox ">
                 <div class="ibox-title">
-                    <h5><i class="fa fa-cubes" aria-hidden="true"></i> Укажите характиристики</h5>
+                    <h2><i class="fa fa-cubes" aria-hidden="true"></i> Укажите характиристики</h2>
                 </div>
                 <div class="ibox-content">
                     <table class="table" id="valuetable" style="font-size: 10px;">
@@ -194,10 +192,6 @@
                 </select>
 
             </div>
-
-
-
-
 
             <div style="display: block; background-color: #eefbea; padding: 20px; border: solid 1px green; margin: 10px;">
                  <div class="form-group">
@@ -329,7 +323,7 @@
 
         var indexvalue = {{ $itemoptioncount }};
         var optionSelected = {};
-        var oldtype = document.getElementById('type_id').value;;
+        var oldtype = document.getElementById('type_id').value;
         @foreach($itemoptionarray as $key => $option)
             @php echo('optionSelected['.$key.']='.$option.';') @endphp
         @endforeach
@@ -372,9 +366,7 @@
                         newOption = new Option(item['text'], item['id']);
                         $("#category-select").append(newOption);
                     });
-
                     console.log(response['list']);
-                    //console.log(indexvalue);
 
                 },
                 error: function (e) {
@@ -428,12 +420,13 @@
                 dataType: 'json',
                 cache: false,
                 success: function(response) {
+                    console.log('getted options for type');
                     indexvalue = 0;
                     $("#valuetable").html('');
 
                     response.forEach(function(item, i, arr) {
                         console.log(item['text']);
-                        addvaluebyid(item['id'], item['text'])
+                        addvaluebyid(item['id'], item['text']);
                         createoption(item['id'], indexvalue);
                         initselect(indexvalue);
                         optionSelected[indexvalue] = item['id'];
@@ -442,6 +435,7 @@
 
                 },
                 error: function (e) {
+                    console.log('get options for type falied');
                     console.log(response);
                 }
             });
@@ -492,23 +486,47 @@
 
         function addvaluebyid(id, name){
 
-            var inputprocent = "<select class=\"form-control\" id=\"selecetvalue"+indexvalue+"\" name=\"option["+indexvalue+"][option]\" data-id=\""+indexvalue+"\"><option value=\""+id+"\">"+name+"</option></select>";
-            var inputval     = "<select class=\"form-control\" id=\"selecetvalue"+indexvalue+"value\" required=\"\" name=\"option["+indexvalue+"][value]\"><option disabled>Выбрать</option></select>";
-            var delbutton    = "<button type=\"button\" class=\"btn btn-outline btn-danger\" onclick=\"deleterow('valuerow', "+indexvalue+")\">Удалить</button>"
-            var str = "<tr id=\"valuerow"+indexvalue+"\"><td>"+indexvalue+"</td><td>"+inputprocent+"</td><td id=\"selecetvalue"+indexvalue+"block\">"+inputval+"</td><td>"+delbutton+"</td></tr>";
+            var inputprocent = `
+                <select class="form-control" id="selecetvalue${indexvalue}" name="option[${indexvalue}][option]" data-id="${indexvalue}">
+                <option value="${id}">${name}</option>
+                </select>`;
+            var inputval = `
+                <select class="form-control" id="selecetvalue${indexvalue}value" required="" name="option[${indexvalue}][value]">
+                <option disabled>Выбрать</option>
+                </select>`;
+            var delbutton = `
+            <button type="button" class="btn btn-outline btn-danger" onclick="deleterow('valuerow', ${indexvalue})">Удалить</button>`;
+            var str = `
+            <tr id="valuerow${indexvalue}">
+            <td>${indexvalue}</td>
+            <td>${inputprocent}</td>
+            <td id="selecetvalue${indexvalue}block">${inputval}</td>
+            <td>${delbutton}</td>
+            </tr>`;
 
             $("#valuetable").append(str);
-
-
         }
 
 
          function addvalue(){
+             console.log('add value', indexvalue);
 
-            var inputprocent = "<select class=\"form-control\" id=\"selecetvalue"+indexvalue+"\" name=\"option["+indexvalue+"][option]\" data-id=\""+indexvalue+"\"><option>Выбрать</option></select>";
-            var inputval     = "<select class=\"form-control\" id=\"selecetvalue"+indexvalue+"value\" name=\"option["+indexvalue+"][value]\"><option>Выбрать</option></select>";
-            var delbutton    = "<button type=\"button\" class=\"btn btn-outline btn-danger\" onclick=\"deleterow('valuerow', "+indexvalue+")\">Удалить</button>"
-            var str = "<tr id=\"valuerow"+indexvalue+"\"><td>"+indexvalue+"</td><td>"+inputprocent+"</td><td id=\"selecetvalue"+indexvalue+"block\">"+inputval+"</td><td>"+delbutton+"</td></tr>";
+            var inputprocent = `
+            <select class="form-control" id="selecetvalue${indexvalue}" name="option[${indexvalue}][option]" data-id="${indexvalue}">
+            <option>Выбрать</option>
+            </select>`;
+            var inputval = `
+            <select class="form-control" id="selecetvalue${indexvalue}value" name="option[${indexvalue}][value]">
+            <option>Выбрать</option>
+            </select>`;
+            var delbutton = `
+            <button type="button" class="btn btn-outline btn-danger" onclick="deleterow('valuerow', ${indexvalue})">Удалить</button>`;
+            var str = `
+            <tr id="valuerow${indexvalue}"><td>${indexvalue}</td>
+            <td>${inputprocent}</td>
+            <td id="selecetvalue${indexvalue}block">${inputval}</td>
+            <td>${delbutton}</td>
+            </tr>`;
 
             $("#valuetable").append(str);
 

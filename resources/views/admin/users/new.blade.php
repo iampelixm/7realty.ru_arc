@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="ibox">
                 <div class="ibox-title">
-                    <h5>Создание пользователя бэкэнда</h5>
+                    <h2>Создание пользователя бэкэнда</h2>
                     <div class="ibox-tools">
                         <a href="{{ route('admin.settings.users.list') }}">
                             <i class="fa fa-th-list"></i>

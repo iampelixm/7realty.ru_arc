@@ -35,8 +35,27 @@ class ItemsController extends Controller
             abort(403, 'Вам не дали доступ к объектам');
         }
 
-        $list = $list->where($r->query());
-        $list = $list->paginate(20);
+        if ($r->get('city_id')) {
+            $list = $list->join('item_areas', 'items.area_id', '=', 'item_areas.id');
+            $list = $list->join('cities', 'item_areas.city_id', '=', 'cities.id');
+            $list = $list->where('cities.id', '=', $r->get('city_id'));
+        }
+        $request_filter = collect($r->query())->except('page', 'city_id', 'active');
+        $request_filter = $request_filter->filter(
+            function ($value, $key) {
+                return $value != null;
+            }
+        );
+
+        //вонючий костыль
+        if ($r->get('active') != '') {
+            $list = $list->where('items.active', '=', $r->get('active'));
+        }
+        //dd(request()->query())->links());
+        $list = $list->select('items.*');
+        $list = $list->where($request_filter->toArray());
+        $list = $list->orderBy('items.id', 'DESC');
+        $list = $list->paginate(20)->withQueryString();
 
         return view('admin.items.index', compact('list'));
     }

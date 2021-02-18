@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Item extends Model
 {
@@ -10,6 +12,10 @@ class Item extends Model
     protected $fillable = ['price', 'user_id', 'name', 'description', 'type_id', 'type_order', 'added_at', 'special', 'square', 'latitude', 'longitude', 'address', 'all_rooms', 'bed_rooms', 'bath_rooms', 'active', 'option', 'residence_id', 'area_id', 'offer_index', 'video_url', 'slug'];
 
     protected $appends = ['data_id', 'url'];
+
+    protected $casts = [
+        'options' => 'collection',
+    ];
 
     public function type()
     {
@@ -110,5 +116,26 @@ class Item extends Model
     public function user()
     {
         return $this->belongsTo('App\Models\User');
+    }
+
+    public function getOptionsAttribute()
+    {
+
+        $options = [];
+
+        foreach (json_decode($this->option, true) as $item_value) {
+            $options[$item_value['slug'] ??
+                strtolower(Str::slug($item_value['option_title'], '_'))] = $item_value;
+        }
+        return $options;
+    }
+
+    public function optionsArr()
+    {
+        $options = [];
+        foreach (json_decode($this->option, true) as $item_key => $item_value) {
+            $options[$item_value['slug'] ?? $item_key] = $item_value;
+        }
+        return $options;
     }
 }

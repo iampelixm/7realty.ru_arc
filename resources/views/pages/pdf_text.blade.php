@@ -141,7 +141,7 @@
                 </td>
                 <td style="font-size: 10px; text-align: left; border-left: 1px solid black; padding-left: 10px;"
                     width="70%">
-                    Счастливое число<br>твоей покупки
+                    Счастливое Число<br>Вашей Сделки
                 </td>
                 <td width="15%">
                     <p class="header-logo-tel__p"><i class="fas fa-phone-alt"></i>+7 985 700-00-77</p>

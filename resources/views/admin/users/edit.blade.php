@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="ibox">
                 <div class="ibox-title">
-                    <h5>{{ __('admin.admin-users-edit') }}</h5>
+                    <h2>{{ __('admin.admin-users-edit') }}</h2>
                     {{-- Под вопросом оставить или убрать этот элемент
 				<div class="ibox-tools">
 					<a href="{{ route('admin.settings.users.list') }}">

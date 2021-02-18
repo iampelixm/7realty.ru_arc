@@ -45,7 +45,8 @@ class OptionController extends Controller
             'name'            => $r->name,
             'active'          => $r->active ? 1 : 0,
             'method_input'    => $r->method_input,
-            'values'          => json_encode($r->value)
+            'values'          => json_encode($r->value),
+            'slug'            => $r->slug,
         ]);
 
         $types = $r->types;
@@ -96,10 +97,12 @@ class OptionController extends Controller
      */
     public function update(OptionRequest $r, Option $option)
     {
+
         $option->name           = $r->name;
         $option->active         = $r->active ? 1 : 0;
         $option->method_input   = $r->method_input;
         $option->values         = json_encode($r->value);
+        $option->slug           = $r->slug;
         $option->save();
 
         OptionType::where('option_id', $option->id)->delete();
@@ -130,13 +133,13 @@ class OptionController extends Controller
             $option->delete();
         } catch (\Exception $e) {
             return response()->json([
-                    'success' => false,
-                    'errors'  => $e->getMessage(),
+                'success' => false,
+                'errors'  => $e->getMessage(),
             ]);
         }
 
         return response()->json([
-                'success' => true,
+            'success' => true,
         ]);
     }
 
@@ -145,71 +148,70 @@ class OptionController extends Controller
         $optionSelected = [];
         if ($r->optionSelected) {
             $optionSelected = array_values($r->optionSelected);
-            $optionSelected = array_filter($optionSelected, function($value) {
-                return !is_null($value) && $value !== ''; 
+            $optionSelected = array_filter($optionSelected, function ($value) {
+                return !is_null($value) && $value !== '';
             });
-            
         }
-        
 
-        $typeSelected = $r->typeSelected; 
+
+        $typeSelected = $r->typeSelected;
         if ($typeSelected == 0) {
-            return ['results' => [], 'pagination'=> ['more' => false]];
+            return ['results' => [], 'pagination' => ['more' => false]];
         }
         //return $optionSelected;
-        if(($r->search) && (strlen($r->search)>2) ){
-            
+        if (($r->search) && (strlen($r->search) > 2)) {
+
             $search = $r->search;
-                    //dd($search);
+            //dd($search);
             $list = Option::whereHas('typesId', function ($query) use ($typeSelected) {
                 $query->where('type_id', '=', $typeSelected);
-            })->where('name', 'like', '%'.$search.'%')->whereNotIn('id', $optionSelected)->get();
-            
+            })->where('name', 'like', '%' . $search . '%')->whereNotIn('id', $optionSelected)->get();
         } else {
-    
+
             $list = Option::whereNotIn('id', $optionSelected)->whereHas('typesId',  function ($query) use ($typeSelected) {
                 $query->where('type_id', '=', $typeSelected);
             })->get();
         }
-        $data = array(); $i = 0;
+        $data = array();
+        $i = 0;
         foreach ($list as $item) {
             $data[$i]['id'] = $item->id;
             $data[$i]['text'] = $item->name;
             $i++;
         }
 
-       return ['results' => $data, 'pagination'=> ['more' => false]];
-
+        return ['results' => $data, 'pagination' => ['more' => false]];
     }
 
     public function apiGetOptionType(Request $r)
     {
         $typeSelected = $r->type;
-        
+
         $list = Option::where('require', '1')->whereHas('typesId',  function ($query) use ($typeSelected) {
-                $query->where('type_id', '=', $typeSelected);
-            })->get();
-        
-        $data = array(); $i = 0;
+            $query->where('type_id', '=', $typeSelected);
+        })->get();
+
+        $data = array();
+        $i = 0;
         foreach ($list as $item) {
             $data[$i]['id'] = $item->id;
             $data[$i]['text'] = $item->name;
             $i++;
         }
 
-       return response()->json($data);
-
+        return response()->json($data);
     }
 
     public function apiGetOptionValue(Request $r)
     {
-        
-        if($r->option){
-            $data = array(); $i = 0;
+
+        if ($r->option) {
+            $data = array();
+            $i = 0;
             $option = Option::where('id', $r->option)->first();
             $values = json_decode($option->values);
 
-            if ($values != null){
+            if ($values != null) {
                 foreach ($values as $key => $item) {
                     $data[$i]['index'] = $key;
                     $data[$i]['name']  = $item;
@@ -218,15 +220,14 @@ class OptionController extends Controller
             }
 
             $method_input = $option->method_input ?? 'select';
-            
-            return ['type'=> $method_input,'list' => $data];
-        }
 
+            return ['type' => $method_input, 'list' => $data];
+        }
     }
 
     public function editStatus(Request $r, Option $option)
     {
-        if($option) {
+        if ($option) {
             $option->active = (int) $r->active;
             $option->save();
             return ['success' => 'Статус изменен'];
@@ -237,7 +238,7 @@ class OptionController extends Controller
 
     public function editRequire(Request $r, Option $option)
     {
-        if($option) {
+        if ($option) {
             $option->require = (int) $r->active;
             $option->save();
             return ['success' => 'Статус изменен'];
