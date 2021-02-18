@@ -2,7 +2,7 @@
 @section('title', 'Список обьектов')
 @section('content')
     <div class="ibox-title">
-        <h5>{{ __('admin.items_list') }} {{ $residence->name }}</h5>
+        <h2>{{ __('admin.items_list') }} {{ $residence->name }}</h2>
         <div class="ibox-tools">
             <a href="{{ route('admin.items.create', ['residence' => $residence->id]) }}">
                 <i class="fa fa-plus"></i>

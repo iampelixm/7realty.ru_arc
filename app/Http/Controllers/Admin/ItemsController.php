@@ -34,9 +34,9 @@ class ItemsController extends Controller
         } else {
             abort(403, 'Вам не дали доступ к объектам');
         }
-
-        $list = $list->where($r->query());
-        $list = $list->paginate(20);
+        //dd(request()->query())->links());
+        $list = $list->where(collect($r->query())->except('page')->toArray());
+        $list = $list->paginate(20)->withQueryString();
 
         return view('admin.items.index', compact('list'));
     }

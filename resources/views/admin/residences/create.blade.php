@@ -2,7 +2,7 @@
 @section('title', 'Создание ЖК')
 @section('content')
     <div class="ibox-title">
-        <h5>{{ __('admin.residence_create') }}</h5>
+        <h2>{{ __('admin.residence_create') }}</h2>
     </div>
     <div class="ibox-content">
         <form action="{{ route('admin.residences.store') }}" enctype="multipart/form-data" method="POST" role="form">
@@ -71,8 +71,8 @@
             <div class="form-group">
                 <label for="">{{ __('admin.item_description') }}</label>
                 <textarea class="form-control" name="description" required="" id="summernote">
-                                            {{ old('description') ?? '' }}
-                                        </textarea>
+                                                {{ old('description') ?? '' }}
+                                            </textarea>
 
             </div>
 

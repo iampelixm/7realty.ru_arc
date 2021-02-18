@@ -2,9 +2,10 @@
 @section('title', 'Список обьектов')
 @section('content')
     <div class="ibox-title">
-        <h5>{{ __('admin.items_list') }}</h5>
+        <h2>{{ __('admin.items_list') }}</h2>
         <div class="ibox-tools">
-            <a href="{{ route('admin.items.create') }}">
+            <a class="btn btn-warning btn-outline"
+                href="{{ route('admin.items.create', ['type_id' => request()->get('type_id')]) }}">
                 Добавить <i class="fa fa-plus"></i>
             </a>
         </div>
@@ -73,19 +74,16 @@
                                     </a>
                                 </td>
                                 <td>
-                                    @if ($item->area != null) {{ $item->area->name }}
-                                    @endif
+                                    {{ $item->area->name ?? '' }}
                                 </td>
                                 <td>{{ $item->images->count() }} <a
                                         href="{{ route('admin.items.images.list', $item->id) }}"><i
                                             class="far fa-edit"></i> Ред.</a></td>
                                 <td>
-                                    @if ($item->residence)
-                                        {{ $item->residence->name }}@else -- @endif
+                                    {{ $item->residence->name ?? '--' }}
                                 </td>
                                 <td>
-                                    @if ($item->type){{ $item->type->name }}@else --
-                                    @endif
+                                    {{ $item->type->name ?? '--' }}
                                 </td>
                                 @can('manageItemActivity')
                                     <td>

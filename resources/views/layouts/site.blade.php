@@ -25,6 +25,8 @@
 		<link href="{{ asset('static/css/2.8f118048.chunk.css') }}" rel="stylesheet">
 	    <link href="{{ asset('static/css/main.b4c1df24.chunk.css') }}" rel="stylesheet">
 	    <title>{{ $page_title ?? $html_title }}</title>
+        @section('head')
+        @show
   </head>
   <body>
   	<!-- Header -->
@@ -39,13 +41,13 @@
     @include('partials/modals')
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	 
-	
+
+
   	<script src="{{ mix('/users/js/app.min.js') }}"></script>
 
-  	@include('partials/scripts') 
-  	@yield('scripts') 
-  	<link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css"> 
+  	@include('partials/scripts')
+  	@yield('scripts')
+  	<link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
 	<script type="text/javascript" src="https://cdn.envybox.io/widget/cbk.js?cbk_code=e3edd5e3c5c2efdf3ae00b10bd4f2e28" charset="UTF-8" async></script>
   </body>
 </html>

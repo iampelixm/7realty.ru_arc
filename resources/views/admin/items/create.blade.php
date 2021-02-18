@@ -2,12 +2,11 @@
 @section('title', 'Создание обьекта')
 @section('content')
     <div class="ibox-title">
-        <h5>{{ __('admin.item_create') }}</h5>
+        <h2>{{ __('admin.item_create') }}</h2>
     </div>
     <div class="ibox-content">
         <form action="{{ route('admin.items.store') }}" enctype="multipart/form-data" method="POST" role="form">
             @csrf
-
 
             <div class="form-group">
                 <label for="">{{ __('admin.item_name') }}</label>
@@ -45,7 +44,9 @@
                     onchange="changeType()" required="">
                     <option></option>
                     @foreach ($types as $cat)
-                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                        <option value="{{ $cat->id }}"
+                            {{ $cat->id == request()->get('type_id') ? 'selected' : '' }}>
+                            {{ $cat->name }}</option>
                     @endforeach
                 </select>
 
@@ -97,14 +98,14 @@
             <div class="form-group">
                 <label for="">{{ __('admin.item_description') }}</label>
                 <textarea class="form-control" name="description" id="summernote" required="required">
-                                {{ old('description') ?? '' }}
-                            </textarea>
+                                                                                                                                                                                                                                                                                                                            {{ old('description') ?? '' }}
+                                                                                                                                                                                                                                                                                                                        </textarea>
 
             </div>
 
             <div class="ibox ">
                 <div class="ibox-title">
-                    <h5><i class="fa fa-cubes" aria-hidden="true"></i> Укажите характеристики объекта</h5>
+                    <h2><i class="fa fa-cubes" aria-hidden="true"></i> Укажите характеристики объекта</h2>
                 </div>
                 <div class="ibox-content">
                     <table class="table" id="valuetable" style="font-size: 10px;">
@@ -202,7 +203,6 @@
                     placeholder="{{ __('admin.item_price') }}" value="{{ old('price') ?? '' }}" required="">
             </div>
 
-            <!-- ТУТ -->
             <div class="form-group">
                 <label for="">{{ __('admin.item-residence-select') }}</label>
                 <select class="js-example-basic-multiple-residence form-control" name="residence_id">
@@ -235,7 +235,7 @@
             @endcan
 
             <div class="form-group">
-                <label for="active">{{ __('admin.special-offer-shot') }}</label>
+                <label for="offer_index">{{ __('admin.special-offer-shot') }}</label>
                 <select class="js-example-basic-multiple-type form-control" name="offer_index">
                     @for ($i = 0; $i <= 100; $i++)
                         <option value="{{ $i }}">{{ $i }}</option>
@@ -295,22 +295,19 @@
         var optionSelected = {};
 
         $(document).ready(function() {
+            console.log($('.js-data-example-ajax'));
             $('.js-data-example-ajax').select2({
                 ajax: {
                     url: '{{ route('api.getoption') }}',
                     dataType: 'json',
-
                 }
             });
-
-
         });
 
         $('#selectadress').select2({
             ajax: {
                 url: '{{ route('api.getadress') }}',
                 dataType: 'json',
-
             }
         });
 
@@ -329,7 +326,6 @@
                 method: 'get',
                 data: {
                     type: typeElement,
-
                 },
                 dataType: 'json',
                 cache: false,
@@ -342,8 +338,6 @@
                             $("#category-select").append(newOption);
                         });
                     }
-                    //console.log(response['list']);
-                    //console.log(indexvalue);
 
                 },
                 error: function(e) {
@@ -359,7 +353,6 @@
                 method: 'get',
                 data: {
                     type: typeElement,
-
                 },
                 dataType: 'json',
                 cache: false,
@@ -406,8 +399,6 @@
                         response['list'].forEach(function(item, i, arr) {
                             newOption = new Option(item['name'], item['index']);
                             $("#selecetvalue" + index + "value").append(newOption);
-
-
                         });
                     }
 
@@ -417,9 +408,6 @@
                             "][value]\">";
                         $("#selecetvalue" + index + "block").append(input);
                     }
-
-
-
                 },
                 error: function(e) {
                     console.log(response);
@@ -431,39 +419,56 @@
 
         function addvaluebyid(id, name) {
 
-            var inputprocent = "<select class=\"form-control\" id=\"selecetvalue" + indexvalue + "\" name=\"option[" +
-                indexvalue + "][option]\" data-id=\"" + indexvalue + "\"><option value=\"" + id + "\">" + name +
-                "</option></select>";
-            var inputval = "<select class=\"form-control\" id=\"selecetvalue" + indexvalue +
-                "value\" required=\"\" name=\"option[" + indexvalue +
-                "][value]\"><option disabled>Выбрать</option></select>";
-            var delbutton =
-                "<button type=\"button\" class=\"btn btn-outline btn-danger\" onclick=\"deleterow('valuerow', " +
-                indexvalue + ")\">Удалить</button>"
-            var str = "<tr id=\"valuerow" + indexvalue + "\"><td>" + indexvalue + "</td><td>" + inputprocent +
-                "</td><td id=\"selecetvalue" + indexvalue + "block\">" + inputval + "</td><td>" + delbutton + "</td></tr>";
+            var inputprocent = `
+                                                        <select class="form-control" id="selecetvalue${indexvalue}" name="option[${indexvalue}][option]"
+                                                            data-id="${indexvalue}">
+                                                            <option value="${id}">${name}</option>
+                                                        </select>`;
+            var inputval = `
+                                                        <select class="form-control" id="selecetvalue${indexvalue}value" required="" name="option[${indexvalue}][value]">
+                                                            <option disabled>Выбрать</option>
+                                                        </select>`;
+            var delbutton = `
+                                                        <button type="button" class="btn btn-outline btn-danger" onclick="deleterow('valuerow', ${indexvalue}")">
+                                                            Удалить
+                                                        </button>`;
+            var row = `
+                                                        <tr id="valuerow${indexvalue}">
+                                                            <td>${indexvalue}</td>
+                                                            <td>${inputprocent}</td>
+                                                            <td id="selecetvalue${indexvalue}block">${inputval}</td>
+                                                            <td>${delbutton}</td>
+                                                        </tr>`;
 
-            $("#valuetable").append(str);
-
-
+            $("#valuetable").append(row);
         }
 
         function addvalue() {
 
-            var inputprocent = "<select class=\"form-control\" id=\"selecetvalue" + indexvalue + "\" name=\"option[" +
-                indexvalue + "][option]\" data-id=\"" + indexvalue + "\"><option>Выбрать</option></select>";
-            var inputval = "<select class=\"form-control\" id=\"selecetvalue" + indexvalue + "value\" name=\"option[" +
-                indexvalue + "][value]\"><option>Выбрать</option></select>";
-            var delbutton =
-                "<button type=\"button\" class=\"btn btn-outline btn-danger\" onclick=\"deleterow('valuerow', " +
-                indexvalue + ")\">Удалить</button>"
-            var str = "<tr id=\"valuerow" + indexvalue + "\"><td>" + indexvalue + "</td><td>" + inputprocent +
-                "</td><td id=\"selecetvalue" + indexvalue + "block\">" + inputval + "</td><td>" + delbutton + "</td></tr>";
+            var inputprocent = `
+                                                    <select class="form-control" id="selecetvalue${indexvalue}" name="option[${indexvalue}][option]"
+                                                        data-id="${indexvalue}">
+                                                        <option>Выбрать</option>
+                                                    </select>`;
+            var inputval = `
+                                                    <select class="form-control" id="selecetvalue${indexvalue}value" name="option[${indexvalue}][value]">
+                                                        <option>Выбрать</option>
+                                                    </select>`;
+            var delbutton = `
+                                                        <button type="button" class="btn btn-outline btn-danger" onclick="deleterow('valuerow', ${indexvalue}")">
+                                                            Удалить
+                                                        </button>`;
+            var row = `
+                                                        <tr id="valuerow${indexvalue}">
+                                                            <td>${indexvalue}</td>
+                                                            <td>${inputprocent}</td>
+                                                            <td id="selecetvalue${indexvalue}block">${inputval}</td>
+                                                            <td>${delbutton}</td>
+                                                        </tr>`;
 
-            $("#valuetable").append(str);
+            $("#valuetable").append(row);
 
             initselect(indexvalue);
-
             indexvalue = indexvalue + 1;
         }
 

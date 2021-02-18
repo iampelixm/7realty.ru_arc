@@ -6,7 +6,7 @@
             <div class="ibox">
 
                 <div class="ibox-title">
-                    <h5>{{ __('admin.admin-users-list') }}</h5>
+                    <h2>{{ __('admin.admin-users-list') }}</h2>
                     <div class="ibox-tools">
                         <a href="{{ route('admin.settings.users.new') }}">
                             Добавить <i class="fa fa-plus"></i>
@@ -44,7 +44,7 @@
                                         {{ $user->email }}
                                     </td>
                                     <td class="aj-hide">
-                                        {{ trans('admin.role-' . $user->role) }}
+                                        {{ __('admin.role-' . $user->roles()->first()->name) }}
                                     </td>
                                     <td class="aj-hide">
                                         {{ $user->created_at }}

@@ -38,6 +38,15 @@
                 </a>
             </li>
 
+            @can('manageItemActivity')
+                <li class="">
+                    <a href="{{ route('admin.items.index', ['active' => 0]) }}">
+                        <i class="fas fa-building"></i>
+                        <span class="nav-label">{{ __('admin.menu-objects-moderate') }}</span>
+                    </a>
+                </li>
+            @endcan
+
             @can('view', 'App\Models\Item')
                 <li class="{{ Request::is('admin/items*') ? 'mm-active' : '' }}">
                     <a href="{{ route('admin.items.index') }}">
@@ -48,10 +57,28 @@
             @endcan
 
             @can('view', 'App\Models\Item')
-                <li class="ml-2 {{ Request::is('admin/items*') ? 'mm-active' : '' }}">
+                <li class="ml-2">
                     <a href="{{ route('admin.items.index', ['type_id' => 25]) }}">
                         <i class="fas fa-building"></i>
                         <span class="nav-label">{{ __('admin.menu-objects-novostroiki') }}</span>
+                    </a>
+                </li>
+            @endcan
+
+            @can('view', 'App\Models\Item')
+                <li class="ml-2">
+                    <a href="{{ route('admin.items.index', ['type_id' => 26]) }}">
+                        <i class="fas fa-building"></i>
+                        <span class="nav-label">{{ __('admin.menu-objects-poselki') }}</span>
+                    </a>
+                </li>
+            @endcan
+
+            @can('view', 'App\Models\Item')
+                <li class="ml-2">
+                    <a href="{{ route('admin.items.index', ['type_id' => 2]) }}">
+                        <i class="fas fa-building"></i>
+                        <span class="nav-label">{{ __('admin.menu-objects-vtorichka') }}</span>
                     </a>
                 </li>
             @endcan
