@@ -8,13 +8,15 @@ require('metismenu')
 require('select2')
 require('./components/summernote')
 import swal from 'sweetalert'
+import 'jquery-ui/ui/widgets/datepicker.js';
+import 'jquery-ui/ui/widgets/draggable.js';
 let toastr = require('toastr/toastr');
 
 var sideMenu = $('#side-menu').metisMenu({
     subMenu: '.nav.nav-second-level'
 })
 
-sideMenu.on('show.metisMenu', function (e) {})
+sideMenu.on('show.metisMenu', function (e) { })
 
 $('.select-custom').select2({
     minimumResultsForSearch: Infinity
@@ -44,14 +46,14 @@ $('.delete-alert').on('click', function (event) {
                     dataType: 'JSON',
                     url: url,
                     success: function (response) {
-                        if (response.success){
+                        if (response.success) {
                             swal($this.data('success'), {
                                 icon: 'success',
                             })
                             setTimeout(() => {
-                            window.location.reload()
-                        }, 1000)
-                        }else{
+                                window.location.reload()
+                            }, 1000)
+                        } else {
                             console.log(response)
                             swal($this.data('error-title'), $this.data('error'), 'error')
                         }
@@ -68,25 +70,26 @@ $('.delete-alert').on('click', function (event) {
 })
 
 
-    $('.ajaxBtnInput').on('change', function(){
-        let href = $(this).attr('data-url');
-        let ocheck = ($(this).prop("checked") == true ? '1' : '0');
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            type: "POST",
-            url: href,
-            data: {
-                    active: ocheck,
-                },
-            success: function (data) {
-                toastr.success(data.success);
-                console.log(data);
-                
-            },
-            error: function (request, status, error) {
-            }
-        });
-    });
+$('.ajaxBtnInput').on('change', function () {
+    let href = $(this).attr('data-url');
+    let ocheck = ($(this).prop("checked") == true ? '1' : '0');
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        url: href,
+        data: {
+            active: ocheck,
+        },
+        success: function (data) {
+            toastr.success(data.success);
+            console.log(data);
 
+        },
+        error: function (request, status, error) {
+        }
+    });
+});
+
+$('.imagestable').find('tr').draggable();

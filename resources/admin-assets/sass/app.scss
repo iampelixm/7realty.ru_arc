@@ -58,6 +58,11 @@
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
+
+
+//Jquery ui
+
+@import '~jquery-ui/themes/base/all.css';
 // Clear layout on print mode
 @media print {
   nav.navbar-static-side {
