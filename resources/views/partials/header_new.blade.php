@@ -47,8 +47,9 @@
                                 </a>
                             </div>
                             <div class="col">
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                                          document.getElementById('logout-form').submit();">
                                     <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <g clip-path="url(#clip0)">
@@ -101,7 +102,7 @@
                 <p class="main-header-navi__p"><a
                         href="{{ route('site.res.residences', 'all') }}">Жилые&nbsp;комплексы</a><i
                         class="fas fa-chevron-down fa-chevron-down_position"></i></p>
-                <div class="drop-down-menu drop-down-menu___col_2">
+                <div class="drop-down-menu drop-down-menu___col_1">
                     <div>
                         <div>
                             <p class="drop-down-menu__p"><a class="drop-down-menu__a"
@@ -115,7 +116,7 @@
                             @endforeach
 
                         </div>
-                        <div>
+                        {{-- <div>
                             @foreach ($current_areas as $resArea)
                                 @if (in_array($resArea->id, $residenceArea))
                                     <p class="drop-down-menu__p"><a class="drop-down-menu__a"
@@ -123,8 +124,7 @@
                                     </p>
                                 @endif
                             @endforeach
-
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@
                 <div class="main-header-navi main-header-navi_position show-drop-down">
                     <p class="main-header-navi__p"><a href="@if ($category->slug) {{ route('site.get_category', $category->slug) }} @endif">{{ $category->name }}</a><i
                             class="fas fa-chevron-down fa-chevron-down_position"></i></p>
-                    <div class="drop-down-menu drop-down-menu___col_2">
+                    <div class="drop-down-menu drop-down-menu___col_1">
                         <div>
                             <div>
                                 @foreach ($category->children as $subcategory)
@@ -154,14 +154,14 @@
                                 @endforeach
 
                             </div>
-                            <div>
+                            {{-- <div>
                                 @foreach ($current_areas as $resArea)
                                     @if (in_array($resArea->id, $areaMas[$category->id]))
                                         <p class="drop-down-menu__p"><a class="drop-down-menu__a" href="@if ($category->slug != null) {{ route('site.get_category', $category->slug) }}?area={{ $resArea->id }} @endif">{{ $resArea->name }}</a></p>
                                     @endif
                                 @endforeach
 
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -170,8 +170,27 @@
 
 
 
-            <div class="main-header-navi main-header-navi_position">
-                <p class="main-header-navi__p"><a href="{{ route('site.get_page', 'about_us') }}">Компания</a></p>
+            <div class="main-header-navi main-header-navi_position show-drop-down">
+                <p class="main-header-navi__p">
+                    Компания
+                    <i class="fas fa-chevron-down fa-chevron-down_position"></i>
+                </p>
+                <div class="drop-down-menu drop-down-menu___col_1">
+                    <div>
+                        <p class="drop-down-menu__p">
+                            <a class="drop-down-menu__a" href="/about">
+                                О компании
+                            </a>
+                        </p>
+
+                        <p class="drop-down-menu__p">
+                            <a class="drop-down-menu__a" href="/work">
+                                Работа в SeVen
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <!--<p class="main-header-navi__p"><a href="{{ route('site.get_page', 'about_us') }}">Компания</a></p> -->
             </div>
             <div class="main-header-navi main-header-navi_position">
                 <p class="main-header-navi__p"><a href="{{ route('site.contacts') }}">Контакты</a></p>
@@ -322,8 +341,9 @@
                             </a>
                         </div>
                         <div class="col">
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                                          document.getElementById('logout-form').submit();">
                                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0)">

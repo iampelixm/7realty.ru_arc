@@ -34,6 +34,7 @@ class ItemController extends Controller
         // }])->get();
 
         //Похожие элементы - это элементы из тех же категорий что и текущий
+
         $similarItems = Item::where('area_id', $areaId)
             ->join('item_categories', 'items.id', '=', 'item_categories.item_id')
             ->whereIn('item_categories.category_id', $categoryArr)
@@ -43,7 +44,7 @@ class ItemController extends Controller
 
         $newItems = Item::where('area_id', $areaId)->with(['category' => function ($query) use ($categoryArr) {
             $query->whereIn('category_id', $categoryArr);
-        }])->latest()->take(4)->get();
+        }])->latest()->take(4)->groupBy('items.id')->get();
 
         $page_title = $item->name . " | Seven";
         $template_data = compact('item', 'itemoptions', 'similarItems', 'newItems', 'meta_lon', 'meta_lat', 'page_title');

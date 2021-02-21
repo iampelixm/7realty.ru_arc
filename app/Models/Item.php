@@ -123,9 +123,9 @@ class Item extends Model
 
         $options = [];
 
-        foreach (json_decode($this->option, true) as $item_value) {
-            $options[$item_value['slug'] ??
-                strtolower(Str::slug($item_value['option_title'], '_'))] = $item_value;
+        foreach (json_decode($this->option) as $item_value) {
+            $options[$item_value->slug ??
+                strtolower(Str::slug($item_value->option_title, '_'))] = $item_value;
         }
         return $options;
     }

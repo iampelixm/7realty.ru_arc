@@ -22,13 +22,11 @@
                     </thead>
                     <tbody>
                         @foreach ($images as $image)
-                            <tr>
+                            <tr data-image="{{ $image->id }}">
                                 <td>{{ $image->id }}</td>
                                 <td><img src="{{ url('storage/items/' . $item->id . '/' . $image->file) }}"
                                         style="max-height: 100px;"></td>
                                 <td>
-
-
                                     <a
                                         href="{{ route('admin.items.images.edit_status', ['item' => $item->id, 'image' => $image->id]) }}">
                                         @if ($image->active)
@@ -95,4 +93,34 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        appjs = document.getElementById('appjs');
+        appjs.addEventListener('load', function(e) {
+            $("tbody").sortable({
+                items: "> tr",
+                appendTo: "parent",
+                helper: "clone",
+                update: function(event, ui) {
+                    var images;
+                    images = $(this).find('tr').map(function(i, el) {
+                        return $(el).data('image');
+                    }).toArray();
+                    console.log(images);
+                    $.post(
+                        '{{ route('admin.items.images.set_order', ['item' => $item->id]) }}', {
+                            '_token': '{{ csrf_token() }}',
+                            'images': images
+                        },
+                        function(response) {
+                            console.log(response);
+                        }
+                    )
+                }
+            });
+        }, false);
+
+    </script>
 @endsection

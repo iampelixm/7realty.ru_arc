@@ -1,4 +1,4 @@
-          <div class="content-list-item content-list-item__modify" data-id="kv{{ $item->id }}" data-name="card">
+          <div class="content-list-item content-list-item__modify " data-id="kv{{ $item->id }}" data-name="card">
               <div class="slide-image-div">
                   @foreach ($item->imagesActive as $image)
                       <div class="slide-image-div-image">

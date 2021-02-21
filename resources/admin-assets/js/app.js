@@ -10,6 +10,7 @@ require('./components/summernote')
 import swal from 'sweetalert'
 import 'jquery-ui/ui/widgets/datepicker.js';
 import 'jquery-ui/ui/widgets/draggable.js';
+import 'jquery-ui/ui/widgets/sortable.js';
 let toastr = require('toastr/toastr');
 
 var sideMenu = $('#side-menu').metisMenu({
@@ -92,4 +93,3 @@ $('.ajaxBtnInput').on('change', function () {
     });
 });
 
-$('.imagestable').find('tr').draggable();

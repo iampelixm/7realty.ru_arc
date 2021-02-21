@@ -221,7 +221,7 @@
 	width: 150px;
 	background: #FFFFFF;
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-	border-radius: 3px;	
+	border-radius: 3px;
 }
 .drop-down-menu___col_2 {
 	width: 350px;
@@ -386,7 +386,7 @@
 	margin: 0 auto;
 }
 .content-for-life:hover > .content-for-life__h2 {
-	display: none;	
+	display: none;
 }
 .content-for-life:hover > .content-for-life-hover_position {
 	display: block;
@@ -433,7 +433,7 @@
 	font-size: 25px;
 	margin: 29px 0 0 0;
 }
-@media (max-width: 860px) { 
+@media (max-width: 860px) {
 	.content-for-business-hover__p {margin: 10px 0 0 0;}
 }
 .content-for-business-hover__p > a {
@@ -685,8 +685,8 @@
 	}
 }
 .slide-image-div-left:hover {
-	background: -moz-linear-gradient(left,  rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%); 
-	background: -webkit-linear-gradient(left,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); 
+	background: -moz-linear-gradient(left,  rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(left,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
 	background: linear-gradient(to right,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#00000000',GradientType=0 );
 	cursor: pointer;
@@ -704,7 +704,7 @@
 	overflow: hidden;
 	width: 100%;
 	border-radius: 8px 8px 0 0;
-	user-select: none;  
+	user-select: none;
 	z-index: 0;
 	transition: width .4s;
 }
@@ -980,7 +980,7 @@ a.slide-image-div-image img {
 	margin: 4px 0 0 0;
 	line-height: 18px;
 }
-.footer-links-div__p > a { 
+.footer-links-div__p > a {
 	font-family: Geometria;
 	font-style: normal;
 	font-weight: 500;
@@ -1090,7 +1090,7 @@ a.slide-image-div-image img {
 	font-weight: 700;
 	font-size: 20px;
 	color: #FFFFFF;
-} 
+}
 .mobile-footer-content-locations-contacts__h2 > a > i {
 	font-size: 10px;
 }
@@ -1593,7 +1593,7 @@ a.slide-image-div-image img {
 	background: #0055AA;
 }
 .content-object-card-information-button-details:focus {
-	outline: none;	
+	outline: none;
 }
 .content-object-card-information-button-show {
 	height: 32px;
@@ -1611,5 +1611,5 @@ a.slide-image-div-image img {
 	background: #005577;
 }
 .content-object-card-information-button-show:focus {
-	outline: none;	
+	outline: none;
 }
