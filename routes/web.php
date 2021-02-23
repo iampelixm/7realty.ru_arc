@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -133,6 +133,7 @@ Route::prefix('/admin')->namespace('Admin')->middleware('auth', 'check.admin')->
     Route::prefix('/items/{item}/images')->name('items.images.')->group(function () {
         Route::get('/', 'ImageController@index')->name('list');
         Route::post('/add', 'ImageController@add')->name('add');
+        Route::post('/setorder', 'ImageController@setOrder')->name('set_order');
         Route::delete('/delete/{image}', 'ImageController@delete')->name('delete');
         Route::get('/edit/status/{image}', 'ImageController@editStatus')->name('edit_status');
         Route::get('/up/{image}', 'ImageController@orderUp')->name('up');

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Area;
 use App\Models\Item;
-use Cookie;
+use Illuminate\Support\Facades\Cookie;
 
 class CategoryController extends Controller
 {

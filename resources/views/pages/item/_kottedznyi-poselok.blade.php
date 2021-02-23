@@ -1,5 +1,12 @@
 @extends('layouts.site')
 
+@php
+$main_options = [
+    'minimalnaya_ploshhad' => 1,
+    'maksimalnaya_ploshhad' => 1,
+    'minimalnaya_cena_za_kvm' => 1,
+];
+@endphp
 @section('content')
 
 
@@ -22,6 +29,7 @@
                 <div id="" class="owl-carousel slider1" onclick="showModal({{ $item->id }})">
                     @foreach ($item->imagesActive as $key => $image)
                         <div class="item">
+
                             <img src="{{ url('storage/items/' . $item->id . '/' . $image->file) }}" />
                         </div>
                     @endforeach
@@ -61,7 +69,7 @@
                             </div>
                             <div class="content-object-card-information-list-text-info">
                                 От
-                                {{ number_format(($item->options['minimalnaya_cena_za_kvm']['value_title'] ?? 0) * ($item->options['minimalnaya_ploshhad']['value_title'] ?? 0), 0, ',', ' ') }}
+                                {{ number_format(($item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ($item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
                                 ₽
                             </div>
                         </div>
@@ -71,14 +79,15 @@
                             @include('components.svg.item_square')
                         </div>
                         <div class="content-object-card-information-list-text">
-                            <div class="content-object-card-information-list-text-tile">Минимальная площадь</div>
+                            <div class="content-object-card-information-list-text-tile">Площадь м² от - до</div>
                             <div class="content-object-card-information-list-text-info">
-                                От
-                                {{ $item->options['minimalnaya_ploshhad']['value_title'] ?? '--' }}
-                                м²
+                                {{ $item->options['minimalnaya_ploshhad']->value_title ?? '--' }}
+                                -
+                                {{ $item->options['maksimalnaya_ploshhad']->value_title ?? '--' }}
                             </div>
                         </div>
                     </div>
+                    {{-- это убираем или заменяем на другое свойство
                     @if ($item->bed_rooms != null && $item->bed_rooms > 0)
                         <div class="content-object-card-information-list">
                             <div class="content-object-card-information-list-img">
@@ -94,22 +103,20 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
-                    @if ($item->bath_rooms != null && $item->bath_rooms > 0)
-                        <div class="content-object-card-information-list">
-                            <div class="content-object-card-information-list-img">
-                                @include('components.svg.item_price')
-                            </div>
-                            <div class="content-object-card-information-list-text">
-                                <div class="content-object-card-information-list-text-tile">Минимальная цена за кв.м.</div>
-                                <div class="content-object-card-information-list-text-info">
-                                    От
-                                    {{ number_format($item->options['minimalnaya_cena_za_kvm']['value_title'], 0, ',', ' ') ?? '--' }}
-                                    м²
-                                </div>
+                    @endif --}}
+                    <div class="content-object-card-information-list">
+                        <div class="content-object-card-information-list-img">
+                            @include('components.svg.item_price')
+                        </div>
+                        <div class="content-object-card-information-list-text">
+                            <div class="content-object-card-information-list-text-tile">Минимальная цена за кв.м.</div>
+                            <div class="content-object-card-information-list-text-info">
+                                От
+                                {{ number_format($item->options['minimalnaya_cena_za_kvm']->value_title, 0, ',', ' ') ?? '--' }}
+                                м²
                             </div>
                         </div>
-                    @endif
+                    </div>
                     <div class="row no-gutters">
                         <input type="hidden" name="item_id" id="item_id" value="{{ $item->id }}">
                         <div
@@ -153,6 +160,14 @@
                 {!! $item->description !!}
             </p>
         </div>
+        @php
+            $itemoptions = [];
+            foreach ($item->options as $ik => $iv) {
+                if (!isset($main_options[$ik])) {
+                    $itemoptions[] = $iv;
+                }
+            }
+        @endphp
         <div class="row no-gutters">
             <h2 class="content-object-card-around-title col-11 col-xl-12">Характеристики</h2>
             <div class="content-object-card-parametr-list col-11 col-xl-12">

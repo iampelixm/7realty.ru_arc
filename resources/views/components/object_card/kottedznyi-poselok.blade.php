@@ -25,7 +25,7 @@
                           </div>
                           <div class="content-specials-pref-list-info__text">
                               От
-                              {{ $item->options['minimalnaya_ploshhad']['value_title'] ?? '--' }}
+                              {{ $item->options['minimalnaya_ploshhad']->value_title ?? '--' }}
                               м²
                           </div>
                       </div>
@@ -36,7 +36,7 @@
                               </div>
                               <div class="content-specials-pref-list-info__text">
                                   До
-                                  {{ $item->options['maksimalnaya_ploshhad']['value_title'] ?? '--' }}
+                                  {{ $item->options['maksimalnaya_ploshhad']->value_title ?? '--' }}
                                   м²
                               </div>
                           @endif
@@ -50,7 +50,7 @@
                               </div>
                               <div class="content-specials-pref-list-info__text">
                                   От
-                                  {{ $item->options['minimalnaya_cena_za_kvm']['value_title'] ?? '--' }}
+                                  {{ $item->options['minimalnaya_cena_za_kvm']->value_title ?? '--' }}
                                   м²
                               </div>
                           @endif
@@ -66,7 +66,7 @@
                           <div class="content-specials-price-info">
                               <p class="content-specials-price-info__p">
                                   От
-                                  {{ number_format(($item->options['minimalnaya_cena_za_kvm']['value_title'] ?? 0) * ($item->options['minimalnaya_ploshhad']['value_title'] ?? 0), 0, ',', ' ') }}
+                                  {{ number_format(($item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ($item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
                                   ₽</p>
                           </div>
                           <div class="content-specials-link"><button class="content-specials-link__button"

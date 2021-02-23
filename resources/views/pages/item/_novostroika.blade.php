@@ -24,11 +24,7 @@ $main_options = [
 
             <div class="col-12 col-md-4 px-2 px-md-none">
                 <div class="content-object-card-information">
-                    @if (view()->exists('pages.item.parts.slider_info_' . $item->type->slug))
-                        @include(('pages.item.parts.slider_info_' . $item->type->slug))
-                    @else
-                        @include('pages.item.parts.slider_info_default')
-                    @endif
+                    @include('pages.item.parts.slider_info_novostroika')
                     @include('pages.item.parts.slider_request_form')
 
                 </div>

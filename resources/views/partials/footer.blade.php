@@ -77,8 +77,6 @@
                         <div class="row no-gutters">
                             <div class="col">
                                 <h3 class="footer-links-div__h3">Компания</h3>
-                                <p class="footer-links-div__p"><a href="{{ route('site.get_page', 'why_we') }}">Наша
-                                        команда</a></p>
                                 <p class="footer-links-div__p"><a href="/about">О
                                         компании</a></p>
                                 <p class="footer-links-div__p"><a href="/work">Работа
@@ -209,11 +207,9 @@
                 <div>
                     <p class="mobile-footer-content-for-life__p">Компания</p>
                 </div>
-                <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.team') }}">Наша команда</a>
+                <div><a class="mobile-footer-content-for-life__a" href="/about">О компании</a>
                 </div>
-                <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.aboutus') }}">О компании</a>
-                </div>
-                <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.get_page', 'work') }}">Работа
+                <div><a class="mobile-footer-content-for-life__a" href="/work">Работа
                         в Se7en</a></div>
                 {{-- <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.aboutus') }}">Помему мы?</a></div> --}}
                 <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.clients') }}">Наши клиенты</a>

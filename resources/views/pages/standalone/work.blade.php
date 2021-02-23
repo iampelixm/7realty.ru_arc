@@ -113,7 +113,8 @@
                 </p>
             </div>
         </div>
-        <a href="{{ route('site.get_page', 'vakansii') }}" class="sevenboxtitle"
+
+        <a href="https://sochi.hh.ru/employer/5137663" class="sevenboxtitle"
             style="text-decration: none; border: 1px solid #C1A771; border-radius: 25px">НАШИ ВАКАНСИИ</a>
     </div>
 
@@ -191,7 +192,9 @@
             </p>
 
         </div>
-        <a href="{{ route('site.get_page', 'vakansii') }}" class="sevenboxtitle"
+
+        <a href="https://sochi.hh.ru/employer/5137663" class="sevenboxtitle"
+
             style="text-decration: none; border: 1px solid #C1A771; border-radius: 25px; white-space: nowrap">НАШИ
             ВАКАНСИИ</a>
     </div>

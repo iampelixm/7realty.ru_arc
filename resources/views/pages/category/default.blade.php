@@ -15,6 +15,7 @@
     <!-- Блок просмотра объекта -->
     <div class="content-residential mb-4 d-flex flex-wrap" id="cardContainer">
         <div id="cards" class="active">
+
             @php $index = 0 @endphp
             @foreach ($list as $item)
                 @if (view()->exists('components.object_card.' . $item->type->slug))

@@ -17,7 +17,7 @@
         <div id="cards" class="active">
             @php $index = 0 @endphp
             @foreach ($list as $item)
-                @include('components.object_card.kottedzhnie_poselki')
+                @include('components.object_card.kottedznyi-poselok')
             @endforeach
         </div>
         <div id="map"></div>
