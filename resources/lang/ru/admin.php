@@ -184,5 +184,6 @@ return [
     'filter_by_city'                => 'Город',
     'filter_by_broker'              => 'Ответственный',
     'filter_by_active'              => 'Активность',
+    'option_slug'                   => 'В транслите без пробелов'
 
 ];

@@ -46,7 +46,7 @@ class OptionController extends Controller
             'active'          => $r->active ? 1 : 0,
             'method_input'    => $r->method_input,
             'values'          => json_encode($r->value),
-            'slug'            => $r->slug,
+            'slug'            => $r->slug, //add slug
         ]);
 
         $types = $r->types;
