@@ -31,15 +31,13 @@
                 </div>
             </div>
             <div class="content-specials-pref-list-info">
-                @if ($slider_item->bed_rooms != null && $slider_item->bed_rooms > 0)
-                    <div class="content-specials-pref-list-info__ico">
-                        @include('components.svg.item_square')
-                    </div>
-                    <div class="content-specials-pref-list-info__text">
-                        {{ $slider_item->options['maksimalnaya_ploshhad']->value_title ?? '--' }}
-                        м²
-                    </div>
-                @endif
+                <div class="content-specials-pref-list-info__ico">
+                    @include('components.svg.item_square')
+                </div>
+                <div class="content-specials-pref-list-info__text">
+                    {{ $slider_item->options['maksimalnaya_ploshhad']->value_title ?? '--' }}
+                    м²
+                </div>
             </div>
         </div>
         <div class="content-specials-pref-list">
@@ -49,7 +47,7 @@
                 </div>
                 <div class="content-specials-pref-list-info__text">
                     От
-                    {{ number_format($slider_item->options['minimalnaya_cena_za_kvm']->value_title, 0, ',', ' ') ?? '--' }}
+                    {{ number_format((int) $slider_item->options['minimalnaya_cena_za_kvm']->value_title ?? 0, 0, ',', ' ') ?? '--' }}
                     м²
                 </div>
             </div>
@@ -60,7 +58,7 @@
             <div class="content-specials-price-info">
                 <p class="content-specials-price-info__p">
                     От
-                    {{ number_format(($slider_item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ($slider_item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
+                    {{ number_format(((int) $slider_item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ((int) $slider_item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
                     ₽
                 </p>
             </div>
