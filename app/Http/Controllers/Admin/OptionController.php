@@ -47,7 +47,7 @@ class OptionController extends Controller
             'active'          => $r->active ? 1 : 0,
             'method_input'    => $r->method_input,
             'values'          => json_encode($r->value),
-            'slug'            => $r->slug ?? Str::slug($r->name), //add slug
+            'slug'            => $r->slug ?? Str::slug($r->name, '_'), //add slug
         ]);
 
         $types = $r->types;
@@ -103,7 +103,7 @@ class OptionController extends Controller
         $option->active         = $r->active ? 1 : 0;
         $option->method_input   = $r->method_input;
         $option->values         = json_encode($r->value);
-        $option->slug           = $r->slug ?? Str::slug($r->name);
+        $option->slug           = $r->slug ?? Str::slug($r->name, '_');
         $option->save();
 
         OptionType::where('option_id', $option->id)->delete();

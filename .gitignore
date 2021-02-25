@@ -15,3 +15,4 @@ yarn-error.log
 sftp-config.json
 composer.lock
 .git_old
+..env.swp

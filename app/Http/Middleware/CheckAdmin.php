@@ -3,7 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 
 class CheckAdmin
 {
@@ -18,12 +19,14 @@ class CheckAdmin
     {
         if (Auth::guard($guard)->check()) {
 
-            if (Auth::guard($guard)->user()->role != 'admin' &&
+            if (
+                Auth::guard($guard)->user()->role != 'admin' &&
                 Auth::guard($guard)->user()->role != 'broker' &&
-                Auth::guard($guard)->user()->role != 'moderator') {
+                Auth::guard($guard)->user()->role != 'moderator'
+            ) {
                 abort(403, 'Нет доступа к административной панели');
             }
         }
-        return $next($request); 
+        return $next($request);
     }
 }

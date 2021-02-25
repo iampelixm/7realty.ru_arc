@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label for="">{{ __('admin.option_slug') }}</label>
                 <input type="text" class="form-control" name="slug" placeholder="{{ __('admin.option_slug') }}"
-                    value="{{ old('slug') ?? '' }}" required>
+                    value="{{ old('slug') ?? '' }}">
             </div>
 
             <div class="form-group">
