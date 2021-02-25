@@ -66,7 +66,7 @@
                           <div class="content-specials-price-info">
                               <p class="content-specials-price-info__p">
                                   От
-                                  {{ number_format(($item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ($item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
+                                  {{ number_format(($item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ($item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') ?? 0 }}
                                   ₽</p>
                           </div>
                           <div class="content-specials-link"><button class="content-specials-link__button"
