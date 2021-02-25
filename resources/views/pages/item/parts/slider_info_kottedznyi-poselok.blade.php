@@ -21,7 +21,7 @@
                             </div>
                             <div class="content-object-card-information-list-text-info">
                                 от
-                                {{ number_format(($item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ($item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
+                                {{ number_format(((int) $item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ((int) $item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
                                 ₽
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                             <div class="content-object-card-information-list-text-tile">Цена за м²</div>
                             <div class="content-object-card-information-list-text-info">
                                 от
-                                {{ number_format($item->options['minimalnaya_cena_za_kvm']->value_title, 0, ',', ' ') ?? '--' }}
+                                {{ number_format((int) $item->options['minimalnaya_cena_za_kvm']->value_title, 0, ',', ' ') ?? '--' }}
                                 ₽
                             </div>
                         </div>
