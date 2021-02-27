@@ -95,7 +95,7 @@ class CategoryController extends Controller
         } else {
 
         }
-        /*
+        */
     }
 
     public function listSpecial(Request $r, Category $category)
