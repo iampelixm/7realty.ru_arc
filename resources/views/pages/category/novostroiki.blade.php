@@ -16,9 +16,11 @@
     <div class="content-residential mb-4 d-flex flex-wrap" id="cardContainer">
         <div id="cards" class="active">
             @php $index = 0 @endphp
-            @foreach ($list as $item)
-                @include('components.object_card.novostroika')
-            @endforeach
+            @if (view()->exists('components.object_card.' . $item->type->slug))
+                @include(('components.object_card.' . $item->type->slug))
+            @else
+                @include('components.object_card.default')
+            @endif
         </div>
         <div id="map"></div>
         <div class="content-residential-pag w-100">
