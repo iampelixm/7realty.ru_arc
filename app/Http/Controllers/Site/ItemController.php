@@ -39,10 +39,11 @@ class ItemController extends Controller
             ->join('item_categories', 'items.id', '=', 'item_categories.item_id')
             ->whereIn('item_categories.category_id', $categoryArr)
             ->where('items.id', '<>', $item->id)
+            ->where('items.active', '=', 1)
             ->select('items.*')->groupBy('items.id')
             ->get();
 
-        $newItems = Item::where('area_id', $areaId)->with(['category' => function ($query) use ($categoryArr) {
+        $newItems = Item::where(['area_id' => $areaId, 'active' => 1])->with(['category' => function ($query) use ($categoryArr) {
             $query->whereIn('category_id', $categoryArr);
         }])->latest()->take(4)->groupBy('items.id')->get();
 

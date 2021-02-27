@@ -26,7 +26,11 @@
                     @include('components.svg.item_square')
                 </div>
                 <div class="content-specials-pref-list-info__text">
-                    {{ $slider_item->options['minimalnaya_ploshhad']->value_title ?? '--' }}
+                    @if (isset($slider_item->options['minimalnaya_ploshhad']))
+                        {{ $slider_item->options['minimalnaya_ploshhad']->value_title ?? '--' }}
+                    @else
+                        --
+                    @endif
                     м²
                 </div>
             </div>
@@ -35,7 +39,11 @@
                     @include('components.svg.item_square')
                 </div>
                 <div class="content-specials-pref-list-info__text">
-                    {{ $slider_item->options['maksimalnaya_ploshhad']->value_title ?? '--' }}
+                    @if (isset($slider_item->options['maksimalnaya_ploshhad']))
+                        {{ $slider_item->options['maksimalnaya_ploshhad']->value_title ?? '--' }}
+                    @else
+                        --
+                    @endif
                     м²
                 </div>
             </div>
@@ -46,8 +54,12 @@
                     @include('components.svg.item_price')
                 </div>
                 <div class="content-specials-pref-list-info__text">
-                    От
-                    {{ number_format((int) $slider_item->options['minimalnaya_cena_za_kvm']->value_title ?? 0, 0, ',', ' ') ?? '--' }}
+                    @if (isset($slider_item->options['minimalnaya_cena_za_kvm']))
+                        От
+                        {{ number_format((int) $slider_item->options['minimalnaya_cena_za_kvm']->value_title ?? 0, 0, ',', ' ') ?? '--' }}
+                    @else
+                        По запросу за
+                    @endif
                     м²
                 </div>
             </div>
@@ -57,9 +69,13 @@
         <div>
             <div class="content-specials-price-info">
                 <p class="content-specials-price-info__p">
-                    От
-                    {{ number_format(((int) $slider_item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ((int) $slider_item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
-                    ₽
+                    @if (isset($slider_item->options['minimalnaya_cena_za_kvm']) && isset($slider_item->options['minimalnaya_ploshhad']))
+                        От
+                        {{ number_format(((int) $slider_item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ((int) $slider_item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
+                        ₽
+                    @else
+                        По запросу
+                    @endif
                 </p>
             </div>
             <div class="content-specials-link"><button class="content-specials-link__button"

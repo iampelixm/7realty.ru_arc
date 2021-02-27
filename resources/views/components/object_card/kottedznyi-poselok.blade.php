@@ -25,21 +25,27 @@
                           </div>
                           <div class="content-specials-pref-list-info__text">
                               От
-                              {{ $item->options['minimalnaya_ploshhad']->value_title ?? '--' }}
+                              @if (isset($item->options['minimalnaya_ploshhad']))
+                                  {{ $item->options['minimalnaya_ploshhad']->value_title ?? '--' }}
+                              @else
+                                  --
+                              @endif
                               м²
                           </div>
                       </div>
                       <div class="content-specials-pref-list-info">
-                          @if ($item->bed_rooms != null && $item->bed_rooms > 0)
-                              <div class="content-specials-pref-list-info__ico">
-                                  @include('components.svg.square')
-                              </div>
-                              <div class="content-specials-pref-list-info__text">
-                                  До
+                          <div class="content-specials-pref-list-info__ico">
+                              @include('components.svg.square')
+                          </div>
+                          <div class="content-specials-pref-list-info__text">
+                              До
+                              @if (isset($item->options['maksimalnaya_ploshhad']))
                                   {{ $item->options['maksimalnaya_ploshhad']->value_title ?? '--' }}
-                                  м²
-                              </div>
-                          @endif
+                              @else
+                                  --
+                              @endif
+                              м²
+                          </div>
                       </div>
                   </div>
                   <div class="content-specials-pref-list">
@@ -50,7 +56,11 @@
                               </div>
                               <div class="content-specials-pref-list-info__text">
                                   От
-                                  {{ $item->options['minimalnaya_cena_za_kvm']->value_title ?? '--' }}
+                                  @if (isset($item->options['minimalnaya_cena_za_kvm']))
+                                      {{ $item->options['minimalnaya_cena_za_kvm']->value_title ?? '--' }}
+                                  @else
+                                      --
+                                  @endif
                                   м²
                               </div>
                           @endif
@@ -65,9 +75,13 @@
                       <div>
                           <div class="content-specials-price-info">
                               <p class="content-specials-price-info__p">
-                                  От
-                                  {{ number_format(((int) $item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ((int) $item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') ?? 0 }}
-                                  ₽
+                                  @if (isset($item->options['minimalnaya_cena_za_kvm']) && isset($item->options['minimalnaya_ploshhad']))
+                                      От
+                                      {{ number_format(((int) $item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ((int) $item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') ?? 0 }}
+                                      ₽
+                                  @else
+                                      По запросу
+                                  @endif
                               </p>
                           </div>
                           <div class="content-specials-link"><button class="content-specials-link__button"
