@@ -28,7 +28,7 @@ class ItemController extends Controller
 
         $areaId = $item->area->id ?? 0;
         $categoryArr = $item->category()->pluck('category_id')->toArray();
-        //Непонятно что хотели сказать этим куском кода
+        //Непонятно что хотели сказать этим куском кода, как задумано оно не работает
         // $similarItems = Item::where('area_id', $areaId)->with(['category' => function ($query) use ($categoryArr) {
         //     $query->whereIn('category_id', $categoryArr);
         // }])->get();
@@ -41,11 +41,17 @@ class ItemController extends Controller
             ->where('items.id', '<>', $item->id)
             ->where('items.active', '=', 1)
             ->select('items.*')->groupBy('items.id')
+            ->take(7)
             ->get();
 
-        $newItems = Item::where(['area_id' => $areaId, 'active' => 1])->with(['category' => function ($query) use ($categoryArr) {
-            $query->whereIn('category_id', $categoryArr);
-        }])->latest()->take(4)->groupBy('items.id')->get();
+        $newItems = Item::where(['area_id' => $areaId, 'active' => 1])
+            ->with(['category' => function ($query) use ($categoryArr) {
+                $query->whereIn('category_id', $categoryArr);
+            }])
+            ->latest()
+            ->take(4)
+            ->groupBy('items.id')
+            ->get();
 
         $page_title = $item->name . " | Seven";
         $template_data = compact('item', 'itemoptions', 'similarItems', 'newItems', 'meta_lon', 'meta_lat', 'page_title');
