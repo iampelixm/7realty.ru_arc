@@ -85,10 +85,7 @@
                 <div class="form-group">
                     <label for="">{{ __('admin.item-image-add') }}</label>
                     <input type="file" class="form-control" name="photos[]" multiple />
-
                 </div>
-
-
                 <button type="submit" class="btn btn-primary">{{ __('admin.add') }}</button>
             </form>
         </div>
