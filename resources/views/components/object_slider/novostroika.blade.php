@@ -2,7 +2,7 @@
 
     <div class="slide-image-div">
 
-        @foreach ($slider_item->imagesActive as $key2 => $slider_item_image)
+        @foreach ($slider_item->imagesActive->take(3) as $key2 => $slider_item_image)
             <div class="slide-image-div-image">
                 <img src="{{ url('storage/items/' . $slider_item->id . '/' . $slider_item_image->file) }}">
             </div>

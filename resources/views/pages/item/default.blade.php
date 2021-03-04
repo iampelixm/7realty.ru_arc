@@ -41,7 +41,7 @@ $main_options = [
         </div>
     </div>
     <!-- Описание -->
-    <div class="object-card-info">
+    <div class="object-card-info container">
         <div class="row no-gutters">
             <h2 class="content-object-card-info-title col-11 col-xl-12">Описание</h2>
             <p class="content-object-card-info__p col-11 col-xl-12">

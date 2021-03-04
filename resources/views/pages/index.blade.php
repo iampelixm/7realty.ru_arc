@@ -21,13 +21,14 @@
                     <div class="content-specials-list-slider">
                         {{-- <div class="content-specials-list-slider-left col-auto"><i class="fas fa-chevron-left"></i></div> --}}
                         <div class="slider-custom__three owl-carousel px-5">
-                            @foreach ($category->offerItems as $item)
+                            @foreach ($category->offerItems->take(7) as $item)
                                 <!-- 1 Block -->
                                 <div class="content-specials-list-slider-info">
                                     <div class="slide-image-div">
-                                        @foreach ($item->imagesActive as $image)
+                                        @foreach ($item->imagesActive->take(3) as $image)
                                             <div class="slide-image-div-image">
-                                                <img src="{{ url('storage/items/' . $item->id . '/' . $image->file) }}" alt>
+                                                <img src="{{ url('storage/items/' . $item->id . '/' . $image->file) }}"
+                                                    alt>
                                             </div>
                                         @endforeach
                                     </div>
