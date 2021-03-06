@@ -13,7 +13,7 @@
         @include('components.object_sort')
     </div>
     <!-- Блок просмотра объекта -->
-    <div class="content-residential mb-4 d-flex flex-wrap" id="cardContainer">
+    <div class="content-residential mb-4 d-flex flex-wrap cardContainer_closeMap" id="cardContainer">
         <div id="cards" class="active">
 
             @php $index = 0 @endphp
