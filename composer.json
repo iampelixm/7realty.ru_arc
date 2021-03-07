@@ -20,7 +20,8 @@
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.2",
-        "silber/bouncer": "v1.0.0-rc.10"
+        "silber/bouncer": "v1.0.0-rc.10",
+        "spatie/laravel-medialibrary": "^9.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

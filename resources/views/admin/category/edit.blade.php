@@ -100,10 +100,22 @@
         </form>
     </div>
 
-@endsection
+    <div>
+        <h2>Изображение категории</h2>
+        <p>Необходимо использовать квадратные изображения. Любые другие изображения будут обрезаны до квадрата.
+        <div style="width: 100px">
+            {{ $category->getFirstMedia('image')->img()->attributes(['width' => '200', 'height' => '']) }}
+        </div>
+        <form action="{{ route('admin.category.uploadimage', ['category' => $category]) }}" method="POST"
+            enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="image">
+            <button class="btn btn-success">Загрузить</button>
+        </form>
+    </div>
 
-@section('script')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    @endsection @section('script') <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 

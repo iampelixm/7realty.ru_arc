@@ -20,7 +20,12 @@
                                 @endif
                             </div>
                             <div class="content-object-card-information-list-text-info">
-                                {{ number_format($item->price, 0, ',', ' ') }} ₽</div>
+                                @if ($item->price)
+                                    {{ number_format($item->price, 0, ',', ' ') }} ₽
+                                @else
+                                    По запросу
+                                @endif
+                            </div>
                         </div>
                     </div>
                     <div class="content-object-card-information-list">
@@ -40,7 +45,8 @@
                             <div class="content-object-card-information-list-text">
 
                                 <div class="content-object-card-information-list-text-tile">Количество спален</div>
-                                <div class="content-object-card-information-list-text-info">{{ $item->bed_rooms }}</div>
+                                <div class="content-object-card-information-list-text-info">{{ $item->bed_rooms }}
+                                </div>
                             </div>
                         </div>
                     @endif
@@ -50,8 +56,10 @@
                                 @include('components.svg.item_bath_rooms')
                             </div>
                             <div class="content-object-card-information-list-text">
-                                <div class="content-object-card-information-list-text-tile">Количество ванных комнат</div>
-                                <div class="content-object-card-information-list-text-info">{{ $item->bath_rooms }}</div>
+                                <div class="content-object-card-information-list-text-tile">Количество ванных комнат
+                                </div>
+                                <div class="content-object-card-information-list-text-info">{{ $item->bath_rooms }}
+                                </div>
                             </div>
                         </div>
                     @endif

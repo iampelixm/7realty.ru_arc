@@ -151,7 +151,7 @@ class ItemsController extends Controller
         $areas     = Area::all();
         $googleMapsKey = config('googlemaps.key');
         $itemoptions = json_decode($item->option);
-        //dd($itemoptions);
+
         $itemcategorys = ItemCategory::where('item_id', $item->id)->pluck('category_id')->toArray();
 
         return view('admin.items.edit', compact('item', 'itemoptions', 'itemcategorys', 'types', 'categorys', 'options', 'residence', 'areas', 'googleMapsKey'));
@@ -167,9 +167,7 @@ class ItemsController extends Controller
     public function update(ItemEditRequest $r, Item $item)
     {
         $item->update($r->validated());
-
         $options = $this->getOption($r->option);
-
         $item->option = json_encode($options);
         if ($r->slug_change) {
             $item->slug = Str::slug($r->name);

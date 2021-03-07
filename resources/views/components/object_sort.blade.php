@@ -1,7 +1,4 @@
         <div class="row no-gutters px-3 px-lg-0 m-3 ">
-            <div class="content-residential-form-sort col-6">
-                <button id="switch-map" class="Button">Скрыть карту <i class="fas fa-map-marker-alt"></i></button>
-            </div>
             @php
                 $newurl = $fullurl;
                 if (strpos($newurl, 'orderprice=asc') > 0) {
@@ -15,7 +12,7 @@
                 }
             @endphp
             <div
-                class="content-residential-form-sort col-6 text-right align-items-center justify-content-end flex-wrap d-flex">
+                class="content-residential-form-sort col-6 text-left align-items-center justify-content-start flex-wrap d-flex">
                 сортировать по: <a href="{{ $newurl }}" class="ml-1">цене
                     @if (isset($filter['orderprice']) && $filter['orderprice'] == 'desc')
                         <i class="fas fa-sort-amount-down"></i>
@@ -26,4 +23,8 @@
                     @endif
                 </a>
             </div>
+            <div class="content-residential-form-sort col-6 text-right">
+                <button id="switch-map" class="Button">Скрыть карту <i class="fas fa-map-marker-alt"></i></button>
+            </div>
+
         </div>

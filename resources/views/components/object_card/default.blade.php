@@ -2,7 +2,9 @@
               <div class="slide-image-div">
                   @foreach ($item->imagesActive->take(3) as $image)
                       <div class="slide-image-div-image">
-                          <img src="{{ url('storage/items/' . $item->id . '/' . $image->file) }}" alt>
+                          <a href="{{ route('site.item.get', $item->slug) }}">
+                              <img src="{{ url('storage/items/' . $item->id . '/' . $image->file) }}" alt>
+                          </a>
                       </div>
                   @endforeach
               </div>
@@ -61,7 +63,8 @@
                   <div class="content-specials-choice">
                       <div>
                           <div class="content-specials-price-info">
-                              <p class="content-specials-price-info__p">{{ number_format($item->price, 0, ',', ' ') }}
+                              <p class="content-specials-price-info__p">
+                                  {{ number_format($item->price, 0, ',', ' ') }}
                                   ₽</p>
                           </div>
                           <div class="content-specials-link"><button class="content-specials-link__button"

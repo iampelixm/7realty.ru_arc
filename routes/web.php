@@ -116,7 +116,11 @@ Route::prefix('/admin')->namespace('Admin')->middleware('auth', 'check.admin')->
         Route::get('/{id}/delte/{comment}', 'CommetController@destroy')->name('delete');
     });
 
-    Route::get('categories/{category}/items', 'CategoryController@items')->name('category.items');
+    Route::prefix('categories/{category}')->name('category.')->group(function () {
+        Route::get('/items', 'CategoryController@items')->name('items');
+        Route::post('/uploadimage', 'CategoryController@updateImage')->name('uploadimage');
+    });
+
     Route::get('areas/{area}/items', 'AreaController@items')->name('areas.items');
     Route::get('types/{type}/items', 'TypesController@items')->name('types.items');
 

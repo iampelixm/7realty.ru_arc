@@ -46,7 +46,7 @@ class CategoryController extends Controller
     {
         $itemCategory = Category::create($r->validated());
 
-        if (!$r->main){
+        if (!$r->main) {
             $mainCategories = $r->maincategories;
             foreach ($mainCategories as $item) {
                 CategoryToCategory::create([
@@ -54,7 +54,7 @@ class CategoryController extends Controller
                     'category_id'   =>  $itemCategory->id,
                 ]);
             }
-        } 
+        }
 
         $itemCategory->slug = Str::slug($r->name);
         $itemCategory->save();
@@ -120,9 +120,9 @@ class CategoryController extends Controller
 
         CategoryToCategory::where('category_id', $category->id)->delete();
 
-        if (!$r->main){
+        if (!$r->main) {
             $mainCategories = $r->maincategories;
-            if (!empty($mainCategories)){
+            if (!empty($mainCategories)) {
                 foreach ($mainCategories as $item) {
                     CategoryToCategory::create([
                         'main_id'       =>  $item,
@@ -130,7 +130,7 @@ class CategoryController extends Controller
                     ]);
                 }
             }
-        } 
+        }
 
         CategoryType::where('category_id', $category->id)->delete();
         $types = $r->types;
@@ -158,19 +158,19 @@ class CategoryController extends Controller
             $category->delete();
         } catch (\Exception $e) {
             return response()->json([
-                    'success' => false,
-                    'errors'  => $e->getMessage(),
+                'success' => false,
+                'errors'  => $e->getMessage(),
             ]);
         }
 
         return response()->json([
-                'success' => true,
+            'success' => true,
         ]);
     }
 
     public function editStatus(Request $r, Category $category)
     {
-        if($category) {
+        if ($category) {
             $category->active = (int) $r->active;
             $category->save();
             return ['success' => 'Статус изменен'];
@@ -181,10 +181,10 @@ class CategoryController extends Controller
 
     public function editOffer(Request $r, Category $category)
     {
-        if($r->active) {
-            $category->offer_index = 100;     
+        if ($r->active) {
+            $category->offer_index = 100;
         } else {
-            $category->offer_index = 0;  
+            $category->offer_index = 0;
         }
 
         $category->save();
@@ -193,7 +193,7 @@ class CategoryController extends Controller
 
     public function editShowMain(Request $r, Category $category)
     {
-        if($category) {
+        if ($category) {
             $category->show_main = (int) $r->active;
             $category->save();
             return ['success' => 'Статус изменен'];
@@ -204,7 +204,7 @@ class CategoryController extends Controller
 
     public function editShowMenu(Request $r, Category $category)
     {
-        if($category) {
+        if ($category) {
             $category->menu_active = (int) $r->active;
             $category->save();
             return ['success' => 'Статус изменен'];
@@ -228,25 +228,38 @@ class CategoryController extends Controller
 
     public function apiGetCategory(Request $r)
     {
-        
 
-        $typeSelected = $r->type; 
+
+        $typeSelected = $r->type;
         if ($typeSelected == 0) {
-            return ['results' => [], 'pagination'=> ['more' => false]];
+            return ['results' => [], 'pagination' => ['more' => false]];
         }
 
         $list = Category::whereHas('typesId',  function ($query) use ($typeSelected) {
-                $query->where('type_id', '=', $typeSelected);
-            })->get();
-       
-        $data = array(); $i = 0;
+            $query->where('type_id', '=', $typeSelected);
+        })->get();
+
+        $data = array();
+        $i = 0;
         foreach ($list as $item) {
             $data[$i]['id'] = $item->id;
             $data[$i]['text'] = $item->name;
             $i++;
         }
 
-       return ['status' => 'true', 'list' => $data];
+        return ['status' => 'true', 'list' => $data];
+    }
 
+    public function updateImage(Request $request, Category $category)
+    {
+        if ($request->image) {
+            $path = 'categories/' . $category->id;
+            $photo = $request->image;
+            $uploaded_path = 'storage/' . $photo->store($path, 'public');
+            $category->clearMediaCollection('image');
+            $category->addMedia($uploaded_path)
+                ->withResponsiveImages()
+                ->toMediaCollection('image');
+        }
     }
 }

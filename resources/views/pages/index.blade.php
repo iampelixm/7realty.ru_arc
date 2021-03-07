@@ -162,8 +162,6 @@
                                     </div>
                                 </div>
 
-
-
                             @endforeach
 
                         </div>
@@ -189,30 +187,13 @@
                         src="/users/image/partners/p4.png" alt="partner"></div>
                 <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
                         src="/users/image/partners/p7.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p10.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p13.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p2.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p5.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p8.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p11.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p14.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p3.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p6.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p9.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p12.png" alt="partner"></div>
-                <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
-                        src="/users/image/partners/p15.png" alt="partner"></div>
+                <div class="col-12 col-sm-4 col-lg-2 text-center d-none d-md-block"><img
+                        class="img-fluid img-fluid--partners" src="/users/image/partners/p10.png" alt="partner"></div>
+                <div class="col-12 col-sm-4 col-lg-2 text-center d-none d-md-block"><img
+                        class="img-fluid img-fluid--partners" src="/users/image/partners/p13.png" alt="partner"></div>
+                <div class="col-12 col-sm-4 col-lg-2 text-center d-none d-md-block"><img
+                        class="img-fluid img-fluid--partners" src="/users/image/partners/p2.png" alt="partner"></div>
+
             </div>
             <div class="content-partners-all">
                 <button type="button" class="content-partners-all__button">Все партнеры</button>

@@ -2,7 +2,9 @@
               <div class="slide-image-div">
                   @foreach ($item->imagesActive->take(3) as $image)
                       <div class="slide-image-div-image">
-                          <img src="{{ url('storage/items/' . $item->id . '/' . $image->file) }}" alt>
+                          <a href="{{ route('site.item.get', $item->slug) }}">
+                              <img src="{{ url('storage/items/' . $item->id . '/' . $image->file) }}" alt>
+                          </a>
                       </div>
                   @endforeach
               </div>

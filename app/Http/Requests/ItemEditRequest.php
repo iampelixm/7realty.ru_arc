@@ -34,7 +34,8 @@ class ItemEditRequest extends FormRequest
             'offer_index'   =>  'nullable|numeric|max:100',
             'active'        =>  'required|boolean',
             'slug'          =>  'unique:items,slug,' . $this->route()->parameter('item')->id,
-            'user_id'       =>  'nullable'
+            'user_id'       =>  'nullable',
+            'remark'        =>  'string|nullable',
 
         ];
     }
