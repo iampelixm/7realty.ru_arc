@@ -103,9 +103,11 @@
     <div>
         <h2>Изображение категории</h2>
         <p>Необходимо использовать квадратные изображения. Любые другие изображения будут обрезаны до квадрата.
-        <div style="width: 100px">
-            {{ $category->getFirstMedia('image')->img()->attributes(['width' => '200', 'height' => '']) }}
-        </div>
+            @if ($category->getFirstMedia('image'))
+                <div style="width: 100px">
+                    {{ $category->getFirstMedia('image')->img()->attributes(['width' => '200', 'height' => '']) }}
+                </div>
+            @endif
         <form action="{{ route('admin.category.uploadimage', ['category' => $category]) }}" method="POST"
             enctype="multipart/form-data">
             @csrf

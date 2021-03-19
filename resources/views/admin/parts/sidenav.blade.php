@@ -30,13 +30,43 @@
                     <span class="nav-label">{{ __('admin.profile') }}</span>
                 </a>
             </li>
-
-            <li class="">
+            {{-- <li class="">
                 <a href="{{ route('admin.index') }}">
                     <i class="fa fa-home"></i>
                     <span class="nav-label">{{ __('admin.index') }}</span>
                 </a>
-            </li>
+            </li> --}}
+            @can('manageSiteSettings')
+                <li class="{{ Request::is('admin/sitesettings') ? 'mm-active' : '' }}">
+                    <a href="#">
+                        <i class="fas fa-tools"></i>
+                        <span class="nav-label">{{ __('admin.menu-sitesettings') }}</span>
+                        <span class="fa arrow"></span>
+                    </a>
+
+                    <ul class="nav nav-second-level collapse">
+                        <li class="{{ Request::is('admin/sitesettings/') ? 'mm-active' : '' }}">
+                            <a href="{{ route('admin.sitesettings.index') }}">
+                                <i class="fas fa-tools"></i>
+                                <span class="nav-label">{{ __('admin.menu-sitesettings-common') }}</span>
+                            </a>
+                        </li>
+                        <li class="{{ Request::is('admin/sitesettings/mainpagebanner') ? 'mm-active' : '' }}">
+                            <a href="{{ route('admin.sitesettings.mainpagebanner') }}">
+                                <i class="fas fa-certificate"></i>
+                                <span class="nav-label"> {{ __('admin.menu-sitesettings-banner') }}</span>
+                            </a>
+                        </li>
+
+                        <li class="{{ Request::is('admin/special/offers/category*') ? 'mm-active' : '' }}">
+                            <a href="{{ route('admin.category.offers.list') }}">
+                                <i class="fas fa-certificate"></i>
+                                <span class="nav-label"> {{ __('admin.menu-categories') }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
 
             @can('manageItemActivity')
                 <li class="">

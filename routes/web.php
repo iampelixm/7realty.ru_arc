@@ -23,17 +23,18 @@ Auth::routes([
 Route::get('/', 'MainController@index')->middleware('city')->name('home');
 
 
-//Роуты отдельных страниц отдельного дизайна
-Route::get('/about', function () {
-    return view('pages.standalone.about');
-});
-
-Route::get('/work', function () {
-    return view('pages.standalone.work');
-});
-
 // Роуты публичной части сайта
 Route::prefix('/')->namespace('Site')->name('site.')->middleware('city')->group(function () {
+
+    // Роуты отдельных страниц отдельного дизайна
+    Route::get('about', function () {
+        return view('pages.standalone.about');
+    });
+
+    Route::get('work', function () {
+        return view('pages.standalone.work');
+    });
+
     Route::get('/change/city/{city}', 'CityController@changeCity')->name('change_city');
     Route::get('/category/{category:slug}', 'CategoryController@list')->name('get_category');
     Route::get('/special/category/{category:slug}', 'CategoryController@listSpecial')->name('get_category_special');
@@ -100,11 +101,19 @@ Route::prefix('/admin')->namespace('Admin')->middleware('auth', 'check.admin')->
     // Опции обьектов
     Route::resource('options', 'OptionController');
 
-    // Райони
+    // Районы
     Route::resource('areas', 'AreaController');
 
-    // Райони
+    // Страницы
     Route::resource('pages', 'PageController');
+
+    //настройки для сайта
+    Route::resource('sitesettings', 'SiteSettingController');
+
+    Route::prefix('/settings')->name('sitesettings.')->group(function () {
+        Route::get('/mpbanner', 'SiteSettingController@mainPageBannerIndex')->name('mainpagebanner');
+        Route::post('/mpbanner/upload', 'SiteSettingController@mainPageBannerUpload')->name('mainpagebanner.upload');
+    });
 
     // Коментарии
     Route::prefix('/comments/{type}')->name('comments.')->group(function () {

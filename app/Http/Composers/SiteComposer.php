@@ -14,6 +14,7 @@ use App\Models\Residence;
 use App\Models\UserFavorite;
 use App\Models\Area;
 use App\Models\Item;
+use App\Models\SiteSetting;
 use Carbon\Carbon;
 use Cookie;
 use URL;
@@ -91,6 +92,8 @@ class SiteComposer
             $massFav = UserFavorite::where('user_id', $user->id)->pluck('item_id')->toArray();
         }
 
+        $site_settings = (object)SiteSetting::all()->pluck('value', 'name')->all();
+
         $view->with([
             'active'              => Route::currentRouteName(),
             'action'              => URL::current(),
@@ -112,6 +115,7 @@ class SiteComposer
             'current_areas'       => $current_areas,
             'category_menu'       => $category_menu,
             'areaMas'             => $areaMas,
+            'site_settings'       => $site_settings,
 
         ]);
     }

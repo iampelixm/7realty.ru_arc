@@ -2,9 +2,74 @@
 
 @section('content')
 
-    @include('partials.category_block')
-    <!-- Блок Спецпредложений -->
 
+    @if ($site_settings->mainpage_show_banner ?? '')
+        <div class="container-fluid">
+            <div class="px-3">
+                <div id="" class="owl-carousel mainpage_slider" onclick="">
+                    @foreach (App\Models\SiteSetting::firstOrCreate(['name' => 'mainpage_show_banner'])->getMedia('MainPageBanner') as $banner)
+                        <div class="item">
+                            {{ $banner->img()->attributes(['width' => '100%', 'height' => '']) }}
+                            {{-- $banner->img() --}}
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
+    @if ($site_settings->mainpage_show_zhb ?? '')
+        @include('partials.category_block')
+    @endif
+    @if ($site_settings->mainpage_show_category_image ?? '')
+        <!--  Баннера категорий -->
+        <div class="container-fluid px-4">
+            <div class="row px-2">
+                @foreach (\App\Models\Category::where(['show_main' => 1])->get() as $mainpage_category)
+                    @if (!collect($mainpage_category->items)->isEmpty())
+                        @if ($mainpage_category->getFirstMedia('image'))
+                            <div class="col-md-6">
+                                {{ $mainpage_category->getFirstMedia('image')->img()->attributes(['width' => '100%', 'height' => '']) }}
+                            </div>
+                        @endif
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    @endif
+    @if ($site_settings->mainpage_show_video ?? '')
+        @if ($site_settings->mainpage_video ?? '')
+            <div class="container-fluid text-center px-4">
+                <div class="row px-2">
+                    <div class="col">
+                        <video id="mainpage_video" class="video-js vjs-default-skin vjs-fluid vjs-fill" controls autoplay
+                            width="640" height="264"
+                            data-setup='
+                                {
+                                    "techOrder": [
+                                    "youtube"
+                                    ],
+                                "sources": [
+                                    {
+                                        "type": "video/youtube",
+                                        "src": "{{ $site_settings->mainpage_video }}"
+                                    }
+                                        ],
+                                        "youtube": {
+                                            "ytControls": 0,
+                                            "rel": 0,
+                                            "iv_load_policy": 3,
+                                            "showinfo": 0,
+                                            "modestbranding": 0
+                                        }
+                                }'>
+                        </video>
+                    </div>
+                </div>
+            </div>
+        @endif
+    @endif
+    <!-- Блок Спецпредложений -->
+    @if($site_settings->mainpage_show_special ?? '')
     @if ($specialItemCount > 0)
         <div class="content-specials content-specials_position">
             <div class="content-specials-info content-specials-info_position_center">
@@ -171,6 +236,7 @@
             @endforeach
 
         </div>
+    @endif
     @endif
     <!-- Блок Спецпредложений КОНЕЦ-->
     <!-- Блок Партнеров -->

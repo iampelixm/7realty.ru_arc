@@ -42,7 +42,10 @@
     <!-- Footer -->
     @include('partials/footer')
     <!-- Всплывающие окна -->
-    @include('partials/modals')
+
+    {{-- этот пиздец засирает страницу --}}
+    {{-- @include('partials/modals') --}}
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
