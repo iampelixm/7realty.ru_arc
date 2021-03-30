@@ -4,8 +4,8 @@
     <div class="ibox-title">
         <h2>{{ __('admin.pages_list') }}</h2>
         <div class="ibox-tools">
-            <a href="{{ route('admin.pages.create') }}">
-                <i class="fa fa-plus"></i>
+            <a href="{{ route('admin.pages.create', ['section'=>request()->section]) }}">
+                Создать <i class="fa fa-plus"></i>
             </a>
         </div>
     </div>
@@ -18,6 +18,7 @@
                             <th>id</th>
                             <th>{{ __('admin.page_name') }}</th>
                             <th>{{ __('admin.page_slug') }}</th>
+                            <th>{{ __('admin.page_section') }}</th>
                             <th>{{ __('admin.active') }}</th>
                             <th>{{ __('admin.page_created') }}</th>
                             <th class="buttons__"></th>
@@ -29,7 +30,7 @@
                                 <td>{{ $item->id }}</td>
                                 <td><a href="#">{{ $item->name }}</a></td>
                                 <td>{{ $item->slug }}</td>
-
+                                <td>{{ $item->section }}</td>
                                 <td>
                                     <input data-url="{{ route('admin.api.page.edit_status', $item->id) }}" name="status"
                                         type="checkbox" class="ajaxBtnInput" @if ($item->active) checked @endif>

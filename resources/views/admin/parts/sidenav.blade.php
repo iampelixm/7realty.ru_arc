@@ -194,9 +194,36 @@
 
             @can('view', 'App\Models\Page')
                 <li class="{{ Request::is('admin/pages*') ? 'mm-active' : '' }}">
-                    <a href="{{ route('admin.pages.index') }}">
+                    <a href="{{ route('admin.pages.index', ['section'=>'top']) }}">
                         <i class="fas fa-columns"></i>
-                        <span class="nav-label">{{ __('admin.menu-pages') }}</span>
+                        <span class="nav-label">{{ __('admin.menu-pages-top') }}</span>
+                    </a>
+                </li>
+            @endcan
+
+            @can('view', 'App\Models\Page')
+                <li class="{{ Request::is('admin/pages*') ? 'mm-active' : '' }}">
+                    <a href="{{ route('admin.pages.index', ['section'=>'news']) }}">
+                        <i class="fas fa-columns"></i>
+                        <span class="nav-label">{{ __('admin.menu-pages-news') }}</span>
+                    </a>
+                </li>
+            @endcan
+
+            @can('view', 'App\Models\Page')
+                <li class="{{ Request::is('admin/pages*') ? 'mm-active' : '' }}">
+                    <a href="{{ route('admin.pages.index', ['section'=>'analytics']) }}">
+                        <i class="fas fa-columns"></i>
+                        <span class="nav-label">{{ __('admin.menu-pages-analytics') }}</span>
+                    </a>
+                </li>
+            @endcan
+
+            @can('view', 'App\Models\Page')
+                <li class="{{ Request::is('admin/pages*') ? 'mm-active' : '' }}">
+                    <a href="{{ route('admin.pages.index', ['section'=>'webinars']) }}">
+                        <i class="fas fa-columns"></i>
+                        <span class="nav-label">{{ __('admin.menu-pages-webinar') }}</span>
                     </a>
                 </li>
             @endcan

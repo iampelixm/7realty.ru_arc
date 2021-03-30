@@ -147,4 +147,18 @@ class SiteSettingController extends Controller
         }
         return redirect(route('admin.sitesettings.mainpagebanner'));
     }
+
+    public function mainPageBannerSetOrder(Request $request)
+    {
+        Media::setNewOrder($request->input('images'));
+        return 'ok';
+    }
+
+    public function mainPageBannerDeleteImage($item, Request $request)
+    {
+        $banner_model = SiteSetting::firstOrCreate(['name' => 'mainpage_show_banner']);
+        $media= $banner_model->getMedia('MainPageBanner');
+        $banner_model->getMedia('MainPageBanner')[$item]->delete();
+        return '';
+    }
 }

@@ -26116,6 +26116,53 @@ return $.extend( $.expr[ ":" ], {
 
 /***/ }),
 
+/***/ "./node_modules/jquery-ui/ui/i18n/datepicker-ru.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/jquery-ui/ui/i18n/datepicker-ru.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Russian (UTF-8) initialisation for the jQuery UI date picker plugin. */
+/* Written by Andrew Stromnov (stromnov@gmail.com). */
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(/*! ../widgets/datepicker */ "./node_modules/jquery-ui/ui/widgets/datepicker.js") ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}( function( datepicker ) {
+
+datepicker.regional.ru = {
+	closeText: "Закрыть",
+	prevText: "&#x3C;Пред",
+	nextText: "След&#x3E;",
+	currentText: "Сегодня",
+	monthNames: [ "Январь","Февраль","Март","Апрель","Май","Июнь",
+	"Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь" ],
+	monthNamesShort: [ "Янв","Фев","Мар","Апр","Май","Июн",
+	"Июл","Авг","Сен","Окт","Ноя","Дек" ],
+	dayNames: [ "воскресенье","понедельник","вторник","среда","четверг","пятница","суббота" ],
+	dayNamesShort: [ "вск","пнд","втр","срд","чтв","птн","сбт" ],
+	dayNamesMin: [ "Вс","Пн","Вт","Ср","Чт","Пт","Сб" ],
+	weekHeader: "Нед",
+	dateFormat: "dd.mm.yy",
+	firstDay: 1,
+	isRTL: false,
+	showMonthAfterYear: false,
+	yearSuffix: "" };
+datepicker.setDefaults( datepicker.regional.ru );
+
+return datepicker.regional.ru;
+
+} ) );
+
+
+/***/ }),
+
 /***/ "./node_modules/jquery-ui/ui/ie.js":
 /*!*****************************************!*\
   !*** ./node_modules/jquery-ui/ui/ie.js ***!
@@ -80761,10 +80808,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var jquery_ui_ui_widgets_datepicker_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery-ui/ui/widgets/datepicker.js */ "./node_modules/jquery-ui/ui/widgets/datepicker.js");
 /* harmony import */ var jquery_ui_ui_widgets_datepicker_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_datepicker_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var jquery_ui_ui_widgets_draggable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery-ui/ui/widgets/draggable.js */ "./node_modules/jquery-ui/ui/widgets/draggable.js");
-/* harmony import */ var jquery_ui_ui_widgets_draggable_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_draggable_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var jquery_ui_ui_widgets_sortable_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery-ui/ui/widgets/sortable.js */ "./node_modules/jquery-ui/ui/widgets/sortable.js");
-/* harmony import */ var jquery_ui_ui_widgets_sortable_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_sortable_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jquery_ui_ui_i18n_datepicker_ru_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery-ui/ui/i18n/datepicker-ru.js */ "./node_modules/jquery-ui/ui/i18n/datepicker-ru.js");
+/* harmony import */ var jquery_ui_ui_i18n_datepicker_ru_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_i18n_datepicker_ru_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jquery_ui_ui_widgets_draggable_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery-ui/ui/widgets/draggable.js */ "./node_modules/jquery-ui/ui/widgets/draggable.js");
+/* harmony import */ var jquery_ui_ui_widgets_draggable_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_draggable_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jquery_ui_ui_widgets_sortable_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery-ui/ui/widgets/sortable.js */ "./node_modules/jquery-ui/ui/widgets/sortable.js");
+/* harmony import */ var jquery_ui_ui_widgets_sortable_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_sortable_js__WEBPACK_IMPORTED_MODULE_4__);
 __webpack_require__(/*! ./components/datatables.min */ "./resources/admin-assets/js/components/datatables.min.js");
 
 __webpack_require__(/*! ./components/dataTables.bootstrap4.min */ "./resources/admin-assets/js/components/dataTables.bootstrap4.min.js");
@@ -80782,6 +80831,7 @@ __webpack_require__(/*! metismenu */ "./node_modules/metismenu/dist/metisMenu.js
 __webpack_require__(/*! select2 */ "./node_modules/select2/dist/js/select2.js");
 
 __webpack_require__(/*! ./components/summernote */ "./resources/admin-assets/js/components/summernote.js");
+
 
 
 
@@ -80860,6 +80910,12 @@ $('.ajaxBtnInput').on('change', function () {
     },
     error: function error(request, status, _error) {}
   });
+});
+$('.datepicker').datepicker($(undefined).data());
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
 });
 
 /***/ }),
@@ -81674,9 +81730,44 @@ __webpack_require__(/*! summernote */ "./node_modules/summernote/dist/summernote
 $(".summernote").summernote({
   height: 200,
   minHeight: 200,
-  maxHeight: 400,
+  //maxHeight: 400,
   lineHeight: 1,
-  disableResizeEditor: true
+  disableResizeEditor: false,
+  callbacks: {
+    onImageUpload: function onImageUpload(files) {
+      var editor = this;
+      var upload_url = $(editor).data('imageurl');
+
+      if (!upload_url) {
+        alert('Использование изображений для этой страницы не реализовано. Скорее всего так должно быть');
+        return '';
+      }
+
+      $.each(files, function (file_i, file) {
+        data = new FormData();
+        data.append("image", file);
+        $.ajax({
+          data: data,
+          type: 'POST',
+          beforeSend: function beforeSend(myXhr) {
+            myXhr.progress = function (e) {
+              console.log(e);
+            };
+          },
+          url: upload_url,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function success(response) {
+            $(editor).summernote('pasteHTML', response);
+          },
+          error: function error(jqXHR, textStatus, errorThrown) {
+            console.error(textStatus + " " + errorThrown);
+          }
+        });
+      });
+    }
+  }
 });
 
 /***/ }),

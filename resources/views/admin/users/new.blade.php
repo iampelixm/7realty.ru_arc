@@ -56,12 +56,33 @@
 
                         <div class="form-group">
                             <div class="form-controls">
-                                <label class="control-label col-lg-2" for="">Аватар пользователя</label>
+                                <label class="control-label col-lg-2" for="">Подразделение</label>
                                 <div class="col-lg-10">
-                                    <label for="avatar" class="control-label col-lg-2">Загрузить аватар</label>
-                                    <div class="col-lg-10 m-b-sm">
-                                        <input class="form-control" type="file" name="avatar" id="avatar" value="">
-                                    </div>
+                                    <select name="department" class="input-sm form-control input-s-sm inline">
+                                        <option value="town_ned">Городская недвижимость</option>
+                                        <option value="zagorod_ned">Загородная недвижимость</option>
+                                        <option value="commercial_ned">Коммерческая недвижимость</option>
+                                        <option value="invest_ned">Инвестиционная недвижимость</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-controls">
+                                <label class="control-label" for="position">Должность</label>
+                                <div class="col-lg-10 m-b-sm">
+                                    <input class="form-control" type="text" name="position" id="position" value="Брокер">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-controls">
+                                <label class="control-label" for="description">Описание пользователя</label>
+                                <div class="col-lg-10 m-b-sm">
+                                    <textarea class="form-control summernote" name="description"
+                                        id="description">Описание</textarea>
                                 </div>
                             </div>
                         </div>

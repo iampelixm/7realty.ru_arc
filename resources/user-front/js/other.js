@@ -1,5 +1,5 @@
 var myModal;
-$("button.button_link").click(function() {
+$("button.button_link").click(function () {
     let href = this.getAttribute("href");
     openLink(href);
 });
@@ -14,7 +14,7 @@ function createMyModalLink(element) {
     if (title == null) title = "";
     if (body == null) body = "";
     if (href != null)
-        actionYes = function() {
+        actionYes = function () {
             openLink(href);
         };
     createMyModalYesNo(title, body, actionYes);
@@ -29,7 +29,7 @@ function createMyModalYesNo(title, body, actionYes) {
             {
                 name: "Нет",
                 class: "btn btn-danger btn-sm",
-                onclick: function() {
+                onclick: function () {
                     closeMyModal();
                 }
             }
@@ -42,15 +42,15 @@ function closeMyModal() {
 }
 function createMyModal(data) {
     /*
-	title - заголовок
-	body - описание
-	btns -кнопки
-	btns [
-		name - название
-		class - класс кнопки
-		onclick - событие js
-	]
-	*/
+    title - заголовок
+    body - описание
+    btns -кнопки
+    btns [
+        name - название
+        class - класс кнопки
+        onclick - событие js
+    ]
+    */
     //let divModal = document.createElement('div');
     myModal = document.createElement("div");
     myModal.classList.add("myModal");
@@ -79,7 +79,7 @@ function createMyModal(data) {
             for (let i = 0; i < btnClass.length; i++)
                 button.classList.add(btnClass[i]);
             if (typeof btn.onclick == "string")
-                button.onclick = function() {
+                button.onclick = function () {
                     eval(btn.onclick);
                 };
             else button.onclick = btn.onclick;
@@ -121,7 +121,7 @@ let map = document.getElementById("map");
 let cards = document.getElementById("cards");
 
 if (btnMap) {
-    btnMap.addEventListener("click", function() {
+    btnMap.addEventListener("click", function () {
         map.classList.toggle("active");
         cards.classList.toggle("active");
     });
@@ -146,4 +146,16 @@ if (btnMap) {
     document.querySelectorAll("img").forEach(el => {
         if (!el.src && "src" in el.dataset !== -1) el.src = el.dataset.src;
     });
+}
+
+$.fn.textToggle = function (text1, text2) {
+    if ($(this).text().trim == text1) {
+        $(this).text(text2)
+    }
+    else if ($(this).text().trim == text2) {
+        $(this).text(text1)
+    }
+    else {
+        $(this).text(text1)
+    }
 }

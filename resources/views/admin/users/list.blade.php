@@ -31,8 +31,11 @@
                             @foreach ($users as $user)
                                 <tr class="aj-shure-container">
                                     <td class="aj-hide">
-                                        <img width="50"
-                                            src="{{ file_exists('storage/avatar/' . $user->email . '.jpg') ? '/storage/avatar/' . $user->email . '.jpg' : '/storage/avatar/noavatar.jpg' }}">
+                                        @if($user->getFirstMedia('avatar'))
+                                        {{$user->getFirstMedia('avatar')->img()->attributes(['width'=>'50','height'=>''])}}
+                                        @else
+                                        <img width="50" src="/storage/avatar/noavatar.jpg">
+                                        @endif
                                     </td>
                                     <td class="aj-hide">
                                         {{ $user->id }}

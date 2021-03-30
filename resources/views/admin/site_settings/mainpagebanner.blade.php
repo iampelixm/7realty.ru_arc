@@ -20,11 +20,35 @@
             </div>
 
         </form>
-        @foreach ($items as $banner)
-            {{ $banner->img()->attributes(['width' => '400px', 'height' => '']) }}
-        @endforeach
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Изображение</th>
+                    <th>Управление</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($items as $banner_id => $banner)
+                    <tr data-image="{{ $banner->id }}">
+                        <td>
+                            {{ $banner->img()->attributes(['width' => '150px', 'height' => '']) }}
+                        </td>
+                        <td class="buttons__">
+                            <a class="btn btn-delete delete-alert"
+                                data-action="{{ route('admin.sitesettings.mainpagebanner.delete', ['item' => $banner_id]) }}"
+                                data-title="{{ __('admin.modal_delete_title') }}"
+                                data-text="{{ __('admin.modal_delete_text') }}"
+                                data-success="{{ __('admin.modal_delete_success') }}"
+                                data-error-title="{{ __('admin.modal_error_title') }}"
+                                data-error="{{ __('admin.modal_error') }}" href="#">
+                                <i class="fa fa-trash fa-lg"></i>
 
-        <div class="col-12 col-md-8 px-3 px-md-0">
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        {{-- <div class="col-12 col-md-8 px-3 px-md-0">
             <div class="slider-content">
                 <h3 class="big-slide-image-div__h3">asdasd</h3>
                 <h2 class="big-slide-image-div__h2">asdasd</h2>
@@ -44,6 +68,36 @@
                     </div>
                 @endforeach
             </div>
-        </div>
+        </div> --}}
     </div>
+@endsection
+
+@section('script')
+    <script>
+        appjs = document.getElementById('appjs');
+        appjs.addEventListener('load', function(e) {
+            $("tbody").sortable({
+                items: "> tr",
+                appendTo: "parent",
+                helper: "clone",
+                update: function(event, ui) {
+                    var images;
+                    images = $(this).find('tr').map(function(i, el) {
+                        return $(el).data('image');
+                    }).toArray();
+                    console.log(images);
+                    $.post(
+                        '{{ route('admin.sitesettings.mainpagebanner.setorder') }}', {
+                            '_token': '{{ csrf_token() }}',
+                            'images': images
+                        },
+                        function(response) {
+                            console.log(response);
+                        }
+                    )
+                }
+            });
+        }, false);
+
+    </script>
 @endsection

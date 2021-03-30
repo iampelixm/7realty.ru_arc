@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PageRequest;
@@ -14,14 +16,20 @@ use Exception;
 
 class PageController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $list = Page::paginate(20);
+        $section = $request->query('section');
+        if (!$section) $section = 'top';
+        if ($section == 'top') {
+            $list = Page::where('section', '')->orWhere('section', 'top')->paginate(20);
+        } else {
+            $list = Page::where('section', $section)->paginate(20)->withQueryString();
+        }
         return view('admin.pages.index', compact('list'));
     }
 
@@ -47,55 +55,54 @@ class PageController extends Controller
         unset($inputArrValidated['text']);
         $page = Page::create($inputArrValidated);
         $description = $r->input('text');
-        try{
+        try {
             $dom = new \DomDocument();
-            $dom->loadHtml('<?xml encoding="utf-8" ?>'.$description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);  
+            $dom->loadHtml('<?xml encoding="utf-8" ?>' . $description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $images = $dom->getElementsByTagName('img');
 
-            $images_path = '/public/'.Page::STORAGE_PATH.$page->id.'/';
+            $images_path = '/public/' . Page::STORAGE_PATH . $page->id . '/';
 
-            foreach($images as $key => $img){
+            foreach ($images as $key => $img) {
                 $data = $img->getAttribute('src');
-                if($this->is_url($data)) {
+                if ($this->is_url($data)) {
                     $image_path = $data;
                 } else {
                     //dd($data);
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    
-                    $store_path = storage_path().'/app/'.$images_path;
-                    $image_name = ($key).'.png';
-                    if(!File::isDirectory($store_path)){
+
+                    $store_path = storage_path() . '/app/' . $images_path;
+                    $image_name = ($key) . '.png';
+                    if (!File::isDirectory($store_path)) {
                         File::makeDirectory($store_path, 0777, true, true);
                     }
-                    $image_path = $store_path.$image_name;
+                    $image_path = $store_path . $image_name;
                     file_put_contents($image_path, $data);
-                    $image_path = asset('storage'.Page::STORAGE_PATH.$page->id.'/'.$image_name);
+                    $image_path = asset('storage' . Page::STORAGE_PATH . $page->id . '/' . $image_name);
 
                     $img->removeAttribute('data-filename');
                 }
-                
+
                 $img->removeAttribute('src');
                 $img->setAttribute('src', $image_path);
             }
 
             $description = $dom->saveHTML();
             $description = str_replace('<?xml encoding="utf-8" ?>', '', $description);
-            
-            if (strlen($description) < 65535){
-                $page->text = $description;
-                $page->save();
-            } else {
-                return redirect()->route('admin.pages.index')->with('error', trans('Слишком длинное описание'));
-            }
-            
-        } catch (Exception $e){
-           
+
+            // if (strlen($description) < 65535) {
+            //     $page->text = $description;
+            //     $page->save();
+            // } else {
+            //     return redirect()->route('admin.pages.index')->with('error', trans('Слишком длинное описание'));
+            // }
+        } catch (Exception $e) {
+
             return redirect()->route('admin.pages.index')->with('error', trans('Некорректное изображение'));
         }
 
-        return redirect()->route('admin.pages.index')->with('success', trans('admin.pages_created'));
+        return redirect()->route('admin.pages.edit', $page)->with('success', trans('admin.pages_created'));
     }
 
     /**
@@ -117,7 +124,6 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-       
         return view('admin.pages.edit', compact('page'));
     }
 
@@ -130,64 +136,30 @@ class PageController extends Controller
      */
     public function update(PageEditRequest $r, Page $page)
     {
-        $inputArrValidated = $r->validated(); 
-        $description = $r->input('text');
-         //dd($description);
-        try{
-            $dom = new \DomDocument();
-            $dom->loadHtml('<?xml encoding="utf-8" ?>'.$description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
-            $images = $dom->getElementsByTagName('img');
-
-            $images_path = '/public/'.Page::STORAGE_PATH.$page->id.'/';
-
-
-            foreach($images as $key => $img){
-                $data = $img->getAttribute('src');
-
-                if($this->is_url($data)) {
-                    $image_path = $data;
-                } else {
-                    //dd($data);
-                    list($type, $data) = explode(';', $data);
-                    list(, $data)      = explode(',', $data);
-                    $data = base64_decode($data);
-                    
-                    $store_path = storage_path().'/app/'.$images_path;
-                    $image_name = ($key).'.png';
-                    if(!File::isDirectory($store_path)){
-                        File::makeDirectory($store_path, 0777, true, true);
-                    }
-                    $image_path = $store_path.$image_name;
-                    file_put_contents($image_path, $data);
-                    $image_path = asset('storage'.Page::STORAGE_PATH.$page->id.'/'.$image_name);
-
-                    $img->removeAttribute('data-filename');
-                }
-                
-                $img->removeAttribute('src');
-                $img->setAttribute('src', $image_path);
-            }
-
-            $description = $dom->saveHTML();
-            $description = str_replace('<?xml encoding="utf-8" ?>', '', $description);
-            
-            if (strlen($description) < 65535){
-                $inputArrValidated['text'] = $description;
-              
-            } 
-
-            $page->update($inputArrValidated);
-            $page->save();
-        } catch (Exception $e){
-            unset($inputArrValidated['text']);
-            $page->update($inputArrValidated);
-            return redirect()->route('admin.pages.index')->with('error', trans('Некорректное изображение'));
-        }
-      
-        return redirect()->route('admin.pages.index')->with('success', trans('admin.pages_edited'));
+        $inputArrValidated = $r->validated();
+        $page->update($inputArrValidated);
+        $page->save();
+        return redirect()->route('admin.pages.edit', $page)->with('success', trans('admin.pages_edited'));
     }
 
+    public function uploadImageAPI(Request $request, Page $page)
+    {
+        $img = $page->addMediaFromRequest('image')->withResponsiveImages()->toMediaCollection('images')->img();
+        return $img;
+    }
 
+    public function uploadImage(Request $request, Page $page)
+    {
+        $img = $page->addMediaFromRequest('image')->withResponsiveImages()->toMediaCollection('images')->img();
+        return redirect()->route('admin.pages.edit', $page)->with('success', trans('admin.pages_edited'));
+    }
+
+    public function replicate(Request $request, Page $page)
+    {
+        $replica=$page->replicate();
+        $replica->save();
+        return view('admin.pages.edit', ['page'=>$replica]);
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -200,20 +172,20 @@ class PageController extends Controller
             $page->delete();
         } catch (\Exception $e) {
             return response()->json([
-                    'success' => false,
-                    'errors'  => $e->getMessage(),
+                'success' => false,
+                'errors'  => $e->getMessage(),
             ]);
         }
 
         return response()->json([
-                'success' => true,
+            'success' => true,
         ]);
     }
 
 
     public function editStatus(Request $r, Page $page)
     {
-        if($page) {
+        if ($page) {
             $page->active = (int) $r->active;
             $page->save();
             return ['success' => 'Статус изменен'];
@@ -222,7 +194,8 @@ class PageController extends Controller
         }
     }
 
-    protected function is_url($url) {
-      return preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url);
+    protected function is_url($url)
+    {
+        return preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url);
     }
 }

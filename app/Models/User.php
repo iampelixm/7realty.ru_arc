@@ -6,18 +6,23 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use Notifiable, HasRolesAndAbilities;
-
+    use Notifiable, HasRolesAndAbilities, InteractsWithMedia;
+    public $attributes=[
+        'additional'=>'[]',
+        'description'=>''
+    ];
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'role'
+        'name', 'email', 'password', 'phone', 'role', 'position', 'description', 'position', 'department', 'additional'
     ];
 
     /**
@@ -36,6 +41,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'additional'        => 'Object',
     ];
 
     public function favorites()

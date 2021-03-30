@@ -27,13 +27,19 @@ Route::get('/', 'MainController@index')->middleware('city')->name('home');
 Route::prefix('/')->namespace('Site')->name('site.')->middleware('city')->group(function () {
 
     // Роуты отдельных страниц отдельного дизайна
-    Route::get('about', function () {
-        return view('pages.standalone.about');
-    });
+    // Route::get('about', function () {
+    //     return view('pages.standalone.about');
+    // });
+    // Route::get('work', function () {
+    //     return view('pages.standalone.work');
+    // });
+    Route::view('about', 'pages.standalone.about')->name('standalone.about');
+    Route::view('work', 'pages.standalone.work')->name('standalone.work');
+    Route::view('invest', 'pages.standalone.invest')->name('standalone.invest');
+    Route::view('partneram', 'pages.standalone.partneram')->name('standalone.partneram');
+    Route::view('sobstvennikam', 'pages.standalone.sobstvennikam')->name('standalone.sobstvennikam');
 
-    Route::get('work', function () {
-        return view('pages.standalone.work');
-    });
+
 
     Route::get('/change/city/{city}', 'CityController@changeCity')->name('change_city');
     Route::get('/category/{category:slug}', 'CategoryController@list')->name('get_category');
@@ -57,8 +63,19 @@ Route::prefix('/')->namespace('Site')->name('site.')->middleware('city')->group(
     Route::get('/contacts', 'PageController@contacts')->name('contacts');
     Route::get('/favorites', 'UserController@favorites')->name('favorites');
 
+    Route::get('/brokers', 'UserController@brokerList')->name('broker.list');
+    Route::get('/brokers/{broker_id}', 'UserController@brokerPage')->name('broker.page');
+
     Route::get('/company/{page:slug}', 'PageController@page')->name('get_page');
     Route::get('/service/{page:slug}', 'PageController@page')->name('get_service');
+
+    Route::get('/news', 'PageController@sectionNews')->name('pages.news');
+    Route::get('/news/{page:slug}', 'PageController@page')->name('pages.news.page');
+    Route::get('/analytics', 'PageController@sectionAnalytics')->name('pages.analytics');
+    Route::get('/analytics/{page:slug}', 'PageController@page')->name('pages.analytics.page');
+    Route::get('/webinars', 'PageController@sectionWebinars')->name('pages.webinars');
+    Route::get('/webinars/{page:slug}', 'PageController@page')->name('pages.webinars.page');
+
 
     Route::get('/company', 'PageController@company')->name('company');
     Route::get('/aboutus', 'PageController@aboutus')->name('aboutus');
@@ -106,6 +123,8 @@ Route::prefix('/admin')->namespace('Admin')->middleware('auth', 'check.admin')->
 
     // Страницы
     Route::resource('pages', 'PageController');
+    Route::post('/pages/{page}/uploadimage', 'PageController@uploadImage')->name('pages.image.upload');
+    Route::get('/pages/{page}/replicate', 'PageController@replicate')->name('pages.replicate');
 
     //настройки для сайта
     Route::resource('sitesettings', 'SiteSettingController');
@@ -113,6 +132,8 @@ Route::prefix('/admin')->namespace('Admin')->middleware('auth', 'check.admin')->
     Route::prefix('/settings')->name('sitesettings.')->group(function () {
         Route::get('/mpbanner', 'SiteSettingController@mainPageBannerIndex')->name('mainpagebanner');
         Route::post('/mpbanner/upload', 'SiteSettingController@mainPageBannerUpload')->name('mainpagebanner.upload');
+        Route::post('/mpbanner/setorder', 'SiteSettingController@mainPageBannerSetOrder')->name('mainpagebanner.setorder');
+        Route::delete('/mpbanner/delete/{item}', 'SiteSettingController@mainPageBannerDeleteImage')->name('mainpagebanner.delete');
     });
 
     // Коментарии
@@ -203,6 +224,9 @@ Route::prefix('/admin')->namespace('Admin')->middleware('auth', 'check.admin')->
         Route::post('/category/edit/show/{category}', 'CategoryController@editShowMain')->name('category.edit_show');
         Route::post('/category/edit/menu/{category}', 'CategoryController@editShowMenu')->name('category.edit_menu');
         Route::post('/category/edit/offer/{category}', 'CategoryController@editOffer')->name('category.edit_offer');
+
+        Route::post('/page/image/upload/{page}', 'PageController@uploadImageAPI')->name('page.image.upload');
+
     });
 });
 

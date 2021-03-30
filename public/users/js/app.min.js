@@ -124573,9 +124573,9 @@ function createMyModal(data) {
   body - описание
   btns -кнопки
   btns [
-  name - название
-  class - класс кнопки
-  onclick - событие js
+      name - название
+      class - класс кнопки
+      onclick - событие js
   ]
   */
   //let divModal = document.createElement('div');
@@ -124684,6 +124684,16 @@ if (btnMap) {
     if (!el.src && "src" in el.dataset !== -1) el.src = el.dataset.src;
   });
 }
+
+$.fn.textToggle = function (text1, text2) {
+  if ($(this).text().trim == text1) {
+    $(this).text(text2);
+  } else if ($(this).text().trim == text2) {
+    $(this).text(text1);
+  } else {
+    $(this).text(text1);
+  }
+};
 
 /***/ }),
 

@@ -60,6 +60,8 @@ class UserController extends Controller
             'email'         => 'required|email|unique:users',
             'password'      => ['required', 'string', 'min:8'],
             'role'          => 'required',
+            'position'      => 'nullable|string',
+            'description'   => 'nullable|string',
         ]);
         if ($valid->fails()) {
             $msgs = '';
@@ -107,6 +109,8 @@ class UserController extends Controller
             'name'          => 'string|max:190',
             'email'         => 'email',
             'role'          => 'required',
+            'position'      => 'required|nullable',
+            'description'   => 'required'
         ]);
         $user = User::find($id);
         if (!$user) {
@@ -123,21 +127,25 @@ class UserController extends Controller
         if ($other_user) {
             return redirect()->back()->with('error', 'E-mail занят');
         }
+
         $user_data = $r->except('password');
         $user->update($user_data);
 
         if ($r->hasFile('avatar')) {
-            $image = $r->file('avatar');
+            $old_avatar=$user->getFirstMedia('avatar');
+            if($old_avatar) $old_avatar->delete();
+            $user->addMediaFromRequest('avatar')->withResponsiveImages()->toMediaCollection('avatar');
+            // $image = $r->file('avatar');
 
-            $extension = $image->getClientOriginalExtension();
+            // $extension = $image->getClientOriginalExtension();
 
-            if (Storage::exists('public/avatar/' . $r->email . ".jpg"))
-                Storage::delete('public/avatar' . $r->email . ".jpg");
+            // if (Storage::exists('public/avatar/' . $r->email . ".jpg"))
+            //     Storage::delete('public/avatar' . $r->email . ".jpg");
 
-            Storage::putFileAs('public/avatar', $image, $r->email . "." . $extension);
-            Storage::delete('public/avatar', $image, $r->email . "." . $extension);
-            Image::make('storage/avatar/' . $r->email . "." . $extension)->fit(300)->encode('jpg')->save('storage/avatar/' . $r->email . ".jpg");
-            Storage::delete('public/avatar', $image, $r->email . "." . $extension);
+            // Storage::putFileAs('public/avatar', $image, $r->email . "." . $extension);
+            // Storage::delete('public/avatar', $image, $r->email . "." . $extension);
+            // Image::make('storage/avatar/' . $r->email . "." . $extension)->fit(300)->encode('jpg')->save('storage/avatar/' . $r->email . ".jpg");
+            // Storage::delete('public/avatar', $image, $r->email . "." . $extension);
         }
 
         if ($r->password != '') {
@@ -155,7 +163,7 @@ class UserController extends Controller
         $user->roles()->detach();
         $user->assign($r->role);
 
-        return redirect()->route('admin.settings.users.list')->with('success', 'Пользователь обновлен!');
+        return redirect()->route('admin.settings.users.edit', $user)->with('success', 'Пользователь обновлен!');
     }
 
 

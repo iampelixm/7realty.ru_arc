@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+
 use Str;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -29,20 +30,21 @@ class PageEditRequest extends FormRequest
             'text'          =>  'nullable|string',
             'active'        =>  'required|boolean',
             'slug'          =>  'unique:pages,slug',
-
+            'section'       => 'required',
+            'params'        => 'nullable|array'
         ];
     }
 
     public function validationData()
     {
         if (!isset($this->slug_change)) {
-            $this->except('slug'); 
+            $this->except('slug');
         } else {
             $this->merge([
                 'slug' => Str::slug($this->name),
-            ]); 
-        } 
-        
+            ]);
+        }
+
         return $this->all();;
     }
 }
