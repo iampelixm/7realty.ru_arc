@@ -16,7 +16,7 @@
                             Дата проведения: {!! $pages->first()->params->date ?? '' !!}
                         </p>
                         <a style="color: #FFF; text-decoration: none"
-                            href="{{ route('site.pages.webinars.page', $pages->first()) }}">
+                            href="{{ route('site.pages.webinars.page', $pages->first() ?? '') }}">
                             <svg width="29" height="20" viewBox="0 0 29 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0)">
                                     <path
