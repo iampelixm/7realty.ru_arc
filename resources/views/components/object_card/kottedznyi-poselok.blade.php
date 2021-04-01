@@ -1,8 +1,10 @@
           <div class="content-list-item content-list-item__modify" data-id="kv{{ $item->id }}" data-name="card">
               <div class="slide-image-div">
-                  @foreach ($item->imagesActive as $image)
+                  @foreach ($item->imagesActive->take(3) as $image)
                       <div class="slide-image-div-image">
-                          <img src="{{ url('storage/items/' . $item->id . '/' . $image->file) }}" alt>
+                          <a href="{{ route('site.item.get', $item->slug) }}">
+                              <img src="{{ url('storage/items/' . $item->id . '/' . $image->file) }}" alt>
+                          </a>
                       </div>
                   @endforeach
               </div>

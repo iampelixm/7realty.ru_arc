@@ -14,6 +14,21 @@
                 <input type="text" class="form-control" name="name" placeholder="{{ __('admin.page_name') }}" required=""
                     value="{{ $page->name }}">
             </div>
+
+            <div class="form-group">
+                <label for="section">{{ __('admin.page_section') }}</label>
+                <select class="form-control" name="section" id="section">
+                    <option value="top" {{ $page->section == 'top' ? 'selected' : '' }}>Основные</option>
+                    <option value="news" {{ $page->section == 'news' ? 'selected' : '' }}>Новости</option>
+                    <option value="analytics" {{ $page->section == 'analytics' ? 'selected' : '' }}>Аналитика</option>
+                    <option value="webinars" {{ $page->section == 'webinars' ? 'selected' : '' }}>Вебинары</option>
+                </select>
+            </div>
+
+            @if (view()->exists('admin.pages.params.' . $page->section))
+                @include('admin.pages.params.' . $page->section)
+            @endif
+
             <div class="form-group">
                 <label for="">SLUG</label>
                 <div class="row">
@@ -32,18 +47,35 @@
                 <input type="hidden" name="active" value="0">
                 <input type="checkbox" class="form-control" name="active" @if ($page->active) checked @endif value="1">
             </div>
+            <div class="container">
+                <h4 class="title">Загруженные изображения</h4>
+                <div class="row">
+                    <div class="col">Картинка</div>
+                    <div class="col">Управление</div>
+                </div>
+                @foreach ($page->getMedia('images') as $itemImage_i => $itemImage)
+                    <div class="row">
+                        <div class="col">
+                            {{ $itemImage->img()->attributes(['width' => '150px', 'height' => '']) }}
+                        </div>
+                        <div class="col">
+                            <b class="btn btn-info">Вставить</b>
+                            <b class="btn btn-danger">Удалить</b>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
             <div class="form-group">
                 <label for="">{{ __('admin.item_description') }}</label>
-                <textarea class="form-control  summernote" name="text" id="summernote">
-                        {!!  $page->text !!}
-                    </textarea>
-
+                <textarea class="form-control summernote" name="text" id="summernote"
+                    data-imageurl="{{ route('admin.api.page.image.upload', $page) }}">{!! $page->text !!}</textarea>
             </div>
-
 
             <button type="submit" class="btn btn-primary">{{ __('admin.save') }}</button>
         </form>
     </div>
+
+    <a href="{{route('admin.pages.replicate', $page)}}" class="btn btn-warning">REPLICATE</a>
 
 @endsection
 

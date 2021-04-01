@@ -28,7 +28,7 @@ class ResidenceController extends Controller
         } elseif (Auth::user()->isA('broker')) {
             $list = Residence::where('user_id', Auth::user()->id)->paginate(20);
         } else {
-            abord(403, 'У вас нет доступа к этой странице');
+            abort(403, 'У вас нет доступа к этой странице');
         }
         return view('admin.residences.index', compact('list'));
     }

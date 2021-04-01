@@ -5,7 +5,7 @@
 .main-header-desktop-content {
 	margin: 0 auto;
 	max-width: 1360px !important;
-	height: 173px;
+	height: auto;
 	background: #FFFFFF;
 	padding: 0 0 0 0;
 }

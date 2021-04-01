@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Area;
 use Cookie;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Category extends Model
+class Category extends Model implements HasMedia
 {
+    use InteractsWithMedia;
     protected $table = 'categories';
     protected $fillable = ['name', 'type', 'active', 'main', 'offer_index', 'show_main', 'slug'];
 

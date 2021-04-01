@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Str;
+use Illuminate\Support\Str;
 
 class ItemRequest extends FormRequest
 {
@@ -50,7 +50,8 @@ class ItemRequest extends FormRequest
             'active'        =>  'required|boolean',
             'slug'          =>  'unique:items,slug',
             'photos'        =>  'required|array|min:3',
-            'user_id'       =>  'nullable'
+            'user_id'       =>  'nullable',
+            'remark'        =>  'string|nullable',
 
         ];
     }
@@ -63,8 +64,6 @@ class ItemRequest extends FormRequest
         $this->merge([
             'slug' => Str::slug($this->name),
         ]);
-
-        //$this->except('photos');
 
         return $this->all();;
     }

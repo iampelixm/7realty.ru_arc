@@ -9,6 +9,7 @@ require('select2')
 require('./components/summernote')
 import swal from 'sweetalert'
 import 'jquery-ui/ui/widgets/datepicker.js';
+import 'jquery-ui/ui/i18n/datepicker-ru.js';
 import 'jquery-ui/ui/widgets/draggable.js';
 import 'jquery-ui/ui/widgets/sortable.js';
 let toastr = require('toastr/toastr');
@@ -93,3 +94,10 @@ $('.ajaxBtnInput').on('change', function () {
     });
 });
 
+$('.datepicker').datepicker($(this).data());
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});

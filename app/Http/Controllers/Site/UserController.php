@@ -13,16 +13,16 @@ use Cookie;
 
 class UserController extends Controller
 {
-    
+
     public function register(Request $r)
     {
-        
+
         $phone = $r->phone;
         $name = $r->name;
 
 
         if ($phone and $name) {
-        	
+
 
         	$user = User::where('phone', $r->phone)->first();
         	if ($user){
@@ -61,7 +61,7 @@ class UserController extends Controller
 
     public function sendSms(Request $r)
     {
-        
+
         $phone = $r->phone;
 
         if ($phone) {
@@ -145,7 +145,7 @@ class UserController extends Controller
 	        ];
     	}
 
-    	
+
     	$user = auth()->user();
     	if (!$user){
     		return [
@@ -165,7 +165,7 @@ class UserController extends Controller
 			]);
     	}
 
-		    	
+
 
 
     	return [
@@ -196,5 +196,28 @@ class UserController extends Controller
         $page_title = "Избраное | Seven";
 
     	return view('pages.favorites', compact('list', 'areasSelect', 'page_title'));
+    }
+
+    public function brokerList(Request $request)
+    {
+        $brokers = User::whereIs('broker');;
+        $department = $request->query('department');
+        if ($department) {
+            $brokers=$brokers->where(['department'=> $department]);
+        }
+
+        $template_data=[];
+        $template_data['html_title']='Брокер для души';
+        $template_data['brokers']=$brokers->get();
+        return view('pages.broker.list', $template_data);
+    }
+
+    public function brokerPage(User $broker_id)
+    {
+        $template_data = [];
+        $template_data['html_title'] = 'Брокер '.$broker_id->name;
+        $template_data['broker'] = $broker_id;
+        return view('pages.broker.item', $template_data);
+        return "страница брокера";
     }
 }

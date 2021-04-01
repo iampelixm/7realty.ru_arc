@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', 'Создание обьекта')
+@section('title', 'Создание страницы')
 @section('content')
     <div class="ibox-title">
         <h2>{{ __('admin.item_create') }}</h2>
@@ -13,12 +13,22 @@
                     value="{{ old('name') ?? '' }}">
             </div>
 
+           <div class="form-group">
+                <label for="section">{{ __('admin.page_section') }}</label>
+                <select class="form-control" name="section" id="section">
+                    <option value="top" {{request()->query('section')=='top' ? 'selected' : ''}}>Основные</option>
+                    <option value="news" {{request()->query('section')=='news' ? 'selected' : ''}}>Новости</option>
+                    <option value="analytics" {{request()->query('section')=='analytics' ? 'selected' : ''}}>Аналитика</option>
+                    <option value="webinars" {{request()->query('section')=='webinar' ? 'selected' : ''}}>Вебинары</option>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="active">{{ __('admin.active') }}</label>
                 <input type="hidden" name="active" value="0">
-                <input type="checkbox" class="form-control" name="active" checked value="1">
+                <input type="checkbox" class="form-control" name="active" value="1">
             </div>
-            <div class="form-group">
+            <div class="form-group d-none">
                 <label for="">{{ __('admin.item_description') }}</label>
                 <textarea class="form-control summernote" name="text" id="summernote">
                         {{ old('text') ?? '' }}

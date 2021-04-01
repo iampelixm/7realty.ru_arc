@@ -102,7 +102,7 @@
 
             <div class="form-group">
                 <label for="">{{ __('admin.item_description') }}</label>
-                <textarea class="form-control" name="description" id="summernote" required="true">
+                <textarea class="form-control summernote" name="description" required="true">
                     {{ old('description') ?? $item->description ?? '' }}
                 </textarea>
 
@@ -286,7 +286,10 @@
                     @endfor
                 </select>
             </div>
-
+            <div class="form-group">
+                <label for="">{{ __('admin.item_remark') }}</label>
+                <textarea class="form-control summernote" name="remark">{{ old('remark') ?? $item->remark ?? '' }}</textarea>
+            </div>
             <button type="submit" class="btn btn-primary">{{ __('admin.save') }}</button>
         </form>
     </div>

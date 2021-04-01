@@ -24,8 +24,8 @@
 .owl-carousel .owl-nav button.owl-next
     font-size: 42px
 
-.owl-carousel 
-    .owl-item 
+.owl-carousel
+    .owl-item
         img
             height: 100%
             object-fit: cover
@@ -39,13 +39,14 @@
     height: auto
     @media (max-width: 768px)
         margin-top: 60px
-        
-  
+
+
 .slider,
-.slider1
+.slider1,
+.mainpage_slider
     z-index: 0
     overflow: hidden
-    border-radius: 8px
+    border-radius: 40px 0 0 0
     .owl-nav
         z-index: 10
     .owl-next
@@ -55,6 +56,8 @@
         margin-left: 15px
         color: #fff !important
 
+.slider,
+.slider1,
     .item
         height: 490px
         &::before
@@ -85,7 +88,7 @@
     left: -5px
     @media (max-width: 768px)
         top: 50px
-        
+
 
 .slick-dots li button
    font-size: 0

@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class Item extends Model
 {
     protected $table = 'items';
-    protected $fillable = ['price', 'user_id', 'name', 'description', 'type_id', 'type_order', 'added_at', 'special', 'square', 'latitude', 'longitude', 'address', 'all_rooms', 'bed_rooms', 'bath_rooms', 'active', 'option', 'residence_id', 'area_id', 'offer_index', 'video_url', 'slug'];
+    protected $fillable = ['price', 'user_id', 'name', 'description', 'type_id', 'type_order', 'added_at', 'special', 'square', 'latitude', 'longitude', 'address', 'all_rooms', 'bed_rooms', 'bath_rooms', 'active', 'option', 'residence_id', 'area_id', 'offer_index', 'video_url', 'slug', 'remark'];
 
     protected $appends = ['data_id', 'url'];
 

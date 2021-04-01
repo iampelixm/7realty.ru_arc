@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Str; 
+use Str;
 
 
 class PageRequest extends FormRequest
@@ -30,7 +30,7 @@ class PageRequest extends FormRequest
             'text'          =>  'nullable|string',
             'active'        =>  'required|boolean',
             'slug'          =>  'unique:pages,slug',
-
+            'section'       => 'required',
         ];
     }
 

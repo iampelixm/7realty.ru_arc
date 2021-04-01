@@ -7,7 +7,7 @@
                             far @endif
                             fa-heart"></i></h4>
                 </div>
-                <div id="" class="owl-carousel slider1" onclick="showModal({{ $item->id }})">
+                <div id="" class="owl-carousel slider1" onclick="">
                     @foreach ($item->imagesActive as $key => $image)
                         <div class="item">
 

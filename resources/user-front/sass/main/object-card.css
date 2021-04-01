@@ -199,7 +199,7 @@
 	width: 150px;
 	background: #FFFFFF;
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-	border-radius: 3px;	
+	border-radius: 3px;
 }
 .drop-down-menu___col_2 {
 	width: 350px;
@@ -388,10 +388,13 @@
 .content-object-card-information {
 	max-width: 350px;
 	margin: 0 auto;
+    padding-left: 30px;
 }
 .content-object-card-information-title {
-	margin: 10px 0 0 0;
+
 	padding: 0 0 0 0;
+    font-weight: 700;
+    font-style: normal;
 	font-family: Geometria;
 	font-weight: bold;
 	font-size: 34px;
@@ -431,7 +434,7 @@
 	font-family: Geometria;
 	font-weight: 500;
 	font-size: 14px;
-	color: #858585;
+	color: #C1A771;
 }
 .content-object-card-information-list-text-info {
 	margin: 0 0 0 20px;
@@ -498,7 +501,7 @@
 	background: #0055AA;
 }
 .content-object-card-information-button-details:focus {
-	outline: none;	
+	outline: none;
 }
 .content-object-card-information-button-show {
 	height: 32px;
@@ -516,7 +519,7 @@
 	background: #005577;
 }
 .content-object-card-information-button-show:focus {
-	outline: none;	
+	outline: none;
 }
 /* Инфраструктура и окружение */
 .content-object-card-around-title {
@@ -582,7 +585,7 @@
 	color: #000000;
 	text-indent: 20px;
 	line-height: 20px;
-	text-align: justify 
+	text-align: justify
 }
 .content-object-card-parametr-list__ul {
 	max-width: 1110px;
@@ -622,7 +625,7 @@
 	text-align: center;
 	color: #FFFFFF;
 }
-.content-object-card-parametr-list__button-info:focus { 
+.content-object-card-parametr-list__button-info:focus {
 	outline: none;
 }
 .btn_info {
@@ -688,7 +691,7 @@
 .content-object-card-feedback-slider-info-title--burgundy {
 	border-bottom: 2px solid #740631;
 }
-.content-object-card-feedback-slider-info-title > i { 
+.content-object-card-feedback-slider-info-title > i {
 	margin: 1px 5px 0 5px;
 	font-size: 24px;
 }
@@ -756,7 +759,7 @@
 	text-align: center;
 	color: #FFFFFF;
 }
-.content-object-card-request-button__button:focus { 
+.content-object-card-request-button__button:focus {
 	outline: none;
 }
 .btn_blue {
@@ -1014,7 +1017,7 @@
 	color: #000000;
 	text-decoration: none;
 }
-.content-residential-pag-element > a:hover { 
+.content-residential-pag-element > a:hover {
 	color: #0076C1;
 }
 .pag-element_active {
@@ -1096,7 +1099,7 @@
 	margin: 4px 0 0 0;
 	line-height: 18px;
 }
-.footer-links-div__p > a { 
+.footer-links-div__p > a {
 	font-family: Geometria;
 	font-style: normal;
 	font-weight: 500;
@@ -1206,7 +1209,7 @@
 	font-weight: 700;
 	font-size: 20px;
 	color: #FFFFFF;
-} 
+}
 .mobile-footer-content-locations-contacts__h2 > a > i {
 	font-size: 10px;
 }
