@@ -213,8 +213,16 @@
                                                 <p class="content-specials-price-info__p">
                                                     {{ number_format($item->price, 0, ',', ' ') }} ₽</p>
                                             </div>
+{{--БЫЛО
+
                                             <div class="content-specials-link"><button class="content-specials-link__button"
                                                     onclick="showModal({{ $item->id }})">Отправить запрос</button>
+                                            </div>
+--}}
+
+{{--СТАЛО--}}
+                                            <div class="content-specials-link"><button class="button content-specials-link__button"
+                                                    onclick="location.href='{{ route('site.item.get', $item->slug) }}'">Узнать подробнее</button>
                                             </div>
                                         </div>
                                         <div>

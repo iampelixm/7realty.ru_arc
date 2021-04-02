@@ -65,8 +65,13 @@
             <div class="content-specials-price-info">
                 <p class="content-specials-price-info__p">{{ number_format($slider_item->price, 0, ',', ' ') }} ₽</p>
             </div>
+            {{--
             <div class="content-specials-link"><button class="content-specials-link__button"
                     onclick="showModal({{ $slider_item->id }})">Отправить запрос</button></div>
+                    --}}
+            <div class="content-specials-link"><button class="content-specials-link__button"
+                    onclick="location.href='{{ route('site.item.get', $slider_item->slug) }}'">Узнать подробнее</button></div>
+
         </div>
         <div>
             <div class="content-specials-heart"><i class="fa-heart @if (in_array($slider_item->id,

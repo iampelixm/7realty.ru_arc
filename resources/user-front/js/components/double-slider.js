@@ -102,5 +102,12 @@ var thumbs = sync2
     })
     .data("owl.carousel");
 
-$(".owl-prev").html('<i class="fas fa-chevron-left"></i>');
-$(".owl-next").html('<i class="fas fa-chevron-right"></i>');
+//$(".owl-prev").html('<i class="fas fa-chevron-left">asda</i>');
+//$(".owl-next").html('<i class="fas fa-chevron-right">asd</i>');
+
+$(".slider1 .owl-prev").html('<img src="/users/image/slider_left.png">');
+$(".slider1 .owl-next").html('<img src="/users/image/slider_right.png">');
+
+$(".slider .owl-prev").html('<i class="fas fa-chevron-left">asda</i>');
+$(".slider .owl-next").html('<i class="fas fa-chevron-right">asd</i>');
+

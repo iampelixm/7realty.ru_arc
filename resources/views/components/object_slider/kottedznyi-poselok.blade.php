@@ -78,8 +78,10 @@
                     @endif
                 </p>
             </div>
+            {{--
             <div class="content-specials-link"><button class="content-specials-link__button"
                     onclick="showModal({{ $slider_item->id }})">Отправить запрос</button></div>
+                    --}}
         </div>
         <div>
             <div class="content-specials-heart"><i class="fa-heart @if (in_array($slider_item->id,

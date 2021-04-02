@@ -1,5 +1,5 @@
 @if ($svg)
     {!! $svg !!}
 @else
-    {{ $name }}
+    <div data-icon="{{ $name }}">&nbsp;</div>
 @endif
