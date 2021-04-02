@@ -36,7 +36,7 @@ $main_options = [
                 <div class="row no-gutters overflow-hidden"
                     style="height: 100%; outline: 1px solid #C1A771; background: #FFF; /*background-image: url(/users/image/kover.jpg)*/; background-repeat: no-repeat; background-position: left top;">
                     <div class="col-lg-3">
-                        @if ($item->user->getFirstMedia('avatar'))
+                        @if ($item->user && $item->user->getFirstMedia('avatar'))
                             {{ $item->user->getFirstMedia('avatar')->img()->attributes(['width' => '100%', 'height' => '']) }}
                         @endif
                     </div>
@@ -44,7 +44,7 @@ $main_options = [
                         <div style="transform: skewX(-7deg); background: #FFF; height: 100%">
                             <div class="pl-4 pt-4" style="transform: skewX(7deg); height: 100%">
                                 <h2 style="font-size: 36px;">
-                                    {{ $item->user->name }}
+                                    {{ $item->user->name ?? 'Брокер' }}
                                 </h2>
                                 <h6 style="font-weight: 100;">
                                     {{ $item->user->position ?? 'Брокер' }}
