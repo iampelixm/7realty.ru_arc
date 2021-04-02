@@ -1,20 +1,33 @@
-.owl-nav
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    height: 100%
-    display: flex
-    align-items: center
-    justify-content: space-between
-    z-index: 0
-    .owl-next
+.slider1
+    .owl-nav
         position: absolute
-        right: 10px
-    .owl-prev
+        right: 0
+        bottom: 0
+        display: flex
+        align-items: center
+        justify-content: space-between
+        z-index: 10
+
+.slider,
+.slider-custom__four,
+.slider-custom__three
+    .owl-nav
         position: absolute
-        left: 10px
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: space-between
+        z-index: 0
+        .owl-next
+            position: absolute
+            right: 10px
+        .owl-prev
+            position: absolute
+            left: 10px
 
 .owl-stage-outer
     height: 100%
@@ -40,10 +53,39 @@
     @media (max-width: 768px)
         margin-top: 60px
 
-
-.slider,
-.slider1,
 .mainpage_slider
+    z-index: 0
+    overflow: hidden
+    border-radius: 40px 0 0 0
+    .owl-nav
+        z-index: 10
+        bottom: 20px
+    .owl-next
+        margin-right: 40px
+    .owl-next.disabled
+            opacity: 0.5
+    .owl-prev
+        margin-right: 30px
+    .owl-prev.disabled
+            opacity: 0.5
+
+.slider1
+    z-index: 0
+    overflow: hidden
+    border-radius: 40px 0 0 0
+    .owl-nav
+        z-index: 10
+        bottom: 20px
+    .owl-next
+        margin-right: 40px
+    .owl-next.disabled
+            opacity: 0.5
+    .owl-prev
+        margin-right: 30px
+    .owl-prev.disabled
+            opacity: 0.5
+
+.slider
     z-index: 0
     overflow: hidden
     border-radius: 40px 0 0 0
@@ -84,10 +126,11 @@
 
 .slider-content
     position: absolute
-    right: 30px
     left: -5px
-    @media (max-width: 768px)
-        top: 50px
+    z-index: 5
+    transform: translateY(-100%)
+//    @media (max-width: 768px)
+//        top: 50px
 
 
 .slick-dots li button

@@ -41,7 +41,7 @@
         .broker-info .avatar-container {
             border-radius: 50px 0 0 0;
             overflow: hidden;
-            background-image: url(/users/image/kover.jpg);
+            /* background-image: url(/users/image/kover.jpg); */
             position: relative;
             background-size: cover;
             min-height: 350px;

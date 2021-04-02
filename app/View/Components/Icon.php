@@ -37,31 +37,29 @@ class Icon extends Component
         $height = $this->height;
         if (file_exists("../resources/icons/$name.svg")) {
             $this->svg = file_get_contents("../resources/icons/$name.svg");
-            if($style)
-            {
-                if(preg_match('/style=/', $this->svg))
-                {
-                    $this->svg=preg_replace('/style=".*?"/', 'style="'.$style.'"', $this->svg);
-                }
-                else
-                {
-                    $this->svg = preg_replace('/\<svg/', '<svg style="' . $style . '"', $this->svg);
-                }
+        } else {
+            $this->svg = file_get_contents("../resources/icons/fallback.svg");
+        }
+        if ($style) {
+            if (preg_match('/style=/', $this->svg)) {
+                $this->svg = preg_replace('/style=".*?"/', 'style="' . $style . '"', $this->svg);
+            } else {
+                $this->svg = preg_replace('/\<svg/', '<svg style="' . $style . '"', $this->svg);
             }
-            if ($width) {
-                if (preg_match('/width=/', $this->svg)) {
-                    $this->svg = preg_replace('/width=".*?"/', 'width="' . $width . '"', $this->svg);
-                } else {
-                    $this->svg = preg_replace('/\<svg/', '<svg width="' . $width . '"', $this->svg);
-                }
+        }
+        if ($width) {
+            if (preg_match('/width=/', $this->svg)) {
+                $this->svg = preg_replace('/width=".*?"/', 'width="' . $width . '"', $this->svg);
+            } else {
+                $this->svg = preg_replace('/\<svg/', '<svg width="' . $width . '"', $this->svg);
             }
+        }
 
-            if ($height) {
-                if (preg_match('/height=/', $this->svg)) {
-                    $this->svg = preg_replace('/height=".*?"/', 'height="' . $height . '"', $this->svg);
-                } else {
-                    $this->svg = preg_replace('/\<svg/', '<svg height="' . $height . '"', $this->svg);
-                }
+        if ($height) {
+            if (preg_match('/height=/', $this->svg)) {
+                $this->svg = preg_replace('/height=".*?"/', 'height="' . $height . '"', $this->svg);
+            } else {
+                $this->svg = preg_replace('/\<svg/', '<svg height="' . $height . '"', $this->svg);
             }
         }
         return view('components.icon');

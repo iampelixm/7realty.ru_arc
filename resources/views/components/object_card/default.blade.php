@@ -68,7 +68,7 @@
                                   ₽</p>
                           </div>
                           <div class="content-specials-link"><button class="content-specials-link__button"
-                                  onclick="showModal({{ $item->id }})">Отправить запрос</button></div>
+                                  onclick="showModal({{ $item->id }})">Отправить запрос!</button></div>
                       </div>
                       <div>
                           <div class="content-specials-heart" onclick="setFavorites({{ $item->id }})"><i

@@ -123908,9 +123908,13 @@ var thumbs = sync2.owlCarousel({
 }).on("change.owl.carousel", function (e) {
   if (e.namespace && e.property.name === "position" && !flag) {//nsole.log('...');
   }
-}).data("owl.carousel");
-$(".owl-prev").html('<i class="fas fa-chevron-left"></i>');
-$(".owl-next").html('<i class="fas fa-chevron-right"></i>');
+}).data("owl.carousel"); //$(".owl-prev").html('<i class="fas fa-chevron-left">asda</i>');
+//$(".owl-next").html('<i class="fas fa-chevron-right">asd</i>');
+
+$(".slider1 .owl-prev").html('<img src="/users/image/slider_left.png">');
+$(".slider1 .owl-next").html('<img src="/users/image/slider_right.png">');
+$(".slider .owl-prev").html('<i class="fas fa-chevron-left">asda</i>');
+$(".slider .owl-next").html('<i class="fas fa-chevron-right">asd</i>');
 
 /***/ }),
 

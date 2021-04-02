@@ -69,7 +69,7 @@
         .brokercard .imgcontainer {
             position: relative;
             padding-bottom: 100%;
-            background-image: url(/users/image/kover.jpg);
+            /* background-image: url(/users/image/kover.jpg); */
             background-position: center center;
             /* backdrop-filter: grayscale(100%);
             backdrop-filter: grayscale(100%);

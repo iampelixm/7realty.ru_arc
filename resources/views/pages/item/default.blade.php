@@ -24,11 +24,7 @@ $main_options = [
 
             <div class="col-12 col-md-4 px-2 px-md-none">
                 <div class="content-object-card-information">
-                    @if (view()->exists('pages.item.parts.slider_info_' . $item->type->slug))
-                        @include(('pages.item.parts.slider_info_' . $item->type->slug))
-                    @else
-                        @include('pages.item.parts.slider_info_default')
-                    @endif
+                    @include('pages.item.parts.slider_info_default')
                 </div>
             </div>
         </div>
@@ -38,7 +34,7 @@ $main_options = [
         <div class="row no-gutters align-content-stretch">
             <div class="col-lg-8  pt-4" style="min-height: 200px;">
                 <div class="row no-gutters overflow-hidden"
-                    style="height: 100%; outline: 1px solid #C1A771; background-image: url(/users/image/kover.jpg); background-repeat: no-repeat; background-position: left top;">
+                    style="height: 100%; outline: 1px solid #C1A771; background: #FFF; /*background-image: url(/users/image/kover.jpg)*/; background-repeat: no-repeat; background-position: left top;">
                     <div class="col-lg-3">
                         @if ($item->user->getFirstMedia('avatar'))
                             {{ $item->user->getFirstMedia('avatar')->img()->attributes(['width' => '100%', 'height' => '']) }}
@@ -76,15 +72,19 @@ $main_options = [
                 </div>
             </div>
 
-            <div class="col-lg-4 pl-4 pt-4" >
+            <div class="col-lg-4 pl-4 pt-4">
                 <div class="row no-gutters px-2 pt-2 " style="outline: 1px solid #C1A771; height: 100%;">
-                    <form class="item-leadform w-100 align-self-center" action="#" method="POST" enctype="application/x-www-form-urlencoded">
-                        <input style="border: none; border-bottom: 1px solid #C1A771" type="text" name="name" id="name" class="form-control mt-1" placeholder="Ваше имя" required>
-                        <input style="border: none; border-bottom: 1px solid #C1A771" type="tel" name="phone" id="phone" class="form-control mt-1" placeholder="Ваш номер телефона"
-                            required>
-                        <input style="border: none; border-bottom: 1px solid #C1A771" type="email" name="email" id="email" class="form-control mt-1" placeholder="Ваш e-mail" required>
+                    <form class="item-leadform w-100 align-self-center" action="#" method="POST"
+                        enctype="application/x-www-form-urlencoded">
+                        <input style="border: none; border-bottom: 1px solid #C1A771" type="text" name="name" id="name"
+                            class="form-control mt-1" placeholder="Ваше имя" required>
+                        <input style="border: none; border-bottom: 1px solid #C1A771" type="tel" name="phone" id="phone"
+                            class="form-control mt-1" placeholder="Ваш номер телефона" required>
+                        <input style="border: none; border-bottom: 1px solid #C1A771" type="email" name="email" id="email"
+                            class="form-control mt-1" placeholder="Ваш e-mail" required>
                         <div class="d-flex justify-content-center" style="transform: translateY(50%);">
-                            <button class="rounded-pill px-5 py-2 mx-auto" style="border: 1px solid #C1A771; background: #FFF">ОТПРАВИТЬ
+                            <button class="rounded-pill px-5 py-2 mx-auto"
+                                style="border: 1px solid #C1A771; background: #FFF">ОТПРАВИТЬ
                                 ЗАЯВКУ</button>
                         </div>
                     </form>
@@ -96,7 +96,7 @@ $main_options = [
     <!-- Описание -->
     <div class="container mt-5" style="border: 1px solid #C1A771; ">
         <h2 style="color: #C1A771; transform: translateY(-50%); background: #FFF;" class="px-4 d-inline-block">
-        {{$item->name}}
+            {{ $item->name }}
         </h2>
         <div class="row no-gutters px-4 pb-4">
 
