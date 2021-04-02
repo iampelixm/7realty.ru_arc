@@ -61,7 +61,7 @@ $main_options = [
                 </div>
                 <div class="broker-contact"
                     style="z-index: 2; position: absolute; right: 50px; transform: translateY(-50%)">
-                    <a class="rounded-circle d-inline-block" href="mailto:{{ $item->user->email }}"
+                    <a class="rounded-circle d-inline-block" href="mailto:{{ $item->user->email  ?? 'info@7realty.ru'}}"
                         style="border: 1px solid #C1A771; padding: 11px; background: #FFF">
                         <x-icon name="envelope" />
                     </a>
