@@ -3,13 +3,21 @@
 @section('head')
 
     <style>
-        .hero {
+
+        .main-header{
+            background: transparent;
+        }
+        body{
             background-image: url(/users/image/hero_partneram.jpg);
             background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
+            /* background-size: cover; */
+            background-position: top left;
+        }
+        .hero {
+
             max-height: 712px;
             min-height: 650px;
+            /* position: absolute; */
         }
 
         .landing {
@@ -17,15 +25,16 @@
             font-size: 18px;
         }
 
-        .landing .section {
+        /* .landing .section {
             padding-top: 75px;
-        }
+        } */
 
         .landing h1 {
             color: #C1A771;
             text-transform: uppercase;
             text-align: center;
-
+            font-size: 48px;
+            margin-bottom: 0;
         }
 
         .landing h2 {
@@ -33,6 +42,7 @@
             text-transform: uppercase;
             margin-top: 40px;
             text-align: center;
+            margin-bottom: 0;
         }
 
 
@@ -119,13 +129,13 @@
 @section('content')
     <div class="landing">
         <div class="hero">
-            <div class="container-fluid section d-block">
-                <div class="row mh-100">
-                    <div class="col-lg-7">
-                        <img src="/users/image/money_man.png" style="width: 100%;">
+            <div class="main-header-desktop-content section d-block" style="background: transparent;">
+                <div class="d-flex" style="padding-top: 30px">
+                    <div class="acol-lg-7">
+                        <img src="/users/image/money_man.png" style="width: 724px;">
                     </div>
 
-                    <div class="col-lg-4">
+                    <div class="acol-lg-5" style="padding-left: 130px;">
                         <h1 style="margin-top: 75px;">РАБОТАЕМ ВМЕСТЕ!</h1>
                         <h3 style="text-transform: uppercase; font-size: 20px;">Приведите клиента и получите до 70% от
                             комиссии компании</h3>
@@ -171,7 +181,7 @@
             </div>
         </div>
 
-        <div class="container section mt-5">
+        <div class="container section" style="padding-top: 70px">
             <h1 class="text-center" style="color: #C1A771">ПОЧЕМУ ЭТО ВЫГОДНО</h1>
             <div class="row mt-4">
                 <div class="col-lg-6">
@@ -304,7 +314,7 @@
             </div>
         </div>
 
-        <div class="container section">
+        <div class="container section" style="padding-top: 150px;">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="rich-man">
@@ -326,5 +336,6 @@
                 </div>
             </div>
         </div>
+        <div class="container section" style="padding-top: 150px;">&nbsp;</div>
     </div>
 @endsection

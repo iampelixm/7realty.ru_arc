@@ -1,28 +1,21 @@
 @extends('layouts.site')
 
-@php
-$main_options = [
-    'minimalnaya_ploshhad' => 1,
-    'maksimalnaya_ploshhad' => 1,
-    'minimalnaya_cena_za_kvm' => 1,
-];
-@endphp
 @section('content')
 
 
     <!-- main content -->
     <!-- Блок Карточки объекта -->
-    <div class="object-card-title">
+    <div class="object-card-title d-none">
         <div class="object-card-title_position_absolute d-none d-md-block">Карточка</div>
     </div>
 
 
-    <div class="object-card-big-slider">
+    <div class="object-card-big-slider" style="margin-top: 40px;">
         <div class="row no-gutters justify-content-between">
 
             @include('pages.item.parts.imageSlider')
 
-            <div class="col-12 col-md-4 px-2 px-md-none">
+            <div class="col-12 col-md-4 px-md-none">
                 <div class="content-object-card-information">
                     @include('pages.item.parts.slider_info_default')
                 </div>
@@ -94,8 +87,9 @@ $main_options = [
         </div>
     </div>
     <!-- Описание -->
-    <div class="container mt-5" style="border: 1px solid #C1A771; ">
-        <h2 style="color: #C1A771; transform: translateY(-50%); background: #FFF;" class="px-4 d-inline-block">
+    <div class="container mt-5">
+        <div style="border: 1px solid #C1A771; ">
+        <h2 style="color: #C1A771; transform: translateY(-50%); background: #FFF;" class="ml-4 px-4 d-inline-block">
             {{ $item->name }}
         </h2>
         <div class="row no-gutters px-4 pb-4">
@@ -104,8 +98,10 @@ $main_options = [
                 {!! $item->description !!}
             </p>
         </div>
+        </div>
     </div>
 
     @include('pages.item.parts.bottom_sliders')
+
 
 @endsection

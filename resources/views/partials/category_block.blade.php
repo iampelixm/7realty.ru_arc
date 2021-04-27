@@ -1,5 +1,5 @@
 <!-- Блок для кого -->
-    <div class="content-for-who d-none d-md-block content-specials_position">
+    <div class="content-for-who d-none d-md-block content-specials_position" style="margin-top: 26px;">
       <div class="row row-cols-1 row-cols-md-2 no-gutters">
         <div class="content-for-life col">
         <h2 class="content-for-life__h2">Для жизни</h2>
@@ -30,8 +30,8 @@
                       @endforeach
             <button class="content-for-life-hover__button">Подать заявку</button>
           </div>
-        </div> 
-      </div>    
+        </div>
+      </div>
     </div>
     <div class="content-for-who-mobile d-block d-md-none">
       <div class="content-for-life-mobile">
@@ -46,7 +46,7 @@
                         @endforeach
                       </div>
                       @endforeach
-         
+
           <div class="content-for-life-mobile__div">
             <button class="content-for-life-mobile__button">Подать заявку</button>
           </div>
@@ -67,6 +67,6 @@
               <button class="content-for-life-mobile__button">Подать заявку</button>
             </div>
         </div>
-      </div>     
+      </div>
     </div>
     <!-- Блок для кого Конец -->

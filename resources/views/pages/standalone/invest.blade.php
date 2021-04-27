@@ -3,29 +3,28 @@
 @section('head')
 
     <style>
-        .hero {
-            background-image: url(/users/image/hero_invest.png);
+        body {
+            background-image: url(/users/image/hero_invest.jpg);
             background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            max-height: 712px;
-            min-height: 650px;
+            background-size: auto 800px;
+            background-position: top center;
         }
 
+        .main-header{
+            background: transparent;
+        }
         .landing {
             font-family: Geometria;
             font-size: 18px;
-        }
-
-        .landing .section {
-            padding-top: 75px;
         }
 
         .landing h1 {
             color: #C1A771;
             text-transform: uppercase;
             text-align: center;
-
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 0;
         }
 
         .landing h2 {
@@ -33,6 +32,7 @@
             text-transform: uppercase;
             margin-top: 40px;
             text-align: center;
+            margin-bottom: 0;
         }
 
         .landing h6 {
@@ -67,8 +67,8 @@
             border-bottom: 2px solid #C1A771;
             margin: 0 auto;
             width: 150px;
-            margin-top: 50px;
-            margin-bottom: 95px;
+            margin-top: 70px;
+            /* margin-bottom: 95px; */
         }
 
         .landing .form-group.rounded {
@@ -169,48 +169,48 @@
 
         <div class="hero">
             <div class="container section">
-                <h1 style="margin-top: 75px;">ИНВЕСТИЦИИ<br>В НЕДВИЖИМОСТЬ</h1>
+                <h1 style="margin-top: 73px;">ИНВЕСТИЦИИ<br>В НЕДВИЖИМОСТЬ</h1>
                 <ul class="ancor_nav">
                     <li>закрытые продажи</li>
                     <li>строящиея объекты</li>
                     <li>арендный бизнес</li>
                 </ul>
-                <h2>ПОДБЕРЕМ ЛУЧШИЕ ИНВЕСТИЦИОННЫЕ ВАРИАНТЫ ДЛЯ ВАС!</h2>
+                <h2 style="margin-top: 40px;">ПОДБЕРЕМ ЛУЧШИЕ ИНВЕСТИЦИОННЫЕ ВАРИАНТЫ ДЛЯ ВАС!</h2>
 
-                    <div class="linespacer"></div>
+                <div class="linespacer"></div>
 
-                    <h6 class="mb-4">Оставьте контакты, отправим подборку на почту</h6>
-                    <form action="#" method="POST" enctype="application/x-www-form-urlencoded" class="w-100 top-form">
-                        <div class="row border-gold rounded-pill align-items-center overflow-hidden"
-                            style="background: rgba(255, 255, 255, 0.7);">
-                            <div class="col ">
-                                <input type="text" name="name" id="name" placeholder="Ваше имя"
-                                    class="form-control py-2 rounded-pill">
-                            </div>
-                            <div class="bg-gold" style="width: 2px">&nbsp;</div>
-                            <div class="col ">
-                                <input type="text" name="phone" id="phone" placeholder="Номер телефона"
-                                    class="form-control py-2 rounded-pill">
-                            </div>
-
-                            <div class="col bg-gold">
-                                <input type="submit" class="form-control py-2 rounded-pill">
-                            </div>
+                <h6 class="" style="margin-top: 79px; margin-bottom: 15px;">Оставьте контакты, отправим подборку на почту</h6>
+                <form action="#" method="POST" enctype="application/x-www-form-urlencoded" class="w-100 top-form">
+                    <div class="row border-gold rounded-pill align-items-center overflow-hidden"
+                        style="background: rgba(255, 255, 255, 0.7);">
+                        <div class="col ">
+                            <input type="text" name="name" id="name" placeholder="Ваше имя"
+                                class="form-control py-2 rounded-pill">
                         </div>
-                        <p align="center" class="text-center mt-2">
-                            Нажимая на кнопку “Получить варианты” Вы соглашаетесь
-                            на
-                            обработку данных. Политика
-                            конфиденциальности.
-                        </p>
-                    </form>
+                        <div class="bg-gold" style="width: 2px">&nbsp;</div>
+                        <div class="col ">
+                            <input type="text" name="phone" id="phone" placeholder="Номер телефона"
+                                class="form-control py-2 rounded-pill">
+                        </div>
+
+                        <div class="col bg-gold">
+                            <input type="submit" class="form-control py-2 rounded-pill">
+                        </div>
+                    </div>
+                    <p align="center" class="text-right" style="font-size: 14px; color: #777">
+                        Нажимая на кнопку “Получить варианты” Вы соглашаетесь
+                        на
+                        обработку данных. Политика
+                        конфиденциальности.
+                    </p>
+                </form>
             </div>
         </div>
 
         <div class="container section">
-            <h1>ЧТО МЫ ПРЕДЛАГАЕМ</h1>
+            <h1 style="margin-top: 110px;">ЧТО МЫ ПРЕДЛАГАЕМ</h1>
 
-            <div class="row" style="margin-top: 70px;">
+            <div class="row" style="margin-top: 75px;">
                 <div class="col text-center hoverline">
                     <div>
                         <svg width="44" height="50" viewBox="0 0 44 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -220,7 +220,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h4 class="mt-3 mb-0 pb-0">ЗАКРЫТЫЕ ПРОДАЖИ</h4>
+                        <h4 class="mt-3 mb-0 pb-0" style="font-size: 18px; font-weight: 500">ЗАКРЫТЫЕ ПРОДАЖИ</h4>
                     </div>
                     <div class="goldline mx-auto mt-3">&nbsp;</div>
                 </div>
@@ -235,7 +235,7 @@
 
                     </div>
                     <div>
-                        <h4 class="mt-3 mb-0 pb-0">СТРОЯЩИЕСЯ ОБЪЕКЫ</h4>
+                        <h4 class="mt-3 mb-0 pb-0" style="font-size: 18px; font-weight: 500">СТРОЯЩИЕСЯ ОБЪЕКЫ</h4>
                     </div>
                     <div class="goldline mx-auto mt-3">&nbsp;</div>
                 </div>
@@ -254,27 +254,27 @@
 
                     </div>
                     <div>
-                        <h4 class="mt-3 mb-0 pb-0">АРЕНДНЫЙ БИЗНЕС</h4>
+                        <h4 class="mt-3 mb-0 pb-0" style="font-size: 18px; font-weight: 500">АРЕНДНЫЙ БИЗНЕС</h4>
                     </div>
                     <div class="goldline mx-auto mt-3">&nbsp;</div>
                 </div>
             </div>
 
             <div class="col-lg-10 offset-lg-1">
-                <p align="center" class="text-center mt-4">
+                <p align="center" class="text-center" style="margin-top: 70px;">
                     Приобретение недвижимости до официального объявления старта продаж – удел избранных. Выгода от
                     покупки в
                     закрытых продажах в среднем составляет 20% от стартовой цены.
                 </p>
-                <div class="gold-line mt-4">
+                <div class="gold-line" style="margin-top: 40px;">
 
                 </div>
             </div>
         </div>
 
-        <div class="container section">
+        <div class="container section" style="padding-top: 154px;">
             <h1>ЗАКРЫТЫЕ ПРОДАЖИ</h1>
-            <h2 style="margin-top: 15px;">ИНВЕСТИЦИИ ОТ 60% ГОДОВЫХ! ИНВЕСТИРУЙ НАДЕЖНО И ВЫГОДНО!</h2>
+            <h2 style="margin-top: 15px; font-size: 24px; margin-bottom: 0;">ИНВЕСТИЦИИ ОТ 60% ГОДОВЫХ! ИНВЕСТИРУЙ НАДЕЖНО И ВЫГОДНО!</h2>
 
             <div style="margin-top: 70px; margin-left: -50px; margin-right: -50px;">
                 <div class="object-card-sliders">
@@ -318,7 +318,7 @@
             </div>
         </div>
 
-        <div class="container section">
+        <div class="container section" style="padding-top: 50px;">
             <h1>СТРОЯЩИЕСЯ ОБЪЕКТЫ</h1>
             <h2>ИНВЕСТИЦИИ ОТ 40% ГОДОВЫХ! КВАЛИФИЦИРОВАННЫЙ БРОКЕР - ГАРАНТИЯ УСПЕХА.</h2>
             <div style="margin-top: 70px; margin-left: -50px; margin-right: -50px;">
@@ -355,7 +355,7 @@
             </p>
         </div>
 
-        <div class="gold-line d-flex justify-content-center" style="margin-top: 100px; margin-bottom: 100px;">
+        <div class="gold-line d-flex justify-content-center" style="margin-top: 70px; margin-bottom: 100px;">
             <div class="rounded-pill border-gold p-2 px-4"
                 style="position: absolute; transform: translateY(-50%); background: #FFF">
                 ПОЛНЫЙ КАТАЛОГ ИНВЕСТИЦИОННЫХ ПРЕДЛОЖЕНИЙ СОЧИ
@@ -363,9 +363,9 @@
         </div>
 
 
-        <div class="container section">
+        <div class="container section" style="padding-top: 50px;">
             <h1>АРЕНДНЫЙ БИЗНЕС</h1>
-            <h2>ИНВЕСТИЦИИ ОТ 20% ГОДОВЫХ!</h2>
+            <h2 style="margin-top: 15px; margin-bottom: 0; font-size: 24px;">ИНВЕСТИЦИИ ОТ 20% ГОДОВЫХ!</h2>
             <div style="margin-top: 70px; margin-left: -50px; margin-right: -50px;">
                 <div class="object-card-sliders">
                     <div class="row no-gutters">
@@ -399,13 +399,13 @@
         </div>
 
 
-        <div class="gold-line d-flex justify-content-center" style="margin-top: 100px; margin-bottom: 100px;">
+        <div class="gold-line d-flex justify-content-center" style="margin-top: 70px; margin-bottom: 100px;">
             <div class="rounded-pill border-gold p-2 px-4"
                 style="position: absolute; transform: translateY(-50%); background: #FFF">
                 ПОЛНЫЙ КАТАЛОГ ИНВЕСТИЦИОННЫХ ПРЕДЛОЖЕНИЙ СОЧИ
             </div>
         </div>
-        <div class="container section">
+        <div class="container section" style="padding-top: 50px;">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="rich-man">
@@ -427,5 +427,5 @@
             </div>
         </div>
     </div>
-    <div class="container section">&nbsp;</div>
+    <div class="" style="padding-top: 70px">&nbsp;</div>
 @endsection

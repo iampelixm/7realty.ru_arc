@@ -1,3 +1,6 @@
+          @php
+          $item=$slider_item;
+          @endphp
           <div class="content-list-item content-list-item__modify " data-id="kv{{ $item->id }}" data-name="card">
               <div class="slide-image-div">
                   @foreach ($item->imagesActive->take(3) as $image)

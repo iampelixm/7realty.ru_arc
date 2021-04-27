@@ -10,8 +10,8 @@
 
                 </div>
                 <div class="slider-content">
+                    <h2 class="big-slide-image-div__h2">{{ $item->name ?? '' }}</h2>
                     <h3 class="big-slide-image-div__h3">{{ $item->address ?? '' }}</h3>
-                    <h2 class="big-slide-image-div__h2">{{ $item->area->name ?? '' }}</h2>
                     {{--<h4 class="big-slide-image-div__h4" onclick="setFavorites({{ $item->id }})"><i
                         class="@if (in_array($item->id, $massFav)) fas @else
                             far @endif
