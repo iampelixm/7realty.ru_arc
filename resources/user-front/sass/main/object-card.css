@@ -162,9 +162,9 @@
 .main-header-navi__p > a {
 	color: #000000;
 }
-.main-header-navi__p:hover > a {
+/* .main-header-navi__p:hover > a {
 	color: #0076C1;
-}
+} */
 .main-header-navi_position {
 	padding: 8px 0 0 0;
 	position: relative;
@@ -386,7 +386,7 @@
 	box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.25);
 }
 .content-object-card-information {
-	max-width: 350px;
+	/* max-width: 350px; */
 	margin: 0 auto;
     padding-left: 30px;
 }
@@ -396,9 +396,8 @@
     font-weight: 700;
     font-style: normal;
 	font-family: Geometria;
-	font-weight: bold;
-	font-size: 34px;
-	color: #000000;
+	font-size: 36px;
+	color: #333;
 }
 .content-object-card-information-pdf {
 	display: flex;
@@ -429,7 +428,7 @@
 	margin: 10px 0 0 0;
 }
 .content-object-card-information-list-text-tile {
-	margin: 0 0 0 20px;
+	margin: 0 0 0 30px;
 	padding: 0 0 0 0;
 	font-family: Geometria;
 	font-weight: 500;
@@ -437,12 +436,12 @@
 	color: #C1A771;
 }
 .content-object-card-information-list-text-info {
-	margin: 0 0 0 20px;
+	margin: 0 0 0 30px;
 	padding: 0 0 0 0;
 	font-family: Geometria;
 	font-weight: bold;
 	font-size: 18px;
-	color: #000000;
+	color: #333;
 }
 .content-object-card-information-input-name {
 	margin: 0 0 0 0;
@@ -844,20 +843,20 @@
 	color: #000000;
 	margin: -2px 0 0 1px;
 }
-.content-specials-heart {
+/* .content-specials-heart {
     padding: 7px 21px 0 0%;
-    font-size: 46px;
-    line-height: 46px;
-    color: red;
+    font-size: 36px;
+    line-height: 1;
+    color: #C1A771;
     cursor: pointer;
 }
 @media (max-width: 640px) {
 	.content-specials-heart {
 	text-align: right;
-    font-size: 46px;
-    line-height: 46px;
+    font-size: 36px;
+    line-height: 1;
 	}
-}
+} */
 /* content-favorites */
 .content-favorites {
 	max-width: 1110px;
@@ -990,9 +989,9 @@
 }
 .content-specials-heart {
     padding: 7px 21px 0 0%;
-    font-size: 46px;
-    line-height: 46px;
-    color: red;
+    font-size: 36px;
+    line-height: 1;
+    color: #C1A771;
     cursor: pointer;
 }
 /* Pagination */
@@ -1111,14 +1110,14 @@
 	line-height: 60px;
 	border-radius: 50%;
 }
-.social-liks__div > a {
+/* .social-liks__div > a {
 	background: #858585;
 	display: inline-block;
 	height: 65px;
 	width: 65px;
 	text-align: center;
 	border-radius: 50%;
-}
+} */
 .copyright {
 	margin: 76px 0 0 0;
 	text-align: center;

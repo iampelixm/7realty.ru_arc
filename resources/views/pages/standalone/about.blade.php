@@ -6,9 +6,9 @@
             display: none;
         }
 
-        .container {
+        /* .container {
             padding: 0;
-        }
+        } */
 
         .textgold {
             color: #C1A771;

@@ -15,14 +15,9 @@
     <!-- Блок просмотра объекта -->
     <div class="content-residential mb-4 d-flex flex-wrap cardContainer_closeMap" id="cardContainer">
         <div id="cards" class="active">
-
             @php $index = 0 @endphp
-            @foreach ($list as $item)
-                @if (view()->exists('components.object_card.' . $item->type->slug))
-                    @include('components.object_card.'.$item->type->slug)
-                @else
-                    @include('components.object_card.default')
-                @endif
+            @foreach ($list as $slider_item)
+                @include('components.object_slider.default')
             @endforeach
         </div>
         <div id="map"></div>

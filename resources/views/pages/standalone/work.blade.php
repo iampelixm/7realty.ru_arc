@@ -80,9 +80,37 @@
             margin-top: 20px;
         }
 
+        .rich-man {
+            background: url(/users/image/rich_man.jpg);
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 100px 0px;
+            min-height: 577px;
+        }
+
+        .bottom-form input {
+            display: block;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #C1A771;
+            margin-top: 40px;
+            color: #C1A771;
+        }
+
+        .bottom-form input::placeholder {
+            color: #C1A771
+        }
+
+        .border-gold {
+            border: 1px solid #C1A771;
+        }
+
     </style>
 
-    <div class="container d-none d-lg-block sevengoldbox" style="margin-top: 90px;">
+    <div class="container d-none d-lg-block sevengoldbox" style="margin-top: 150px;">
         <img class="thelogo" src="/users/image/2000.png" />
         @include('pages.standalone.worksvg_large')
         <div class="sevengoldbox" style="margin-top: 50px; margin-left: 70px; margin-right: 70px;">
@@ -194,9 +222,31 @@
         </div>
 
         <a href="https://sochi.hh.ru/employer/5137663" class="sevenboxtitle"
-
             style="text-decration: none; border: 1px solid #C1A771; border-radius: 25px; white-space: nowrap">НАШИ
             ВАКАНСИИ</a>
     </div>
-    <p>&nbsp;</p>
+
+    <div class="container section" style="padding-top: 150px;">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="rich-man">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="col-lg-8" style="padding-left: 60px; padding-top: 60px;">
+                <h1 class="mt-4 text-left">РАБОТАЕМ<br>ВМЕСТЕ!</h1>
+                <form action="#" method="POST" enctype="application/x-www-form-urlencoded" class="bottom-form">
+                    <input type="name" id="name" name="name" placeholder="Ваше имя" required>
+                    <input type="tel" id="phone" name="phone" placeholder="Номер телефона" required>
+                    <input type="email" id="email" name="email" placeholder="Ваш e-mail" required>
+                    <button class="rounded-pill w-100 p-2 border-gold bg-white" style="margin-top: 40px;">
+                        СТАТЬ ПАРТНЕРОМ
+                    </button>
+                    <small style="color: #777">Нажимая на кнопку Вы соглашаетесь на обработку данных. Политика
+                        конфиденциальности.</small>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container section" style="padding-top: 150px;">&nbsp;</div>
 @endsection

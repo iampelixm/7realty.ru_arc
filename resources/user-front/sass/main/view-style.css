@@ -162,9 +162,9 @@
 .main-header-navi__p > a {
 	color: #000000;
 }
-.main-header-navi__p:hover > a {
+/* .main-header-navi__p:hover > a {
 	color: #0076C1;
-}
+} */
 .main-header-navi_position {
 	padding: 8px 0 0 0;
 	position: relative;
@@ -180,7 +180,7 @@
 .fa-chevron-down_position {
 	font-size: 10px;
     margin: 3px 0 0 7px;
-    color: #0076C1;
+    color: #C1A771;
 }
 .drop-down-menu {
 	position: absolute;

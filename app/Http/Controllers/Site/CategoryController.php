@@ -67,7 +67,7 @@ class CategoryController extends Controller
             $query->where('categories.id', $categoryId);
         }]);
 
-        $list = $queryItem->paginate(13);
+        $list = $queryItem->paginate(12);
         $minRooms = $queryItem->min('all_rooms');
         $maxRooms = $queryItem->max('all_rooms');
 
