@@ -11,7 +11,7 @@
             </div>
             <div class="text-center">
                 <a href="/">
-                <img src="/users/image/logo.png" alt="logo" class="mx-auto">
+                <img src="/users/image/logo-2.png" alt="logo" class="mx-auto">
                 </a>
             </div>
 

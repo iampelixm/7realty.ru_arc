@@ -130,17 +130,17 @@
     <div class="landing">
         <div class="hero">
             <div class="main-header-desktop-content section d-block" style="background: transparent;">
-                <div class="d-flex" style="padding-top: 30px">
+                <div class="d-flex align-items-center justify-content-center" style="padding-top: 30px;">
                     <div class="acol-lg-7">
-                        <img src="/users/image/money_man.png" style="width: 724px;">
+                        <img src="/users/image/money_man.png" style="width: 724px; display: none;">
                     </div>
 
-                    <div class="acol-lg-5" style="padding-left: 130px;">
+                    <div class="acol-lg-5" style="apadding-left: 130px; width: 60%">
                         <h1 style="margin-top: 75px;">РАБОТАЕМ ВМЕСТЕ!</h1>
                         <h3 style="text-transform: uppercase; font-size: 20px;">Приведите клиента и получите до 70% от
                             комиссии компании</h3>
 
-                        <div class="mt-4">
+                        <div class="mt-4 mx-auto" style="width: 60%">
                             <div class="row flex-nowrap mt-4">
                                 <div>
                                     <x-icon name="double-check" />
@@ -171,7 +171,7 @@
                         </div>
 
                         <div class="mt-4">
-                            <a href="#"
+                            <a href="#leadform"
                                 class="text-decoration: none; rounded-pill mt-5 bg-white d-block text-center w-75 mx-auto"
                                 style="font-weight: 700; color:#333; border: 1px solid #C1A771; line-height: 50px">СТАТЬ
                                 ПАРТНЕРОМ</a>
@@ -305,7 +305,7 @@
                 <div class="col-lg-6 d-flex">
                     <x-icon name="microphone-mute" />
                     <div class="pl-4 ml-2">
-                        <a href="#" class="rounded-pill bg-white d-block text-center px-5"
+                        <a href="#leadform" class="rounded-pill bg-white d-block text-center px-5"
                             style="font-size: 14px; font-weight: 700; color:#333; border: 1px solid #C1A771; line-height: 40px">
                             СТАТЬ ПАРТНЕРОМ
                         </a>
@@ -321,7 +321,7 @@
                         &nbsp;
                     </div>
                 </div>
-                <div class="col-lg-8" style="padding-left: 60px; padding-top: 60px;">
+                <div id="leadform" class="col-lg-8" style="padding-left: 60px; padding-top: 60px;">
                     <h1 class="mt-4 text-left">РАБОТАЕМ<br>ВМЕСТЕ!</h1>
                     <form action="#" method="POST" enctype="application/x-www-form-urlencoded" class="bottom-form">
                         <input type="name" id="name" name="name" placeholder="Ваше имя" required>
