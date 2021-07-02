@@ -238,3 +238,10 @@ Route::prefix('/api')->middleware('auth')->name('api.')->group(function () {
     Route::get('/get/address', 'Admin\GoogleMapsController@getCoordinateByAdress')->name('getadress');
     Route::post('/get/options/value', 'Admin\OptionController@apiGetOptionValue')->name('valuebyoption');
 });
+
+Route::prefix('/test')->name('test.')->group(function() {
+    Route::get('/yafeed', 'ApiController@getYandexFeed')->name('uploadYandexFeed');
+    Route::get('/7feed', 'ApiController@parse7realtyFeed')->name('upload7realtyFeed');
+    Route::get('/makefeed', 'ApiController@makeFeed')->name('makeFeed');
+    Route::get('/makefeed.xml', 'ApiController@makeFeed')->name('makeFeedxml');
+});

@@ -138,4 +138,9 @@ class Item extends Model
         }
         return $options;
     }
+
+    public function itemopions()
+    {
+        //return $this->hasMany()
+    }
 }
