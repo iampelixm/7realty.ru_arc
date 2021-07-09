@@ -1,5 +1,10 @@
 @extends('layouts.site')
 
+        @section('categories_menu')
+        @endsection
+
+        @section('categories_menu_mobile')
+        @endsection
 @section('head')
 
     <style>
@@ -137,7 +142,7 @@
 
                     <div class="acol-lg-5" style="apadding-left: 130px; width: 60%">
                         <h1 style="margin-top: 75px;">РАБОТАЕМ ВМЕСТЕ!</h1>
-                        <h3 style="text-transform: uppercase; font-size: 20px;">Приведите клиента и получите до 70% от
+                        <h3 style="text-transform: uppercase; font-size: 20px;">Приведите клиента и получите до 50% от
                             комиссии компании</h3>
 
                         <div class="mt-4 mx-auto" style="width: 60%">
@@ -186,7 +191,7 @@
             <div class="row mt-4">
                 <div class="col-lg-6">
                     <h2 class="title-left">ВЫСОКОЕ ВОЗНАГРАЖДЕНИЕ</h2>
-                    <h5 class="subtitle-left">Вы получаете от 30 до 70% от комиссии компании за сделку</h5>
+                    <h5 class="subtitle-left">Вы получаете от 30 до 50% от комиссии компании за сделку</h5>
                 </div>
 
                 <div class="col-lg-6 d-flex">
@@ -304,10 +309,15 @@
 
                 <div class="col-lg-6 d-flex">
                     <x-icon name="microphone-mute" />
-                    <div class="pl-4 ml-2">
-                        <a href="#leadform" class="rounded-pill bg-white d-block text-center px-5"
+                    <div class="pl-4 ml-0 w-100">
+                        <a href="#leadform" class="d-inline-block rounded-pill bg-white text-center px-5"
                             style="font-size: 14px; font-weight: 700; color:#333; border: 1px solid #C1A771; line-height: 40px">
                             СТАТЬ ПАРТНЕРОМ
+                        </a>
+
+                       <a href="#leadform" class="d-inline-block rounded-pill bg-white text-center px-5"
+                            style="font-size: 14px; font-weight: 700; color:#333; border: 1px solid #C1A771; line-height: 40px">
+                            ПРЕЗЕНТАЦИЯ
                         </a>
                     </div>
                 </div>

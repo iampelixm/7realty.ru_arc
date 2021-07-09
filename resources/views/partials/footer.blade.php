@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="split-div split-div_color_grey"></div>
-            <div class="">
+            <div class="d-none">
                 <div class="row no-gutters">
                     <div class="col">
                         <h2 class="footer-links-div__h2">Для жизни</h2>
@@ -165,78 +165,86 @@
             </h5>
         </div>
         <div class="mobile-footer-content-locations__div-border-bottom"></div>
-        <div class="mobile-footer-content-for-life">
-            <h2 class="mobile-footer-content-for-life__h2">Для жизни</h2>
-        </div>
-        @foreach ($category_life as $category)
+        <div class="d-none">
             <div class="mobile-footer-content-for-life">
-                <p class="mobile-footer-content-for-life__p"><a href="@if ($category->slug !=
-                        null) {{ route('site.get_category', $category->slug) }} @endif"
-                        style="text-decoration: none; color: white;">{{ $category->name }}</a></p>
+                <h2 class="mobile-footer-content-for-life__h2">Для жизни</h2>
             </div>
-
-            @foreach ($category->children as $subcategory)
+            @foreach ($category_life as $category)
                 <div class="mobile-footer-content-for-life">
-                    <a class="mobile-footer-content-for-life__a" href="@if ($category->slug !=
-                        null) {{ route('site.get_category', $subcategory->slug) }} @endif">{{ $subcategory->name }}</a>
+                    <p class="mobile-footer-content-for-life__p"><a href="@if ($category->slug !=
+                            null) {{ route('site.get_category', $category->slug) }} @endif"
+                            style="text-decoration: none; color: white;">{{ $category->name }}</a></p>
                 </div>
+
+                @foreach ($category->children as $subcategory)
+                    <div class="mobile-footer-content-for-life">
+                        <a class="mobile-footer-content-for-life__a" href="@if ($category->slug !=
+                            null) {{ route('site.get_category', $subcategory->slug) }} @endif">{{ $subcategory->name }}</a>
+                    </div>
+                @endforeach
+
             @endforeach
 
-        @endforeach
-
-        <div class="mobile-footer-content-for-life">
-            <h2 class="mobile-footer-content-for-life__h2">Для бизнеса</h2>
-        </div>
-        @foreach ($category_bizness as $category)
             <div class="mobile-footer-content-for-life">
-                <p class="mobile-footer-content-for-life__p"><a href="@if ($category->slug !=
-                        null) {{ route('site.get_category', $category->slug) }} @endif"
-                        style="text-decoration: none; color: white;">{{ $category->name }}</a></p>
+                <h2 class="mobile-footer-content-for-life__h2">Для бизнеса</h2>
             </div>
-
-            @foreach ($category->children as $subcategory)
+            @foreach ($category_bizness as $category)
                 <div class="mobile-footer-content-for-life">
-                    <a class="mobile-footer-content-for-life__a" href="@if ($category->slug !=
-                        null) {{ route('site.get_category', $subcategory->slug) }} @endif">{{ $subcategory->name }}</a>
+                    <p class="mobile-footer-content-for-life__p"><a href="@if ($category->slug !=
+                            null) {{ route('site.get_category', $category->slug) }} @endif"
+                            style="text-decoration: none; color: white;">{{ $category->name }}</a></p>
                 </div>
-            @endforeach
 
-        @endforeach
-        <div class="mobile-footer-content-for-life mobile-footer-content-for-life_display_flex">
-            <div>
+                @foreach ($category->children as $subcategory)
+                    <div class="mobile-footer-content-for-life">
+                        <a class="mobile-footer-content-for-life__a" href="@if ($category->slug !=
+                            null) {{ route('site.get_category', $subcategory->slug) }} @endif">{{ $subcategory->name }}</a>
+                    </div>
+                @endforeach
+
+            @endforeach
+            <div class="mobile-footer-content-for-life mobile-footer-content-for-life_display_flex">
                 <div>
-                    <p class="mobile-footer-content-for-life__p">Компания</p>
+                    <div>
+                        <p class="mobile-footer-content-for-life__p">Компания</p>
+                    </div>
+                    <div><a class="mobile-footer-content-for-life__a" href="/about">О компании</a>
+                    </div>
+                    <div><a class="mobile-footer-content-for-life__a" href="/work">Работа
+                            в Se7en</a></div>
+                    {{-- <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.aboutus') }}">Помему мы?</a></div> --}}
+                    <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.clients') }}">Наши
+                            клиенты</a>
+                    </div>
+                    <div><a class="mobile-footer-content-for-life__a"
+                            href="{{ route('site.contacts') }}">Контакты</a>
+                    </div>
                 </div>
-                <div><a class="mobile-footer-content-for-life__a" href="/about">О компании</a>
-                </div>
-                <div><a class="mobile-footer-content-for-life__a" href="/work">Работа
-                        в Se7en</a></div>
-                {{-- <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.aboutus') }}">Помему мы?</a></div> --}}
-                <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.clients') }}">Наши клиенты</a>
-                </div>
-                <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.contacts') }}">Контакты</a>
+                <div>
+                    <div>
+                        <p class="mobile-footer-content-for-life__p">Услуги</p>
+                    </div>
+                    <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.agency') }}">Агентские
+                            услуги</a></div>
+                    <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.analitics') }}">Консалтинг
+                            и
+                            аналитика</a></div>
+                    <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.managment') }}">Управление
+                            продажами</a>
+                    </div>
+                    <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.support') }}">Юридическое
+                            сопровождение</a></div>
                 </div>
             </div>
-            <div>
-                <div>
-                    <p class="mobile-footer-content-for-life__p">Услуги</p>
+            <div class="mobile-footer-content-for-life mobile-footer-content-for-life_display_flex">
+                <div class="mobile-footer-content__div-fb"><a href="#"><img src="/users/image/fb.png" alt="fb"></a>
                 </div>
-                <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.agency') }}">Агентские
-                        услуги</a></div>
-                <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.analitics') }}">Консалтинг и
-                        аналитика</a></div>
-                <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.managment') }}">Управление
-                        продажами</a>
+                <div class="mobile-footer-content__div-yt"><a href="#"><img src="/users/image/yt.png" alt="yt"></a>
                 </div>
-                <div><a class="mobile-footer-content-for-life__a" href="{{ route('site.support') }}">Юридическое
-                        сопровождение</a></div>
             </div>
+<div class="mobile-footer-content__div_border_orange"></div>
         </div>
-        <div class="mobile-footer-content-for-life mobile-footer-content-for-life_display_flex">
-            <div class="mobile-footer-content__div-fb"><a href="#"><img src="/users/image/fb.png" alt="fb"></a></div>
-            <div class="mobile-footer-content__div-yt"><a href="#"><img src="/users/image/yt.png" alt="yt"></a></div>
-        </div>
-        <div class="mobile-footer-content__div_border_orange"></div>
+
         <div class="mobile-footer-content-copyright">© Seven 2007-2021</div>
     </div>
 </footer>

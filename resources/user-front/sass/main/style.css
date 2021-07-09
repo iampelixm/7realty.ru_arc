@@ -864,7 +864,7 @@ a.slide-image-div-image img {
 	margin: 0 auto;
 	position: relative;
 	max-width: 1360px;
-	min-height: 837px;
+	/* min-height: 837px; */
 	background: #0E1216;
 }
 .main-footer-logo {
@@ -888,7 +888,7 @@ a.slide-image-div-image img {
 .main-footer-info {
 	margin: -57px auto;
 	max-width: 1360px;
-	min-height: 669px;
+	/* min-height: 669px; */
 	border: 1px solid #DDA33D;
 	padding: 106px 70px 0 70px;
 }

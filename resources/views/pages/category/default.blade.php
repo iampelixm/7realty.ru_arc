@@ -14,13 +14,13 @@
     </div>
     <!-- Блок просмотра объекта -->
     <div class="content-residential mb-4 d-flex flex-wrap cardContainer_closeMap" id="cardContainer">
-        <div id="cards" class="active">
+        <div id="cards" class="_active">
             @php $index = 0 @endphp
             @foreach ($list as $slider_item)
                 @include('components.object_slider.default')
             @endforeach
         </div>
-        <div id="map"></div>
+        <div id="mapa"></div>
         <div class="content-residential-pag w-100">
             {{ $list->links() }}
         </div>

@@ -294,38 +294,39 @@ function changeHeart(numberThis) {
         numberThis.children[0].classList.add("far");
     }
 }
-// function viewAllPartners(numberThis){
-// 	var parent = numberThis.parentNode.parentNode;
-// 	numberThis.classList.add('d-none');
-// 	for (var i = 0; i < parent.children.length; i++) {
-// 		if(i==0) {
-// 			parent.children[i].classList.add('d-none');
-// 			continue;
-// 		}
-// 		if(parent.children[i].classList.contains('d-none')) {
-// 			parent.children[i].classList.remove('d-none');
-// 		}
-// 	}
-// }
+function viewAllPartners(numberThis) {
+	var parent = numberThis.parentNode.parentNode;
+	numberThis.classList.add('d-none');
+	for (var i = 0; i < parent.children.length; i++) {
+		if(i==0) {
+			parent.children[i].classList.add('d-none');
+			continue;
+		}
+		if(parent.children[i].classList.contains('d-none')) {
+			parent.children[i].classList.remove('d-none');
+		}
+	}
+}
 // var slider = document.getElementsByClassName('slide-image-div'); // div с изображением
 // var sliderLeftButton = document.getElementsByClassName('slide-image-div-left'); // div ср стрелкой влево
 // var sliderRightButton = document.getElementsByClassName('slide-image-div-right'); // div ср стрелкой вправо
 // var navigationBar = document.getElementsByClassName('slide-image-div-navi'); // div с пагинацией
 // var hearts = document.getElementsByClassName('content-specials-heart'); // div с сердцем
-// var allPartners = document.getElementsByClassName('content-partners-all__button'); // кнопка - показать всех партнеров
-
-// if(allPartners.length) {
-// 	allPartners[0].addEventListener( "click" , function(){viewAllPartners(this)}, false);
-// }
-// if(navigationBar.length) {
-// 	for (var i = 0; i < navigationBar.length; i++) {
-// 		for (var j = 0; j < navigationBar[i].children.length; j++) {
-// 			navigationBar[i].children[j].counti = i;
-// 			navigationBar[i].children[j].countj = j;
-// 			navigationBar[i].children[j].addEventListener( "click" , function(){changeUrlByNumber(this)}, false);
-// 		}
-// 	}
-// }
+var allPartners = document.getElementsByClassName('content-partners-all__button'); // кнопка - показать всех партнеров
+// console.log('allpartners button', allPartners);
+// alert('i am script.js');
+if(allPartners.length) {
+	allPartners[0].addEventListener( "click" , function(){viewAllPartners(this)}, false);
+}
+if(navigationBar.length) {
+	for (var i = 0; i < navigationBar.length; i++) {
+		for (var j = 0; j < navigationBar[i].children.length; j++) {
+			navigationBar[i].children[j].counti = i;
+			navigationBar[i].children[j].countj = j;
+			navigationBar[i].children[j].addEventListener( "click" , function(){changeUrlByNumber(this)}, false);
+		}
+	}
+}
 // if(slider.length) {
 // 	for (var i = 1; i < slider.length; i++) {
 // 		slider[i].count = i;

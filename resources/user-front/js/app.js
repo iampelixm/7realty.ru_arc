@@ -11,6 +11,7 @@ require("./components/inputask");
 require("./components/view-script");
 require("./components/edit-scrdipt-pages");
 // require("./components/object-card");
+require("./components/script");
 
 require("./other");
 

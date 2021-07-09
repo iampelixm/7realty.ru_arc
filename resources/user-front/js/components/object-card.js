@@ -498,6 +498,7 @@ if (fbSliderRightButton.length) {
     );
 }
 function viewAllPartners(numberThis) {
+    alert('view all object');
     var parent = numberThis.parentNode.parentNode;
     numberThis.classList.add("d-none");
     for (var i = 0; i < parent.children.length; i++) {
@@ -526,19 +527,19 @@ if (hearts.length) {
         );
     });
 }
-var allPartners = document.getElementsByClassName(
-    "content-partners-all__button"
-); // кнопка - показать всех партнеров
-if (allPartners.length) {
-    allPartners[0].addEventListener(
-        "click",
-        function(event) {
-            event.preventDefault();
-            viewAllPartners(this);
-        },
-        false
-    );
-}
+// var allPartners = document.getElementsByClassName(
+//     "content-partners-all__button"
+// ); // кнопка - показать всех партнеров
+// if (allPartners.length) {
+//     allPartners[0].addEventListener(
+//         "click",
+//         function(event) {
+//             event.preventDefault();
+//             viewAllPartners(this);
+//         },
+//         false
+//     );
+// }
 // if(navigationBar.length) {
 // 	for (var i = 0; i < navigationBar.length; i++) {
 // 		for (var j = 0; j < navigationBar[i].children.length; j++) {
