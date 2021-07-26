@@ -168,7 +168,7 @@ class CategoryController extends Controller
         $page_title = $category->name . " - Специальные предложения | Seven";
         $page_head =  $category->name . " - cпециальные предложения";
 
-        return view('pages.apartments', compact('list', 'areasSelect', 'filter', 'data_backend', 'page_title', 'page_head', 'minRooms', 'maxRooms'));
+        return view('pages.category.default', compact('list', 'areasSelect', 'filter', 'data_backend', 'page_title', 'page_head', 'minRooms', 'maxRooms'));
         //return view('pages.category', compact('category'));
     }
 }

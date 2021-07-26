@@ -174,16 +174,16 @@ function changeOpacity(obj1, obj2, opacityValue) {
 // 		}
 // 	}
 // }
-function changeHeart(numberThis) {
-    console.log(2);
-    if (numberThis.children[0].classList.contains("far")) {
-        numberThis.children[0].classList.remove("far");
-        numberThis.children[0].classList.add("fas");
-    } else {
-        numberThis.children[0].classList.remove("fas");
-        numberThis.children[0].classList.add("far");
-    }
-}
+// function changeHeart(numberThis) {
+//     console.log(2);
+//     if (numberThis.children[0].classList.contains("far")) {
+//         numberThis.children[0].classList.remove("far");
+//         numberThis.children[0].classList.add("fas");
+//     } else {
+//         numberThis.children[0].classList.remove("fas");
+//         numberThis.children[0].classList.add("far");
+//     }
+// }
 // var slider = document.getElementsByClassName('slide-image-div'); // div с изображением
 // var sliderLeftButton = document.getElementsByClassName('slide-image-div-left'); // div ср стрелкой влево
 // var sliderRightButton = document.getElementsByClassName('slide-image-div-right'); // div ср стрелкой вправо
@@ -615,14 +615,14 @@ function smallToBigPopMini(el) {
 // var bigRightButton = document.getElementsByClassName('big-slide-image-div-right'); // div со стрелкой вправо большое фото
 // bigRightButton[0].addEventListener( "click" , function(){changeBigToRight(this)}, false);
 // bigRightButton[1].addEventListener( "click" , function(){changeBigToRight(this)}, false);
-var bigHearts = document.getElementsByClassName("big-slide-image-div__h4"); // div с сердцем большое фото
-bigHearts[0].addEventListener(
-    "click",
-    function() {
-        changeHeart(this);
-    },
-    false
-);
+// var bigHearts = document.getElementsByClassName("big-slide-image-div__h4"); // div с сердцем большое фото
+// bigHearts[0].addEventListener(
+//     "click",
+//     function() {
+//         changeHeart(this);
+//     },
+//     false
+// );
 var bigPreview = document.getElementsByClassName("big-slide-sm-image"); // дополнительные фотографии под большим
 for (var i = 0; i < bigPreview.length; i++) {
     bigPreview[i].addEventListener(

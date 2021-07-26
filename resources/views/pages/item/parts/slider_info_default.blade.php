@@ -3,7 +3,7 @@
 </h2>
 
 <div class="d-flex pl-2">
-    <div>
+    <div class="content-object-card-information-icon">
         <x-icon name="item-price" />
     </div>
     <div>
@@ -28,9 +28,9 @@
 
 <div class="row">
     @foreach ($item->options as $itemOptionName => $itemOption)
-        <div class="col-lg-6 d-flex">
-            <div>
-                <x-icon :name="$itemOptionName" />
+        <div class="col-lg-6 d-flex" data-option="{{$itemOptionName}}">
+            <div class="content-object-card-information-icon">
+                <x-icon :name="$itemOptionName" height="50" width="50"/>
             </div>
             <div>
                 <div class="content-object-card-information-list-text-tile">

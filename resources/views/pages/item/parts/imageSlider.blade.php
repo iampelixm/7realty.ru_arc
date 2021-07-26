@@ -1,4 +1,4 @@
-            <div class="col-12 col-md-8 px-3 px-md-0">
+            <div class="item_slider" style="width: 800px">
 
                 <div id="" class="owl-carousel slider1" onclick="">
                     @foreach ($item->imagesActive as $key => $image)

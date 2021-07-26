@@ -5,17 +5,12 @@
 
     <!-- main content -->
     <!-- Блок Карточки объекта -->
-    <div class="object-card-title d-none">
-        <div class="object-card-title_position_absolute d-none d-md-block">Карточка</div>
-    </div>
-
-
     <div class="object-card-big-slider" style="margin-top: 40px;">
-        <div class="row no-gutters justify-content-between">
+        <div class="d-flex no-gutters">
 
             @include('pages.item.parts.imageSlider')
 
-            <div class="col-12 col-md-4 px-md-none">
+            <div class="item_card">
                 <div class="content-object-card-information">
                     @include('pages.item.parts.slider_info_default')
                 </div>
@@ -23,7 +18,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container no-gutters mx-auto px-0" style="max-width: 1360px;">
         <div class="row no-gutters align-content-stretch">
             <div class="col-lg-8  pt-4" style="min-height: 200px;">
                 <div class="row no-gutters overflow-hidden"
@@ -87,7 +82,7 @@
         </div>
     </div>
     <!-- Описание -->
-    <div class="container mt-5">
+    <div class="container-fluid no-gutters p-0 mx-auto" style="max-width: 1360px; margin-top: 70px">
         <div style="border: 1px solid #C1A771; ">
         <h2 style="color: #C1A771; transform: translateY(-50%); background: #FFF;" class="ml-4 px-4 d-inline-block">
             {{ $item->name }}

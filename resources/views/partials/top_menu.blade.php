@@ -1,4 +1,5 @@
-    <div style="background: #0E1216">
+    <div style="background: #C1A771">
+        {{-- 0E1216 --}}
         <div class="main-header-desktop-content topnav d-none d-lg-block" style="background: transparent; font-size: 14px; font-family: Geometria;  font-weight: 400; padding-top: 3px;">
             <nav class="navbar p-0">
                 <div class="navbar-expand-sm w-100" id="">
@@ -14,9 +15,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-flex" href="#{{--{{ route('site.broker.list') }}--}}" style="color: #FFF">
+                            <a class="nav-link d-flex" href="{{ route('site.broker.list') }}" style="color: #FFF">
                                 <div class="nav-link-image">
-                                    <x-icon name="heart" width="17" />
+                                    <x-icon name="heart-small" width="17" />
                                 </div>
                                 <div class="nav-link-text ml-2">
                                     Брокер для души

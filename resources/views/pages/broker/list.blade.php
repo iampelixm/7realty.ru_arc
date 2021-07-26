@@ -159,6 +159,7 @@
                 </a>
             </div>
         </div>
+        <h2 style="text-align: center">Выберите брокера по душе</h2>
     </div>
 
     <div class="container">

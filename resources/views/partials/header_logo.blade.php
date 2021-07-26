@@ -7,7 +7,7 @@
         </div>
         <div class="d-none d-lg-block position-absolute" style="right:0; top: 30px;">
             <x-icon name="phone-tube" style="margin-right: 12px;" /><a href="tel:+79857000077"
-                style="color: #333; font-size:24px; letter: 20%; font-weight: 400;">(985) 700-00-77</a>
+                style="color: #333; font-size:24px; letter: 20%; font-weight: 400;">+7 (985) 700-00-77</a>
         </div>
         <div class="text-center">
             <a href="/">

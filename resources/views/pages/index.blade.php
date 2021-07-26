@@ -9,7 +9,7 @@
                 <div id="" class="owl-carousel mainpage_slider" onclick="">
                     @foreach (App\Models\SiteSetting::firstOrCreate(['name' => 'mainpage_show_banner'])->getMedia('MainPageBanner') as $banner)
                         <div class="item">
-                            {{ $banner->img()->attributes(['width' => '100%', 'height' => '']) }}
+                            {{ $banner->img()->attributes(['width' => '100%', 'height' => '566', 'sizes'=>'100vw']) }}
                             {{-- $banner->img() --}}
                         </div>
                     @endforeach
@@ -71,21 +71,26 @@
     @if ($site_settings->mainpage_show_special ?? '')
         @if ($specialItemCount > 0)
             <div class="content-specials content-specials_position">
-                <div class="content-specials-info content-specials-info_position_center">
+                {{-- <div class="content-specials-info content-specials-info_position_center">
                     <h2 class="content-specials-info__h2">Специальные предложения</h2>
-                </div>
+                </div> --}}
                 @foreach ($list as $category)
                     @if ($category->offerItems->count() > 0)
                         <div class="content-specials-list">
                             <div class="content-specials-list-div">
                                 <h3 class="content-specials-list-div__h3">{{ $category->name }}</h3>
                             </div>
-                            <div class="content-specials-list-link"><a class="content-specials-list-link__a"
-                                    href="@if ($category->slug != null) {{ route('site.get_category_special', $category->slug) }} @endif">Все спецпредложения</a></div>
+                            <div class="content-specials-list-link">
+                                <a class="content-specials-list-link__a"
+                                    href="@if ($category->slug != null) {{ route('site.get_category_special', $category->slug) }} @endif">
+                                    Все спецпредложения
+                                    <span style="margin-left: 16px"><x-icon name="chevron-right" /></span>
+                                </a>
+                            </div>
                         </div>
                         <div class="content-specials-list-slider">
                             {{-- <div class="content-specials-list-slider-left col-auto"><i class="fas fa-chevron-left"></i></div> --}}
-                            <div class="slider-custom__three owl-carousel px-5">
+                            <div class="slider-custom__four owl-carousel px-5a">
                                 @foreach ($category->offerItems->take(7) as $slider_item)
                                     @include('components.object_slider.default')
                                 @endforeach

@@ -18,9 +18,9 @@
                             <input type="text" name="square" id="square" placeholder="Площадь"
                                 class="form-control py-2 rounded-pill">
                         </div>
-                        <div class="bg-gold" style="width: 2px; height: 18px;">&nbsp;</div>
+                        <div class="bg-gold d-none" style="width: 2px; height: 18px;">&nbsp;</div>
 
-                        <div class="col ">
+                        <div class="col d-none">
                             <input type="text" name="remont" id="remont" placeholder="Отделка"
                                 class="form-control py-2 rounded-pill">
                         </div>

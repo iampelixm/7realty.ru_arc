@@ -538,31 +538,18 @@ input[type=number] {
 .slide-image-div-navi__div-not-active:hover {
 	border-bottom: 4px solid #323232;
 }
-.content-specials-adress {
+/* .content-specials-adress {
 	display: flex;
 	justify-content: flex-start;
 	padding: 15px 0 0 0;
-}
+} */
 .content-specials__p {
 	margin: 4px 0 0 6px;
 	font-family: Geometria;
 	font-size: 12px;
 	color: #7B7B7B;
 }
-.content-specials-price-info__p {
-	font-family: Geometria;
-	font-size: 18px;
-	font-weight: 500;
-	color: #000000;
-	margin: -2px 0 0 1px;
-}
-.content-specials-heart {
-    padding: 7px 21px 0 0%;
-    font-size: 36px;
-    line-height: 1;
-    color: #C1A771;
-    cursor: pointer;
-}
+
 /* Pagination */
 .content-residential-pag {
 	display: flex;

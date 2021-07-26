@@ -12,12 +12,24 @@ $(".slide-image-div").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    dots: true,
+    dots: false,
     infinite: true,
-    prevArrow:
+    _prevArrow:
         '<button class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+    prevArrow:
+        `
+        <button class="slick-prev">
+            <img src="/users/image/slider_left.png">
+        </button>
+        `,
+    _nextArrow:
+        '<button class="slick-next"><i class="fas fa-chevron-right"></i></button>',
     nextArrow:
-        '<button class="slick-next"><i class="fas fa-chevron-right"></i></button>'
+        `
+        <button class="slick-next">
+            <img src="/users/image/slider_right.png">
+        </button>
+        `
 });
 $(".slider-custom__three.owl-carousel").owlCarousel({
     items: 3,
@@ -40,7 +52,7 @@ $(".slider-custom__four.owl-carousel").owlCarousel({
     items: 4,
     loop: false,
     margin: 30,
-    nav: true,
+    nav: false,
     responsive: {
         0: {
             items: 1
@@ -59,10 +71,13 @@ $(".slider-custom__four.owl-carousel").owlCarousel({
 
 $(".mainpage_slider").owlCarousel({
     items: 1,
-    loop: true,
+    loop: false,
     margin: 30,
-    nav: true
+    nav: true,
+    dots: false
 });
 
-$(".owl-prev").html('<i class="fas fa-chevron-left"></i>');
-$(".owl-next").html('<i class="fas fa-chevron-right"></i>');
+$(".mainpage_slider .owl-prev").html('<img src="/users/image/slider_left.png">');
+$(".mainpage_slider .owl-next").html('<img src="/users/image/slider_right.png">');
+// $(".owl-prev").html('<i class="fas fa-chevron-left"></i>');
+// $(".owl-next").html('<i class="fas fa-chevron-right"></i>');
