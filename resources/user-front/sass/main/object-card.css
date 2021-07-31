@@ -182,7 +182,7 @@
     margin: 3px 0 0 7px;
     color: #0076C1;
 }
-.drop-down-menu {
+/* .drop-down-menu {
 	position: absolute;
 	top: 30px;
 	left: 25%;
@@ -220,7 +220,7 @@
 	font-weight: 300;
 	font-size: 16px;
 	color: #000000;
-}
+} */
 /* Mobile header */
 .main-header-mobile-div_position {
 	height: 100px;

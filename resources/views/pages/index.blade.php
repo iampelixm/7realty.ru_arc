@@ -9,7 +9,7 @@
                 <div id="" class="owl-carousel mainpage_slider" onclick="">
                     @foreach (App\Models\SiteSetting::firstOrCreate(['name' => 'mainpage_show_banner'])->getMedia('MainPageBanner') as $banner)
                         <div class="item">
-                            {{ $banner->img()->attributes(['width' => '100%', 'height' => '566', 'sizes'=>'100vw']) }}
+                            {{ $banner->img()->attributes(['width' => '100%', 'height' => '566', 'sizes' => '100vw']) }}
                             {{-- $banner->img() --}}
                         </div>
                     @endforeach
@@ -43,24 +43,24 @@
                     <div class="col">
                         <video id="mainpage_video" class="video-js vjs-default-skin vjs-fluid vjs-fill" controls autoplay
                             width="640" height="264" data-setup='
-                                            {
-                                                "techOrder": [
-                                                "youtube"
-                                                ],
-                                            "sources": [
-                                                {
-                                                    "type": "video/youtube",
-                                                    "src": "{{ $site_settings->mainpage_video }}"
-                                                }
-                                                    ],
-                                                    "youtube": {
-                                                        "ytControls": 0,
-                                                        "rel": 0,
-                                                        "iv_load_policy": 3,
-                                                        "showinfo": 0,
-                                                        "modestbranding": 0
-                                                    }
-                                            }'>
+                                                    {
+                                                        "techOrder": [
+                                                        "youtube"
+                                                        ],
+                                                    "sources": [
+                                                        {
+                                                            "type": "video/youtube",
+                                                            "src": "{{ $site_settings->mainpage_video }}"
+                                                        }
+                                                            ],
+                                                            "youtube": {
+                                                                "ytControls": 0,
+                                                                "rel": 0,
+                                                                "iv_load_policy": 3,
+                                                                "showinfo": 0,
+                                                                "modestbranding": 0
+                                                            }
+                                                    }'>
                         </video>
                     </div>
                 </div>
@@ -70,24 +70,29 @@
     <!-- Блок Спецпредложений -->
     @if ($site_settings->mainpage_show_special ?? '')
         @if ($specialItemCount > 0)
-            <div class="content-specials content-specials_position">
-                {{-- <div class="content-specials-info content-specials-info_position_center">
+
+            {{-- <div class="content-specials-info content-specials-info_position_center">
                     <h2 class="content-specials-info__h2">Специальные предложения</h2>
                 </div> --}}
-                @foreach ($list as $category)
-                    @if ($category->offerItems->count() > 0)
+            @foreach ($list as $category)
+                @if ($category->offerItems->count() > 0)
+                    <div class="content-specials-list-outer">
                         <div class="content-specials-list">
                             <div class="content-specials-list-div">
                                 <h3 class="content-specials-list-div__h3">{{ $category->name }}</h3>
                             </div>
                             <div class="content-specials-list-link">
-                                <a class="content-specials-list-link__a"
-                                    href="@if ($category->slug != null) {{ route('site.get_category_special', $category->slug) }} @endif">
+                                <a class="content-specials-list-link__a" href="@if ($category->slug !=
+                                    null) {{ route('site.get_category_special', $category->slug) }} @endif">
                                     Все спецпредложения
-                                    <span style="margin-left: 16px"><x-icon name="chevron-right" /></span>
+                                    <span style="margin-left: 16px">
+                                        <x-icon name="chevron-right" />
+                                    </span>
                                 </a>
                             </div>
                         </div>
+                    </div>
+                    <div class="content-specials content-specials_position">
                         <div class="content-specials-list-slider">
                             {{-- <div class="content-specials-list-slider-left col-auto"><i class="fas fa-chevron-left"></i></div> --}}
                             <div class="slider-custom__four owl-carousel px-5a">
@@ -98,18 +103,26 @@
                             </div>
 
                         </div>
-                    @endif
-                @endforeach
+                    </div>
+                @endif
+            @endforeach
 
-            </div>
+
         @endif
     @endif
     <!-- Блок Спецпредложений КОНЕЦ-->
     <!-- Блок Партнеров -->
-    <div class="content-partners content-partners_position content-partners_display_block">
-        <div class="content-partners-title">
-            <h2 class="content-partners-title__h2">Наши партнеры</h2>
+    <div class="content-specials-list-outer">
+        <div class="content-specials-list">
+            <div class="content-specials-list-div">
+                <h3 class="content-specials-list-div__h3">Наши партнеры</h3>
+            </div>
         </div>
+    </div>
+    <div class="content-partners content-partners_position content-partners_display_block">
+        {{-- <div class="content-partners-title">
+            <h2 class="content-partners-title__h2">Наши партнеры</h2>
+        </div> --}}
         <div class="content-partners-logos">
             <div
                 class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 align-items-center justify-content-center no-gutters px-2">

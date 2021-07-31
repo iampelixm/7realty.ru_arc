@@ -1,9 +1,15 @@
 @extends('layouts.site')
+@section('categories_menu')
+@endsection
 
 @section('content')
     <style>
         .broker-info {
             font-family: Geometria;
+            max-width: 1360px;
+            margin: 0 auto;
+            margin-top: 40px;
+            padding-bottom: 70px;
         }
 
         .broker-info .additional-label {
@@ -40,21 +46,66 @@
 
         .broker-info .avatar-container {
             border-radius: 50px 0 0 0;
-            overflow: hidden;
-            /* background-image: url(/users/image/kover.jpg); */
+            /* overflow: hidden; */
+            background-image: url(/users/image/kover.jpg);
             position: relative;
             background-size: cover;
-            min-height: 350px;
+            max-height: 325px;
+        }
+
+        .broker-info .broker-avatar {
+            margin: 0 auto;
+            display: block;
+        }
+
+        .broker-info .broker-buttons {
+            position: absolute;
+            margin-left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            border: 1px solid #C1A771;
+            background-color: #FFF;
+            padding: 4px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 25px;
+
+        }
+
+        .broker-info .broker-buttons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            text-decoration: none;
+            text-transform: capitalize;
         }
 
     </style>
 
-    <div class="container broker-info">
+    <div class="broker-info">
         <div class="row">
-            <div class="col-lg-4 avatar-container">
+            <div class="col-lg-4 p-0 avatar-container">
                 @if ($broker->getFirstMedia('avatar'))
-                    {{ $broker->getFirstMedia('avatar')->img()->attributes(['width' => 'auto', 'height' => '100%']) }}
+                    {{ $broker->getFirstMedia('avatar')->img()->attributes(['class' => 'broker-avatar', 'width' => 'auto', 'height' => '100%']) }}
                 @endif
+                <div class="broker-buttons">
+                    <a href="tel:+79857000077">
+                        <span style="margin-right: 10px; color:#C1A771">
+                            <x-icon name="call" width="20" />
+                        </span>
+                        Позвонить
+                    </a>
+
+                    <span style="color:#C1A771; padding:0px 40px;">|</span>
+
+                    <a href="mailto:{{ $broker->email }}">
+                        <span style="margin-right: 10px; color:#C1A771">
+                            <x-icon name="envelope" width="20" />
+                        </span>
+                        Написать
+                    </a>
+                </div>
             </div>
 
             <div class="col-lg-8 pl-5 pt-4">
@@ -62,7 +113,7 @@
                 <h6 style="color: #333; font-weight: 300">{{ $broker->position }}</h6>
 
                 <div style="font-size: 48px; font-weight: 700; color: #C1A771; margin-top: 40px;">
-                    <a href="te:+79857000077" style="color: #C1A771; text-decoration: none; ">+7 985 700-00-77</a>
+                    <a href="tel:+79857000077" style="color: #C1A771; text-decoration: none; ">+7 985 700-00-77</a>
                 </div>
                 <div style="font-size: 14px;">
                     <a style="color: #C1A771; text-decoration: none; "
@@ -114,8 +165,8 @@
                             </svg>
                         </div>
                         <div class="ml-3">
-                            <h4 class="additional-label">Стаж в компании</h4>
-                            <h2 class="additional-value">{{ $broker->additional->stazh ?? '7' }} лет</h2>
+                            <h4 class="additional-label">Количество успешных сделок</h4>
+                            <h2 class="additional-value">{{ $broker->additional->sdelok ?? '7' }} </h2>
                         </div>
                     </div>
                 </div>
