@@ -1,5 +1,6 @@
 @extends('layouts.site')
-
+@section('categories_menu')
+@endsection
 
 @section('content')
     <style>
@@ -63,81 +64,57 @@
 
         .brokercard {
             position: relative;
-            overflow: hidden;
-        }
-
-        .brokercard .imgcontainer {
-            position: relative;
-            padding-bottom: 100%;
-            /* background-image: url(/users/image/kover.jpg); */
-            background-position: center center;
-            /* backdrop-filter: grayscale(100%);
-            backdrop-filter: grayscale(100%);
-            filter: grayscale(100%); */
-            transition: all 200ms;
-        }
-
-        .brokercard .imgcontainer:hover {
-
-            filter: none;
-        }
-
-        .brokercard .imgcontainer .img {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            z-index: 1;
-        }
-
-        .brokercard .imgcontainer .overlay {
-            z-index: 2;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            color: #FFF;
-            outline: 1px solid #C1A771;
-            outline-offset: -15px;
-            padding: 20px;
+            width: 25%;
             display: flex;
             flex-direction: column;
-            align-content: flex-end;
-            justify-content: flex-end;
-            transition: all 300ms;
+            justify-content: space-between;
+            margin-top: 70px;
         }
 
-        .brokercard .imgcontainer .overlay:hover {
-            outline-offset: -5px;
-            background: rgba(0,0,0,0.6);
-        }
 
-        .brokercard .imgcontainer .overlay .more-link{
-            display: none;
-        }
-
-        .brokercard .imgcontainer .overlay:hover > .more-link{
-            display: block;
-        }
-
-        .brokercard .imgcontainer .overlay .brokerlink{
-            color: #FFF;
+        .brokercard .more-link {
+            color: #333333;
             text-decoration: none;
-        }
-
-
-        .brokercard .imgcontainer .overlay .brokername{
-            font-size: 24px;
             text-align: center;
+            text-transform: uppercase;
+            font-family: Geometria;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 23px;
+            width:300px;
+            border: 1px solid #C1A771;`
         }
 
-        .brokercard .imgcontainer .overlay .brokerposition{
+
+        .brokercard .brokername {
+
+            font-family: Geometria;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 45px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #C1A771;
+
+        }
+
+        .brokercard .brokerposition {
+            font-family: Geometria;
+            font-style: normal;
+            font-weight: normal;
             font-size: 14px;
+            line-height: 18px;
             text-align: center;
+            color: #333333;
+            padding-left: 20px;
+            padding-right: 20px;
         }
-
 
     </style>
-    <div class="container">
-        <div class="container">
+    <div class="container-fluid">
+        <div>
             <div class="row justify-content-center inline-gold-nav py-4 mt-2 align-items-center">
                 <a class="nav-item {{ request()->department == '' ? 'active' : '' }}" href="?department=">
                     Все
@@ -159,14 +136,42 @@
                 </a>
             </div>
         </div>
+        <h2 style="text-align: center">Выберите брокера по душе</h2>
     </div>
+    <style>
+        .hexagon-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
 
-    <div class="container">
-        <div class="row">
-            @foreach ($brokers as $broker)
-                @include('pages.broker.card')
-            @endforeach
-        </div>
+        .hexagon-underlay {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 230px;
+            height: 258px;
+            margin-left: 30px;
+            margin-top: 25px;
+            z-index: 0;
+            /*  clip-path: inset(0 0 0 50%); */
+        }
+
+        .hexagon {
+            z-index: 2;
+            clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+            width: 250px;
+            height: 280px;
+            background-image: url(/images/bg-for-business.jpg);
+            object-fit: cover;
+        }
+
+    </style>
+    <div style="max-width: 1360px; margin: 0 auto; display: flex; flex-wrap: wrap; padding-bottom: 70px;">
+        @foreach ($brokers as $broker)
+            @include('pages.broker.card')
+        @endforeach
     </div>
 
 @endsection

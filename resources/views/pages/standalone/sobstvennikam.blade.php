@@ -1,5 +1,11 @@
 @extends('layouts.site')
 
+        @section('categories_menu')
+        @endsection
+
+        @section('categories_menu_mobile')
+        @endsection
+
 @section('head')
 
     <style>
@@ -197,22 +203,26 @@
                 <h1
                     style="margin-top: 109px; margin-bottom:0; padding-bottom: 0; font-size: 48px; line-height: 60px; font-weight: 600">
                     КРУГЛОСУТОЧНЫЙ СЕРВИС <br>
-                    ПО ПРОДАЖЕ ЭЛИТНОЙ НЕДВИЖИМОСТИ
+                    ПО ПРОДАЖЕ ВАШЕЙ НЕДВИЖИМОСТИ
                 </h1>
                 <h2 style="margin-top:0; padding-top: 0;">
                     ЗАПОЛНИТЕ ДАННЫЕ И ПОЛУЧИТЕ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ ЭКСПЕРТА
                 </h2>
                 <div style="margin-top: 107px;">
+                    <div style="text-align: center; text-transform: uppercase; color: #C1A771; padding-bottom: 70px; font-size: 36px; font-weight: 700">
+                        Я продаю
+                    </div>
                     @include('pages.standalone.elements.leadform_room')
                 </div>
             </div>
         </div>
 
         <div class="main-header-desktop-content section" style="padding-top: 0;">
-            <h1>ЧТО МЫ ПРЕДЛАГАЕМ</h1>
+            {{-- <h1>ЧТО МЫ ПРЕДЛАГАЕМ</h1> --}}
+            <h1>ПОЧЕМУ ПРОДАВАТЬ С НАМИ БЫСТРО И ВЫГОДНО</h1>
 
             <div class="row align-items-end" style="margin-top: 70px; padding-left: -10%; padding-right: -10%">
-                <div class="col-lg text-center hoverline">
+                <a href="#section_ocenka" class="col-lg text-center hoverline">
                     <div>
                         <x-icon name="house-dollar" style="height: 60px;" />
                     </div>
@@ -220,19 +230,19 @@
                         <h4 class="mt-3 mb-0 pb-0">ОЦЕНКА<br> НЕДВИЖИМОСТИ</h4>
                     </div>
                     <div class="goldline mx-auto mt-3">&nbsp;</div>
-                </div>
+                </a>
 
-                <div class="col-lg text-center hoverline">
+                <a href="#section_personal_broker" class="col-lg text-center hoverline">
                     <div>
-                        <x-icon name="heart" width="48" height="44" />
+                        <x-icon name="heart-small" width="48" height="44" />
                     </div>
                     <div>
                         <h4 class="mt-3 mb-0 pb-0">ПЕРСОНАЛЬНЫЙ<br> БРОКЕР</h4>
                     </div>
                     <div class="goldline mx-auto mt-3">&nbsp;</div>
-                </div>
+                </a>
 
-                <div class="col-lg text-center hoverline">
+                <a href="#section_marketing" class="col-lg text-center hoverline">
                     <div>
                         <x-icon name="tech" />
                     </div>
@@ -240,9 +250,9 @@
                         <h4 class="mt-3 mb-0 pb-0">МАРКЕТИНГОВЫЕ<br> ТЕХНОЛОГИИ</h4>
                     </div>
                     <div class="goldline mx-auto mt-3">&nbsp;</div>
-                </div>
+                </a>
 
-                <div class="col-lg text-center hoverline">
+                <a href="#section_jursoprovod" class="col-lg text-center hoverline">
                     <div>
                         <x-icon name="law" />
                     </div>
@@ -250,9 +260,9 @@
                         <h4 class="mt-3 mb-0 pb-0">ЮРИДИЧЕСКОЕ<br> СОПРОВОЖДЕНИЕ</h4>
                     </div>
                     <div class="goldline mx-auto mt-3">&nbsp;</div>
-                </div>
+                </a>
 
-                <div class="col-lg text-center hoverline">
+                <a href="#section_kontrol_kachestva" class="col-lg text-center hoverline">
                     <div>
                         <x-icon name="shield-check" />
                     </div>
@@ -260,7 +270,9 @@
                         <h4 class="mt-3 mb-0 pb-0">КОНТРОЛЬ<br>КАЧЕСТВА</h4>
                     </div>
                     <div class="goldline mx-auto mt-3">&nbsp;</div>
-                </div>
+                </a>
+
+
             </div>
 
             <div class="col-lg-10 offset-lg-1 mt-5 pt-5">
@@ -273,13 +285,13 @@
             </div>
         </div>
 
-        <div class="" style="background: url(/users/image/section_room.jpg); margin-top: 146px;">
+        <div class="" id="section_ocenka" style="background: url(/users/image/section_room.jpg); margin-top: 146px;">
             <div class="row pt-5" style="background: rgba(0,0,0,0.4);">
                 <div class="main-header-desktop-content" style="background: transparent">
                     <h1 class="text-center text-white pb-0 mb-0 mt-4" style="font-size: 48px;">ОЦЕНКА НЕДВИЖИМОСТИ</h1>
                     <h4 class="text-white pt-0 mt-0 w-75 text-center mx-auto" style="font-size: 18px; font-weight: 200">Наш
-                        эксперт сравнит сделки с аналогичными параметрами за последние полгода и даст точное заключение
-                        по рыночной стоимости объекта недвижимости.</h4>
+                        эксперт сравнит сделки с аналогичными параметрами за последние 6-12 месяцев и предоставит экспертное заключение
+                        по рыночной стоимости вашего объекта недвижимости.</h4>
                     <h2 class="text-white" style="margin-top: 70px;">ОСТАВЬТЕ ЗАЯВКУ ЭКСПЕРТУ</h2>
                     <div style="margin-top: 40px; margin-bottom: 40px;">
                         @include('pages.standalone.elements.leadform_room')
@@ -288,12 +300,13 @@
             </div>
         </div>
 
-        <div class="main-header-desktop-content section" style="margin-top: 150px;">
+        <div id="section_personal_broker" class="main-header-desktop-content section" style="margin-top: 150px;">
             <h1 style="font-size: 48px">ПЕРСОНАЛЬНЫЙ БРОКЕР</h1>
             <h3 style="font-size: 24px">ПОЗАБОТИИТСЯ ОБО ВСЕМ!</h3>
             <p style="font-size: 18px; margin-top: 40px; text-align: center">
-                На всех этапах брокер является вашим эксклюзивным представителем и возьмет на себя все заботы,<br>
-                связанные с продажей недвижимости:
+                В рамках нашего сотрудничества вам будет предоставлен ваш персональный брокер.
+                На всех этапах ваш брокер является вашим эксклюзивным представителем и возьмет на себя все заботы,
+                связанные с продажей вашей недвижимости:
             </p>
             <div class="row" style="margin-top: 70px;">
                 <div class="col-lg-4 d-none d-lg-block">
@@ -408,7 +421,8 @@
         <div class="container-fluid pt-4" style="background: url(/users/image/section_upakuem.jpg); margin-top: 150px; padding-bottom: 70px">
 
             <div class="container" style="margin-top: 70px;">
-                <h1 style="font-size: 48px;">ПОДГОТОВКА К ПРОДАЖЕ</h1>
+                <h1 style="font-size: 48px;">ПОДГОТОВКА К ПРОДАЖЕ <br>
+                (ХОУМ СТЕЙДЖИНГ)</h1>
                 <h5 class="text-center" style="font-size: 24px; font-weight: 700l">
                     УПАКУЕМ ВАШУ КВАРТИРУ В ЛУЧШЕМ ВИДЕ, ЧТОБЫ ИСКЛЮЧИТЬ<br>
                     НЕ АРГУМЕНТИРОВАННЫЙ ТОРГ
@@ -445,10 +459,12 @@
                     </div>
                 </div>
             </div>
-
+            <div>
+                Хоум-Стейджинг — это наука о превращении убитого жилья в приятное, обычного — в великолепное, неликвидного — в востребованное. Это наука о том, как правильно подготовить недвижимость к продаже или аренде. Понятие Home Staging(Хоум Стейджинг) придумала Барб Шварц, риэлтор из американской глубинки в 1970-е годы.
+            </div>
             <div class="" style="margin-top: 70px; padding-bottom: 70px">
-                <h1 style="color: #000; font-weight: 700; font-size: 48px;">1% ИНВЕСТИРОВАННЫЙ В STAGING<br>
-                    ПОВЫШАЕТ СТОИМОСТЬ НЕДВИЖИМОСТИ НА 3-5%</h1>
+                <h1 style="color: #000; font-weight: 700; font-size: 48px;">1% ИНВЕСТИРОВАННЫЙ В HOME STAGING<br>
+                    ПОВЫШАЕТ СТОИМОСТЬ НЕДВИЖИМОСТИ НА 10-15%</h1>
 
                 <ul class="left-diamond-inline">
                     <li>
@@ -476,13 +492,13 @@
                 <div class="text-center">
                     <a href="#" class="rounded-pill bg-white text-center"
                         style="padding-top: 15px; padding-bottom: 15px; padding-left: 60px; padding-right: 60px; font-weight: 700; font-size: 18px; color:#333; border: 1px solid #C1A771;">
-                        ПОДАТЬ ЗАЯВКУ
+                        ПОДАТЬ ЗАЯВКУ И ПРОДАТЬ МОЮ КВАРТИРУ ДОРОЖЕ
                     </a>
                 </div>
             </div>
         </div>
 
-        <div class=""
+        <div id="section_marketing" class=""
             style="padding-bottom: 150px; padding-top: 150px; background: url(/users/image/section_marketingovie_tehnologii.jpg); background-position: center center; background-size: cover">
             <div class="container">
                 <h1 style="font-size: 48px;">МАРКЕТИНГОВЫЕ ТЕХНОЛОГИИ</h1>
@@ -575,7 +591,7 @@
             </div>
         </div>
 
-        <div class="main-header-desktop-content section section" style="padding-top: 150px;">
+        <div id="section_jursoprovod" class="main-header-desktop-content section section" style="padding-top: 150px;">
             <h1 style="font-size: 48px;">ЮРИДИЧЕСКОЕ СОПОВОЖДЕНИЕ</h1>
             <h5 class="text-center" style="font-size: 18px; font-weight: 400">Юридическая служба окажет полный спектр профессиональных юридических услуг по сопровождению сделок</h5>
 
@@ -653,7 +669,7 @@
         </div>
 
 
-        <div class="container section" style="margin-top: 150px;">
+        <div id="section_kontrol_kachestva" class="container section" style="margin-top: 150px;">
             <h1 style="font-size: 48px;">КОНТРОЛЬ КАЧЕСТВА</h1>
             <h5 class="text-center" style="font-size: 24px; font-weight: 700;">В ЛИЧНОМ КАБИНЕТЕ ВЫ ВСЕГДА БУДЕТЕ В КУРСЕ ТОГО, КАК ПРОДАЁТСЯ ВАШ ОБЪЕКТ</h5>
             <div class="text-center" style="margin-top: 40px; font-size: 18px;">
@@ -744,5 +760,5 @@
             </div>
         </div>
     </div>
-    <div class="container section">&nbsp;</div>
+    <div class="container section" style="padding-top: 150px;">&nbsp;</div>
 @endsection

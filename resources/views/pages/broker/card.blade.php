@@ -1,15 +1,15 @@
-<div class="col-lg-3 p-0 mt-4 brokercard" style="">
-    <div class="imgcontainer">
-        <div class="img">
-            @if ($broker->getFirstMedia('avatar'))
-                {{ $broker->getFirstMedia('avatar')->img()->attributes(['width' => '100%', 'height' => '']) }}
-            @endif
-        </div>
-        <div class="overlay" style="">
+<div class="brokercard" style="">
+    <div class="hexagon-wrapper">
 
-            <h1 class="brokername">{{ $broker->name }}</h1>
-            <h4 class="brokerposition">{{ $broker->position }}</h4>
-            <a class="more-link border p-2 text-center text-white rounded-pill" href="{{ route('site.broker.page', $broker) }}">Подробнее</a>
-        </div>
+        <img class="hexagon-underlay" src="/images/goldpolygon.png">
+        @if ($broker->getFirstMedia('avatar'))
+            {{ $broker->getFirstMedia('avatar')->img()->attributes(['class' => 'hexagon', 'width' => '250', 'height' => '']) }}
+        @endif
+
     </div>
+
+    <h1 class="brokername">{{ $broker->name }}</h1>
+    <h4 class="brokerposition">{{ $broker->position }}</h4>
+    <a class="more-link p-2 text-center rounded-pill mx-auto d-block"
+        href="{{ route('site.broker.page', $broker) }}">Связаться</a>
 </div>

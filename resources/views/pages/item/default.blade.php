@@ -5,17 +5,12 @@
 
     <!-- main content -->
     <!-- Блок Карточки объекта -->
-    <div class="object-card-title d-none">
-        <div class="object-card-title_position_absolute d-none d-md-block">Карточка</div>
-    </div>
-
-
     <div class="object-card-big-slider" style="margin-top: 40px;">
-        <div class="row no-gutters justify-content-between">
+        <div class="d-flex no-gutters">
 
             @include('pages.item.parts.imageSlider')
 
-            <div class="col-12 col-md-4 px-md-none">
+            <div class="item_card">
                 <div class="content-object-card-information">
                     @include('pages.item.parts.slider_info_default')
                 </div>
@@ -23,49 +18,13 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container no-gutters mx-auto px-0" style="max-width: 1360px; margin-top: 40px">
         <div class="row no-gutters align-content-stretch">
-            <div class="col-lg-8  pt-4" style="min-height: 200px;">
-                <div class="row no-gutters overflow-hidden"
-                    style="height: 100%; outline: 1px solid #C1A771; background: #FFF; /*background-image: url(/users/image/kover.jpg)*/; background-repeat: no-repeat; background-position: left top;">
-                    <div class="col-lg-3">
-                        @if ($item->user && $item->user->getFirstMedia('avatar'))
-                            {{ $item->user->getFirstMedia('avatar')->img()->attributes(['width' => '100%', 'height' => '']) }}
-                        @endif
-                    </div>
-                    <div class="pl-4 col-lg-9">
-                        <div style="transform: skewX(-7deg); background: #FFF; height: 100%">
-                            <div class="pl-4 pt-4" style="transform: skewX(7deg); height: 100%">
-                                <h2 style="font-size: 36px;">
-                                    {{ $item->user->name ?? 'Брокер' }}
-                                </h2>
-                                <h6 style="font-weight: 100;">
-                                    {{ $item->user->position ?? 'Брокер' }}
-                                </h6>
-                                <h1>
-                                    <a href="tel:+79857000077"
-                                        style="text-decoration: none; font-weight: 700; color:#C1A771;">+7 985 700-00-77</a>
-                                </h1>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="broker-contact"
-                    style="z-index: 2; position: absolute; right: 50px; transform: translateY(-50%)">
-                    <a class="rounded-circle d-inline-block" href="mailto:{{ $item->user->email  ?? 'info@7realty.ru'}}"
-                        style="border: 1px solid #C1A771; padding: 11px; background: #FFF">
-                        <x-icon name="envelope" />
-                    </a>
-                    <a class="ml-3 rounded-circle d-inline-block p-2" href="tel:+79857000077"
-                        style="border: 1px solid #C1A771; background: #FFF">
-                        <x-icon name="call" />
-                    </a>
-                </div>
+            <div class="col-lg-8 " style="min-height: 237px;">
+                @include('pages.item.parts.broker_card')
             </div>
 
-            <div class="col-lg-4 pl-4 pt-4">
+            <div class="col-lg-4" style="padding-top: 32px; padding-bottom: 32px; padding-left: 40px;">
                 <div class="row no-gutters px-2 pt-2 " style="outline: 1px solid #C1A771; height: 100%;">
                     <form class="item-leadform w-100 align-self-center" action="#" method="POST"
                         enctype="application/x-www-form-urlencoded">
@@ -87,7 +46,7 @@
         </div>
     </div>
     <!-- Описание -->
-    <div class="container mt-5">
+    <div class="container-fluid no-gutters p-0 mx-auto" style="max-width: 1360px; margin-top: 50px">
         <div style="border: 1px solid #C1A771; ">
         <h2 style="color: #C1A771; transform: translateY(-50%); background: #FFF;" class="ml-4 px-4 d-inline-block">
             {{ $item->name }}

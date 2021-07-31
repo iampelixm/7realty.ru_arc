@@ -2,11 +2,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-	
+
 	 --}}
 <script type="text/javascript">
-	function setFavorites(id){       
-	   
+	function setFavorites(id){
+
 		$.ajax({
 				headers: { 'X-CSRF-TOKEN' : "{{csrf_token()}}" },
 				url: "{{ route('site.set_favorites') }}",
@@ -21,8 +21,8 @@
 					if (response['status'] ==true)
 					 {
 					  console.log('set favorites');
-					 } 
-					
+					 }
+
 					if ((response['status'] == false) && (response['code'] == '403'))
 					 {
 					  console.log('access denid!');
@@ -30,12 +30,12 @@
 						 mess.classList.toggle('d-none');
             mess.classList.toggle('d-block');
 					 }
-					
+
 				},
 				error: function (e) {
 					console.log(response);
 				}
-			});    
+			});
 	}
 
 	function sendOrder(){
@@ -76,21 +76,21 @@
 						var mess = document.getElementById('success_message');
             mess.classList.toggle('d-none');
             mess.classList.toggle('d-block');
-					} 
-					
+					}
+
 					if (response['status'] == false)
 					{
 						var mess = document.getElementById('formError').innerText = response['message'];
-					   
-					} 
-					
-					
+
+					}
+
+
 				},
 				error: function (e) {
 					console.log(response);
 				}
 			});
-		
+
 	}
 
 	 function register(){
@@ -119,20 +119,20 @@
 						var mess = document.getElementById('formCode');
             mess.classList.toggle('d-none');
             mess.classList.toggle('d-block');
-					} 
-					
+					}
+
 					if (response['status'] == false)
 					{
 						var mess = document.getElementById('formRegisterError').innerText = response['message'];
-					   
-					} 
-				  
-				  
+
+					}
+
+
 			  },
 			  error: function (e) {
 				  console.log(response);
 			  }
-		  });     
+		  });
 	}
 
 	function sendSMS(){
@@ -157,15 +157,15 @@
           let mess1 = document.getElementById('formCode');
           mess1.classList.toggle('d-none');
           mess1.classList.toggle('d-block');
-        } 
+        }
         if (response['status'] == false){
           var mess = document.getElementById('formSMSError').innerText = response['message'];
-        } 
+        }
       },
       error: function (e) {
         console.log(response);
-      } 
-    });     
+      }
+    });
 	}
 
 	function sendCode(){
@@ -188,22 +188,22 @@
 						var mess = document.getElementById('formCode');
 						mess.classList.toggle('d-none');
 						location.reload();
-					} 
-					
+					}
+
 					if (response['status'] == false)
 					{
 						var mess = document.getElementById('formCodeError').innerText = response['message'];
-					   
-					} 
-				  
+
+					}
+
 			  },
 			  error: function (e) {
 				  console.log(response);
 			  }
-		  });     
+		  });
 	}
 
-	function sendOrderShow(item, type){       
+	function sendOrderShow(item, type){
 		var name = document.getElementById('name').value;
 		var phone = document.getElementById('phone').value;
 		var email = document.getElementById('email').value;
@@ -227,22 +227,22 @@
             var mess = document.getElementById('success_message');
             mess.classList.toggle('d-none');
             mess.classList.toggle('d-block');
-					} 
-					
+					}
+
 					if (response['status'] == false)
 					{
 						var mess = document.getElementById('formOrderShowError').innerText = response['message'];
-					   
-					}            
-					
+
+					}
+
 				},
 				error: function (e) {
 					console.log(response);
 				}
-			});    
+			});
 	}
 
-	function sendOrderShowModal(item, type){       
+	function sendOrderShowModal(item, type){
 		var name = document.getElementById('name_modal-'+item).value;
 		var phone = document.getElementById('tel_modal-'+item).value;
 		var email = document.getElementById('email_modal-'+item).value;
@@ -267,22 +267,22 @@
             var mess = document.getElementById('success_message');
             mess.classList.toggle('d-none');
             mess.classList.toggle('d-block');
-					} 
-					
+					}
+
 					if (response['status'] == false)
 					{
 						var mess = document.getElementById('formOrderShowErrorModal-'+item).innerText = response['message'];
-					   
-					}            
-					
+
+					}
+
 				},
 				error: function (e) {
 					console.log(response);
 				}
-			});    
+			});
 	}
 
-	function sendOrderShowForm(item){       
+	function sendOrderShowForm(item){
 		var name = document.getElementById('name_form').value;
 		var phone = document.getElementById('phone_form').value;
 		var email = document.getElementById('email_form').value;
@@ -306,23 +306,23 @@
 						var mess = document.getElementById('success_message');
             mess.classList.toggle('d-none');
             mess.classList.toggle('d-block');
-					} 
-					
+					}
+
 					if (response['status'] == false)
 					{
 						var mess = document.getElementById('formOrderShowFormError').innerText = response['message'];
-					   
-					} 
-					
-					
+
+					}
+
+
 				},
 				error: function (e) {
 					console.log(response);
 				}
-			});    
+			});
 	}
 
-	function sendOrderBuy(){       
+	function sendOrderBuy(){
 		var name = document.getElementById('buy_name').value;
 		var phone = document.getElementById('buy_phone').value;
 		var email = document.getElementById('buy_email').value;
@@ -347,23 +347,23 @@
 						var mess = document.getElementById('success_message');
             mess.classList.toggle('d-none');
             mess.classList.toggle('d-block');
-					} 
-					
+					}
+
 					if (response['status'] == false)
 					{
 						var mess = document.getElementById('formBuyOrder').innerText = response['message'];
-					   
-					} 
-					
-					
+
+					}
+
+
 				},
 				error: function (e) {
 					console.log(response);
 				}
-			});    
+			});
 	}
 
-	function sendOrderOrenda(){       
+	function sendOrderOrenda(){
 		var name = document.getElementById('orenda_name').value;
 		var phone = document.getElementById('orenda_phone').value;
 		var email = document.getElementById('orenda_email').value;
@@ -388,43 +388,43 @@
 						var mess = document.getElementById('success_message');
             			mess.classList.toggle('d-none');
             			mess.classList.toggle('d-block');
-					} 
-					
+					}
+
 					if (response['status'] == false)
 					{
 						var mess = document.getElementById('formOrendaOrder').innerText = response['message'];
-					   
-					} 
-					
-					
+
+					}
+
+
 				},
 				error: function (e) {
 					console.log(response);
 				}
-			});    
+			});
 	}
 
 	function showModal(item){
 		var model = document.getElementById('model-item-'+item);
             model.classList.toggle('d-none');
             model.classList.toggle('d-block');
-	} 
+	}
 
 	function closeModal(item){
 		var model = document.getElementById('model-item-'+item);
             model.classList.toggle('d-block');
             model.classList.toggle('d-none');
-	}  
+	}
 
 </script>
 
 <script>
 	!function(e){function r(r){for(var n,l,a=r[0],p=r[1],f=r[2],c=0,s=[];c<a.length;c++)l=a[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in p)Object.prototype.hasOwnProperty.call(p,n)&&(e[n]=p[n]);for(i&&i(r);s.length;)s.shift()();return u.push.apply(u,f||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,a=1;a<t.length;a++){var p=t[a];0!==o[p]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var a=this.webpackJsonpmaps_gsv2008=this.webpackJsonpmaps_gsv2008||[],p=a.push.bind(a);a.push=r,a=a.slice();for(var f=0;f<a.length;f++)r(a[f]);var i=p;t()}([])
-	   
+
 </script>
 
 
-
+{{--
 <script src="{{ asset('/static/js/2.5f8db1f9.chunk.js') }}"></script>
 <script src="{{ asset('/static/js/main.875966de.chunk.js') }}"></script>
-
+--}}

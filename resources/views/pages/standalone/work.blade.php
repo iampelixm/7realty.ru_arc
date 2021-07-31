@@ -1,5 +1,11 @@
 @extends('layouts.site')
 
+        @section('categories_menu')
+        @endsection
+
+        @section('categories_menu_mobile')
+        @endsection
+
 @section('content')
     <style>
         @media (min-width: 576px) {}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<objects>
+    <object updated="2021-04-22T16:18:24+04:00" internal-id="777" link="https://the-link" category-path="Новостройки" mainpage_slider="true" mainpage_special="false" mainpage_hot="true" invest_hidden="true" invest_construction="false" invest_rental="false">
+        <title>Такая вот квартира в новостройке</title>
+        <region>Краснодарский Край</region>
+        <city>Сочи</city>
+        <city_area>Центральный</city_area>
+        <street>ул. Навагинская</street>
+        <house_num>115</house_num>
+        <ned_type>Квартира в новостройке</ned_type>
+        <lattitude>11.232323</lattitude>
+        <longtitude>23.232323</longtitude>
+        <agent>
+            <phone>+79667700804</phone>
+            <name>Штондина Диана</name>
+            <email>sh.diana@7realty.ru</email>
+            <internal_id>332</internal_id>
+            <description>
+                <![CDATA[
+                <p>Описание для брокера с HTML тегами оформления</p>
+                ]]>
+            </description>
+            <position>Специалист по новостройкам</position>
+        </agent>
+        <order_type>продажа</order_type>
+        <price currency="RUR">150000000</price>
+        <images>
+            <image url="http://7realty.realt.space/files/1619167955_image_03_04_21_11_25_4.jpeg" md5="4c17828f6e141e18adce89e02dbf4506"/>
+            <image url="http://7realty.realt.space/files/1619167955_image_03_04_21_11_25.jpeg" md5="42562a2e6f6f6e249e2270afe7013d70"/>
+            <image url="http://7realty.realt.space/files/1619167955_image_03_04_21_11_25_1.jpeg" md5="cbdbb1e13288752b55a32fc64d05f262"/>
+            <image url="http://7realty.realt.space/files/1619167955_image_03_04_21_11_25_2.jpeg" md5="1650c259479cf2124613464b9e47b683"/>
+            <image url="http://7realty.realt.space/files/1619167955_image_03_04_21_11_25_3.jpeg" md5="06f596f1076dd6ecf2558f4ede1c8257"/>
+            <image url="http://7realty.realt.space/files/1619167955_image_03_04_21_11_25_24.jpeg" md5="f773b0f5ea4baa9a0fcbbf4948c4d11a"/>
+            <image url="http://7realty.realt.space/files/1619167955_image_03_04_21_11_25_5.jpeg" md5="1e3f435158edb68d2723ae679a1ea657"/>
+        </images>
+        <youtube_video_link>https://youtu.be/embed/some_id</youtube_video_link>
+        <description>
+            <![CDATA[
+            <p>Миллениум Тауэр<br /> Элит класс</p> <p>(Светлана-Золотой треугольник)<br /> *Статус Апартаменты<br /> *РМТ<br /> *Мебель, техника <br /> *S = 50 м2, 2/23  эт.<br /> *Комнат: 1 спальня(Окно с выходом на террасу) +гостинная(с окном из спальни) + отдельная кухня <br /> *Парковка подземная<br /> *Детская площадка<br /> *Спортивная площадка<br /> *До моря: 250 метров<br /> *Двор: закрытая территория<br /> *ландшафтный дизайн <br /> *охрана<br /> *Консьерж</p>
+            ]]>
+        </description>
+        <options>
+            <option title="Год постройки" name="house-year">2014</option>
+            <option title="Этаж" name="etage">4</option>
+            <option title="Этажность" name="etage-all">5</option>
+            <option title="Комнат" name="rooms">3</option>
+            <option title="Общая площадь" name="meters-total">86</option>
+        </options>
+    </object>
+</objects>

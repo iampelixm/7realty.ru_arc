@@ -34,7 +34,28 @@
 
 <body>
     <!-- Header -->
-    @include('partials/header_new')
+    <header class="main-header amain-header-desktop-content main-header_position" style="font-size: 14px; font-family: Geometria; amargin-bottom: 70px">
+        @section('top_menu')
+            @include('partials.top_menu')
+        @show
+
+        @section('header_logo')
+            @include('partials.header_logo')
+        @show
+
+        @section('categories_menu')
+            @include('partials.categories_menu')
+        @show
+
+        @section('header_logo_mobile')
+            @include('partials.header_logo_mobile')
+        @show
+
+        @section('categories_menu_mobile')
+            @include('partials.categories_menu_mobile')
+        @show
+    </header>
+
     <!-- Конец Header -->
     <!-- main content -->
     @yield('content')
@@ -51,31 +72,6 @@
 
 
     <script src="{{ mix('/users/js/app.min.js') }}"></script>
-
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m, e, t, r, i, k, a) {
-            m[i] = m[i] || function() {
-                (m[i].a = m[i].a || []).push(arguments)
-            };
-            m[i].l = 1 * new Date();
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode
-                .insertBefore(k, a)
-        })
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-        ym(73798639, "init", {
-            clickmap: true,
-            trackLinks: true,
-            accurateTrackBounce: true,
-            webvisor: true
-        });
-
-    </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/73798639" style="position:absolute; left:-9999px;" alt="" /></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
 
     @include('partials/scripts')
     @yield('scripts')

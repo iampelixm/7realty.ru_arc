@@ -182,7 +182,7 @@
     margin: 3px 0 0 7px;
     color: #C1A771;
 }
-.drop-down-menu {
+/* .drop-down-menu {
 	position: absolute;
 	top: 30px;
 	left: 25%;
@@ -220,7 +220,7 @@
 	font-weight: 300;
 	font-size: 16px;
 	color: #000000;
-}
+} */
 /* Mobile header */
 .main-header-mobile-div_position {
 	height: 100px;
@@ -481,13 +481,13 @@
 	max-width: 100%;
 	background: #0E1216;
 }
-.desktop-footer-content {
+/* .desktop-footer-content {
 	margin: 0 auto;
 	position: relative;
 	max-width: 1360px;
 	min-height: 837px;
 	background: #0E1216;
-}
+} */
 .main-footer-logo {
 	position: relative;
 	padding: 10px 0 0 0;

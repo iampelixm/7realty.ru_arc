@@ -204,7 +204,7 @@
     margin: 3px 0 0 7px;
     color: #C1A771;
 }
-.drop-down-menu {
+/* .drop-down-menu {
 	position: absolute;
 	top: 30px;
 	left: 25%;
@@ -242,7 +242,7 @@
 	font-weight: 300;
 	font-size: 16px;
 	color: #000000;
-}
+} */
 /* Mobile header */
 .main-header-mobile-div_position {
 	height: 100px;
@@ -538,31 +538,18 @@ input[type=number] {
 .slide-image-div-navi__div-not-active:hover {
 	border-bottom: 4px solid #323232;
 }
-.content-specials-adress {
+/* .content-specials-adress {
 	display: flex;
 	justify-content: flex-start;
 	padding: 15px 0 0 0;
-}
+} */
 .content-specials__p {
 	margin: 4px 0 0 6px;
 	font-family: Geometria;
 	font-size: 12px;
 	color: #7B7B7B;
 }
-.content-specials-price-info__p {
-	font-family: Geometria;
-	font-size: 18px;
-	font-weight: 500;
-	color: #000000;
-	margin: -2px 0 0 1px;
-}
-.content-specials-heart {
-    padding: 7px 21px 0 0%;
-    font-size: 36px;
-    line-height: 1;
-    color: #C1A771;
-    cursor: pointer;
-}
+
 /* Pagination */
 .content-residential-pag {
 	display: flex;
@@ -597,13 +584,13 @@ input[type=number] {
 .pag-element_active > a:hover {
 	color: #000000;
 }
-.desktop-footer-content {
+/* .desktop-footer-content {
 	margin: 0 auto;
 	position: relative;
 	max-width: 1360px;
 	min-height: 837px;
 	background: #0E1216;
-}
+} */
 .main-footer-logo {
 	position: relative;
 	padding: 10px 0 0 0;

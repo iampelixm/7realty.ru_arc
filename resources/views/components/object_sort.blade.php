@@ -23,7 +23,7 @@
                     @endif
                 </a>
             </div>
-            <div class="content-residential-form-sort col-6 text-right">
+            <div class="content-residential-form-sort col-6 text-right d-none">
                 <button id="switch-map" class="Button">Скрыть карту <i class="fas fa-map-marker-alt"></i></button>
             </div>
 

@@ -1,5 +1,11 @@
 @extends('layouts.site')
 
+        @section('categories_menu')
+        @endsection
+
+        @section('categories_menu_mobile')
+        @endsection
+
 @section('head')
 
     <style>
@@ -211,7 +217,7 @@
             <h1 style="margin-top: 110px;">ЧТО МЫ ПРЕДЛАГАЕМ</h1>
 
             <div class="row" style="margin-top: 75px;">
-                <div class="col text-center hoverline">
+                <a href="#section_zprodazhi" class="col text-center hoverline">
                     <div>
                         <svg width="44" height="50" viewBox="0 0 44 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -223,9 +229,9 @@
                         <h4 class="mt-3 mb-0 pb-0" style="font-size: 18px; font-weight: 500">ЗАКРЫТЫЕ ПРОДАЖИ</h4>
                     </div>
                     <div class="goldline mx-auto mt-3">&nbsp;</div>
-                </div>
+                </a>
 
-                <div class="col text-center hoverline">
+                <a href="#section_stroyka" class="col text-center hoverline">
                     <div>
                         <svg width="46" height="49" viewBox="0 0 46 49" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -238,9 +244,9 @@
                         <h4 class="mt-3 mb-0 pb-0" style="font-size: 18px; font-weight: 500">СТРОЯЩИЕСЯ ОБЪЕКЫ</h4>
                     </div>
                     <div class="goldline mx-auto mt-3">&nbsp;</div>
-                </div>
+                </a>
 
-                <div class="col text-center hoverline">
+                <a href="#section_arenda" class="col text-center hoverline">
                     <div>
                         <svg width="48" height="51" viewBox="0 0 48 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -257,7 +263,7 @@
                         <h4 class="mt-3 mb-0 pb-0" style="font-size: 18px; font-weight: 500">АРЕНДНЫЙ БИЗНЕС</h4>
                     </div>
                     <div class="goldline mx-auto mt-3">&nbsp;</div>
-                </div>
+                </a>
             </div>
 
             <div class="col-lg-10 offset-lg-1">
@@ -272,7 +278,7 @@
             </div>
         </div>
 
-        <div class="container section" style="padding-top: 154px;">
+        <div id="section_zprodazhi" class="container section" style="padding-top: 154px;">
             <h1>ЗАКРЫТЫЕ ПРОДАЖИ</h1>
             <h2 style="margin-top: 15px; font-size: 24px; margin-bottom: 0;">ИНВЕСТИЦИИ ОТ 60% ГОДОВЫХ! ИНВЕСТИРУЙ НАДЕЖНО И ВЫГОДНО!</h2>
 
@@ -318,7 +324,7 @@
             </div>
         </div>
 
-        <div class="container section" style="padding-top: 50px;">
+        <div id="section_stroyka" class="container section" style="padding-top: 50px;">
             <h1>СТРОЯЩИЕСЯ ОБЪЕКТЫ</h1>
             <h2>ИНВЕСТИЦИИ ОТ 40% ГОДОВЫХ! КВАЛИФИЦИРОВАННЫЙ БРОКЕР - ГАРАНТИЯ УСПЕХА.</h2>
             <div style="margin-top: 70px; margin-left: -50px; margin-right: -50px;">
@@ -363,7 +369,7 @@
         </div>
 
 
-        <div class="container section" style="padding-top: 50px;">
+        <div id="section_arenda" class="container section" style="padding-top: 50px;">
             <h1>АРЕНДНЫЙ БИЗНЕС</h1>
             <h2 style="margin-top: 15px; margin-bottom: 0; font-size: 24px;">ИНВЕСТИЦИИ ОТ 20% ГОДОВЫХ!</h2>
             <div style="margin-top: 70px; margin-left: -50px; margin-right: -50px;">
