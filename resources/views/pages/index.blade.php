@@ -4,17 +4,13 @@
 
 
     @if ($site_settings->mainpage_show_banner ?? '')
-        <div class="container-fluid">
-            <div class="px-3">
-                <div id="" class="owl-carousel mainpage_slider" onclick="">
-                    @foreach (App\Models\SiteSetting::firstOrCreate(['name' => 'mainpage_show_banner'])->getMedia('MainPageBanner') as $banner)
-                        <div class="item">
-                            {{ $banner->img()->attributes(['width' => '100%', 'height' => '566', 'sizes' => '100vw']) }}
-                            {{-- $banner->img() --}}
-                        </div>
-                    @endforeach
+        <div id="" class="owl-carousel mainpage_slider" onclick="">
+            @foreach (App\Models\SiteSetting::firstOrCreate(['name' => 'mainpage_show_banner'])->getMedia('MainPageBanner') as $banner)
+                <div class="item">
+                    {{ $banner->img()->attributes(['width' => '100%', 'height' => '566', 'sizes' => '100vw']) }}
+                    {{-- $banner->img() --}}
                 </div>
-            </div>
+            @endforeach
         </div>
     @endif
     @if ($site_settings->mainpage_show_zhb ?? '')
@@ -43,24 +39,24 @@
                     <div class="col">
                         <video id="mainpage_video" class="video-js vjs-default-skin vjs-fluid vjs-fill" controls autoplay
                             width="640" height="264" data-setup='
-                                                    {
-                                                        "techOrder": [
-                                                        "youtube"
-                                                        ],
-                                                    "sources": [
-                                                        {
-                                                            "type": "video/youtube",
-                                                            "src": "{{ $site_settings->mainpage_video }}"
-                                                        }
-                                                            ],
-                                                            "youtube": {
-                                                                "ytControls": 0,
-                                                                "rel": 0,
-                                                                "iv_load_policy": 3,
-                                                                "showinfo": 0,
-                                                                "modestbranding": 0
-                                                            }
-                                                    }'>
+                                                            {
+                                                                "techOrder": [
+                                                                "youtube"
+                                                                ],
+                                                            "sources": [
+                                                                {
+                                                                    "type": "video/youtube",
+                                                                    "src": "{{ $site_settings->mainpage_video }}"
+                                                                }
+                                                                    ],
+                                                                    "youtube": {
+                                                                        "ytControls": 0,
+                                                                        "rel": 0,
+                                                                        "iv_load_policy": 3,
+                                                                        "showinfo": 0,
+                                                                        "modestbranding": 0
+                                                                    }
+                                                            }'>
                         </video>
                     </div>
                 </div>
