@@ -26846,6 +26846,8 @@ readers do not read off random characters that represent icons */
 
 .slider-content {
   position: absolute;
+  z-index: 5;
+  transform: translateY(-100%);
 }
 
 .slick-dots li button {
@@ -26886,6 +26888,10 @@ readers do not read off random characters that represent icons */
   z-index: 50;
   position: relative;
   margin-top: 66px;
+}
+
+.item-map-links .map-link {
+  color: #FFF;
 }
 
 .nav-link .nav-link-image {
@@ -27311,6 +27317,7 @@ readers do not read off random characters that represent icons */
   justify-content: space-between;
   padding-left: 16px;
   padding-right: 16px;
+  padding-bottom: 20px;
 }
 
 #cards .content-specials-list-slider-info .content-specials-adress {
@@ -27471,6 +27478,7 @@ readers do not read off random characters that represent icons */
   justify-content: space-between;
   padding-left: 16px;
   padding-right: 16px;
+  padding-bottom: 20px;
 }
 
 .content-specials_position .content-specials-list-slider-info .content-specials-price__p,

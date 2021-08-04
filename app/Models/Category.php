@@ -60,7 +60,7 @@ class Category extends Model implements HasMedia
             'id',
             'id',
             'item_id'
-        )->where('offer_index', '>', 0)
+        )->where('offer_index', '>', 0)->where('active',1)
             ->orderBy('offer_index', 'DESC');
     }
 
@@ -94,12 +94,14 @@ class Category extends Model implements HasMedia
     {
         return $this->where('main', 1)
             ->where('offer_index', '>', 0)
+            ->where('active', 1)
             ->orderBy('offer_index', 'DESC');
     }
 
     public function scopeMain()
     {
         return $this->where('main', 1)
+            ->where('active', 1)
             ->where('show_main', 1);
     }
 

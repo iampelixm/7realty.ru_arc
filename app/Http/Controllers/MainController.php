@@ -7,7 +7,8 @@ use App\Models\Category;
 use App\Models\Area;
 use Validator;
 use Storage;
-use Cookie;
+// use Cookie;
+use Illuminate\Support\Facades\Cookie;
 
 class MainController extends Controller
 {
@@ -19,7 +20,7 @@ class MainController extends Controller
         }
         $areas = Area::where('city_id', $current_city)->pluck('id')->toArray();
 
-    	
+
     	$list = Category::offers()->with(['offerItems' => function ($query) use ($areas) {
 		    $query->whereIn('area_id', $areas);
 		}])->get();
@@ -38,5 +39,5 @@ class MainController extends Controller
         return view('pages.contacts');
     }
 
-    
+
 }
