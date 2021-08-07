@@ -1,6 +1,12 @@
-@extends('layouts.site')
+@extends('pages.item.common')
 
-@php
+@section('item_card')
+@include('pages.item.parts.slider_info_novostroyka')
+@show
+
+
+
+{{-- @php
 $main_options = [
     'minimalnaya_ploshhad' => 1,
     'maksimalnaya_ploshhad' => 1,
@@ -96,4 +102,4 @@ $main_options = [
     @include('pages.item.parts.request_form')
     @include('pages.item.parts.bottom_sliders')
 
-@endsection
+@endsection --}}

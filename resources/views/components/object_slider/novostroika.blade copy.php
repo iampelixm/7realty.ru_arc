@@ -48,7 +48,7 @@
                 </div>
                 <div>
                     <div class="content-specials-pref-list-info__text">
-                        OPTION 1 фыв
+                        OPTION 1
                     </div>
                 </div>
             </div>

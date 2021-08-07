@@ -1,4 +1,4 @@
-<div class="col-12 row row-cols-2 no-gutters">
+<div class="col-12 row row-cols-2 no-gutters d-none">
     <div class="col-12 col-lg-10 no-gutters">
         <form action="{{ $action }}" class="filter-wrapper-class">
             <div class="row row-cols-4 justify-content-between no-gutters flex-column flex-lg-row">

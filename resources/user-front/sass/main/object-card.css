@@ -936,11 +936,11 @@
 	font-size: 12px;
 	color: #7B7B7B;
 }
-.content-specials-pref {
+/* .content-specials-pref {
 	display: flex;
 	justify-content: flex-start;
 	padding: 0px 0 0 10px;
-}
+} */
 .content-specials-pref-list-info__text {
 	margin: 5px 0 0 4px;
 	font-family: Geometria;

@@ -684,8 +684,8 @@
 
 .content-specials-list-slider-info:hover {
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.09);
-    margin-left: 1px;
-    margin-right: 1px;
+    /* margin-left: 1px; */
+    /* margin-right: 1px; */
 }
 
 .content-specials-list-slider-info--favorite {
@@ -800,7 +800,7 @@ a.slide-image-div-image img {
 .content-specials-pref {
     display: flex;
     justify-content: flex-start;
-    padding: 0px 0 0 15px;
+    /* padding: 0px 0 0 15px; */
 }
 
 .content-specials-pref-list-info {

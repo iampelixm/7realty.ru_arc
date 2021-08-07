@@ -13,7 +13,7 @@
             @endphp
             <div
                 class="content-residential-form-sort col-6 text-left align-items-center justify-content-start flex-wrap d-flex">
-                сортировать по: <a href="{{ $newurl }}" class="ml-1">цене
+                сортировать по: <a href="{{ $newurl }}" class="ml-1 text-gold" >цене
                     @if (isset($filter['orderprice']) && $filter['orderprice'] == 'desc')
                         <i class="fas fa-sort-amount-down"></i>
                     @elseif(isset($filter['orderprice']) && ($filter['orderprice'] == 'asc'))
