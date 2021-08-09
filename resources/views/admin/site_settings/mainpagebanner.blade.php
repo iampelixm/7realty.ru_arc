@@ -12,11 +12,15 @@
             enctype="multipart/form-data">
             @csrf
             <div class="form-group">
+                <label for="image">Ссылка для изображения</label>
+                <input class="form-control" type="text" name="link" id="">
+            </div>
+            <div class="form-group">
                 <label for="image">Добавить изображение</label>
                 <input class="form-control" type="file" accept="image/*" name="image" id="image">
             </div>
             <div class="form-group">
-                <button class="btn btn-success">Загрузить</button>
+                <button class="btn btn-success">Добавить</button>
             </div>
 
         </form>
@@ -24,6 +28,7 @@
             <thead>
                 <tr>
                     <th>Изображение</th>
+                    <th>Ссылка</th>
                     <th>Управление</th>
                 </tr>
             </thead>
@@ -32,6 +37,9 @@
                     <tr data-image="{{ $banner->id }}">
                         <td>
                             {{ $banner->img()->attributes(['width' => '150px', 'height' => '']) }}
+                        </td>
+                        <td>
+                            {{$banner->getCustomProperty('link')}}
                         </td>
                         <td class="buttons__">
                             <a class="btn btn-delete delete-alert"

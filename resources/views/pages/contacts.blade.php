@@ -1,13 +1,9 @@
 @extends('layouts.site')
-
+@section('categories_menu')
+@show
+@section('categories_menu_mobile')
+@show
 @section('content')
-    <!-- main content -->
-    <!-- Блок Контактов  -->
-    <div class="object-card-title">
-        <div class="object-card-title_position_absolute d-none d-md-block">Контакты</div>
-    </div>
-    <!-- Блок Контактов КОНЕЦ -->
-    <!-- Блок Расположения офисов  -->
     <div class="office-content py-5 d-none d-md-block">
         <div class="row row-cols-3 no-gutters">
             <div class="col">
@@ -53,6 +49,7 @@
     </div>
     <!-- Блок Расположения офисов КОНЕЦ -->
     <!-- Блок Расположения офисов МОБИЛЬНАЯ -->
+
     <div class="office-content-mobile d-md-none">
         <div class="row row-cols-1 no-gutters">
             <div class="col text-center">
@@ -95,124 +92,39 @@
     </div>
     <!-- Блок Расположения офисов МОБИЛЬНАЯ КОНЕЦ-->
     <!-- Блок Заявки  -->
-    <div class="application-content my-5 d-none d-md-block">
-        <h2 class="application-content__h2 text-center py-2">Оставить заявку</h2>
-        <h3 class="application-content__h3 text-center py-2">Оставьте заявку и мы свяжемся с вами в ближайшее время!</h3>
-        <div class="application-content__form row row-cols-4 no-gutters justify-content-between">
-            <!--  <form action="{{ route('site.send_order') }}" method="POST"> -->
-
-            <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
-                <div class="col-8 pl-3"><label for="take">Снять</label></div>
-                <div class="col-4 text-center"><input type="checkbox" name="take" id="take"></div>
-            </div>
-            <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
-                <div class="col-8 pl-3"><label for="hand">Сдать</label></div>
-                <div class="col-4 text-center"><input type="checkbox" name="hand" id="hand"></div>
-            </div>
-            <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
-                <div class="col-8 pl-3"><label for="buy">Купить</label></div>
-                <div class="col-4 text-center"><input type="checkbox" name="buy" id="buy"></div>
-            </div>
-            <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
-                <div class="col-8 pl-3"><label for="sell">Продать</label></div>
-                <div class="col-4 text-center"><input type="checkbox" name="sell" id="sell"></div>
-            </div>
-        </div>
-        <div class="application-content-select-div row my-3">
-            <select name="type_object" id="type_object">
-                <option selected value="">Тип объекта</option>
-                <option value="0">Квартира</option>
-                <option value="1">Жилой комплекс/Новостройка</option>
-                <option value="2">Дом</option>
-                <option value="3">Земельный участок</option>
-                <option value="4">Коммерческая недвижимость</option>
-            </select>
-        </div>
-        <div class="application-content-select-div row my-3">
-            <select name="price" id="price">
-                <option selected value="">Цена</option>
-                <option value="2">от 2 000 000 до 4 000 000</option>
-                <option value="2">от 4 000 000 до 6 000 000</option>
-                <option value="2">от 6 000 000 до 10 000 000</option>
-                <option value="2">от 10 000 000</option>
-            </select>
-        </div>
-        <div class="application-content-input-div row my-3 no-gutters">
-            <div class="col-12 py-2">
-                <p class="application-content-input-div__p">Ваше имя:</p>
-                <input class="application-content-input-div__input" type="text" name="name" id="name" value=""
-                    placeholder="Андрей">
-            </div>
-            <div class="col-12 row no-gutters">
-                <div class="col py-2 pr-2">
-                    <p class="application-content-input-div__p">Ваш номер телефона:</p>
-                    <input class="application-content-input-div__input mask" type="tel" name="phone" id="phone" value=""
-                        placeholder="+7 977 194-73-51">
-                </div>
-                <div class="col py-2 pl-2">
-                    <p class="application-content-input-div__p">Ваш e-mail:</p>
-                    <input class="application-content-input-div__input" type="email" name="email" id="email" value=""
-                        placeholder="example@main.com">
-                </div>
-            </div>
-        </div>
-        <p class="pop-table-enter__p text-center" id="formError" style="color: red;"></p>
-        <div class="application-content-button-div text-center">
-
-            <button onclick="sendOrder()">Отправить</button>
-
-        </div>
-        <div class="application-content-check-div py-3">
-            <div class="row no-gutters align-items-center">
-                <div class="col-2"><input type="checkbox" name="check" id="check"></div>
-                <div class="col-10"><label class="application-content-check-div__label" for="check">Вы соглашаетесь с
-                        условиями обработки персональных данных (<a href="#">ознакомиться</a>)</label></div>
-            </div>
-            <!--  </form> -->
-        </div>
-        <div class="application-content-supp-div text-center">
-            <p><span>*</span> Поля обязательны для заполнения</p>
-        </div>
-
-    </div>
-    <!-- Блок Заявки КОНЕЦ -->
-
-
-
-    <!-- Блок Заявки МОБИЛЬНАЯ -->
-    <div class="application-content-mobile my-5 d-md-none">
-        <div class="application-content-mobile-form col-11 mx-auto">
+    <div class="d-none">
+        <div class="application-content my-5 d-none d-md-block">
             <h2 class="application-content__h2 text-center py-2">Оставить заявку</h2>
             <h3 class="application-content__h3 text-center py-2">Оставьте заявку и мы свяжемся с вами в ближайшее время!
             </h3>
-            <div class="application-content__form row row-cols-2 no-gutters justify-content-around py-2">
+            <div class="application-content__form row row-cols-4 no-gutters justify-content-between">
+                <!--  <form action="{{ route('site.send_order') }}" method="POST"> -->
+
                 <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
-                    <div class="col-8 pl-3"><label for="takem">Снять</label></div>
-                    <div class="col-4 text-center"><input type="checkbox" name="takem" id="takem"></div>
+                    <div class="col-8 pl-3"><label for="take">Снять</label></div>
+                    <div class="col-4 text-center"><input type="checkbox" name="take" id="take"></div>
                 </div>
                 <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
-                    <div class="col-8 pl-3"><label for="handm">Сдать</label></div>
-                    <div class="col-4 text-center"><input type="checkbox" name="handm" id="handm"></div>
-                </div>
-            </div>
-            <div class="application-content__form row row-cols-2 no-gutters justify-content-around py-2">
-                <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
-                    <div class="col-8 pl-3"><label for="buym">Купить</label></div>
-                    <div class="col-4 text-center"><input type="checkbox" name="buym" id="buym"></div>
+                    <div class="col-8 pl-3"><label for="hand">Сдать</label></div>
+                    <div class="col-4 text-center"><input type="checkbox" name="hand" id="hand"></div>
                 </div>
                 <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
-                    <div class="col-8 pl-3"><label for="sellm">Продать</label></div>
-                    <div class="col-4 text-center"><input type="checkbox" name="sellm" id="sellm"></div>
+                    <div class="col-8 pl-3"><label for="buy">Купить</label></div>
+                    <div class="col-4 text-center"><input type="checkbox" name="buy" id="buy"></div>
+                </div>
+                <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
+                    <div class="col-8 pl-3"><label for="sell">Продать</label></div>
+                    <div class="col-4 text-center"><input type="checkbox" name="sell" id="sell"></div>
                 </div>
             </div>
             <div class="application-content-select-div row my-3">
-                <select>
-                    <option selected value="0">Тип объекта</option>
-                    <option value="">Квартиры</option>
-                    <option value="2">Жилые комплексы</option>
-                    <option value="2">Дома</option>
-                    <option value="2">Земли</option>
-                    <option value="2">Коммерческая недвижимость</option>
+                <select name="type_object" id="type_object">
+                    <option selected value="">Тип объекта</option>
+                    <option value="0">Квартира</option>
+                    <option value="1">Жилой комплекс/Новостройка</option>
+                    <option value="2">Дом</option>
+                    <option value="3">Земельный участок</option>
+                    <option value="4">Коммерческая недвижимость</option>
                 </select>
             </div>
             <div class="application-content-select-div row my-3">
@@ -224,35 +136,125 @@
                     <option value="2">от 10 000 000</option>
                 </select>
             </div>
-            <div class="col py-2">
-                <p class="application-content-input-div__p">Ваше имя:</p>
-                <input class="application-content-input-div__input" type="text" name="name" value="" placeholder="Андрей">
+            <div class="application-content-input-div row my-3 no-gutters">
+                <div class="col-12 py-2">
+                    <p class="application-content-input-div__p">Ваше имя:</p>
+                    <input class="application-content-input-div__input" type="text" name="name" id="name" value=""
+                        placeholder="Андрей">
+                </div>
+                <div class="col-12 row no-gutters">
+                    <div class="col py-2 pr-2">
+                        <p class="application-content-input-div__p">Ваш номер телефона:</p>
+                        <input class="application-content-input-div__input mask" type="tel" name="phone" id="phone" value=""
+                            placeholder="+7 977 194-73-51">
+                    </div>
+                    <div class="col py-2 pl-2">
+                        <p class="application-content-input-div__p">Ваш e-mail:</p>
+                        <input class="application-content-input-div__input" type="email" name="email" id="email" value=""
+                            placeholder="example@main.com">
+                    </div>
+                </div>
             </div>
-            <div class="col py-2">
-                <p class="application-content-input-div__p">Ваш номер телефона:</p>
-                <input class="application-content-input-div__input mask" type="tel" name="phone" value=""
-                    placeholder="+7 977 194-73-51">
-            </div>
-            <div class="col py-2">
-                <p class="application-content-input-div__p">Ваш e-mail:</p>
-                <input class="application-content-input-div__input" type="text" name="email" value=""
-                    placeholder="example@main.com">
-            </div>
-            <p class="pop-table-enter__p" id="formError" style="color: red;"></p>
+            <p class="pop-table-enter__p text-center" id="formError" style="color: red;"></p>
             <div class="application-content-button-div text-center">
-                <button>Отправить</button>
+
+                <button onclick="sendOrder()">Отправить</button>
+
             </div>
             <div class="application-content-check-div py-3">
                 <div class="row no-gutters align-items-center">
-                    <div class="col-2"><input type="checkbox" name="checkm" id="checkm"></div>
-                    <div class="col-10"><label class="application-content-check-div__label" for="checkm">Вы соглашаетесь с
+                    <div class="col-2"><input type="checkbox" name="check" id="check"></div>
+                    <div class="col-10"><label class="application-content-check-div__label" for="check">Вы соглашаетесь с
                             условиями обработки персональных данных (<a href="#">ознакомиться</a>)</label></div>
                 </div>
+                <!--  </form> -->
             </div>
             <div class="application-content-supp-div text-center">
                 <p><span>*</span> Поля обязательны для заполнения</p>
             </div>
 
+        </div>
+        <!-- Блок Заявки КОНЕЦ -->
+
+
+
+        <!-- Блок Заявки МОБИЛЬНАЯ -->
+        <div class="application-content-mobile my-5 d-md-none">
+            <div class="application-content-mobile-form col-11 mx-auto">
+                <h2 class="application-content__h2 text-center py-2">Оставить заявку</h2>
+                <h3 class="application-content__h3 text-center py-2">Оставьте заявку и мы свяжемся с вами в ближайшее время!
+                </h3>
+                <div class="application-content__form row row-cols-2 no-gutters justify-content-around py-2">
+                    <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
+                        <div class="col-8 pl-3"><label for="takem">Снять</label></div>
+                        <div class="col-4 text-center"><input type="checkbox" name="takem" id="takem"></div>
+                    </div>
+                    <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
+                        <div class="col-8 pl-3"><label for="handm">Сдать</label></div>
+                        <div class="col-4 text-center"><input type="checkbox" name="handm" id="handm"></div>
+                    </div>
+                </div>
+                <div class="application-content__form row row-cols-2 no-gutters justify-content-around py-2">
+                    <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
+                        <div class="col-8 pl-3"><label for="buym">Купить</label></div>
+                        <div class="col-4 text-center"><input type="checkbox" name="buym" id="buym"></div>
+                    </div>
+                    <div class="application-content-checkbox-div col row row-cols-2 no-gutters align-items-center">
+                        <div class="col-8 pl-3"><label for="sellm">Продать</label></div>
+                        <div class="col-4 text-center"><input type="checkbox" name="sellm" id="sellm"></div>
+                    </div>
+                </div>
+                <div class="application-content-select-div row my-3">
+                    <select>
+                        <option selected value="0">Тип объекта</option>
+                        <option value="">Квартиры</option>
+                        <option value="2">Жилые комплексы</option>
+                        <option value="2">Дома</option>
+                        <option value="2">Земли</option>
+                        <option value="2">Коммерческая недвижимость</option>
+                    </select>
+                </div>
+                <div class="application-content-select-div row my-3">
+                    <select name="price" id="price">
+                        <option selected value="">Цена</option>
+                        <option value="2">от 2 000 000 до 4 000 000</option>
+                        <option value="2">от 4 000 000 до 6 000 000</option>
+                        <option value="2">от 6 000 000 до 10 000 000</option>
+                        <option value="2">от 10 000 000</option>
+                    </select>
+                </div>
+                <div class="col py-2">
+                    <p class="application-content-input-div__p">Ваше имя:</p>
+                    <input class="application-content-input-div__input" type="text" name="name" value=""
+                        placeholder="Андрей">
+                </div>
+                <div class="col py-2">
+                    <p class="application-content-input-div__p">Ваш номер телефона:</p>
+                    <input class="application-content-input-div__input mask" type="tel" name="phone" value=""
+                        placeholder="+7 977 194-73-51">
+                </div>
+                <div class="col py-2">
+                    <p class="application-content-input-div__p">Ваш e-mail:</p>
+                    <input class="application-content-input-div__input" type="text" name="email" value=""
+                        placeholder="example@main.com">
+                </div>
+                <p class="pop-table-enter__p" id="formError" style="color: red;"></p>
+                <div class="application-content-button-div text-center">
+                    <button>Отправить</button>
+                </div>
+                <div class="application-content-check-div py-3">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-2"><input type="checkbox" name="checkm" id="checkm"></div>
+                        <div class="col-10"><label class="application-content-check-div__label" for="checkm">Вы соглашаетесь
+                                с
+                                условиями обработки персональных данных (<a href="#">ознакомиться</a>)</label></div>
+                    </div>
+                </div>
+                <div class="application-content-supp-div text-center">
+                    <p><span>*</span> Поля обязательны для заполнения</p>
+                </div>
+
+            </div>
         </div>
     </div>
     <!-- Блок Заявки МОБИЛЬНАЯ КОНЕЦ -->

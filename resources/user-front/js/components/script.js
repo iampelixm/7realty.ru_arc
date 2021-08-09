@@ -285,40 +285,52 @@ function changeUrlByNumber(numberThis) {
     }
 }
 function changeHeart(numberThis) {
-    $(numberThis).toggleClass('active');
+    $(numberThis).toggleClass("active");
 }
+
 function viewAllPartners(numberThis) {
-	var parent = numberThis.parentNode.parentNode;
-	numberThis.classList.add('d-none');
-	for (var i = 0; i < parent.children.length; i++) {
-		if(i==0) {
-			parent.children[i].classList.add('d-none');
-			continue;
-		}
-		if(parent.children[i].classList.contains('d-none')) {
-			parent.children[i].classList.remove('d-none');
-		}
-	}
+    var logos_container=$('.content-partners-logos-hidden');
+    $(logos_container).toggleClass('d-none');
+    if ($(numberThis).html() == "Все партнеры") {
+        $(numberThis).html("Свернуть");
+
+    } else {
+        $(numberThis).html("Все партнеры");
+    }
 }
 // var slider = document.getElementsByClassName('slide-image-div'); // div с изображением
 // var sliderLeftButton = document.getElementsByClassName('slide-image-div-left'); // div ср стрелкой влево
 // var sliderRightButton = document.getElementsByClassName('slide-image-div-right'); // div ср стрелкой вправо
-var navigationBar = document.getElementsByClassName('slide-image-div-navi'); // div с пагинацией
+var navigationBar = document.getElementsByClassName("slide-image-div-navi"); // div с пагинацией
 // var hearts = document.getElementsByClassName('content-specials-heart'); // div с сердцем
-var allPartners = document.getElementsByClassName('content-partners-all__button'); // кнопка - показать всех партнеров
+var allPartners = document.getElementsByClassName(
+    "content-partners-all__button"
+); // кнопка - показать всех партнеров
 // console.log('allpartners button', allPartners);
 // alert('i am script.js');
-if(allPartners.length) {
-	allPartners[0].addEventListener( "click" , function(){viewAllPartners(this)}, false);
+if (allPartners.length) {
+    allPartners[0].addEventListener(
+        "click",
+        function() {
+            viewAllPartners(this);
+        },
+        false
+    );
 }
-if(navigationBar.length) {
-	for (var i = 0; i < navigationBar.length; i++) {
-		for (var j = 0; j < navigationBar[i].children.length; j++) {
-			navigationBar[i].children[j].counti = i;
-			navigationBar[i].children[j].countj = j;
-			navigationBar[i].children[j].addEventListener( "click" , function(){changeUrlByNumber(this)}, false);
-		}
-	}
+if (navigationBar.length) {
+    for (var i = 0; i < navigationBar.length; i++) {
+        for (var j = 0; j < navigationBar[i].children.length; j++) {
+            navigationBar[i].children[j].counti = i;
+            navigationBar[i].children[j].countj = j;
+            navigationBar[i].children[j].addEventListener(
+                "click",
+                function() {
+                    changeUrlByNumber(this);
+                },
+                false
+            );
+        }
+    }
 }
 // if(slider.length) {
 // 	for (var i = 1; i < slider.length; i++) {
@@ -486,7 +498,9 @@ var buttonCallBack = document.getElementsByClassName("header-logo-tel__p"); // �
 var buttonCallBack1 = document.getElementsByClassName(
     "main-header-mobile__tel"
 ); // Номер телефона в мобильной шапке
-var buttonCallBack2 = document.getElementsByClassName('content-for-life-hover__button'); // Подать заявку в блоке для кого
+var buttonCallBack2 = document.getElementsByClassName(
+    "content-for-life-hover__button"
+); // Подать заявку в блоке для кого
 var buttonCallBack4 = document.getElementsByClassName("main-footer-info__h4"); // Номер телефона в футере
 var buttonCallBack5 = document.getElementsByClassName(
     "main-footer-contacts-right__h5"
@@ -912,9 +926,6 @@ for (var i = 0; i < bigPreview2.length; i++) {
 // }
 // window.addEventListener('scroll', function(){showY()}, false);
 
-
-
-
 ///////////////////////////////////
 
 // мобильное меню
@@ -1104,7 +1115,7 @@ if (fbSliderRightButton.length) {
 // var slider = document.getElementsByClassName('slide-image-div'); // div с изображением
 // var sliderLeftButton = document.getElementsByClassName('slide-image-div-left'); // div со стрелкой влево
 // var sliderRightButton = document.getElementsByClassName('slide-image-div-right'); // div со стрелкой вправо
-var navigationBar = document.getElementsByClassName('slide-image-div-navi'); // div с пагинацией
+var navigationBar = document.getElementsByClassName("slide-image-div-navi"); // div с пагинацией
 var hearts = document.querySelectorAll(".content-specials-heart"); // div с сердцем
 if (hearts.length) {
     hearts.forEach(function(hearts) {
@@ -1408,7 +1419,6 @@ buttonRent[0].addEventListener(
     },
     false
 );
-
 
 var buttonCloseRent = document.getElementsByClassName(
     "pop-full-screen-close-rent"

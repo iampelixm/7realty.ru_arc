@@ -143,6 +143,7 @@ class SiteSettingController extends Controller
 
             $banner_model->addMediaFromRequest('image')
                 ->withResponsiveImages()
+                ->withCustomProperties(['link' => $request->link ?? ''])
                 ->toMediaCollection('MainPageBanner');
         }
         return redirect(route('admin.sitesettings.mainpagebanner'));

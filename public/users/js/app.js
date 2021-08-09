@@ -124272,32 +124272,27 @@ function changeUrlByNumber(numberThis) {
 }
 
 function changeHeart(numberThis) {
-  $(numberThis).toggleClass('active');
+  $(numberThis).toggleClass("active");
 }
 
 function viewAllPartners(numberThis) {
-  var parent = numberThis.parentNode.parentNode;
-  numberThis.classList.add('d-none');
+  var logos_container = $('.content-partners-logos-hidden');
+  $(logos_container).toggleClass('d-none');
 
-  for (var i = 0; i < parent.children.length; i++) {
-    if (i == 0) {
-      parent.children[i].classList.add('d-none');
-      continue;
-    }
-
-    if (parent.children[i].classList.contains('d-none')) {
-      parent.children[i].classList.remove('d-none');
-    }
+  if ($(numberThis).html() == "Все партнеры") {
+    $(numberThis).html("Свернуть");
+  } else {
+    $(numberThis).html("Все партнеры");
   }
 } // var slider = document.getElementsByClassName('slide-image-div'); // div с изображением
 // var sliderLeftButton = document.getElementsByClassName('slide-image-div-left'); // div ср стрелкой влево
 // var sliderRightButton = document.getElementsByClassName('slide-image-div-right'); // div ср стрелкой вправо
 
 
-var navigationBar = document.getElementsByClassName('slide-image-div-navi'); // div с пагинацией
+var navigationBar = document.getElementsByClassName("slide-image-div-navi"); // div с пагинацией
 // var hearts = document.getElementsByClassName('content-specials-heart'); // div с сердцем
 
-var allPartners = document.getElementsByClassName('content-partners-all__button'); // кнопка - показать всех партнеров
+var allPartners = document.getElementsByClassName("content-partners-all__button"); // кнопка - показать всех партнеров
 // console.log('allpartners button', allPartners);
 // alert('i am script.js');
 
@@ -124486,7 +124481,7 @@ var buttonCallBack = document.getElementsByClassName("header-logo-tel__p"); // �
 
 var buttonCallBack1 = document.getElementsByClassName("main-header-mobile__tel"); // Номер телефона в мобильной шапке
 
-var buttonCallBack2 = document.getElementsByClassName('content-for-life-hover__button'); // Подать заявку в блоке для кого
+var buttonCallBack2 = document.getElementsByClassName("content-for-life-hover__button"); // Подать заявку в блоке для кого
 
 var buttonCallBack4 = document.getElementsByClassName("main-footer-info__h4"); // Номер телефона в футере
 
@@ -125009,7 +125004,7 @@ if (fbSliderRightButton.length) {
 // var sliderRightButton = document.getElementsByClassName('slide-image-div-right'); // div со стрелкой вправо
 
 
-var navigationBar = document.getElementsByClassName('slide-image-div-navi'); // div с пагинацией
+var navigationBar = document.getElementsByClassName("slide-image-div-navi"); // div с пагинацией
 
 var hearts = document.querySelectorAll(".content-specials-heart"); // div с сердцем
 

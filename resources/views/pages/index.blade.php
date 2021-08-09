@@ -4,12 +4,17 @@
 
 
     @if ($site_settings->mainpage_show_banner ?? '')
-        <div id="" class="owl-carousel mainpage_slider" onclick="">
+        <div id="mainpage_banner" class="owl-carousel mainpage_slider" onclick="">
             @foreach (App\Models\SiteSetting::firstOrCreate(['name' => 'mainpage_show_banner'])->getMedia('MainPageBanner') as $banner)
-                <div class="item">
-                    {{ $banner->img()->attributes(['width' => '100%', 'height' => '566', 'sizes' => '100vw']) }}
-                    {{-- $banner->img() --}}
-                </div>
+                @if (empty($banner->getCustomProperty('link')))
+                    <div class="item">
+                        {{ $banner->img()->attributes(['width' => '100%', 'height' => '566', 'sizes' => '100vw']) }}
+                    </div>
+                @else
+                    <a href="{{ $banner->getCustomProperty('link') ?? '#mainpage_banner' }}" class="item">
+                        {{ $banner->img()->attributes(['width' => '100%', 'height' => '566', 'sizes' => '100vw']) }}
+                    </a>
+                @endif
             @endforeach
         </div>
     @endif
@@ -39,24 +44,24 @@
                     <div class="col">
                         <video id="mainpage_video" class="video-js vjs-default-skin vjs-fluid vjs-fill" controls autoplay
                             width="640" height="264" data-setup='
-                                                            {
-                                                                "techOrder": [
-                                                                "youtube"
-                                                                ],
-                                                            "sources": [
-                                                                {
-                                                                    "type": "video/youtube",
-                                                                    "src": "{{ $site_settings->mainpage_video }}"
-                                                                }
-                                                                    ],
-                                                                    "youtube": {
-                                                                        "ytControls": 0,
-                                                                        "rel": 0,
-                                                                        "iv_load_policy": 3,
-                                                                        "showinfo": 0,
-                                                                        "modestbranding": 0
-                                                                    }
-                                                            }'>
+                            {
+                                "techOrder": [
+                                "youtube"
+                                ],
+                            "sources": [
+                                {
+                                    "type": "video/youtube",
+                                    "src": "{{ $site_settings->mainpage_video }}"
+                                }
+                                    ],
+                                    "youtube": {
+                                        "ytControls": 0,
+                                        "rel": 0,
+                                        "iv_load_policy": 3,
+                                        "showinfo": 0,
+                                        "modestbranding": 0
+                                    }
+                            }'>
                         </video>
                     </div>
                 </div>
@@ -134,12 +139,9 @@
                         class="img-fluid img-fluid--partners" src="/users/image/partners/p13.png" alt="partner"></div>
                 <div class="col-12 col-sm-4 col-lg-2 text-center d-none d-md-block"><img
                         class="img-fluid img-fluid--partners" src="/users/image/partners/p2.png" alt="partner"></div>
+            </div>
 
-            </div>
-            <div class="content-partners-all">
-                <button type="button" class="content-partners-all__button">Все партнеры</button>
-            </div>
-            <div class="d-none row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 justify-content-center w-100">
+            <div class="content-partners-logos-hidden d-none row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 justify-content-center w-100">
                 <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
                         src="/users/image/partners/p1.png" alt="partner"></div>
                 <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
@@ -213,6 +215,10 @@
                 <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
                         src="/users/image/partners/p36.png" alt="partner"></div>
             </div>
+
+        </div>
+        <div class="content-partners-all">
+            <button type="button" class="content-partners-all__button">Все партнеры</button>
         </div>
     </div>
     <!-- Блок Партнеров КОНЕЦ -->

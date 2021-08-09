@@ -903,7 +903,7 @@ a.slide-image-div-image img {
     height: 40px;
     max-width: 350px;
     width: calc(100% - 20px);
-    background: #0e1216;
+    background: #c1a771;
     border: none;
     border-radius: 26px;
     font-family: Geometria;
@@ -918,7 +918,7 @@ a.slide-image-div-image img {
     outline: none;
 }
 .content-partners-all__button:active {
-    color: #c1a771;
+    color: #000;
 }
 .content-partners-all__button:focus {
     outline: none;

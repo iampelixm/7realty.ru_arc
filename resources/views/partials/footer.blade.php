@@ -1,6 +1,6 @@
 <!-- Footer -->
-<footer class="main-footer main-footer_position">
-    <div style="padding: 40px 40px; text-align: center;">
+<footer class="main-footer main-footer_position" style="padding-top: 40px;">
+    <div style="padding: 40px 40px; text-align: center; display: none">
         <a href="#"
             style="border: 1px solid #C1A771; padding: 15px 200px; display: inline-block; margin: 0 auto; border-radius: 40px; color: #C1A771;">
             ПЕРЕЗВОНИТЕ МНЕ
