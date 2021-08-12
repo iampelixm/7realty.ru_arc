@@ -39,14 +39,17 @@ class CategoryController extends Controller
                 return $query->where('price', '>=', $filter['pricefrom']);
             })->when(isset($filter['priceto']), function ($query) use ($filter) {
                 return $query->where('price', '<=', $filter['priceto']);
-            })->when(isset($filter['roomsfrom']), function ($query) use ($filter) {
-                return $query->where('all_rooms', '>=', $filter['roomsfrom']);
-            })->when(isset($filter['roomsto']), function ($query) use ($filter) {
-                return $query->where('all_rooms', '<=', $filter['roomsto']);
-            })->when(isset($filter['squarefrom']), function ($query) use ($filter) {
-                return $query->where('square', '>=', $filter['squarefrom']);
-            })->when(isset($filter['squareto']), function ($query) use ($filter) {
-                return $query->where('square', '<=', $filter['squareto']);
+            })->when(isset($filter['rooms']), function ($query) use ($filter) {
+                return $query->whereJsonContains('option', ['option_title'=>'Комнат'])
+                ->whereJsonContains('option', ['value_title'=>$filter['rooms']]);
+            // })->when(isset($filter['roomsfrom']), function ($query) use ($filter) {
+            //     return $query->where('all_rooms', '>=', $filter['roomsfrom']);
+            // })->when(isset($filter['roomsto']), function ($query) use ($filter) {
+            //     return $query->where('all_rooms', '<=', $filter['roomsto']);
+            // })->when(isset($filter['squarefrom']), function ($query) use ($filter) {
+            //     return $query->where('square', '>=', $filter['squarefrom']);
+            // })->when(isset($filter['squareto']), function ($query) use ($filter) {
+            //     return $query->where('square', '<=', $filter['squareto']);
             })->when(isset($filter['special']), function ($query) use ($filter) {
                 return $query->where('offer_index', '>', 0);
             })->when(isset($filter['area']), function ($query) use ($filter) {
@@ -54,7 +57,9 @@ class CategoryController extends Controller
             });
         }
 
-
+        // $queryItem->whereJsonContains('option', ['option_title'=>'Этажность', 'value_title'=>'3']);
+        // $queryItem->whereJsonContains('option', ['value_title'=>'3']);
+        // echo $queryItem->toSql();
         if (isset($filter['orderprice']) && ($filter['orderprice'] == 'asc')) {
             $queryItem->orderBy('price', 'ASC');
         }
@@ -87,7 +92,7 @@ class CategoryController extends Controller
 
         $page_title = $category->name . " | Seven";
         $page_head = $category->name;
-        $template_data = compact('list', 'areasSelect', 'filter', 'data_backend', 'page_title', 'page_head', 'minRooms', 'maxRooms');
+        $template_data = compact('category', 'list', 'areasSelect', 'filter', 'data_backend', 'page_title', 'page_head', 'minRooms', 'maxRooms');
         return view('pages.category.default', $template_data);
         /* выбор файла карточки происходит в файле default
         if (view()->exists('pages.category.' . $category->slug)) {

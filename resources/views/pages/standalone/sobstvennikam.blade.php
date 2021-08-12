@@ -101,17 +101,6 @@
             color: #333;
         }
 
-        .bg-gold {
-            background: #C1A771;
-        }
-
-        .gold-line {
-            border-bottom: 1px solid #C1A771;
-        }
-
-        .text-gold {
-            color: #C1A771;
-        }
 
         .landing .hoverline:hover>.goldline {
             width: 80%;

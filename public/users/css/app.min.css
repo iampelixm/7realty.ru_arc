@@ -27536,8 +27536,51 @@ a:hover {
   text-decoration: none;
 }
 
-.text-gold {
+.text-gold,
+.text-gold:active,
+.text-gold:focus {
   color: #C1A771;
+}
+
+.bg-gold {
+  background: #C1A771;
+}
+
+.gold-line {
+  border-bottom: 1px solid #C1A771;
+}
+
+.border-gold {
+  border: 1px solid #C1A771;
+}
+
+.rounded-form {
+  font-size: 14px;
+}
+
+.rounded-form .form-control {
+  border: none;
+  background: transparent;
+}
+
+.rounded-form .form-control::-moz-placeholder {
+  color: #C1A771;
+}
+
+.rounded-form .form-control:-ms-input-placeholder {
+  color: #C1A771;
+}
+
+.rounded-form .form-control::placeholder {
+  color: #C1A771;
+}
+
+.rounded-form .drop-down-menu {
+  left: 0;
+}
+
+.rounded-pill-right {
+  border-radius: 0 50rem 50rem 0;
 }
 
 .vjs-modal-dialog .vjs-modal-dialog-content,

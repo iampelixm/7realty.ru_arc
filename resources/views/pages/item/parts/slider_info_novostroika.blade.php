@@ -56,7 +56,7 @@
                 @else
                     -
                 @endif
-                эт.
+                {{ trans_choice('site.floor', $item->options['etaznost']->value_title) }}
             </div>
         </div>
     </div>

@@ -16,10 +16,9 @@
             @include('pages.item.parts.imageSlider')
         @show
 
-        <div class="item_card">
+        <div class="item_card" data-card="{{$item->type->slug}}">
             <div class="content-object-card-information">
                 @section('item_card')
-                {{$item->type->slug}}
                     @if(view()->exists('pages.item.parts.slider_info_'.$item->type->slug))
                         @include('pages.item.parts.slider_info_'.$item->type->slug)
                     @else

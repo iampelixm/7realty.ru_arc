@@ -289,8 +289,8 @@ function changeHeart(numberThis) {
 }
 
 function viewAllPartners(numberThis) {
-    var logos_container=$('.content-partners-logos-hidden');
-    $(logos_container).toggleClass('d-none');
+    $('.content-partners-logos-hidden').toggleClass('d-none');
+    $('.content-partners-logos-shown').toggleClass('d-none');
     if ($(numberThis).html() == "Все партнеры") {
         $(numberThis).html("Свернуть");
 

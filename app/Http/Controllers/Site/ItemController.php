@@ -22,7 +22,8 @@ class ItemController extends Controller
     public function item(Item $item)
     {
         $item->load('area', 'residence', 'type', 'imagesActive', 'commentsActive');
-        $itemoptions = json_decode($item->option);
+        //  $itemoptions = json_decode($item->option);
+        $itemoptions = $item->option;
         $meta_lon = $item->longitude;
         $meta_lat = $item->latitude;
 

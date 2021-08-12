@@ -126,7 +126,7 @@
         </div> --}}
         <div class="content-partners-logos">
             <div
-                class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 align-items-center justify-content-center no-gutters px-2">
+                class="content-partners-logos-shown row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 align-items-center justify-content-center no-gutters px-2">
                 <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
                         src="/users/image/partners/p1.png" alt="partner"></div>
                 <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"

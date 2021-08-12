@@ -66,7 +66,7 @@
             @else
                 -
             @endif
-            км.
+            мин.
         </div>
     </div>
 </div>

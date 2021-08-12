@@ -121,7 +121,7 @@ class ItemsController extends Controller
             }
         }
 
-        return redirect()->route('admin.items.index')->with('success', trans('admin.item_created'));
+        return redirect()->route('admin.items.edit', $item)->with('success', trans('admin.item_created'));
     }
 
     /**
@@ -150,7 +150,7 @@ class ItemsController extends Controller
         $residence = Residence::all();
         $areas     = Area::all();
         $googleMapsKey = config('googlemaps.key');
-        $itemoptions = json_decode($item->option);
+        $itemoptions = $item->options;
 
         $itemcategorys = ItemCategory::where('item_id', $item->id)->pluck('category_id')->toArray();
 
@@ -167,6 +167,7 @@ class ItemsController extends Controller
     public function update(ItemEditRequest $r, Item $item)
     {
         $item->update($r->validated());
+        // dd($r);
         $options = $this->getOption($r->option);
         $item->option = json_encode($options);
         if ($r->slug_change) {
@@ -203,7 +204,7 @@ class ItemsController extends Controller
                 $i++;
             }
         }
-        return redirect()->route('admin.items.index')->with('success', trans('admin.item_edited'));
+        return redirect()->route('admin.items.edit', $item)->with('success', trans('admin.item_edited'));
     }
 
     /**

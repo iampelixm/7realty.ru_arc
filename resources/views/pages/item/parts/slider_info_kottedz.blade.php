@@ -35,10 +35,10 @@
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['etaznost']))
                     {{ $item->options['etaznost']->value_title }}
+                    {{trans_choice('site.floor', $item->options['etaznost']->value_title)}}
                 @else
                     -
                 @endif
-                эт.
             </div>
         </div>
     </div>
@@ -54,6 +54,7 @@
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['komnat']))
                     {{ $item->options['komnat']->value_title }}
+                    {{trans_choice('site.all_rooms', $item->options['komnat']->value_title)}}
                 @else
                     -
                 @endif
@@ -72,6 +73,7 @@
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['spalen']))
                     {{ $item->options['spalen']->value_title }}
+                    {{trans_choice('site.deb_rooms', $item->options['spalen']->value_title)}}
                 @else
                     -
                 @endif
