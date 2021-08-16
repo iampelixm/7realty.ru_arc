@@ -144,6 +144,7 @@ class Item extends Model
         foreach($this->type->options as $type_option)
         {
             $to_add='';
+            if(!$type_option->active) continue;
             foreach($this->options as $item_option)
             {
                 if($item_option->option_id==$type_option->id)

@@ -1,5 +1,5 @@
 <div class="content-specials-list-slider-info">
-
+фывы
     <div class="slide-image-div">
 
         @foreach ($slider_item->imagesActive->take(3) as $key2 => $slider_item_image)

@@ -136,6 +136,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @foreach ($item->all_options as $option)
                             <tr id="row_{{$option->option_id}}">
                                 <td>

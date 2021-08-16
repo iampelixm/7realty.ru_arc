@@ -11,7 +11,7 @@
         </div>
         <div>
             <div class="content-object-card-information-list-text-tile">
-                Мин. площадь
+                Площадь
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['ploshhad']))

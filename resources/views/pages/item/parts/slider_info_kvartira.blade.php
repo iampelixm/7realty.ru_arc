@@ -1,22 +1,17 @@
 @extends('pages.item.parts.slider_info_common')
-@section('price')
-    от
-    {{ number_format(((int) $item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ((int) $item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
-    ₽
-@endsection
 
 @section('options')
-    <div class="col-lg-6 d-flex" data-option="minimalnaya_ploshhad">
+    <div class="col-lg-6 d-flex" data-option="ploshhad">
         <div class="content-object-card-information-icon">
-            <x-icon name="minimalnaya_ploshhad" height="50" width="50" />
+            <x-icon name="ploshhad" height="50" width="50" />
         </div>
         <div>
             <div class="content-object-card-information-list-text-tile">
-                Мин. площадь
+                Площадь
             </div>
             <div class="content-object-card-information-list-text-info">
-                @if (isset($item->options['minimalnaya_ploshhad']))
-                    {{ $item->options['minimalnaya_ploshhad']->value_title }}
+                @if (isset($item->options['ploshhad']))
+                    {{ $item->options['ploshhad']->value_title }}
                 @else
                     -
                 @endif
@@ -24,39 +19,22 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6 d-flex" data-option="maksimalnaya_ploshhad">
+    <div class="col-lg-6 d-flex" data-option="komnat">
         <div class="content-object-card-information-icon">
-            <x-icon name="maksimalnaya_ploshhad" height="50" width="50" />
+            <x-icon name="komnat" height="50" width="50" />
         </div>
         <div>
             <div class="content-object-card-information-list-text-tile">
-                Макс. площадь
+                Комнат
             </div>
             <div class="content-object-card-information-list-text-info">
-                @if (isset($item->options['maksimalnaya_ploshhad']))
-                    {{ $item->options['maksimalnaya_ploshhad']->value_title }}
+                @if (isset($item->options['komnat']))
+                    {{ $item->options['komnat']->value_title }}
+                    {{ trans_choice('site.all_rooms', (int) $item->options['komnat']->value_title) }}
                 @else
                     -
                 @endif
-                м<sup>2</sup>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6 d-flex" data-option="minimalnaya_cena_za_kvm">
-        <div class="content-object-card-information-icon">
-            <x-icon name="price_dom" height="50" width="50" />
-        </div>
-        <div>
-            <div class="content-object-card-information-list-text-tile">
-                Мин. цена за м<sup>2</sup>
-            </div>
-            <div class="content-object-card-information-list-text-info">
-                @if (isset($item->options['minimalnaya_cena_za_kvm']))
-                    {{ $item->options['minimalnaya_cena_za_kvm']->value_title }}
-                @else
-                    -
-                @endif
-                ₽
+
             </div>
         </div>
     </div>
@@ -66,33 +44,56 @@
         </div>
         <div>
             <div class="content-object-card-information-list-text-tile">
-                 Этажность
+                Этажность
             </div>
             <div class="content-object-card-information-list-text-info">
+                @if (isset($item->options['etaz']))
+                    {{ $item->options['etaz']->value_title }}
+                @else
+                    -
+                @endif
+                из
                 @if (isset($item->options['etaznost']))
                     {{ $item->options['etaznost']->value_title }}
                 @else
                     -
                 @endif
-                {{ trans_choice('site.floor', $item->options['etaznost']->value_title) }}
             </div>
         </div>
     </div>
-    <div class="col-lg-6 d-flex" data-option="god_postroiki">
+    <div class="col-lg-6 d-flex" data-option="spalen">
         <div class="content-object-card-information-icon">
-            <x-icon name="god_postroiki" height="50" width="50" />
+            <x-icon name="spalen" height="50" width="50" />
         </div>
         <div>
             <div class="content-object-card-information-list-text-tile">
-                Год постройки
+                Спален
             </div>
             <div class="content-object-card-information-list-text-info">
-                @if (isset($item->options['god_postroiki']))
-                    {{ $item->options['god_postroiki']->value_title }}
+                @if (isset($item->options['spalen']))
+                    {{ $item->options['spalen']->value_title }}
+                    {{ trans_choice('site.bed_rooms', (int) $item->options['spalen']->value_title) }}
                 @else
                     -
                 @endif
-                г.
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 d-flex" data-option="vannyx_komnat">
+        <div class="content-object-card-information-icon">
+            <x-icon name="vannyx_komnat" height="50" width="50" />
+        </div>
+        <div>
+            <div class="content-object-card-information-list-text-tile">
+                Ванных комнат
+            </div>
+            <div class="content-object-card-information-list-text-info">
+                @if (isset($item->options['vannyx_komnat']))
+                    {{ $item->options['vannyx_komnat']->value_title }}
+                    {{ trans_choice('site.bath_rooms', (int) $item->options['vannyx_komnat']->value_title) }}
+                @else
+                    -
+                @endif
             </div>
         </div>
     </div>

@@ -34,7 +34,7 @@
                 @include('components.object_slider.parts.common')
             @endif
         </div>
-
+        {{$slider_item->type->slug}}
         <hr style="color: #EEE; width: 100%;">
 
         <div class="content-specials-choice">
