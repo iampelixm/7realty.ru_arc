@@ -138,6 +138,7 @@
                     <tbody>
 
                         @foreach ($item->all_options as $option)
+                        {{print_r($option)}}
                             <tr id="row_{{$option->option_id}}">
                                 <td>
                                     {{ $option->option_title }}

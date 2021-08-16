@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <div class="col-lg-6 d-flex" data-option="ploschad_uchastka">
+    <div class="col-lg-6 d-flex" data-option="ploshhad_ucastka">
         <div class="content-object-card-information-icon">
             <x-icon name="ploschad_uchastka" height="50" width="50" />
         </div>
@@ -91,8 +91,8 @@
                 Участок
             </div>
             <div class="content-object-card-information-list-text-info">
-                @if (isset($item->options['ploschad_uchastka']))
-                    {{ $item->options['ploschad_uchastka']->value_title }}
+                @if (isset($item->options['ploshhad_ucastka']))
+                    {{ $item->options['ploshhad_ucastka']->value_title }}
                 @else
                     -
                 @endif
@@ -134,7 +134,7 @@
                 @else
                     -
                 @endif
-                мин.
+                км.
             </div>
         </div>
     </div>
