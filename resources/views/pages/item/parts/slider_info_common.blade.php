@@ -30,7 +30,7 @@
 
 <hr color="#C1A771">
 
-<div class="row">
+<div class="row" data-type="{{$item->type->slug}}">
     @section('options')
     @foreach ($item->options as $itemOptionName => $itemOption)
         <div class="col-lg-6 d-flex" data-option="{{$itemOptionName}}">
