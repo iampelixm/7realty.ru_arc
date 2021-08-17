@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Area;
 use App\Models\Item;
+use App\Models\Option;
 use Illuminate\Support\Facades\Cookie;
 
 class CategoryController extends Controller
@@ -32,7 +33,12 @@ class CategoryController extends Controller
         $areas = Area::where('city_id', $current_city)->pluck('id')->toArray();
         //$itemsArr = $category->areaItems->pluck('id')->toArray();
 
-        $queryItem = Item::Main($areas)->whereIn('id', $itemsArr);
+        $square_option=Option::where('name','Площадь')->first();
+        $min_square_option=Option::where('name','Минимальная площадь')->first();
+        $max_square_option=Option::where('name','Максимальная площадь')->first();
+        // dd($option_area);
+
+        $queryItem = Item::Main($areas)->whereIn('id', $itemsArr)->select('*');
 
         if (!empty($filter)) {
             $queryItem = $queryItem->when(isset($filter['pricefrom']), function ($query) use ($filter) {
@@ -46,10 +52,15 @@ class CategoryController extends Controller
             //     return $query->where('all_rooms', '>=', $filter['roomsfrom']);
             // })->when(isset($filter['roomsto']), function ($query) use ($filter) {
             //     return $query->where('all_rooms', '<=', $filter['roomsto']);
-            // })->when(isset($filter['squarefrom']), function ($query) use ($filter) {
-            //     return $query->where('square', '>=', $filter['squarefrom']);
-            // })->when(isset($filter['squareto']), function ($query) use ($filter) {
-            //     return $query->where('square', '<=', $filter['squareto']);
+             })->when(isset($filter['squarefrom']), function ($query) use ($filter) {
+                //  return $query->where('square', '>=', $filter['squarefrom']);
+                // return $query->selectRaw("JSON_SEARCH(`option`, 'one', 'value_title') AS square_path")
+                // ->whereRaw("`option`->>'$[*].option_title' LIKE '%Площадь%'")
+                //              ->whereRaw("CAST(`option`->>'$[*].value_title' AS UNSIGNED INTEGER) < " . $filter['squarefrom']);
+
+            })->when(isset($filter['squareto']), function ($query) use ($filter) {
+            // //     return $query->where('square', '<=', $filter['squareto']);
+                // return $query->whereRaw("`option`->'$[".$option_area->id."]' > ".$filter['squareto']);
             })->when(isset($filter['special']), function ($query) use ($filter) {
                 return $query->where('offer_index', '>', 0);
             })->when(isset($filter['area']), function ($query) use ($filter) {
@@ -57,9 +68,19 @@ class CategoryController extends Controller
             });
         }
 
-        // $queryItem->whereJsonContains('option', ['option_title'=>'Этажность', 'value_title'=>'3']);
-        // $queryItem->whereJsonContains('option', ['value_title'=>'3']);
-        // echo $queryItem->toSql();
+        if(isset($filter['squarefrom']))
+        {
+            $queryItem->where("option->".$square_option->id, '>=', $filter['squarefrom'])
+            ->orWhere("option->".$min_square_option->id, '>=', $filter['squarefrom']);
+        }
+
+        if(isset($filter['squareto']))
+        {
+            $queryItem->where("option->".$square_option->id, '<=', $filter['squareto'])
+            ->orWhere("option->".$max_square_option->id, '<=', $filter['squareto'])
+            ;
+        }
+
         if (isset($filter['orderprice']) && ($filter['orderprice'] == 'asc')) {
             $queryItem->orderBy('price', 'ASC');
         }

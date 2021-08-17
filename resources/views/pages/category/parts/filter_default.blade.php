@@ -137,8 +137,8 @@
                 <div style="white-space: nowrap;">
                     Площадь от
                 </div>
-                <input style="width: 40px" type="text" name="area-min" id="areamin" placeholder="100"
-                    class="form-control py-2 pr-0 text-gold">
+                <input style="width: 40px" type="text" name="squarefrom" id="areamin" placeholder="100"
+                    class="form-control py-2 pr-0 text-gold" value="{{ $filter['squarefrom'] ?? '' }}">
 
                 <div class="text-gold">
                     м<sup>2</sup>
@@ -146,8 +146,8 @@
                 <div style="margin-left: 7px">
                     до
                 </div>
-                <input style="width: 40px" type="text" name="area-max" id="areamax" placeholder="120"
-                    class="form-control py-2 pr-0 text-gold">
+                <input style="width: 40px" type="text" name="squareto" id="areamax" placeholder="120"
+                    class="form-control py-2 pr-0 text-gold" value="{{ $filter['squareto'] ?? '' }}">
 
                 <div class="text-gold">
                     м<sup>2</sup>

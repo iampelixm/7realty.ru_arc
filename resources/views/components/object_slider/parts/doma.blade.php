@@ -4,9 +4,9 @@
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
-            {{-- {{print_r($slider_item->options['ploshad']->value_title, true)}} --}}
+            {{-- {{print_r($slider_item->options['ploshad']->value, true)}} --}}
             @if (isset($slider_item->options['ploshhad']))
-                {{ $slider_item->options['ploshhad']->value_title }}
+                {{ $slider_item->options['ploshhad']->value }}
             @else
                 {{ $slider_item->square ?? '-' }}
             @endif
@@ -23,7 +23,7 @@
     <div>
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['etaznost']))
-                {{ $slider_item->options['etaznost']->value_title }}
+                {{ $slider_item->options['etaznost']->value }}
             @else
                 -
             @endif
@@ -38,7 +38,7 @@
     <div>
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['komnat']))
-            {{ $slider_item->options['komnat']->value_title }}
+            {{ $slider_item->options['komnat']->value }}
         @else
             -
         @endif
@@ -53,7 +53,7 @@
     <div>
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['spalen']))
-                {{ $slider_item->options['spalen']->value_title }}
+                {{ $slider_item->options['spalen']->value }}
             @else
             {{ $slider_item->bed_rooms ?? '-' }}
             @endif

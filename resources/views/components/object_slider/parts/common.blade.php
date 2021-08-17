@@ -5,7 +5,7 @@
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
-            {{ $itemOption->value_title }}
+            {{ $itemOption->value }}
         </div>
     </div>
 </div>

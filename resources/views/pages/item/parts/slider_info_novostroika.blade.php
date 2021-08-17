@@ -1,7 +1,7 @@
 @extends('pages.item.parts.slider_info_common')
 @section('price')
     от
-    {{ number_format(((int) $item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ((int) $item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
+    {{ number_format(((int) $item->options['minimalnaya_cena_za_kvm']->value ?? 0) * ((int) $item->options['minimalnaya_ploshhad']->value ?? 0), 0, ',', ' ') }}
     ₽
 @endsection
 
@@ -16,7 +16,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['minimalnaya_ploshhad']))
-                    {{ $item->options['minimalnaya_ploshhad']->value_title }}
+                    {{ $item->options['minimalnaya_ploshhad']->value }}
                 @else
                     -
                 @endif
@@ -34,7 +34,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['maksimalnaya_ploshhad']))
-                    {{ $item->options['maksimalnaya_ploshhad']->value_title }}
+                    {{ $item->options['maksimalnaya_ploshhad']->value }}
                 @else
                     -
                 @endif
@@ -52,7 +52,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['minimalnaya_cena_za_kvm']))
-                    {{ $item->options['minimalnaya_cena_za_kvm']->value_title }}
+                    {{ $item->options['minimalnaya_cena_za_kvm']->value }}
                 @else
                     -
                 @endif
@@ -70,11 +70,12 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['etaznost']))
-                    {{ $item->options['etaznost']->value_title }}
+                    {{ $item->options['etaznost']->value }}
+                    {{ trans_choice('site.floor', $item->options['etaznost']->value) }}
                 @else
                     -
                 @endif
-                {{ trans_choice('site.floor', $item->options['etaznost']->value_title) }}
+
             </div>
         </div>
     </div>
@@ -88,7 +89,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['god_postroiki']))
-                    {{ $item->options['god_postroiki']->value_title }}
+                    {{ $item->options['god_postroiki']->value }}
                 @else
                     -
                 @endif
@@ -106,7 +107,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['do_zd_vokzala']))
-                    {{ $item->options['do_zd_vokzala']->value_title }}
+                    {{ $item->options['do_zd_vokzala']->value }}
                 @else
                     -
                 @endif
@@ -124,11 +125,11 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['do_aeroporta']))
-                    {{ $item->options['do_aeroporta']->value_title }}
+                    {{ $item->options['do_aeroporta']->value }}
                 @else
                     -
                 @endif
-                мин.
+                км.
             </div>
         </div>
     </div>
@@ -142,7 +143,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['do_morya']))
-                    {{ $item->options['do_morya']->value_title }}
+                    {{ $item->options['do_morya']->value }}
                 @else
                     -
                 @endif
@@ -174,7 +175,7 @@
                             </div>
                             <div class="content-object-card-information-list-text-info">
                                 от
-                                {{ number_format(((int) $item->options['minimalnaya_cena_za_kvm']->value_title ?? 0) * ((int) $item->options['minimalnaya_ploshhad']->value_title ?? 0), 0, ',', ' ') }}
+                                {{ number_format(((int) $item->options['minimalnaya_cena_za_kvm']->value ?? 0) * ((int) $item->options['minimalnaya_ploshhad']->value ?? 0), 0, ',', ' ') }}
                                 ₽
                             </div>
                         </div>
@@ -186,9 +187,9 @@
                         <div class="content-object-card-information-list-text">
                             <div class="content-object-card-information-list-text-tile">Площадь</div>
                             <div class="content-object-card-information-list-text-info">
-                                от {{ $item->options['minimalnaya_ploshhad']->value_title ?? '--' }} м²
+                                от {{ $item->options['minimalnaya_ploshhad']->value ?? '--' }} м²
                                 - до
-                                {{ $item->options['maksimalnaya_ploshhad']->value_title ?? '--' }} м²
+                                {{ $item->options['maksimalnaya_ploshhad']->value ?? '--' }} м²
                             </div>
                         </div>
                     </div>
@@ -203,7 +204,7 @@
                                 <div class="content-object-card-information-list-text-tile">Максимальная площадь</div>
                                 <div class="content-object-card-information-list-text-info">
                                     До
-                                    {{ $item->options['maksimalnaya_ploshhad']['value_title'] ?? '--' }}
+                                    {{ $item->options['maksimalnaya_ploshhad']['value'] ?? '--' }}
                                     м²
                                 </div>
                             </div>
@@ -217,7 +218,7 @@
                             <div class="content-object-card-information-list-text-tile">Цена за м²</div>
                             <div class="content-object-card-information-list-text-info">
                                 от
-                                {{ number_format((int) $item->options['minimalnaya_cena_za_kvm']->value_title, 0, ',', ' ') ?? '--' }}
+                                {{ number_format((int) $item->options['minimalnaya_cena_za_kvm']->value, 0, ',', ' ') ?? '--' }}
                                 ₽
                             </div>
                         </div>

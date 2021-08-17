@@ -39,10 +39,10 @@
             </div>
             <div>
                 <div class="content-object-card-information-list-text-tile">
-                    {{ $itemOption->option_title }}
+                    {{ $itemOption->name }}
                 </div>
                 <div class="content-object-card-information-list-text-info">
-                    {{ $itemOption->value_title }}
+                    {{ $itemOption->value }}
                 </div>
             </div>
         </div>

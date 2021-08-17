@@ -3,6 +3,7 @@
 @section('content')
 <div class="ibox-title">
     <h2>{{ __('admin.item_create') }}</h2>
+    <a href="{{route('site.item.get', $item)}}" class="btn btn-success" target="_blank">Смотреть</a>
 </div>
 <div class="ibox-content">
     <form action="{{ route('admin.items.update', $item->id) }}" enctype="multipart/form-data" method="POST"
@@ -136,19 +137,18 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        {{-- {{dd($item->options)}} --}}
                         @foreach ($item->all_options as $option)
-                        {{print_r($option)}}
-                            <tr id="row_{{$option->option_id}}">
+                            <tr id="row_{{$option->id}}">
                                 <td>
-                                    {{ $option->option_title }}
-                                    <input type="hidden" name="option[{{$option->option_id}}][option]" value="{{ $option->option_id }}">
+                                    {{ $option->name }}
+                                    <input type="hidden" name="option[{{$option->id}}][option]" value="{{ $option->id }}">
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" name="option[{{$option->option_id}}][value]" value="{{ $option->value_title }}" >
+                                    <input type="text" class="form-control" name="option[{{$option->id}}][value]" value="{{ $option->value }}" >
                                 </td>
                                 <td>
-                                    <a class="ml-3 btn btn-sm btn-danger" onclick="$('#row_{{$option->option_id}}').remove()">Удалить</a>
+                                    <a class="ml-3 btn btn-sm btn-danger" onclick="$('#row_{{$option->id}}').remove()">Удалить</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -159,21 +159,21 @@
                                 @foreach ($itemoptions as $value)
                                     <tr id="valuerow{{ $itemoptioncount }}">
                                         <td>{{ $itemoptioncount }}</td>
-                                        <td><select class="form-control" id="selecetvalue{{ $itemoptioncount }}" name="option[{{ $itemoptioncount }}][option]\"><option value="{{ $value->option_id }}">{{ $value->option_title }}</option></select></td>
+                                        <td><select class="form-control" id="selecetvalue{{ $itemoptioncount }}" name="option[{{ $itemoptioncount }}][option]\"><option value="{{ $value->value }}">{{ $value->name }}</option></select></td>
                                         <td id="selecetvalue{{ $itemoptioncount }}block">
                                             @if (isset($value->option_type) and $value->option_type == 'select')
-                                            <select class="form-control" id="selecetvalue{{ $itemoptioncount }}value" name="option[{{ $itemoptioncount }}][value]"><option value="{{ $value->value_id }}">{{ $value->value_title }}</option></select>
+                                            <select class="form-control" id="selecetvalue{{ $itemoptioncount }}value" name="option[{{ $itemoptioncount }}][value]"><option value="{{ $value->value_id }}">{{ $value->value }}</option></select>
                                             @elseif(isset($value->option_type) and ($value->option_type == 'hand'))
                                                 <input class="form-control" id="selecetvalue{{ $itemoptioncount }}value" name="option[{{ $itemoptioncount }}][value]" value="{{ $value->value_id }}">
                                             @else
-                                                <select class="form-control" id="selecetvalue{{ $itemoptioncount }}value" name="option[{{ $itemoptioncount }}][value]"><option value="{{ $value->value_id }}">{{ $value->value_title }}</option></select>
+                                                <select class="form-control" id="selecetvalue{{ $itemoptioncount }}value" name="option[{{ $itemoptioncount }}][value]"><option value="{{ $value->value_id }}">{{ $value->value }}</option></select>
                                             @endif
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-outline btn-danger" onclick="deleterow('valuerow', {{ $itemoptioncount }})">Удалить</button>
                                         </td>
                                     </tr>
-                                    @php $itemoptionarray[$itemoptioncount] = $value->option_id @endphp
+                                    @php $itemoptionarray[$itemoptioncount] = $value->value @endphp
                                     @php $itemoptioncount ++ @endphp
 
                                 @endforeach

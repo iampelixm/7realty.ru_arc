@@ -4,9 +4,9 @@
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
-            {{-- {{print_r($slider_item->options['ploshad']->value_title, true)}} --}}
+            {{-- {{print_r($slider_item->options['ploshad']->value, true)}} --}}
             @if (isset($slider_item->options['ploshhad']))
-                {{ $slider_item->options['ploshhad']->value_title }}
+                {{ $slider_item->options['ploshhad']->value }}
             @else
                 {{ $slider_item->square ?? '-' }}
             @endif
@@ -23,7 +23,7 @@
     <div>
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['komnat']))
-                {{ $slider_item->options['komnat']->value_title }}
+                {{ $slider_item->options['komnat']->value }}
             @else
                 {{ $slider_item->all_rooms ?? '-' }}
             @endif
@@ -39,7 +39,8 @@
         <div class="content-specials-pref-list-info__text">
 
             @if (isset($slider_item->options['etaz']))
-                {{ $slider_item->options['etaz']->value_title }}
+            {{-- {{dd($slider_item->options)}} --}}
+                {{ $slider_item->options['etaz']->value }}
             @else
                 -
             @endif
@@ -47,7 +48,7 @@
             из
 
             @if (isset($slider_item->options['etaznost']))
-                {{ $slider_item->options['etaznost']->value_title }}
+                {{ $slider_item->options['etaznost']->value }}
             @else
                 -
             @endif
@@ -62,7 +63,7 @@
     <div>
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['do_morya']))
-                {{ $slider_item->options['do_morya']->value_title }}
+                {{ $slider_item->options['do_morya']->value }}
             @else
                 -
             @endif

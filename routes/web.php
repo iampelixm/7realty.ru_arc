@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Item;
+use App\Models\Option;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -244,4 +246,54 @@ Route::prefix('/test')->name('test.')->group(function() {
     Route::get('/7feed', 'ApiController@parse7realtyFeed')->name('upload7realtyFeed');
     Route::get('/makefeed', 'ApiController@makeFeed')->name('makeFeed');
     Route::get('/makefeed.xml', 'ApiController@makeFeed')->name('makeFeedxml');
+});
+
+Route::middleware(['auth'])->get('/adminservice/options', function()
+{
+    $options=Option::all();
+    // $items=Item::limit(30)->get();
+    // dd(Item::find(353));
+    $items=Item::all();
+
+    foreach($items as $item)
+    {
+        $item->active=1;
+        echo "<hr>".$item->slug."::".$item->id."<br>";
+        $item_new_options=[];
+        $item_all_options=$item->all_options;
+
+        $item_options=$item->options;
+        // dd($item_options);
+        foreach($item_all_options as $allitem_option)
+        {
+            // print_r($allitem_option);
+            $item_new_options[$allitem_option->id]=0;
+            if($allitem_option->name=="Площадь")
+            {
+                $item_new_options[$allitem_option->id]=$item->square;
+            }
+            if($allitem_option->name=="Комант")
+            {
+                $item_new_options[$allitem_option->id]=$item->all_rooms;
+            }
+            if($allitem_option->name=="Ванных комнат")
+            {
+                $item_new_options[$allitem_option->id]=$item->bath_rooms;
+            }
+            if($allitem_option->name=="Спален")
+            {
+                $item_new_options[$allitem_option->id]=$item->bed_rooms;
+            }
+            foreach($item_options as $item_option_id => $item_option)
+            {
+                if(isset($item_option->option_id) && $item_option->option_id == $allitem_option->id)
+                {
+                    $item_new_options[$allitem_option->id]=$item_option->value_title;
+                }
+            }
+        }
+        $item->option=$item_new_options;
+        $item->save();
+        print_r($item_new_options);
+    }
 });

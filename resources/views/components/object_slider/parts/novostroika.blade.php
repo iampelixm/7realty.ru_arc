@@ -6,7 +6,7 @@
         <div class="content-specials-pref-list-info__text">
             От
             @if (isset($slider_item->options['minimalnaya_ploshhad']))
-                {{ $slider_item->options['minimalnaya_ploshhad']->value_title }}
+                {{ $slider_item->options['minimalnaya_ploshhad']->value }}
             @else
                 -
             @endif
@@ -23,7 +23,7 @@
         <div class="content-specials-pref-list-info__text">
             До
             @if (isset($slider_item->options['maksimalnaya_ploshhad']))
-                {{ $slider_item->options['maksimalnaya_ploshhad']->value_title }}
+                {{ $slider_item->options['maksimalnaya_ploshhad']->value }}
             @else
                 -
             @endif
@@ -39,7 +39,7 @@
     <div>
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['do_morya']))
-                {{ $slider_item->options['do_morya']->value_title }}
+                {{ $slider_item->options['do_morya']->value }}
             @else
                 -
             @endif
@@ -55,7 +55,7 @@
     <div>
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['god_postroiki']))
-                {{ $slider_item->options['god_postroiki']->value_title }}
+                {{ $slider_item->options['god_postroiki']->value }}
             @else
                 -
             @endif

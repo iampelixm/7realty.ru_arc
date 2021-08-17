@@ -10,16 +10,21 @@
 
     <!-- main content -->
     <!-- Блок Карточки объекта -->
+    @can('view', 'App\Models\Item')
+        <div class="p-2 text-right border-bottom">
+            <a class="btn btn-success" href="{{ route('admin.items.edit', $item) }}">EDIT</a>
+        </div>
+    @endcan
     <div class="object-card-big-slider" style="margin-top: 40px;">
         <div class="d-flex no-gutters">
         @section('image_slider')
             @include('pages.item.parts.imageSlider')
         @show
 
-        <div class="item_card" data-card="{{$item->type->slug}}">
+        <div class="item_card" data-card="{{ $item->type->slug }}">
             <div class="content-object-card-information">
                 @section('item_card')
-                    @if(view()->exists('pages.item.parts.slider_info_'.$item->type->slug))
+                    @if (view()->exists('pages.item.parts.slider_info_' . $item->type->slug))
                         @include('pages.item.parts.slider_info_'.$item->type->slug)
                     @else
                         @include('pages.item.parts.slider_info_default')

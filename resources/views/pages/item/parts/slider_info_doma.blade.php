@@ -15,7 +15,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['ploshhad']))
-                    {{ $item->options['ploshhad']->value_title }}
+                    {{ $item->options['ploshhad']->value }}
                 @else
                     -
                 @endif
@@ -34,8 +34,8 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['etaznost']))
-                    {{ $item->options['etaznost']->value_title }}
-                    {{trans_choice('site.floor', $item->options['etaznost']->value_title)}}
+                    {{ $item->options['etaznost']->value }}
+                    {{trans_choice('site.floor', $item->options['etaznost']->value)}}
                 @else
                     -
                 @endif
@@ -54,8 +54,8 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['komnat']))
-                    {{ $item->options['komnat']->value_title }}
-                    {{trans_choice('site.all_rooms', $item->options['komnat']->value_title)}}
+                    {{ $item->options['komnat']->value }}
+                    {{trans_choice('site.all_rooms', $item->options['komnat']->value)}}
                 @else
                     -
                 @endif
@@ -74,7 +74,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['spalen']))
-                    {{ $item->options['spalen']->value_title }}
+                    {{ $item->options['spalen']->value }}
                 @else
                     -
                 @endif
@@ -92,7 +92,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['ploshhad_ucastka']))
-                    {{ $item->options['ploshhad_ucastka']->value_title }}
+                    {{ $item->options['ploshhad_ucastka']->value }}
                 @else
                     -
                 @endif
@@ -111,7 +111,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['do_zd_vokzala']))
-                    {{ $item->options['do_zd_vokzala']->value_title }}
+                    {{ $item->options['do_zd_vokzala']->value }}
                 @else
                     -
                 @endif
@@ -130,7 +130,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['do_aeroporta']))
-                    {{ $item->options['do_aeroporta']->value_title }}
+                    {{ $item->options['do_aeroporta']->value }}
                 @else
                     -
                 @endif
@@ -149,7 +149,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['do_morya']))
-                    {{ $item->options['do_morya']->value_title }}
+                    {{ $item->options['do_morya']->value }}
                 @else
                     -
                 @endif

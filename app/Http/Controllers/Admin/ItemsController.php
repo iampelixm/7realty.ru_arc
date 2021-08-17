@@ -91,7 +91,7 @@ class ItemsController extends Controller
         //dd($options);
         $item = Item::create($r->validated());
 
-        $item->option = json_encode($options);
+        $item->option = json_encode($options, JSON_UNESCAPED_UNICODE);
         $item->slug = Str::slug($r->name);
         $item->save();
 
@@ -169,7 +169,10 @@ class ItemsController extends Controller
         $item->update($r->validated());
         // dd($r);
         $options = $this->getOption($r->option);
-        $item->option = json_encode($options);
+        // $item->option = json_encode($options, JSON_UNESCAPED_UNICODE);
+        $item_options=collect($r->option)->pluck('value','option');
+        // dd($r->option);
+        $item->option=$item_options;
         if ($r->slug_change) {
             $item->slug = Str::slug($r->name);
         }
