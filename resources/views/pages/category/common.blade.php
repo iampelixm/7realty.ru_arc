@@ -9,7 +9,6 @@
             <!-- Блок Формы для подбора объекта -->
 
         @section('category_filter')
-        {{$category->slug}}
             @if (view()->exists('pages.category.parts.filter_' . $category->slug))
                 @include('pages.category.parts.filter_'.$category->slug)
             @else
