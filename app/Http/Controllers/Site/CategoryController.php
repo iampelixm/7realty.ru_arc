@@ -32,14 +32,12 @@ class CategoryController extends Controller
         $filter['type_object'] = "item";
         $areas = Area::where('city_id', $current_city)->pluck('id')->toArray();
         //$itemsArr = $category->areaItems->pluck('id')->toArray();
+        $categoty_options_ids=$category->options;
+        // dd($category);
 
-        $square_option=Option::where('name','Площадь')->first();
-        $min_square_option=Option::where('name','Минимальная площадь')->first();
-        $max_square_option=Option::where('name','Максимальная площадь')->first();
         // dd($option_area);
 
         $queryItem = Item::Main($areas)->whereIn('id', $itemsArr)->select('*');
-
         if (!empty($filter)) {
             $queryItem = $queryItem->when(isset($filter['pricefrom']), function ($query) use ($filter) {
                 return $query->where('price', '>=', $filter['pricefrom']);
@@ -68,18 +66,30 @@ class CategoryController extends Controller
             });
         }
 
+        // dd(Item::select("option->22 AS o")->where('option->22','<', (int)'58')->limit(3)->get());
+        $square_option=Option::where('name','Площадь')->first();
+        $min_square_option=Option::where('name','Минимальная площадь')->first();
+        $max_square_option=Option::where('name','Максимальная площадь')->first();
         if(isset($filter['squarefrom']))
         {
-            $queryItem->where("option->".$square_option->id, '>=', $filter['squarefrom'])
-            ->orWhere("option->".$min_square_option->id, '>=', $filter['squarefrom']);
-        }
 
+            $queryItem->where("option->".$square_option->id, '>=', (int) $filter['squarefrom']);
+        }
         if(isset($filter['squareto']))
         {
-            $queryItem->where("option->".$square_option->id, '<=', $filter['squareto'])
-            ->orWhere("option->".$max_square_option->id, '<=', $filter['squareto'])
-            ;
+            $queryItem->where("option->".$square_option->id, '<=', (int) $filter['squareto']);
         }
+
+        if(isset($filter['minsquare']))
+        {
+            $queryItem->where("option->".$min_square_option->id, '>=', (int) $filter['minsquare']);
+        }
+        if(isset($filter['maxsquare']))
+        {
+            $queryItem->where("option->".$max_square_option->id, '<=', (int) $filter['maxsquare']);
+        }
+
+
 
         if (isset($filter['orderprice']) && ($filter['orderprice'] == 'asc')) {
             $queryItem->orderBy('price', 'ASC');
@@ -94,6 +104,7 @@ class CategoryController extends Controller
         }]);
 
         $list = $queryItem->paginate(12);
+        // dd($list->first());
         $minRooms = $queryItem->min('all_rooms');
         $maxRooms = $queryItem->max('all_rooms');
 
