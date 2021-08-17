@@ -1,7 +1,7 @@
 @extends('pages.item.parts.slider_info_common')
 @section('price')
     от
-    {{ number_format(((int) $item->options['minimalnaya_cena_za_kvm']->value ?? 0) * ((int) $item->options['minimalnaya_ploshhad']->value ?? 0), 0, ',', ' ') }}
+    {{ number_format(((int) ($item->options['minimalnaya_cena_za_kvm']->value ?? 0)) * ((int) ($item->options['minimalnaya_ploshhad']->value ?? 0)), 0, ',', ' ') }}
     ₽
 @endsection
 
