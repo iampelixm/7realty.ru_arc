@@ -117,6 +117,8 @@
             </select>
         </div>
 
+        <h1>Сохраните объект для задания дополнительных свойств и изображений</h1>
+
         <div class="form-group">
             <label for="">{{ __('admin.item_remark') }}</label>
             <textarea class="form-control" name="remark" class="summernote">{{ old('remark') ?? '' }}</textarea>
