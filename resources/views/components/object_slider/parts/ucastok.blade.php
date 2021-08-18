@@ -16,14 +16,14 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="kategoria">
+<div class="col-lg-6 d-flex align-items-center" data-option="kategoria_uchastka">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="kategoria" height="20" width="20" />
+        <x-icon name="key" height="20" width="20" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
-            @if (isset($slider_item->options['kategoria']))
-                {{ $slider_item->options['kategoria']->value }}
+            @if (isset($slider_item->options['kategoria_uchastka']))
+                {{ $slider_item->options['kategoria_uchastka']->value }}
             @else
                 -
             @endif
@@ -31,14 +31,14 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="do-morya">
+<div class="col-lg-6 d-flex align-items-center" data-option="do_morya">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="do-morya" height="20" width="20" />
+        <x-icon name="do_morya" height="20" width="20" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
-            @if (isset($slider_item->options['do-morya']))
-            {{ $slider_item->options['do-morya']->value }}
+            @if (isset($slider_item->options['do_morya']))
+            {{ $slider_item->options['do_morya']->value }}
         @else
             -
         @endif
@@ -46,14 +46,14 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="centr_goroda">
+<div class="col-lg-6 d-flex align-items-center" data-option="do_centra_goroda">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="centr_goroda" height="20" width="20" />
+        <x-icon name="do_centra_goroda" height="20" width="20" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
-            @if (isset($slider_item->options['centr_goroda']))
-                {{ $slider_item->options['centr_goroda']->value }}
+            @if (isset($slider_item->options['do_centra_goroda']))
+                {{ $slider_item->options['do_centra_goroda']->value }}
             @else
             {{ $slider_item->bed_rooms ?? '-' }}
             @endif

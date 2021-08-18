@@ -60,17 +60,17 @@
         </div>
     </div>
 
-    <div class="col-lg-6 d-flex" data-option="do_zd_vokzala">
+    <div class="col-lg-6 d-flex" data-option="do_morya">
         <div class="content-object-card-information-icon">
-            <x-icon name="do_zd_vokzala" height="50" width="50" />
+            <x-icon name="do_morya" height="50" width="50" />
         </div>
         <div>
             <div class="content-object-card-information-list-text-tile">
-                До Ж/Д вокзала
+                До моря
             </div>
             <div class="content-object-card-information-list-text-info">
-                @if (isset($item->options['do_zd_vokzala']))
-                    {{ $item->options['do_zd_vokzala']->value }}
+                @if (isset($item->options['do_morya']))
+                    {{ $item->options['do_morya']->value }}
                 @else
                     -
                 @endif
