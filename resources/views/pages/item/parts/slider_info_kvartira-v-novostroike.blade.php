@@ -47,8 +47,7 @@
             </div>
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['etaz']))
-                {{-- {{dd($item->options)}} --}}
-                    {{-- {{ $item->options['etaz']->value }} --}}
+                    {{ $item->options['etaz']->value }}
                 @else
                     -
                 @endif
