@@ -31,12 +31,10 @@
 <div class="row">
     <div class="col-lg-3">
         <div class="hexagon-wrapper">
-
             <img class="hexagon-underlay" src="/images/goldpolygon.png">
             @if ($item->user && $item->user->getFirstMedia('avatar'))
                 {{ $item->user->getFirstMedia('avatar')->img()->attributes(['class' => 'hexagon', 'width' => '250', 'height' => '']) }}
             @endif
-
         </div>
 
     </div>

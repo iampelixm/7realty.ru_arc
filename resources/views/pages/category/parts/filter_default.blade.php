@@ -3,7 +3,7 @@
 
         <div class="col">
             <div class="show-drop-down py-2 w-100 text-center">
-                <p class="p-0 m-0">
+                <p class="p-0 m-0 text-nowrap">
                     <span id="filter_category_text">
                         {{ $category->name }}
                     </span>
@@ -11,15 +11,7 @@
                     <i class="fas fa-chevron-down fa-chevron-down_position"></i>
                 </p>
                 <div class="drop-down-menu drop-down-menu___col_1">
-                    <div>
-                        @foreach ($category_menu as $cat)
-                            <p class="drop-down-menu__p">
-                                <a class="drop-down-menu__a" href="{{ route('site.get_category', $cat->slug) }}">
-                                    {{ $cat->name }}
-                                </a>
-                        @endforeach
-                        </p>
-                    </div>
+                    @include('pages.category.parts.filter_categories')
                 </div>
             </div>
         </div>

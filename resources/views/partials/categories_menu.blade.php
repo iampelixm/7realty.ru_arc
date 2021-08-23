@@ -18,9 +18,16 @@
         </div>
         @foreach ($category_menu as $category)
             <div class="main-header-navi main-header-navi_position show-drop-down">
-                <p class="main-header-navi__p"><a href="@if ($category->slug) {{ route('site.get_category', $category->slug) }} @endif">{{ $category->name }}</a>
+                <p class="main-header-navi__p">
                     @if(!$category->children->isEmpty())
+                    <a>
+                        {{ $category->name }}
+                    </a>
                     <i class="fas fa-chevron-down fa-chevron-down_position"></i>
+                    @else
+                    <a href="@if ($category->slug) {{ route('site.get_category', $category->slug) }} @endif">
+                        {{ $category->name }}
+                    </a>
                     @endif
                 </p>
                 <div class="drop-down-menu drop-down-menu___col_1">
