@@ -91,8 +91,8 @@
                 <div style="white-space: nowrap;">
                     Площадь от
                 </div>
-                <input style="width: 40px" type="text" name="area-min" id="areamin" placeholder="100"
-                    class="form-control py-2 pr-0 text-gold">
+                <input style="width: 40px" type="text" name="minsquare" id="minsquare" placeholder="100"
+                    class="form-control py-2 pr-0 text-gold" value="{{$filter['minsquare'] ?? ''}}">
 
                 <div class="text-gold">
                     м<sup>2</sup>
@@ -100,8 +100,8 @@
                 <div style="margin-left: 7px">
                     до
                 </div>
-                <input style="width: 40px" type="text" name="area-max" id="areamax" placeholder="120"
-                    class="form-control py-2 pr-0 text-gold">
+                <input style="width: 40px" type="text" name="maxsquare" id="minsquare" placeholder="120"
+                    class="form-control py-2 pr-0 text-gold" value="{{$filter['maxsquare'] ?? ''}}">
 
                 <div class="text-gold">
                     м<sup>2</sup>

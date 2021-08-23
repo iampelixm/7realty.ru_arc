@@ -2,6 +2,7 @@
     <div class="content-specials-pref-list-info__ico" style="color: #C1A771">
         <x-icon name="minimalnaya_ploshhad" height="20" width="20" />
     </div>
+
     <div>
         <div class="content-specials-pref-list-info__text">
             От

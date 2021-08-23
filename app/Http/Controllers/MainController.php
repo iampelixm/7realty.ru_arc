@@ -25,6 +25,7 @@ class MainController extends Controller
 		    $query->whereIn('area_id', $areas);
 		}])->get();
 
+        // dd($list);
         $specialItemCount = 0;
         foreach($list as $category){
             $specialItemCount += $category->offerItems->count();

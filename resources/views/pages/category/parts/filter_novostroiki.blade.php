@@ -86,12 +86,12 @@
 
         <div class="col">
             <div class="show-drop-down py-2 w-100 text-center">
-                <input type="hidden" name="rooms" id="filter_rooms_value">
+                {{-- <input type="hidden" name="rooms" id="filter_rooms_value">
                 <p class="p-0 m-0">
                     <span id="filter_rooms_text">
                         @if (!empty($filter['rooms']))
                             {{ $filter['rooms'] }}
-                            {{ trans_choice('site.all_rooms', $filter['rooms']) }}
+                            {{ trans_choice('site.all_rooms', $filter['']) }}
                         @else
                             Кол-во комнат
                         @endif
@@ -99,9 +99,9 @@
                     </span>
 
                     <i class="fas fa-chevron-down fa-chevron-down_position"></i>
-                </p>
+                </p> --}}
 
-                <div class="drop-down-menu drop-down-menu___col_1">
+                {{-- <div class="drop-down-menu drop-down-menu___col_1">
                     <div>
                         <p class="drop-down-menu__p">
                             <a class="drop-down-menu__a" onclick="selectDropdownItem(this)" data-param="rooms"
@@ -113,7 +113,38 @@
                             <p class="drop-down-menu__p">
                                 <a class="drop-down-menu__a" onclick="selectDropdownItem(this)" data-param="rooms"
                                     data-value="{{ $i }}">
-                                    {{ $i }} {{ trans_choice('site.all_rooms', $i) }} asd
+                                    {{ $i }} {{ trans_choice('site.all_rooms', $i) }}
+                                </a>
+                            </p>
+                        @endfor
+                    </div>
+                </div> --}}
+                <input type="hidden" name="god_postroiki" id="filter_god_postroiki_value">
+                <p class="p-0 m-0">
+                    <span id="filter_god_postroiki_text">
+                        @if (!empty($filter['god_postroiki']))
+                            {{ $filter['god_postroiki'] }} г.
+                        @else
+                            Год постройки
+                        @endif
+
+                    </span>
+
+                    <i class="fas fa-chevron-down fa-chevron-down_position"></i>
+                </p>
+                <div class="drop-down-menu drop-down-menu___col_1">
+                    <div>
+                        <p class="drop-down-menu__p">
+                            <a class="drop-down-menu__a" onclick="selectDropdownItem(this)" data-param="god_postroiki"
+                                data-value="">
+                                Любой
+                            </a>
+                        </p>
+                        @for ($i = 2020; $i < 2025; $i++)
+                            <p class="drop-down-menu__p">
+                                <a class="drop-down-menu__a" onclick="selectDropdownItem(this)" data-param="god_postroiki"
+                                    data-value="{{ $i }}">
+                                    {{ $i }} г.
                                 </a>
                             </p>
                         @endfor

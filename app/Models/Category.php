@@ -92,6 +92,14 @@ class Category extends Model implements HasMedia
 
     public function scopeOffers()
     {
+        return $this
+            ->where('offer_index', '>', 0)
+            ->where('active', 1)
+            ->orderBy('offer_index', 'DESC');
+    }
+
+    public function scopeOffersMain()
+    {
         return $this->where('main', 1)
             ->where('offer_index', '>', 0)
             ->where('active', 1)

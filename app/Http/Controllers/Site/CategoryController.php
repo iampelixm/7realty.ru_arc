@@ -70,6 +70,8 @@ class CategoryController extends Controller
         $square_option=Option::where('name','Площадь')->first();
         $min_square_option=Option::where('name','Минимальная площадь')->first();
         $max_square_option=Option::where('name','Максимальная площадь')->first();
+        $god_postroiki_option=Option::where('name','Год постройки')->first();
+        //площадь квартиры
         if(isset($filter['squarefrom']))
         {
 
@@ -79,7 +81,7 @@ class CategoryController extends Controller
         {
             $queryItem->where("option->".$square_option->id, '<=', (int) $filter['squareto']);
         }
-
+//Площадь новостройки
         if(isset($filter['minsquare']))
         {
             $queryItem->where("option->".$min_square_option->id, '>=', (int) $filter['minsquare']);
@@ -88,8 +90,20 @@ class CategoryController extends Controller
         {
             $queryItem->where("option->".$max_square_option->id, '<=', (int) $filter['maxsquare']);
         }
-
-
+//Год постройи
+        if(isset($filter['god_postroiki']))
+        {
+            $queryItem->where("option->".$god_postroiki_option->id, '=', (int) $filter['god_postroiki']);
+        }
+        //Площадь участка
+        if(isset($filter['minsquare']))
+        {
+            $queryItem->where("option->".$min_square_option->id, '>=', (int) $filter['minsquare']);
+        }
+        if(isset($filter['maxsquare']))
+        {
+            $queryItem->where("option->".$max_square_option->id, '<=', (int) $filter['maxsquare']);
+        }
 
         if (isset($filter['orderprice']) && ($filter['orderprice'] == 'asc')) {
             $queryItem->orderBy('price', 'ASC');
@@ -205,7 +219,7 @@ class CategoryController extends Controller
         $page_title = $category->name . " - Специальные предложения | Seven";
         $page_head =  $category->name . " - cпециальные предложения";
 
-        return view('pages.category.default', compact('list', 'areasSelect', 'filter', 'data_backend', 'page_title', 'page_head', 'minRooms', 'maxRooms'));
+        return view('pages.category.default', compact('category', 'list', 'areasSelect', 'filter', 'data_backend', 'page_title', 'page_head', 'minRooms', 'maxRooms'));
         //return view('pages.category', compact('category'));
     }
 }

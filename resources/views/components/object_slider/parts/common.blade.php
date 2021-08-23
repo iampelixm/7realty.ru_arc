@@ -3,6 +3,7 @@
     <div class="content-specials-pref-list-info__ico">
         <x-icon :name="$itemOptionName" height="20" width="20" />
     </div>
+
     <div>
         <div class="content-specials-pref-list-info__text">
             {{ $itemOption->value }}
