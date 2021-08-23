@@ -8318,9 +8318,11 @@ input[type=number] {
     margin: 0 auto;
     max-width: 1360px;
 }
+
 .content-specials-info_position_center {
     padding: 78px 0 10px 10%;
 }
+
 .content-specials-info__h2 {
     font-family: Geometria;
     font-weight: bold;
@@ -8328,6 +8330,7 @@ input[type=number] {
     color: #000000;
     padding: 0 0 0 0;
 }
+
 @media (max-width: 400px) {
     .content-specials-info__h2 {
         font-size: 30px;
@@ -26811,9 +26814,9 @@ readers do not read off random characters that represent icons */
   height: 490px;
 }
 
-.slider::before,
-.slider1::before,
-.item::before {
+.slider::abefore,
+.slider1::abefore,
+.item::abefore {
   content: "";
   background-color: #000000;
   opacity: 0.2;

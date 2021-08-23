@@ -125512,6 +125512,7 @@ $(".slider-custom__four.owl-carousel").owlCarousel({
 });
 $(".mainpage_slider").owlCarousel({
   items: 1,
+  autoplay: true,
   loop: false,
   margin: 30,
   nav: true,
