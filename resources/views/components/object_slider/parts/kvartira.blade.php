@@ -24,6 +24,7 @@
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['komnat']))
                 {{ $slider_item->options['komnat']->value }}
+                {{trans_choice('site.all_rooms', $slider_item->options['komnat']->value)}}
             @else
                 {{ $slider_item->all_rooms ?? '-' }}
             @endif

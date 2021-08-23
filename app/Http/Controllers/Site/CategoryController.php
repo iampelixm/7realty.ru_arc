@@ -81,7 +81,7 @@ class CategoryController extends Controller
         {
             $queryItem->where("option->".$square_option->id, '<=', (int) $filter['squareto']);
         }
-//Площадь новостройки
+        //Площадь новостройки, коттеджного поселка
         if(isset($filter['minsquare']))
         {
             $queryItem->where("option->".$min_square_option->id, '>=', (int) $filter['minsquare']);
@@ -90,7 +90,7 @@ class CategoryController extends Controller
         {
             $queryItem->where("option->".$max_square_option->id, '<=', (int) $filter['maxsquare']);
         }
-//Год постройи
+        //Год постройи
         if(isset($filter['god_postroiki']))
         {
             $queryItem->where("option->".$god_postroiki_option->id, '=', (int) $filter['god_postroiki']);

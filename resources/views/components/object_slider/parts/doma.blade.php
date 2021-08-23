@@ -11,7 +11,6 @@
                 {{ $slider_item->square ?? '-' }}
             @endif
             м<sup>2</sup>
-
         </div>
     </div>
 </div>
@@ -24,9 +23,11 @@
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['etaznost']))
                 {{ $slider_item->options['etaznost']->value }}
+                {{trans_choice('site.floor', $slider_item->options['etaznost']->value)}}
             @else
                 -
             @endif
+
         </div>
     </div>
 </div>
@@ -39,6 +40,7 @@
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['komnat']))
             {{ $slider_item->options['komnat']->value }}
+            {{trans_choice('site.all_rooms', $slider_item->options['komnat']->value)}}
         @else
             -
         @endif
@@ -54,6 +56,7 @@
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['spalen']))
                 {{ $slider_item->options['spalen']->value }}
+                {{trans_choice('site.bed_rooms', $slider_item->options['spalen']->value)}}
             @else
             {{ $slider_item->bed_rooms ?? '-' }}
             @endif

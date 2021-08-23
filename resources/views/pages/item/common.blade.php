@@ -20,7 +20,7 @@
         @section('image_slider')
             @include('pages.item.parts.imageSlider')
         @show
-
+        <!-- SLIDER INFO -->
         <div class="item_card" data-card="{{ $item->type->slug }}">
             <div class="content-object-card-information">
                 @section('item_card')

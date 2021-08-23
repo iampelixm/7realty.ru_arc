@@ -75,6 +75,7 @@
             <div class="content-object-card-information-list-text-info">
                 @if (isset($item->options['spalen']))
                     {{ $item->options['spalen']->value }}
+                    {{trans_choice('site.bed_rooms', $item->options['spalen']->value)}}
                 @else
                     -
                 @endif

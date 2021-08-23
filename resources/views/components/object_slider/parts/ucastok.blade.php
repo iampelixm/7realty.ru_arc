@@ -42,6 +42,7 @@
         @else
             -
         @endif
+        мин.
         </div>
     </div>
 </div>
@@ -55,8 +56,9 @@
             @if (isset($slider_item->options['do_centra_goroda']))
                 {{ $slider_item->options['do_centra_goroda']->value }}
             @else
-            {{ $slider_item->bed_rooms ?? '-' }}
+                -
             @endif
+            мин.
         </div>
     </div>
 </div>

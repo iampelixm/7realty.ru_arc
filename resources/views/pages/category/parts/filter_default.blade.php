@@ -112,7 +112,7 @@
                             <p class="drop-down-menu__p">
                                 <a class="drop-down-menu__a" onclick="selectDropdownItem(this)" data-param="rooms"
                                     data-value="{{ $i }}">
-                                    {{ $i }} {{ trans_choice('site.all_rooms', $i) }} asd
+                                    {{ $i }} {{ trans_choice('site.all_rooms', $i) }}
                                 </a>
                             </p>
                         @endfor

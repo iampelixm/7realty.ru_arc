@@ -24,6 +24,7 @@
         <div class="content-specials-pref-list-info__text">
             @if (isset($slider_item->options['etaz']))
                 {{ $slider_item->options['etaz']->value }}
+                {{trans_choice('site.floor', $slider_item->options['etaznost']->value)}}
             @else
                 -
             @endif
@@ -42,6 +43,7 @@
         @else
             -
         @endif
+        мин.
         </div>
     </div>
 </div>
@@ -55,8 +57,9 @@
             @if (isset($slider_item->options['centr_goroda']))
                 {{ $slider_item->options['centr_goroda']->value }}
             @else
-            {{ $slider_item->bed_rooms ?? '-' }}
+            -
             @endif
+            мин.
         </div>
     </div>
 </div>
