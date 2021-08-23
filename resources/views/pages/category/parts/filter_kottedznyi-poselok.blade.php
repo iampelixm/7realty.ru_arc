@@ -1,6 +1,5 @@
 <form method="GET" enctype="application/x-www-form-urlencoded" class="w-100 rounded-form rounded-pill border-gold">
     <div class="row rounded-pill align-items-center overflow-hiddena m-0">
-
         <div class="col">
             <div class="show-drop-down py-2 w-100 text-center">
                 <p class="p-0 m-0 text-nowrap">
@@ -91,8 +90,8 @@
                 <div style="white-space: nowrap;">
                     Площадь от
                 </div>
-                <input style="width: 40px" type="text" name="squarefrom" id="squarefrom" placeholder="100"
-                    class="form-control py-2 pr-0 text-gold" value="{{$filter['squarefrom'] ?? ''}}">
+                <input style="width: 40px" type="text" name="minsquare" id="minsquare" placeholder="100"
+                    class="form-control py-2 pr-0 text-gold" value="{{ $filter['minsquare'] ?? '' }}">
 
                 <div class="text-gold">
                     м<sup>2</sup>
@@ -100,8 +99,8 @@
                 <div style="margin-left: 7px">
                     до
                 </div>
-                <input style="width: 40px" type="text" name="squareto" id="squareto" placeholder="120"
-                    class="form-control py-2 pr-0 text-gold" value="{{$filter['squareto'] ?? ''}}">
+                <input style="width: 40px" type="text" name="maxsquare" id="maxsquare" placeholder="120"
+                    class="form-control py-2 pr-0 text-gold" value="{{ $filter['maxsquare'] ?? '' }}">
 
                 <div class="text-gold">
                     м<sup>2</sup>
