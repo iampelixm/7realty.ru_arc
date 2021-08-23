@@ -584,9 +584,11 @@
     margin: 0 auto;
     max-width: 1360px;
 }
+
 .content-specials-info_position_center {
     padding: 78px 0 10px 10%;
 }
+
 .content-specials-info__h2 {
     font-family: Geometria;
     font-weight: bold;
@@ -594,6 +596,7 @@
     color: #000000;
     padding: 0 0 0 0;
 }
+
 @media (max-width: 400px) {
     .content-specials-info__h2 {
         font-size: 30px;
@@ -604,7 +607,7 @@
     background-image: url(/images/goldline.png);
     background-repeat: repeat-x;
     background-position: left center;
-    margin-top: 85px;
+    margin-top: 44px;
     margin-bottom: 40px;
 }
 
