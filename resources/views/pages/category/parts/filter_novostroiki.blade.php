@@ -129,7 +129,6 @@
                         @endif
 
                     </span>
-
                     <i class="fas fa-chevron-down fa-chevron-down_position"></i>
                 </p>
                 <div class="drop-down-menu drop-down-menu___col_1">
