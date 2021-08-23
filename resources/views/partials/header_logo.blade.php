@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between align-items-center" style="background-image: url(/images/seven_bg.png); background-repeat: no-repeat; background-position: center center; height: 166px;">
         <div class="d-flex align-items-center" astyle="top: 10px; display: flex; align-items: center">
             <div class="logo-polygon" style="">
-                <span style="font-size: 30px; color: #C1A771">7</span>
+                <img src="/images/7.png" alt="">
             </div>
             <div class="slogan"
                 style=" line-height: 24px; font-size: 18px; letter: 20%; color: #333; font-weight: 400;">СЧАСТЛИВОЕ
