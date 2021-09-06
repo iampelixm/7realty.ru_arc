@@ -31,8 +31,9 @@
         }
 
         .additional {
-            position: absolute;
-            bottom: 0;
+            margin-top: 40px;
+            /* position: absolute; */
+            /* bottom: 0; */
         }
 
         .broker-info .broker-description {

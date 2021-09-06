@@ -72,6 +72,8 @@ $(".slider-custom__four.owl-carousel").owlCarousel({
 $(".mainpage_slider").owlCarousel({
     items: 1,
     autoplay:true,
+    autoplayTimeout: 6000,
+    autoplaySpeed: 1000,
     loop: false,
     margin: 30,
     nav: true,

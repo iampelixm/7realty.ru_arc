@@ -79,11 +79,12 @@
             text-transform: uppercase;
             font-family: Geometria;
             font-style: normal;
-            font-weight: bold;
+            font-weight: normal;
             font-size: 18px;
             line-height: 23px;
             width:300px;
-            border: 1px solid #C1A771;`
+            border: 1px solid #C1A771;
+            padding: 20px 70px 16px;
         }
 
 

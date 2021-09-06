@@ -77,11 +77,11 @@
                             </a>
                         </li>
 
-                        <li class="nav-divider">
+                        <li class="nav-divider d-none">
                             |
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item d-none">
                             <a class="nav-link d-flex" href="#{{--{{ route('site.pages.analytics') }}--}}" style="color: #FFF">
                                 <div class="nav-link-image">
                                     <x-icon name="tablet" width="16" />
@@ -97,7 +97,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link d-flex" href="#{{--{{ route('site.pages.news') }}--}}" style="color: #FFF">
+                            <a class="nav-link d-flex" href="{{ route('site.pages.news') }}" style="color: #FFF">
                                 <div class="nav-link-image">
                                     <x-icon name="newspaper" width="16" style="amargin-bottom: 10px" />
                                 </div>

@@ -1,4 +1,9 @@
 @extends('layouts.site')
+@section('categories_menu')
+@endsection
+
+@section('categories_menu_mobile')
+@endsection
 
 @section('content')
     @include('partials.section_hero')

@@ -31,10 +31,12 @@
 <div class="row">
     <div class="col-lg-3">
         <div class="hexagon-wrapper">
-            <img class="hexagon-underlay" src="/images/goldpolygon.png">
-            @if ($item->user && $item->user->getFirstMedia('avatar'))
-                {{ $item->user->getFirstMedia('avatar')->img()->attributes(['class' => 'hexagon', 'width' => '250', 'height' => '']) }}
-            @endif
+            <a href="{{ route('site.broker.page', $item->user) }}">
+                <img class="hexagon-underlay" src="/images/goldpolygon.png">
+                @if ($item->user && $item->user->getFirstMedia('avatar'))
+                    {{ $item->user->getFirstMedia('avatar')->img()->attributes(['class' => 'hexagon', 'width' => '250', 'height' => '']) }}
+                @endif
+            </a>
         </div>
 
     </div>
@@ -43,10 +45,14 @@
             style="height: 100%; border-top: 1px solid #C1A771; border-bottom: 1px solid #C1A771; border-right: 1px solid #C1A771; background: #FFF;">
 
             <div class="pl-4 col-lg-9 d-flex align-items-center">
-                <div class="" style="">
-                    <h2 style="font-size: 36px;">
-                        {{ $item->user->name ?? 'Брокер' }}
-                    </h2>
+                <div class="___class_+?7___" style="">
+                    <a href="{{ route('site.broker.page', $item->user) }}" style="color:#000;">
+                        <h2 style="font-size: 36px;">
+
+                            {{ $item->user->name ?? 'Брокер' }}
+
+                        </h2>
+                    </a>
                     <h6 style="font-weight: 100;">
                         {{ $item->user->position ?? 'Брокер' }}
                     </h6>

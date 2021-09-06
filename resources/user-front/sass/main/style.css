@@ -626,12 +626,13 @@
 }
 .content-specials-list-div__h3 {
     font-family: Geometria;
-    font-weight: 700;
+    font-weight: normal;
     font-style: normal;
     font-size: 18px;
     color: #fff;
     margin: 0 0 0 0;
-    padding: 4px 20px 0px 20px;
+    /* padding: 4px 20px 0px 20px; */
+    padding: 20px 70px 16px 70px;
     background: #c1a771;
     border-radius: 25px;
     text-transform: uppercase;
@@ -903,7 +904,7 @@ a.slide-image-div-image img {
     text-align: center;
 }
 .content-partners-all__button {
-    height: 40px;
+    /* height: 40px; */
     max-width: 350px;
     width: calc(100% - 20px);
     background: #c1a771;
@@ -911,6 +912,8 @@ a.slide-image-div-image img {
     border-radius: 26px;
     font-family: Geometria;
     font-size: 18px;
+    font-weight: normal;
+    padding: 20px 70px 16px 70px;
     line-height: 18px;
     text-align: center;
     color: #ffffff;

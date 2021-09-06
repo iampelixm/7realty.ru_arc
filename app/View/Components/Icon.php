@@ -48,8 +48,8 @@ class Icon extends Component
             }
         }
         if ($width) {
-            if (preg_match('/width=/', $this->svg)) {
-                $this->svg = preg_replace('/width=".*?"/', 'width="' . $width . '"', $this->svg);
+            if (preg_match('/ width=/', $this->svg)) {
+                $this->svg = preg_replace('/ width=".*?"/', ' width="' . $width . '"', $this->svg);
             } else {
                 $this->svg = preg_replace('/\<svg/', '<svg width="' . $width . '"', $this->svg);
             }
