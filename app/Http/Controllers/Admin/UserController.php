@@ -129,6 +129,7 @@ class UserController extends Controller
         }
 
         $user_data = $r->except('password');
+
         $user->update($user_data);
 
         if ($r->hasFile('avatar')) {

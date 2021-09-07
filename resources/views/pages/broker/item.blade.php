@@ -151,7 +151,7 @@
                         </div>
                         <div class="ml-3">
                             <h4 class="additional-label">Стаж в компании</h4>
-                            <h2 class="additional-value">{{ $broker->additional->stazh ?? '7' }} лет</h2>
+                            <h2 class="additional-value">{{ $broker->additional->stazh ?? '-' }} лет</h2>
                         </div>
                     </div>
                     <div class="d-flex ml-lg-4">
@@ -165,9 +165,10 @@
                                     fill="#C1A771" />
                             </svg>
                         </div>
+
                         <div class="ml-3">
                             <h4 class="additional-label">Количество успешных сделок</h4>
-                            <h2 class="additional-value">{{ $broker->additional->sdelok ?? '7' }} </h2>
+                            <h2 class="additional-value">{{ $broker->additional->sdelok ?? '-' }} </h2>
                         </div>
                     </div>
                 </div>

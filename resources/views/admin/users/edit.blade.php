@@ -114,18 +114,19 @@
                                 </div>
                             </div>
                         </div>
+
                         <label class="control-label" for="description">
                             Дополнительно
                         </label>
-                        {{ print_r($user->additional, true) }}
+
                         <div class="form-group">
                             <div class="form-controls">
                                 <label class="control-label" for="additional_stazh">
                                     Стаж в компании
                                 </label>
                                 <div class="col-lg-10 m-b-sm">
-                                    <input type="text" name="additional['stazh']" id="additional_stazh" class="form-control"
-                                        value="{{ $broker->additional->stazh ?? '7' }}"> лет
+                                    <input type="text" name="additional[stazh]" id="additional_stazh" class="form-control"
+                                        value="{{ $user->additional->stazh ?? '7' }}"> лет
                                 </div>
                             </div>
                         </div>
@@ -136,8 +137,8 @@
                                     Успешных сделок
                                 </label>
                                 <div class="col-lg-10 m-b-sm">
-                                    <input type="text" name="additional['sdelok']" id="additional_sdelok"
-                                        class="form-control" value="{{ $broker->additional->sdelok ?? '77' }}">
+                                    <input type="text" name="additional[sdelok]" id="additional_sdelok"
+                                        class="form-control" value="{{ $user->additional->sdelok ?? '77' }}">
                                 </div>
                             </div>
                         </div>
