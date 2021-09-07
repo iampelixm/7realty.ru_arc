@@ -151,7 +151,9 @@
                         </div>
                         <div class="ml-3">
                             <h4 class="additional-label">Стаж в компании</h4>
-                            <h2 class="additional-value">{{ $broker->additional->stazh ?? '-' }} лет</h2>
+                            <h2 class="additional-value">{{ $broker->additional->stazh ?? '-' }}
+                                {{trans_choice('site.years', ($broker->additional->stazh ?? '-'))}}
+                            </h2>
                         </div>
                     </div>
                     <div class="d-flex ml-lg-4">
