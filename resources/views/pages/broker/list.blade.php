@@ -153,7 +153,9 @@
             top: 0;
             width: 230px;
             height: 258px;
-            margin-left: 30px;
+            /* margin-left: 30px; */
+            margin-left: calc(50% + 20px);
+            transform: translateX(-50%);
             margin-top: 25px;
             z-index: 0;
             /*  clip-path: inset(0 0 0 50%); */
@@ -166,6 +168,8 @@
             height: 280px;
             background-image: url(/images/bg-for-business.jpg);
             object-fit: cover;
+            margin-left: 50%;
+            transform: translateX(-50%);
         }
 
     </style>

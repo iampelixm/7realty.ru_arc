@@ -114,7 +114,8 @@
                 <h6 style="color: #333; font-weight: 300">{{ $broker->position }}</h6>
 
                 <div style="font-size: 48px; font-weight: 700; color: #C1A771; margin-top: 40px;">
-                    <a href="tel:+79857000077" style="color: #C1A771; text-decoration: none; ">+7 985 700-00-77</a>
+
+                    <a href="tel:{{ $broker->additional->phone ?? '+79857000077' }}" style="color: #C1A771; text-decoration: none; ">{{ $broker->additional->phone ?? '+7 985 700-00-77' }}</a>
                 </div>
                 <div style="font-size: 14px;">
                     <a style="color: #C1A771; text-decoration: none; "

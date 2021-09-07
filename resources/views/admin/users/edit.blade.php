@@ -121,6 +121,18 @@
 
                         <div class="form-group">
                             <div class="form-controls">
+                                <label class="control-label" for="additional_phone">
+                                    Номер телефона
+                                </label>
+                                <div class="col-lg-10 m-b-sm">
+                                    <input type="text" name="additional[phone]" id="additional_phone" class="form-control"
+                                        value="{{ $user->additional->phone ?? '' }}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-controls">
                                 <label class="control-label" for="additional_stazh">
                                     Стаж в компании
                                 </label>
