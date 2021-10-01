@@ -91,7 +91,7 @@
                     {{ $broker->getFirstMedia('avatar')->img()->attributes(['class' => 'broker-avatar', 'width' => 'auto', 'height' => '100%']) }}
                 @endif
                 <div class="broker-buttons">
-                    <a href="tel:+79857000077">
+                    <a href="tel:{{ $broker->additional->phone ?? '+79857000077' }}">
                         <span style="margin-right: 10px; color:#C1A771">
                             <x-icon name="call" width="20" />
                         </span>
