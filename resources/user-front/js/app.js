@@ -15,6 +15,8 @@ require("./components/script");
 
 require("./other");
 
+require("./common");
+
 import videojs from "videojs-youtube";
 
 window.videojs = videojs;

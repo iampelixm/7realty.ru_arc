@@ -1,0 +1,239 @@
+.page-about
+    .section
+        &-slogan
+            position: relative
+            background-color: #000
+            margin-top: -167px
+            padding-top: 167px
+            z-index: 0
+            background-image: url(/users/image/mobile/page-about-section-slogan_bg.jpg)
+            background-size: cover
+            background-position: top center
+            background-repeat: no-repeat
+
+            &__title1
+                color: $color-gold
+                padding-top: 273px
+                font-weight: normal
+                font-size: 24px
+                font-family: Times New Roman
+            &__title2
+                color: #FFF
+                font-family: Times New Roman
+                font-weight: normal
+                font-size: 24px
+            &__words
+                color: #FFF
+                font-size: 14px
+                background: linear-gradient(360deg, #000000 0%, rgba(14, 18, 22, 0) 100%)
+                padding: 0 15px
+            &__subscription
+                font-size: 14px
+                color: $color-gold
+                margin-top: 40px
+                padding-bottom: 20px
+        &-history
+            background-image: url(/users/image/mobile/page-about-section-history_bg.jpg)
+            background-size: cover
+            background-position: top center
+            padding: 40px 0 10px 0
+            &__title
+                font-family: Times New Roman
+                color: $color-gold
+                font-size: 24px
+                text-align: center
+            &__text-wrapper
+                padding: 20px 15px 0px 15px
+                text-align: center
+            &__button-wrapper
+                background-image: url(/images/goldline.png)
+                background-position: center center
+                background-repeat: repeat-x
+                padding: 30px 0 40px 0
+                display: flex
+                align-items: center
+                justify-content: center
+            &__button
+                display: block
+                padding: 9px 30px 9px 30px
+                color: $color-gold
+                border: 1px solid $color-gold
+                border-radius: 50em
+                text-transform: uppercase
+                background-color: #FFF
+        &-bullets
+            padding: 40px 15px
+            &__bullet-wrapper
+                border: 1px solid $color-gold
+                height: 100%
+            &__bullet-title-wrapper
+                display: flex
+                align-items: center
+                justify-content: center
+                transform: translatey(-50%)
+                background: transparent
+            &__bullet-title
+                background: #FFF
+                padding: 0 10px
+                font-weight: bold
+                font-size: 18px
+                color: #333
+            &__bullet-text
+                margin: 0 20px 20px 20px
+                font-weight: normal
+                font-size: 14px
+                text-align: justify
+        &-numbers
+            &__wrapper
+                background-color: $color-gold
+                padding: 70px 50px
+            &__number-wrapper
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+            &__number-icon-wrapper
+                height: 130px
+                display: flex
+                align-items: center
+                justify-content: center
+            &__number-icon
+                color: #FFF
+            &__number-title
+                color: #FFF
+                font-weight: bold
+                font-size: 36px
+            &__number-subtitle
+                color: #FFF
+                font-weight: normal
+                font-size: 18px
+        &-outlined
+            &__outline
+                border-bottom: 1px solid $color-gold
+        &-hexlogo
+            padding: 110px 0 0 0
+            &__wrapper
+                display: flex
+                align-items: center
+                justify-content: center
+                position: relative
+                flex-direction: column
+            &__line1
+                border-top: 2px solid $color-gold
+                width: 100%
+                margin: 0 0 6px 0
+                padding: 0
+            &__line2
+                border-top: 1px solid $color-gold
+                width: 80%
+                margin: 6px 0 0 0
+                padding: 0
+            &__image-wrapper
+                transform: translatey(-50%)
+                margin-top: -12px
+                padding: 12px
+                background: #FFF
+        &-projects-slider
+            padding-bottom: 10px
+            &__title
+                color: #333
+                font-weight: bold
+                font-size: 20px
+                text-align: left
+                padding-left: 15px
+            &__slider-wrapper
+                margin: 20px 30px 30px 20px
+        &-we-do
+            background: transparent
+            display: flex
+            justify-content: center
+            align-items: center
+            &__wrapper
+                background: #FFF
+                padding: 0 20px
+                color: $color-gold
+                transform: translatey(-50%)
+            &__title1
+                font-size: 20px
+                line-height: 20px
+                font-weight: bold
+                text-transform: uppercase
+                text-align: center
+            &__title2
+                font-size: 14px
+                line-height: 18px
+                font-weight: normal
+                text-transform: uppercase
+                text-align: center
+    .main-header
+        background: transparent
+        &__slogan
+            color: #FFF
+        &__tel-link
+            color: #FFF
+        &__descriptor
+            color: #FFF
+        .main-header-categories-menu
+            & .navbar .nav-link
+                color: #FFF
+        &__buttons-wrapper
+            background-color: transparent
+
+
+.items-slider
+    width: 100%
+    .owl-nav
+        position: absolute
+        top: 0
+        margin-top: -75px
+        display: flex
+        width: 100%
+        justify-content: flex-end
+    &__item
+        border: 1px solid $color-gold
+        border-radius: 20px
+        padding: 15px
+        width: 353px
+        height: 180px
+        display: flex
+        justify-content: start
+        align-items: center
+    &__item-image-wrapper
+        width: 150px
+        height: 150px
+    &__item-image
+        width: 100%
+        height: 100%
+        object-fit: cover
+        border-radius: 10px 0 0 10px
+        overflow: hidden
+    &__item-content-wrapper
+        width: calc( 100% - 150px )
+        padding-left: 15px
+        height: 100%
+    &__item-title
+        font-weight: bold
+        font-size: 18px
+        max-height: 18px
+        line-height: 18px
+        overflow: hidden
+        text-overflow: ellipsis
+        color: #333
+        width: 100%
+    &__item-options-wrapper
+        display: flex
+        flex-direction: column
+        align-items: start
+        justify-content: space-evenly
+        margin-top: 24px
+    &__item-option
+        display: flex
+    &__item-option-icon
+        color: $color-gold
+    &__item-option-text
+        padding-left: 10px
+        text-overflow: ellipsis
+
+
+
+

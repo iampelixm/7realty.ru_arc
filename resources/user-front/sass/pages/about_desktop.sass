@@ -1,0 +1,234 @@
+.page-about
+    .container
+        max-width: 1220px
+    .section
+        &-slogan
+            position: relative
+            background-color: #FFF
+            margin-top: -308px
+            z-index: 0
+            background-image: url(/users/image/page_about-section-slogan_bg.jpg)
+            background-size: cover
+            background-position: top center
+            min-height: 800px
+            padding-bottom: 70px
+            &__title1
+                color: $color-gold
+                padding-top: 711px
+                font-weight: normal
+                font-size: 72px
+                font-family: Times New Roman
+            &__title2
+                color: #FFF
+                font-family: Times New Roman
+                font-weight: normal
+                font-size: 72px
+            &__words
+                color: #FFF
+                font-size: 18px
+            &__subscription
+                font-size: 18px
+                color: $color-gold
+                margin-top: 40px
+        &-history
+            background-image: url(/users/image/page-about-section-history_bg.jpg)
+            background-size: cover
+            background-position: top center
+            min-height: 650px
+            padding: 70px 0 10px 0
+            &__title
+                font-family: Times New Roman
+                color: $color-gold
+                font-size: 72px
+                text-align: right
+            &__text-wrapper
+                padding-top: 40px
+            &__button-wrapper
+                background-image: url(/images/goldline.png)
+                background-position: center center
+                background-repeat: repeat-x
+                padding: 70px 0
+                display: flex
+                align-items: center
+                justify-content: center
+            &__button
+                display: block
+                padding: 14px 40px 10px 40px
+                color: $color-gold
+                border: 1px solid $color-gold
+                border-radius: 50em
+                text-transform: uppercase
+                background-color: #FFF
+        &-bullets
+            padding: 70px 75px
+            &__bullet-wrapper
+                border: 1px solid $color-gold
+                height: 100%
+            &__bullet-title-wrapper
+                display: flex
+                align-items: center
+                justify-content: center
+                transform: translatey(-50%)
+                background: transparent
+            &__bullet-title
+                background: #FFF
+                padding: 0 20px
+                font-weight: bold
+                font-size: 36px
+                color: #333
+            &__bullet-text
+                margin: 70px 70px 93px 70px
+                font-weight: normal
+                font-size: 18px
+                text-align: justify
+        &-numbers
+            &__wrapper
+                background-color: $color-gold
+                padding: 70px 50px
+            &__number-wrapper
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+            &__number-icon-wrapper
+                height: 130px
+                display: flex
+                align-items: center
+                justify-content: center
+            &__number-icon
+                color: #FFF
+            &__number-title
+                color: #FFF
+                font-weight: bold
+                font-size: 36px
+            &__number-subtitle
+                color: #FFF
+                font-weight: normal
+                font-size: 18px
+        &-outlined
+            &__outline
+                border: 1px solid $color-gold
+        &-hexlogo
+            padding: 110px 0 70px 0
+            &__wrapper
+                display: flex
+                align-items: center
+                justify-content: center
+                position: relative
+                flex-direction: column
+            &__line1
+                border-top: 2px solid $color-gold
+                width: 690px
+                margin: 0 0 6px 0
+                padding: 0
+            &__line2
+                border-top: 1px solid $color-gold
+                width: 400px
+                margin: 6px 0 0 0
+                padding: 0
+            &__image-wrapper
+                transform: translatey(-50%)
+                margin-top: -12px
+                padding: 12px
+                background: #FFF
+        &-projects-slider
+            padding-bottom: 70px
+            &__title
+                color: #333
+                font-weight: bold
+                font-size: 32px
+                text-align: left
+                padding-left: 60px
+            &__slider-wrapper
+                margin: 20px 30px 30px 20px
+        &-we-do
+            background: transparent
+            display: flex
+            justify-content: center
+            align-items: center
+            &__wrapper
+                background: #FFF
+                padding: 0 20px
+                color: $color-gold
+                transform: translatey(-50%)
+            &__title1
+                font-size: 48px
+                line-height: 48px
+                font-weight: bold
+                text-transform: uppercase
+                text-align: center
+            &__title2
+                font-size: 24px
+                line-height: 24px
+                font-weight: normal
+                text-transform: uppercase
+                text-align: center
+    .main-header
+        background: transparent
+        &__slogan
+            color: #FFF
+        &__tel-link
+            color: #FFF
+        &__descriptor
+            color: #FFF
+        .main-header-categories-menu
+            & .navbar .nav-link
+                color: #FFF
+
+.items-slider
+    width: 100%
+    .owl-nav
+        position: absolute
+        top: 0
+        margin-top: -80px
+        display: flex
+        width: 100%
+        justify-content: flex-end
+    &__item
+        border: 1px solid $color-gold
+        border-radius: 20px
+        padding: 30px
+        width: 478px
+        height: 250px
+        display: flex
+        justify-content: center
+        align-items: center
+    &__item-image-wrapper
+        width: 200px
+        height: 200px
+    &__item-image
+        width: 100%
+        height: 100%
+        object-fit: cover
+        border-radius: 10px 0 0 10px
+        overflow: hidden
+    &__item-content-wrapper
+        width: calc( 100% - 200px )
+        padding-left: 30px
+        height: 100%
+    &__item-title
+        font-weight: bold
+        font-size: 24px
+        max-height: 24px
+        line-height: 24px
+        overflow: hidden
+        text-overflow: ellipsis
+        color: #333
+        width: 100%
+    &__item-options-wrapper
+        display: flex
+        flex-direction: column
+        align-items: start
+        justify-content: space-evenly
+        margin-top: 24px
+    &__item-option
+        display: flex
+    &__item-option-icon
+        color: $color-gold
+    &__item-option-text
+        padding-left: 10px
+        text-overflow: ellipsis
+
+
+
+

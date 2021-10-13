@@ -82,5 +82,11 @@ $(".mainpage_slider").owlCarousel({
 
 $(".mainpage_slider .owl-prev").html('<img src="/users/image/slider_left.png">');
 $(".mainpage_slider .owl-next").html('<img src="/users/image/slider_right.png">');
+
+
+
+$(".items-slider").owlCarousel(getOwlParams('.items-slider'));
+$(".items-slider .owl-prev").html('<img src="/users/image/slider_left.png">');
+$(".items-slider .owl-next").html('<img src="/users/image/slider_right.png">');
 // $(".owl-prev").html('<i class="fas fa-chevron-left"></i>');
 // $(".owl-next").html('<i class="fas fa-chevron-right"></i>');

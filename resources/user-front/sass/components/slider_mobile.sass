@@ -1,0 +1,166 @@
+.slider1
+    .owl-nav
+        position: absolute
+        right: 0
+        bottom: 0
+        display: flex
+        align-items: center
+        justify-content: space-between
+        z-index: 10
+
+.slider,
+.slider-custom__four,
+.slider-custom__three
+    .owl-nav
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: space-between
+        z-index: 0
+        .owl-next
+            position: absolute
+            right: 10px
+        .owl-prev
+            position: absolute
+            left: 10px
+
+.owl-stage-outer
+    height: 100%
+    z-index: 5
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next
+    font-size: 42px
+
+.owl-carousel
+    .owl-item
+        img
+            height: 100%
+            object-fit: cover
+            object-position: center center
+
+// .slider-custom
+//     &--small
+//         .owl-item
+//             height: 210px
+.slider
+    height: auto
+    @media (max-width: 768px)
+        margin-top: 60px
+
+.mainpage_slider
+    z-index: 0
+    margin-top: 15px
+    height: 566px
+    overflow: hidden
+    border-radius: 0 0 0 0
+    width: 100%
+    margin-left: auto
+    margin-right: auto
+    .owl-nav
+        z-index: 10
+        bottom: 20px
+        position: absolute
+        right: 40px
+    .owl-next
+        margin-right: 0px
+    .owl-next.disabled
+            opacity: 0.5
+    .owl-prev
+        margin-right: 15px
+    .owl-prev.disabled
+            opacity: 0.5
+    .owl-item
+        height: 566px
+    .item
+        height: 566px
+
+.slider1
+    z-index: 0
+    overflow: hidden
+    border-radius: 40px 0 0 0
+    .owl-nav
+        z-index: 10
+        bottom: 20px
+    .owl-next
+        margin-right: 40px
+    .owl-next.disabled
+            opacity: 0.5
+    .owl-prev
+        margin-right: 30px
+    .owl-prev.disabled
+            opacity: 0.5
+
+.slider
+    z-index: 0
+    overflow: hidden
+    border-radius: 40px 0 0 0
+    .owl-nav
+        z-index: 10
+    .owl-next
+        margin-right: 15px
+        color: #fff !important
+    .owl-prev
+        margin-left: 15px
+        color: #fff !important
+
+.slider,
+.slider1,
+    .item
+        height: 490px
+        &::abefore
+            content: ''
+            background-color: #000000
+            opacity: .2
+            width: 100%
+            height: 100%
+            position: absolute
+            right: 0
+            left: 0
+            top: 0
+            bottom: 0
+
+.slider1 .item
+    width: 800px
+
+.thumbnails,
+.thumbnails1
+    z-index: 0
+    margin: 15px 0
+    height: 130px
+    .item
+        overflow: hidden
+        border-radius: 8px
+        height: 130px
+
+.slider-content
+    position: absolute
+    z-index: 5
+    transform: translateY(-100%)
+
+.slick-dots li button
+   font-size: 0
+
+.slick-prev,
+.slick-next
+    background-color: transparent
+    border: 0
+    color: #fff
+    position: absolute
+    bottom: 0
+    transform: translateY(50%)
+    z-index: 5
+    height: 40px
+    width: 40px
+    padding: 0
+
+.slick-next
+    right: 30px
+
+.slick-prev
+    right: 80px

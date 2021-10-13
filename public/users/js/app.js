@@ -123780,6 +123780,8 @@ __webpack_require__(/*! ./components/script */ "./resources/user-front/js/compon
 
 __webpack_require__(/*! ./other */ "./resources/user-front/js/other.js");
 
+__webpack_require__(/*! ./common */ "./resources/user-front/js/common.js");
+
 
 window.videojs = videojs_youtube__WEBPACK_IMPORTED_MODULE_0___default.a;
 
@@ -123827,6 +123829,31 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/user-front/js/common.js":
+/*!*******************************************!*\
+  !*** ./resources/user-front/js/common.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+getOwlParams = function getOwlParams(selector) {
+  var defaults = {
+    items: 5,
+    autoplay: true,
+    autoplayTimeout: 6000,
+    autoplaySpeed: 1000,
+    autoWidth: true,
+    loop: true,
+    margin: 30,
+    nav: false,
+    dots: false
+  };
+  settings = $.extend(false, defaults, $(selector).data());
+  return settings;
+};
 
 /***/ }),
 
@@ -125521,7 +125548,10 @@ $(".mainpage_slider").owlCarousel({
   dots: false
 });
 $(".mainpage_slider .owl-prev").html('<img src="/users/image/slider_left.png">');
-$(".mainpage_slider .owl-next").html('<img src="/users/image/slider_right.png">'); // $(".owl-prev").html('<i class="fas fa-chevron-left"></i>');
+$(".mainpage_slider .owl-next").html('<img src="/users/image/slider_right.png">');
+$(".items-slider").owlCarousel(getOwlParams('.items-slider'));
+$(".items-slider .owl-prev").html('<img src="/users/image/slider_left.png">');
+$(".items-slider .owl-next").html('<img src="/users/image/slider_right.png">'); // $(".owl-prev").html('<i class="fas fa-chevron-left"></i>');
 // $(".owl-next").html('<i class="fas fa-chevron-right"></i>');
 
 /***/ }),
@@ -126077,15 +126107,27 @@ $.fn.textToggle = function (text1, text2) {
 
 /***/ }),
 
+/***/ "./resources/user-front/sass/app_mobile.sass":
+/*!***************************************************!*\
+  !*** ./resources/user-front/sass/app_mobile.sass ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!**************************************************************************************************************************!*\
-  !*** multi ./resources/user-front/js/app.js ./resources/user-front/sass/app.sass ./resources/admin-assets/sass/app.scss ***!
-  \**************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************!*\
+  !*** multi ./resources/user-front/js/app.js ./resources/user-front/sass/app.sass ./resources/user-front/sass/app_mobile.sass ./resources/admin-assets/sass/app.scss ***!
+  \**********************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /var/www/7realty.ru/resources/user-front/js/app.js */"./resources/user-front/js/app.js");
 __webpack_require__(/*! /var/www/7realty.ru/resources/user-front/sass/app.sass */"./resources/user-front/sass/app.sass");
+__webpack_require__(/*! /var/www/7realty.ru/resources/user-front/sass/app_mobile.sass */"./resources/user-front/sass/app_mobile.sass");
 module.exports = __webpack_require__(/*! /var/www/7realty.ru/resources/admin-assets/sass/app.scss */"./resources/admin-assets/sass/app.scss");
 
 

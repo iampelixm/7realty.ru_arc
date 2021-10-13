@@ -1,6 +1,6 @@
-<div class="col-lg-6 d-flex align-items-center" data-option="minimalnaya_ploshhad">
+<div class="col-6 d-flex align-items-center item__option" data-option="minimalnaya_ploshhad">
     <div class="content-specials-pref-list-info__ico" style="color: #C1A771">
-        <x-icon name="minimalnaya_ploshhad" height="20" width="20" />
+        <x-icon name="minimalnaya_ploshhad" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
@@ -15,9 +15,9 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="maksimalnaya_ploshhad">
+<div class="col-6 d-flex align-items-center item__option" data-option="maksimalnaya_ploshhad">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="maksimalnaya_ploshhad" height="20" width="20" />
+        <x-icon name="maksimalnaya_ploshhad" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
@@ -32,9 +32,9 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="do_morya">
+<div class="col-6 d-flex align-items-center item__option" data-option="do_morya">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="do_morya" height="20" width="20" />
+        <x-icon name="do_morya" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
@@ -48,9 +48,9 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="god_postroyki">
+<div class="col-6 d-flex align-items-center item__option" data-option="god_postroyki">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="god_postroyki" height="20" width="20" />
+        <x-icon name="god_postroyki" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
