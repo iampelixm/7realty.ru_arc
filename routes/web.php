@@ -46,10 +46,29 @@ Route::prefix('/')->namespace('Site')->name('site.')->middleware('city')->group(
         }
     })->name('standalone.about');
 
-    Route::view('work', 'pages.standalone.work')->name('standalone.work');
+    // Route::view('work', 'pages.standalone.work')->name('standalone.work');
+    Route::get('/work', function () {
+        $agent = new Agent();
+        if ($agent->isMobile()) {
+            return view('pages.standalone.work_mobile');
+        } else {
+            return view('pages.standalone.work_desktop');
+        }
+    })->name('standalone.work');
+
+    // Route::view('sobstvennikam', 'pages.standalone.sobstvennikam')->name('standalone.sobstvennikam');
+    Route::get('/sobstvennikam', function () {
+        $agent = new Agent();
+        if ($agent->isMobile()) {
+            return view('pages.standalone.sobstvennikam_mobile');
+        } else {
+            return view('pages.standalone.sobstvennikam_desktop');
+        }
+    })->name('standalone.sobstvennikam');
+
     Route::view('invest', 'pages.standalone.invest')->name('standalone.invest');
     Route::view('partneram', 'pages.standalone.partneram')->name('standalone.partneram');
-    Route::view('sobstvennikam', 'pages.standalone.sobstvennikam')->name('standalone.sobstvennikam');
+
 
 
 
