@@ -69,6 +69,8 @@ Route::prefix('/')->namespace('Site')->name('site.')->middleware('city')->group(
     Route::view('invest', 'pages.standalone.invest')->name('standalone.invest');
     Route::view('partneram', 'pages.standalone.partneram')->name('standalone.partneram');
 
+    Route::view('politika', 'pages.standalone.politika')->name('standalone.politika');
+
 
 
 

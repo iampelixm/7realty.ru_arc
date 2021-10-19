@@ -49664,6 +49664,12 @@ $(".partners__slider").slick({
 $(".items-slider").owlCarousel(getOwlParams('.items-slider'));
 $(".items-slider .owl-prev").html('<img src="/users/image/slider_left.png">');
 $(".items-slider .owl-next").html('<img src="/users/image/slider_right.png">');
+$(".slidethis").each(function (eli, el) {
+  var settings = getOwlParams(el);
+  $(el).owlCarousel(settings);
+  $(el).find(".owl-prev").html('<img src="/users/image/slider_left.png">');
+  $(el).find(".owl-next").html('<img src="/users/image/slider_right.png">');
+});
 
 /***/ }),
 
