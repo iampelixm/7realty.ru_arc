@@ -28952,8 +28952,7 @@ body {
 .page-broker .brokers-list {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 70px;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
 }
 
@@ -28962,8 +28961,9 @@ body {
   width: 25%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
+  margin-top: 70px;
 }
 
 .brokercard .hexagon-wrapper {
@@ -28975,12 +28975,12 @@ body {
 
 .brokercard .hexagon-wrapper .hexagon-underlay {
   position: absolute;
-  left: 50%;
+  left: 0;
   top: 0;
   width: 230px;
   height: 258px;
-  margin-left: 20px;
-  margin-top: 25px;
+  margin-left: 30px;
+  margin-top: 23px;
   z-index: 0;
 }
 
@@ -29026,6 +29026,7 @@ body {
   width: 190px;
   border: 1px solid #C1A771;
   padding: 14px 40px 10px 40px;
+  margin-top: 20px;
 }
 
 .vjs-modal-dialog .vjs-modal-dialog-content,

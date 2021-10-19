@@ -2,7 +2,7 @@
     <a href="{{ route('site.broker.page', $broker) }}" class="hexagon-wrapper">
         <img class="hexagon-underlay" src="/images/goldpolygon.png">
         @if ($broker->getFirstMedia('avatar'))
-            {{ $broker->getFirstMedia('avatar')->img()->attributes(['class' => 'hexagon']) }}
+            {{ $broker->getFirstMedia('avatar')->img()->attributes(['class' => 'hexagon', 'sizes'=>'15vw']) }}
         @else
             <img class="hexagon" >
         @endif
