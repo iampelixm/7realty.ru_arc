@@ -237,7 +237,11 @@ class UserController extends Controller
         $template_data = [];
         $template_data['html_title'] = 'Брокер '.$broker_id->name;
         $template_data['broker'] = $broker_id;
-        return view('pages.broker.item', $template_data);
-        return "страница брокера";
+        $agent = new Agent();
+        if ($agent->isMobile()) {
+            return view('pages.broker.item_mobile', $template_data);
+        } else {
+            return view('pages.broker.item_desktop', $template_data);
+        }
     }
 }

@@ -1,6 +1,4 @@
-@extends('layouts.site')
-@section('categories_menu')
-@endsection
+@extends('layouts.site_desktop')
 
 @section('content')
     <style>
@@ -153,7 +151,7 @@
                         <div class="ml-3">
                             <h4 class="additional-label">Стаж в компании</h4>
                             <h2 class="additional-value">{{ $broker->additional->stazh ?? '-' }}
-                                {{trans_choice('site.years', ($broker->additional->stazh ?? '-'))}}
+                                {{trans_choice('site.years', ($broker->additional->stazh ?? '1'))}}
                             </h2>
                         </div>
                     </div>
