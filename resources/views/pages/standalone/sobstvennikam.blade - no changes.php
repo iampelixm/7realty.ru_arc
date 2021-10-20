@@ -31,7 +31,7 @@
         }
 
         .landing .section {
-            apadding-top: 75px;
+            padding-top: 75px;
         }
 
         .landing h1 {

@@ -1,0 +1,133 @@
+.items-block
+    &__header
+        display: flex
+        align-items: center
+        justify-content: center
+        background-image: url(/images/goldline.png)
+        background-position: center center
+        background-repeat: repeat-x
+        padding: 15px 0 15px 0
+        margin-top: 25px
+    &__title
+        font-weight: normal
+        font-size: 14px
+        color: #333
+        text-transform: uppercase
+        border: 1px solid $color-gold
+        border-radius: 50em
+        padding: 9px 30px 6px 30px
+        background: #FFF
+    &__more-link-wrapper
+        display: flex
+        justify-content: flex-end
+        align-items: baseline
+        color: red
+        margin: 15px 5px 0 0
+    &__more-link
+        text-decoration: none
+        font-weight: 500
+        font-size: 14px
+        padding-right: 7px
+        color: red
+.item
+    height: auto
+    margin-top: 5px
+    box-shadow: 0 0 1px 1px rgb(0 0 0 / 9%)
+    border-radius: 8px 8px 0 0
+    .item-image-slider
+        max-width: 100%
+        position: relative
+        width: 100%
+        height: calc(50vw/16*9)
+        &__image-link
+            text-decoration: none
+        &__image
+            width: 100%
+            object-fit: cover
+            min-height: 90px
+            height: calc(50vw/16*9)
+            border-radius: 8px 8px 0 0
+            overflow: hidden
+        & .slick-arrow
+            background-color: transparent
+            border: 0
+            color: #fff
+            position: absolute
+            bottom: 0
+            transform: translateY(50%)
+            z-index: 5
+            height: 25px
+            width: 25px
+            padding: 0
+            img
+                width: 100%
+        & .slick-next
+            right: 10px
+        & .slick-prev
+            right: 35px
+    &__heart
+        transform: translateY(-50%)
+    &__title
+        overflow: hidden
+        text-overflow: ellipsis
+        font-style: normal
+        font-weight: 500
+        font-size: 12px
+        color: #333
+        display: block
+        white-space: nowrap
+        padding-left: 5px
+    &__address-wrapper
+        display: flex
+        color: $color-gold
+        align-items: center
+        padding-left: 5px
+    &__address-icon
+        width: 10px
+    &__address
+        overflow: hidden
+        text-overflow: ellipsis
+        font-weight: normal
+        font-size: 10px
+        color: #777
+        margin-left: 7px
+        white-space: nowrap
+    &__options-wrapper
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        min-height: 30px
+        padding: 5px -15px 5px -15px
+        width: 100%
+        border-top: 1px solid #EAEAEA
+        border-bottom: 1px solid #EAEAEA
+    &__option
+        padding: 5px
+        font-style: normal
+        font-weight: 500
+        font-size: 10px
+        & svg
+            margin-right: 5px
+    &__price-wrapper
+        padding-left: 5px
+        display: flex
+        align-items: center
+    &__price-icon
+        width: 13px
+        margin-top: -5px
+    &__price
+        color: #333
+        font-weight: bold
+        font-size: 12px
+        margin-left: 5px
+
+.two-col
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-evenly
+    & > *
+        max-width: calc( 50% - 10px )
+        flex-basis: 0
+        flex-grow: 1
+
+

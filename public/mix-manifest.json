@@ -2,9 +2,13 @@
     "/admins/js/app.js": "/admins/js/app.js",
     "/users/js/app.js": "/users/js/app.js",
     "/users/css/app.css": "/users/css/app.css",
+    "/users/css/app_mobile.css": "/users/css/app_mobile.css",
     "/admins/css/app.css": "/admins/css/app.css",
+    "/users/js/app_mobile.js": "/users/js/app_mobile.js",
     "/users/js/app.min.js": "/users/js/app.min.js",
+    "/users/js/app_mobile.min.js": "/users/js/app_mobile.min.js",
     "/users/css/app.min.css": "/users/css/app.min.css",
+    "/users/css/app_mobile.min.css": "/users/css/app_mobile.min.css",
     "/admins/js/app.min.js": "/admins/js/app.min.js",
     "/admins/css/app.min.css": "/admins/css/app.min.css"
 }

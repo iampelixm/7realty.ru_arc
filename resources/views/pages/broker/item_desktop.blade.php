@@ -1,6 +1,4 @@
-@extends('layouts.site')
-@section('categories_menu')
-@endsection
+@extends('layouts.site_desktop')
 
 @section('content')
     <style>
@@ -91,7 +89,7 @@
                     {{ $broker->getFirstMedia('avatar')->img()->attributes(['class' => 'broker-avatar', 'width' => 'auto', 'height' => '100%']) }}
                 @endif
                 <div class="broker-buttons">
-                    <a href="tel:+79857000077">
+                    <a href="tel:{{ $broker->additional->phone ?? '+79857000077' }}">
                         <span style="margin-right: 10px; color:#C1A771">
                             <x-icon name="call" width="20" />
                         </span>
@@ -153,7 +151,7 @@
                         <div class="ml-3">
                             <h4 class="additional-label">Стаж в компании</h4>
                             <h2 class="additional-value">{{ $broker->additional->stazh ?? '-' }}
-                                {{trans_choice('site.years', ($broker->additional->stazh ?? '-'))}}
+                                {{trans_choice('site.years', ($broker->additional->stazh ?? '1'))}}
                             </h2>
                         </div>
                     </div>

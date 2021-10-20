@@ -4,6 +4,8 @@ use App\Models\Item;
 use App\Models\Option;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Jenssegers\Agent\Agent;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,11 +37,40 @@ Route::prefix('/')->namespace('Site')->name('site.')->middleware('city')->group(
     // Route::get('work', function () {
     //     return view('pages.standalone.work');
     // });
-    Route::view('about', 'pages.standalone.about')->name('standalone.about');
-    Route::view('work', 'pages.standalone.work')->name('standalone.work');
+    Route::get('/about', function () {
+        $agent = new Agent();
+        if ($agent->isMobile()) {
+            return view('pages.standalone.about_mobile');
+        } else {
+            return view('pages.standalone.about_desktop');
+        }
+    })->name('standalone.about');
+
+    // Route::view('work', 'pages.standalone.work')->name('standalone.work');
+    Route::get('/work', function () {
+        $agent = new Agent();
+        if ($agent->isMobile()) {
+            return view('pages.standalone.work_mobile');
+        } else {
+            return view('pages.standalone.work_desktop');
+        }
+    })->name('standalone.work');
+
+    // Route::view('sobstvennikam', 'pages.standalone.sobstvennikam')->name('standalone.sobstvennikam');
+    Route::get('/sobstvennikam', function () {
+        $agent = new Agent();
+        if ($agent->isMobile()) {
+            return view('pages.standalone.sobstvennikam_mobile');
+        } else {
+            return view('pages.standalone.sobstvennikam_desktop');
+        }
+    })->name('standalone.sobstvennikam');
+
     Route::view('invest', 'pages.standalone.invest')->name('standalone.invest');
     Route::view('partneram', 'pages.standalone.partneram')->name('standalone.partneram');
-    Route::view('sobstvennikam', 'pages.standalone.sobstvennikam')->name('standalone.sobstvennikam');
+
+    Route::view('politika', 'pages.standalone.politika')->name('standalone.politika');
+
 
 
 
@@ -228,7 +259,6 @@ Route::prefix('/admin')->namespace('Admin')->middleware('auth', 'check.admin')->
         Route::post('/category/edit/offer/{category}', 'CategoryController@editOffer')->name('category.edit_offer');
 
         Route::post('/page/image/upload/{page}', 'PageController@uploadImageAPI')->name('page.image.upload');
-
     });
 });
 
@@ -241,58 +271,49 @@ Route::prefix('/api')->middleware('auth')->name('api.')->group(function () {
     Route::post('/get/options/value', 'Admin\OptionController@apiGetOptionValue')->name('valuebyoption');
 });
 
-Route::prefix('/test')->name('test.')->group(function() {
+Route::prefix('/test')->name('test.')->group(function () {
     Route::get('/yafeed', 'ApiController@getYandexFeed')->name('uploadYandexFeed');
     Route::get('/7feed', 'ApiController@parse7realtyFeed')->name('upload7realtyFeed');
     Route::get('/makefeed', 'ApiController@makeFeed')->name('makeFeed');
     Route::get('/makefeed.xml', 'ApiController@makeFeed')->name('makeFeedxml');
 });
 
-Route::middleware(['auth'])->get('/adminservice/options', function()
-{
-    $options=Option::all();
+Route::middleware(['auth'])->get('/adminservice/options', function () {
+    $options = Option::all();
     // $items=Item::limit(30)->get();
     // dd(Item::find(353));
-    $items=Item::all();
+    $items = Item::all();
 
-    foreach($items as $item)
-    {
-        $item->active=1;
-        echo "<hr>".$item->slug."::".$item->id."<br>";
-        $item_new_options=[];
-        $item_all_options=$item->all_options;
+    foreach ($items as $item) {
+        $item->active = 1;
+        echo "<hr>" . $item->slug . "::" . $item->id . "<br>";
+        $item_new_options = [];
+        $item_all_options = $item->all_options;
 
-        $item_options=$item->options;
+        $item_options = $item->options;
         // dd($item_options);
-        foreach($item_all_options as $allitem_option)
-        {
+        foreach ($item_all_options as $allitem_option) {
             // print_r($allitem_option);
-            $item_new_options[$allitem_option->id]=0;
-            if($allitem_option->name=="Площадь")
-            {
-                $item_new_options[$allitem_option->id]=$item->square;
+            $item_new_options[$allitem_option->id] = 0;
+            if ($allitem_option->name == "Площадь") {
+                $item_new_options[$allitem_option->id] = $item->square;
             }
-            if($allitem_option->name=="Комант")
-            {
-                $item_new_options[$allitem_option->id]=$item->all_rooms;
+            if ($allitem_option->name == "Комант") {
+                $item_new_options[$allitem_option->id] = $item->all_rooms;
             }
-            if($allitem_option->name=="Ванных комнат")
-            {
-                $item_new_options[$allitem_option->id]=$item->bath_rooms;
+            if ($allitem_option->name == "Ванных комнат") {
+                $item_new_options[$allitem_option->id] = $item->bath_rooms;
             }
-            if($allitem_option->name=="Спален")
-            {
-                $item_new_options[$allitem_option->id]=$item->bed_rooms;
+            if ($allitem_option->name == "Спален") {
+                $item_new_options[$allitem_option->id] = $item->bed_rooms;
             }
-            foreach($item_options as $item_option_id => $item_option)
-            {
-                if(isset($item_option->option_id) && $item_option->option_id == $allitem_option->id)
-                {
-                    $item_new_options[$allitem_option->id]=$item_option->value_title;
+            foreach ($item_options as $item_option_id => $item_option) {
+                if (isset($item_option->option_id) && $item_option->option_id == $allitem_option->id) {
+                    $item_new_options[$allitem_option->id] = $item_option->value_title;
                 }
             }
         }
-        $item->option=$item_new_options;
+        $item->option = $item_new_options;
         $item->save();
         print_r($item_new_options);
     }

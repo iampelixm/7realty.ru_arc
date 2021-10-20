@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
+        App\Providers\AgentServiceProvider::class,
 
     ],
 
@@ -229,6 +230,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'SmsRu' => App\Helpers\MyLib\SmsRu::class,
         'Bitrix24' => App\Helpers\MyLib\Bitrix24::class,
+        'Agent' => App\Providers\AgentServiceProvider::class,
+
 
     ],
 

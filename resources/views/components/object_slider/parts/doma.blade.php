@@ -1,6 +1,6 @@
-<div class="col-lg-6 d-flex align-items-center" data-option="ploshhad">
+<div class="col-6 d-flex align-items-center item__option" data-option="ploshhad">
     <div class="content-specials-pref-list-info__ico" style="color: #C1A771">
-        <x-icon name="ploshhad" height="20" width="20" />
+        <x-icon name="ploshhad" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
@@ -15,9 +15,9 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="etaznost">
+<div class="col-6 d-flex align-items-center item__option" data-option="etaznost">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="etaznost" height="20" width="20" />
+        <x-icon name="etaznost" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
@@ -32,9 +32,9 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="komnat">
+<div class="col-6 d-flex align-items-center item__option" data-option="komnat">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="komnat" height="20" width="20" />
+        <x-icon name="komnat" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
@@ -48,9 +48,9 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="spalen">
+<div class="col-6 d-flex align-items-center item__option" data-option="spalen">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="spalen" height="20" width="20" />
+        <x-icon name="spalen" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">

@@ -1,9 +1,8 @@
-@extends('layouts.site')
+@extends('layouts.site_mobile')
 
 @section('content')
 
-
-    @if ($site_settings->mainpage_show_banner ?? '')
+    {{-- @if ($site_settings->mainpage_show_banner ?? '')
         <div id="mainpage_banner" class="owl-carousel mainpage_slider" onclick="">
             @foreach (App\Models\SiteSetting::firstOrCreate(['name' => 'mainpage_show_banner'])->getMedia('MainPageBanner') as $banner)
                 @if (empty($banner->getCustomProperty('link')))
@@ -17,7 +16,7 @@
                 @endif
             @endforeach
         </div>
-    @endif
+    @endif --}}
     @if ($site_settings->mainpage_show_zhb ?? '')
         @include('partials.category_block')
     @endif
@@ -44,30 +43,31 @@
                     <div class="col">
                         <video id="mainpage_video" class="video-js vjs-default-skin vjs-fluid vjs-fill" controls autoplay
                             width="640" height="264" data-setup='
-                            {
-                                "techOrder": [
-                                "youtube"
-                                ],
-                            "sources": [
-                                {
-                                    "type": "video/youtube",
-                                    "src": "{{ $site_settings->mainpage_video }}"
-                                }
-                                    ],
-                                    "youtube": {
-                                        "ytControls": 0,
-                                        "rel": 0,
-                                        "iv_load_policy": 3,
-                                        "showinfo": 0,
-                                        "modestbranding": 0
-                                    }
-                            }'>
+                                    {
+                                        "techOrder": [
+                                        "youtube"
+                                        ],
+                                    "sources": [
+                                        {
+                                            "type": "video/youtube",
+                                            "src": "{{ $site_settings->mainpage_video }}"
+                                        }
+                                            ],
+                                            "youtube": {
+                                                "ytControls": 0,
+                                                "rel": 0,
+                                                "iv_load_policy": 3,
+                                                "showinfo": 0,
+                                                "modestbranding": 0
+                                            }
+                                    }'>
                         </video>
                     </div>
                 </div>
             </div>
         @endif
     @endif
+
     <!-- Блок Спецпредложений -->
     @if ($site_settings->mainpage_show_special ?? '')
         @if ($specialItemCount > 0)
@@ -77,14 +77,32 @@
                 </div> --}}
             @foreach ($list as $category)
                 @if ($category->offerItems->count() > 0)
-                    <div class="content-specials-list-outer">
+                    <div class="items-block">
+                        <div class="items-block__header">
+                            <div class="items-block__title">
+                                {{ $category->name }}
+                            </div>
+                        </div>
+                        <div class="items-block__items-container two-col">
+                            @foreach ($category->offerItems->take(4) as $slider_item)
+                                @include('components.object_slider.default_mobile')
+                            @endforeach
+                        </div>
+                        <div class="items-block__more-link-wrapper">
+                            <a class="items-block__more-link"
+                                href="{{ route('site.get_category_special', $category->slug) }}">
+                                Все спецпредложения
+                            </a>
+                            <x-icon name="chevron-right" />
+                        </div>
+                    </div>
+                    {{-- <div class="content-specials-list-outer">
                         <div class="content-specials-list">
                             <div class="content-specials-list-div">
                                 <h3 class="content-specials-list-div__h3">{{ $category->name }}</h3>
                             </div>
                             <div class="content-specials-list-link">
-                                <a class="content-specials-list-link__a" href="@if ($category->slug !=
-                                    null) {{ route('site.get_category_special', $category->slug) }} @endif">
+                                <a class="content-specials-list-link__a" href="@if ($category->slug != null) {{ route('site.get_category_special', $category->slug) }} @endif">
                                     Все спецпредложения
                                     <span style="margin-left: 16px">
                                         <x-icon name="chevron-right" />
@@ -95,7 +113,7 @@
                     </div>
                     <div class="content-specials content-specials_position">
                         <div class="content-specials-list-slider">
-                            {{-- <div class="content-specials-list-slider-left col-auto"><i class="fas fa-chevron-left"></i></div> --}}
+                            <div class="content-specials-list-slider-left col-auto"><i class="fas fa-chevron-left"></i></div>
                             <div class="slider-custom__four owl-carousel px-5a">
                                 @foreach ($category->offerItems->take(7) as $slider_item)
                                     @include('components.object_slider.default')
@@ -104,7 +122,7 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> --}}
                 @endif
             @endforeach
 
@@ -113,17 +131,17 @@
     @endif
     <!-- Блок Спецпредложений КОНЕЦ-->
     <!-- Блок Партнеров -->
-    <div class="content-specials-list-outer">
-        <div class="content-specials-list">
-            <div class="content-specials-list-div">
-                <h3 class="content-specials-list-div__h3">Наши партнеры</h3>
-            </div>
+    <div class="partners">
+        <h3 class="partners__title">Наши партнеры</h3>
+        <div class="partners__slider">
+            @include('partials.partners')
         </div>
     </div>
-    <div class="content-partners content-partners_position content-partners_display_block">
-        {{-- <div class="content-partners-title">
+    {{-- <div class="content-partners content-partners_position content-partners_display_block d-none">
+
+        <div class="content-partners-title">
             <h2 class="content-partners-title__h2">Наши партнеры</h2>
-        </div> --}}
+        </div>
         <div class="content-partners-logos">
             <div
                 class="content-partners-logos-shown row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 align-items-center justify-content-center no-gutters px-2">
@@ -141,7 +159,8 @@
                         class="img-fluid img-fluid--partners" src="/users/image/partners/p2.png" alt="partner"></div>
             </div>
 
-            <div class="content-partners-logos-hidden d-none row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 justify-content-center w-100">
+            <div
+                class="content-partners-logos-hidden d-none row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 justify-content-center w-100">
                 <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
                         src="/users/image/partners/p1.png" alt="partner"></div>
                 <div class="col-12 col-sm-4 col-lg-2 text-center"><img class="img-fluid img-fluid--partners"
@@ -220,7 +239,7 @@
         <div class="content-partners-all">
             <button type="button" class="content-partners-all__button">Все партнеры</button>
         </div>
-    </div>
+    </div> --}}
     <!-- Блок Партнеров КОНЕЦ -->
     <!-- end of main content -->
 

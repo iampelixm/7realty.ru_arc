@@ -9,6 +9,7 @@ use Validator;
 use Storage;
 // use Cookie;
 use Illuminate\Support\Facades\Cookie;
+use Jenssegers\Agent\Agent;
 
 class MainController extends Controller
 {
@@ -30,8 +31,15 @@ class MainController extends Controller
         foreach($list as $category){
             $specialItemCount += $category->offerItems->count();
         }
-
-    	return view('pages.index', compact('list', 'specialItemCount'));
+        $agent=new Agent();
+        if($agent->isMobile())
+        {
+    	return view('pages.index_mobile', compact('list', 'specialItemCount'));
+        }
+        else
+        {
+            return view('pages.index_desktop', compact('list', 'specialItemCount'));
+        }
     }
 
 

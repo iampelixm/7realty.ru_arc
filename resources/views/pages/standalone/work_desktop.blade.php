@@ -1,4 +1,4 @@
-@extends('layouts.site')
+@extends('layouts.site_desktop')
 
         @section('categories_menu')
         @endsection
@@ -232,7 +232,7 @@
             ВАКАНСИИ</a>
     </div>
 
-    <div class="container section" style="padding-top: 150px;">
+    <div class="container section d-none" style="padding-top: 150px;">
         <div class="row">
             <div class="col-lg-4">
                 <div class="rich-man">

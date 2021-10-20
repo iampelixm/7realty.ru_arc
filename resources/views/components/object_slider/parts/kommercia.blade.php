@@ -1,6 +1,6 @@
-<div class="col-lg-6 d-flex align-items-center" data-option="ploshhad">
+<div class="col-6 d-flex align-items-center item__option" data-option="ploshhad">
     <div class="content-specials-pref-list-info__ico" style="color: #C1A771">
-        <x-icon name="ploshhad" height="20" width="20" />
+        <x-icon name="ploshhad" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
@@ -16,9 +16,9 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="etaz">
+<div class="col-6 d-flex align-items-center item__option" data-option="etaz">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="etaz" height="20" width="20" />
+        <x-icon name="etaz" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
@@ -32,9 +32,9 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="do-morya">
+<div class="col-6 d-flex align-items-center item__option" data-option="do-morya">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="do-morya" height="20" width="20" />
+        <x-icon name="do-morya" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">
@@ -48,9 +48,9 @@
     </div>
 </div>
 
-<div class="col-lg-6 d-flex align-items-center" data-option="centr_goroda">
+<div class="col-6 d-flex align-items-center item__option" data-option="centr_goroda">
     <div class="content-specials-pref-list-info__ico">
-        <x-icon name="centr_goroda" height="20" width="20" />
+        <x-icon name="centr_goroda" :height="($icon_height ?? 20)" :width="($icon_width ?? 20)" />
     </div>
     <div>
         <div class="content-specials-pref-list-info__text">

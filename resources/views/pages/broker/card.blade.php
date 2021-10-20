@@ -1,13 +1,13 @@
 <div class="brokercard" style="">
-    <div class="hexagon-wrapper">
-        <a href="{{ route('site.broker.page', $broker) }}">
-            <img class="hexagon-underlay" src="/images/goldpolygon.png">
-            @if ($broker->getFirstMedia('avatar'))
-                {{ $broker->getFirstMedia('avatar')->img()->attributes(['class' => 'hexagon', 'width' => '250', 'height' => '']) }}
-            @endif
-        </a>
+    <a href="{{ route('site.broker.page', $broker) }}" class="hexagon-wrapper">
+        <img class="hexagon-underlay" src="/images/goldpolygon.png">
+        @if ($broker->getFirstMedia('avatar'))
+            {{ $broker->getFirstMedia('avatar')->img()->attributes(['class' => 'hexagon', 'sizes'=>'15vw']) }}
+        @else
+            <img class="hexagon" >
+        @endif
 
-    </div>
+    </a>
     <a href="{{ route('site.broker.page', $broker) }}">
         <h1 class="brokername">{{ $broker->name }}</h1>
     </a>

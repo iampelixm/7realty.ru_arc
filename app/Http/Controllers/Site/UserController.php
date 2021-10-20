@@ -10,6 +10,7 @@ use App\Models\Area;
 use Auth;
 use SmsRu;
 use Cookie;
+use Jenssegers\Agent\Agent;
 
 class UserController extends Controller
 {
@@ -206,10 +207,29 @@ class UserController extends Controller
             $brokers=$brokers->where(['department'=> $department]);
         }
 
+        $broker_departments=[
+            ''=>'Все',
+            'town_ned'=>'Городская недвижимость',
+            'zagorod_ned'=>'Загородная недвижимость',
+            'commercial_ned'=>'Коммерческая недвижимость',
+            'invest_ned'=>'Инвестиционная недвижимость',
+        ];
+
+
         $template_data=[];
         $template_data['html_title']='Брокер для души';
         $template_data['brokers']=$brokers->get();
-        return view('pages.broker.list', $template_data);
+        $template_data['department']=$department;
+        $template_data['broker_departments']=$broker_departments;
+
+
+        $agent = new Agent();
+        if ($agent->isMobile()) {
+            return view('pages.broker.list_mobile', $template_data);
+        } else {
+            return view('pages.broker.list_desktop', $template_data);
+        }
+
     }
 
     public function brokerPage(User $broker_id)
@@ -217,7 +237,11 @@ class UserController extends Controller
         $template_data = [];
         $template_data['html_title'] = 'Брокер '.$broker_id->name;
         $template_data['broker'] = $broker_id;
-        return view('pages.broker.item', $template_data);
-        return "страница брокера";
+        $agent = new Agent();
+        if ($agent->isMobile()) {
+            return view('pages.broker.item_mobile', $template_data);
+        } else {
+            return view('pages.broker.item_desktop', $template_data);
+        }
     }
 }
