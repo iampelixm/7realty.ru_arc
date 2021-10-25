@@ -1,4 +1,4 @@
-<div class="content-specials-list-slider-info">
+<div class="content-specials-list-slider-info slider-item">
     <div class="content-specials-heart {{ in_array($slider_item->id, $massFav) ? 'active' : '' }}">
         <x-icon name="heart" width="40" height="40" />
     </div>

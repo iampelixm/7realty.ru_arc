@@ -5,12 +5,14 @@ getOwlParams=function(selector)
         autoplay: true,
         autoplayTimeout: 6000,
         autoplaySpeed: 1000,
-        autoWidth:true,
+        // autoWidth: true,
         loop: true,
         margin: 30,
         nav: false,
         dots: false
-    }
+    };
+    var el_data=$(selector).data();
     settings = $.extend(false, defaults, $(selector).data());
     return settings;
 }
+

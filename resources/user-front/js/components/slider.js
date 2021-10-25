@@ -1,5 +1,6 @@
 require("owl.carousel");
 require("slick-carousel");
+require("../common");
 
 $(".slider-custom__one.owl-carousel").owlCarousel({
     items: 1,
@@ -85,8 +86,15 @@ $(".mainpage_slider .owl-next").html('<img src="/users/image/slider_right.png">'
 
 
 
-$(".items-slider").owlCarousel(getOwlParams('.items-slider'));
-$(".items-slider .owl-prev").html('<img src="/users/image/slider_left.png">');
-$(".items-slider .owl-next").html('<img src="/users/image/slider_right.png">');
-// $(".owl-prev").html('<i class="fas fa-chevron-left"></i>');
-// $(".owl-next").html('<i class="fas fa-chevron-right"></i>');
+// $(".items-slider").owlCarousel(getOwlParams('.items-slider'));
+// $(".items-slider .owl-prev").html('<img src="/users/image/slider_left.png">');
+// $(".items-slider .owl-next").html('<img src="/users/image/slider_right.png">');
+
+
+$(".slidethis, .items-slider").each(function(eli, el)
+{
+    var settings=getOwlParams(el);
+    $(el).owlCarousel(settings);
+    $(el).find(".owl-prev").html('<img src="/users/image/slider_left.png">');
+    $(el).find(".owl-next").html('<img src="/users/image/slider_right.png">');
+});

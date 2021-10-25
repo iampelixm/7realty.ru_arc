@@ -33,24 +33,23 @@
 </head>
 
 @section('body')
-<body class="{{$body_class ?? ''}}">
-    <!-- Header -->
+<body class="{{ $body_class ?? '' }}">
+        <!-- Header -->
     @section('header')
         <header class="main-header main-header_position">
-        @section('top_menu')
-            @include('partials.top_menu_desktop')
-        @show
+            @section('top_menu')
+                @include('partials.top_menu_desktop')
+            @show
 
-        @section('header_logo')
-            @include('partials.header_logo')
-        @show
+            @section('header_logo')
+                @include('partials.header_logo')
+            @show
 
-        @section('categories_menu')
-            @include('partials.categories_menu')
-        @show
-
-    </header>
-@show
+            @section('categories_menu')
+                @include('partials.categories_menu')
+            @show
+        </header>
+    @show
 
 <!-- Конец Header -->
 <!-- main content -->
@@ -102,4 +101,5 @@
 <!-- /Yandex.Metrika counter -->
 </body>
 @show
+
 </html>

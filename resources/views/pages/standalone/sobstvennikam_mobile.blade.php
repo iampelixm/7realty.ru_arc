@@ -67,9 +67,9 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="containers">
                 <div class="section-bullets__bullets-wrapper slidethis owl-carousel" data-items="0" data-nav="true"
-                    data-autoplay="false">
+                    data-autoplay="false" data-margin="0">
                     <a href="#section_ocenka" class="section-bullets__bullet">
                         <div class="section-bullets__bullet-icon">
                             <x-icon name="house-rubble" />

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Item;
 use App\Models\Option;
 use Illuminate\Support\Facades\Route;
@@ -66,7 +67,33 @@ Route::prefix('/')->namespace('Site')->name('site.')->middleware('city')->group(
         }
     })->name('standalone.sobstvennikam');
 
-    Route::view('invest', 'pages.standalone.invest')->name('standalone.invest');
+    // Route::view('invest', 'pages.standalone.invest')->name('standalone.invest');
+    Route::get('/invest', function () {
+        $agent = new Agent();
+        $hidden_group=Category::where('slug', 'investicii-zakrytye-prodazi')->first();
+        $hidden_items=$hidden_group->items;
+
+        $presale_group=Category::where('slug', 'investicii-stroyashhiesya-obekty')->first();
+        $presale_items=$presale_group->items;
+
+        $rent_group=Category::where('slug', 'investicii-arendnyi-biznes')->first();
+        $rent_items=$presale_group->items;
+
+        $template_data=[];
+        $template_data['hidden_group']=$hidden_group;
+        $template_data['hidden_items']=$hidden_items;
+        $template_data['presale_group']=$presale_group;
+        $template_data['presale_items']=$presale_items;
+        $template_data['rent_group']=$rent_group;
+        $template_data['rent_items']=$rent_items;
+
+        if ($agent->isMobile()) {
+            return view('pages.standalone.invest_mobile', $template_data);
+        } else {
+            return view('pages.standalone.invest_desktop', $template_data);
+        }
+    })->name('standalone.invest');
+
     Route::view('partneram', 'pages.standalone.partneram')->name('standalone.partneram');
 
     Route::view('politika', 'pages.standalone.politika')->name('standalone.politika');

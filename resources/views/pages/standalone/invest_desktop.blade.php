@@ -1,12 +1,5 @@
-@extends('layouts.site')
-
-        @section('categories_menu')
-        @endsection
-
-        @section('categories_menu_mobile')
-        @endsection
-
-@section('head')
+@extends('layouts.site_desktop')
+@section('heads')
 
     <style>
         body {
@@ -16,9 +9,10 @@
             background-position: top center;
         }
 
-        .main-header{
+        .main-header {
             background: transparent;
         }
+
         .landing {
             font-family: Geometria;
             font-size: 18px;
@@ -169,9 +163,246 @@
     </style>
 
 @endsection
+@section('header')
+    <div class="page-invest">
+        @parent
+    </div>
+@endsection
+
+@section('categories_menu')
+@show
 
 @section('content')
-    <div class="landing">
+    <div class="page-invest">
+        <section class="section-title">
+            <div class="container">
+                <h1 class="section-title__title">
+                    Инвестиции в недвижимость
+                </h1>
+                <div class="section-title__words-wrapper">
+                    <div class="section-title__words">
+                        Инвестиции в недвижимость – это, пожалуй, один из самых надежных вариантов накопления капитала и
+                        создания денежного потока. Вы не задумывались, почему в списке Forbes так много миллиардеров,
+                        которые занимаются именно ею? Вложение денег в недвижимость – это не игра, не Forex и не торги на
+                        бирже, доход от недвижимости предсказуем.
+                    </div>
+                    <div class="section-title__words">
+                        А благодаря инфляции стоимость зданий растет, даже не смотря на небольшие просадки во время кризиса,
+                        которые всегда отыгрываются. Эксперты компании Seven помогут Вам подобрать оптимальный вариант для
+                        вложений Вашего капитала. Заполните форму ниже и начните свой путь успешного инвестора в
+                        недвижимость.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-lead">
+            <div class="container">
+                <div class="section-lead__title-wrapper">
+                    <h2 class="section-lead__title">
+                        Подберем для Вас лучшие
+                        <span class="color-gold">инвестиционные</span> варианты
+                    </h2>
+                </div>
+                <div class="section-lead__form-wrapper">
+                    <form action="#" class="section-lead__form">
+                        <input type="text" name="name" class="section-lead__form-input" placeholder="Ваше имя" required>
+
+                        <div class="section-lead__form-chevron">
+                            <x-icon name="chevron-right" />
+                        </div>
+
+                        <input type="tel" name="phone" class="section-lead__form-input" placeholder="Номер телефона"
+                            required>
+
+                        <div class="section-lead__form-chevron">
+                            <x-icon name="chevron-right" />
+                        </div>
+
+                        <input type="email" name="email" class="section-lead__form-input" placeholder="Электронная почта"
+                            required>
+
+                        <button class="section-lead__form-button">
+                            Получить варианты
+                        </button>
+                    </form>
+                </div>
+                <div class="section-lead__description-wrapper">
+                    <div class="section-lead__description">
+                        Оставьте контакты, отправим подборку Вам на почту
+                    </div>
+                    <div class="section-lead__form-disclaimer">
+                        Нажимая на кнопку “Получить варианты” Вы соглашаетесь на обработку данных.
+                        <a href={{ route('site.standalone.politika') }}>Политика конфиденциальности.</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-offer">
+            <div class="container">
+                <div class="section-offer__title">
+                    Что мы предлагаем
+                </div>
+                <div class="section-offer__description">
+                    Приобретение недвижимости до официального объявления старта продаж – удел избранных. <br>
+                    Выгода от покупки в закрытых продажах в среднем составляет <span class="text-white">20%</span> от
+                    стартовой цены.
+                </div>
+            </div>
+            <div class="section-offer__bullets-wrapper">
+                <div class="section-offer__bullet">
+                    <div class="section-offer__bullet-icon">
+                        <x-icon name="lock" />
+                    </div>
+                    <div class="section-offer__bullet-title">
+                        ЗАКРЫТЫЕ<br>
+                        ПРОДАЖИ
+                    </div>
+                </div>
+
+                <div class="section-offer__bullet">
+                    <div class="section-offer__bullet-icon">
+                        <x-icon name="house-refill" />
+                    </div>
+                    <div class="section-offer__bullet-title">
+                        СТРОЯЩИЕСЯ<br>
+                        ОБЪЕКТЫ
+                    </div>
+                </div>
+
+                <div class="section-offer__bullet">
+                    <div class="section-offer__bullet-icon">
+                        <x-icon name="house-moneysun" />
+                    </div>
+                    <div class="section-offer__bullet-title">
+                        СТРОЯЩИЕСЯ<br>
+                        ОБЪЕКТЫ
+                    </div>
+                </div>
+            </div>
+            <div class="section-offer__buttons-wrapper">
+                <div class="section-offer__button-container">
+                    <a href="#" class="section-offer__button">
+                        Смотреть варианты
+                    </a>
+                </div>
+                <div class="section-offer__button-container">
+                    <a href="#" class="section-offer__button">
+                        Смотреть варианты
+                    </a>
+                </div>
+                <div class="section-offer__button-container">
+                    <a href="#" class="section-offer__button">
+                        Смотреть варианты
+                    </a>
+                </div>
+            </div>
+
+        </section>
+        <section class="section-sales">
+            <div class="container">
+                <div class="section-sales__title">
+                    Закрытые продажи
+                </div>
+                <div class="section-sales__description">
+                    ИНВЕСТИЦИИ ОТ 60% ГОДОВЫХ! ИНВЕСТИРУЙ НАДЕЖНО И ВЫГОДНО!
+                </div>
+                <div class="section-sales__slider content-specials-list-slider slidethis owl-carousel" data-items="4"
+                    data-nav="true" adata-autoWidth="true">
+                    @foreach ($hidden_items as $key => $slider_item)
+                        @if (view()->exists('components.object_slider.' . $slider_item->type->slug))
+                            @include(('components.object_slider.'.$slider_item->type->slug))
+                        @else
+                            @include('components.object_slider.default')
+                        @endif
+                    @endforeach
+                </div>
+                <div class="section-sales__text">
+                    Приобретение недвижимости до официального объявления старта продаж – удел избранных. Выгода от покупки в
+                    закрытых продажах в среднем составляет 20% от стартовой цены, с которой объект выйдет на открытый рынок.
+                    Еще одним из поводов - ограниченное количество лотов. Вы можете выбрать лучшие варианты из
+                    представленных. Объекты, находящиеся в закрытых продажах доступны лишь через ограниченный пул брокеров,
+                    самостоятельно подобные предложения не найти. Более того, профессиональный брокер сможет помочь в выборе
+                    наиболее привлекательного с точки зрения инвестиций лота. И только брокер, имеющий опыт и глубокую
+                    экспертизу рынка может реалистично оценить потенциал будущей покупки.
+                </div>
+            </div>
+            <div class="section-sales__button-wrapper">
+                <a href="{{ route('site.get_category', $hidden_group->slug) }}" class="section-sales__button">
+                    Смотреть варианты
+                </a>
+            </div>
+        </section>
+
+        <section class="section-sales">
+            <div class="container">
+                <div class="section-sales__title">
+                    Строящиеся объекты
+                </div>
+
+                <div class="section-sales__description">
+                    ИНВЕСТИЦИИ ОТ 40% ГОДОВЫХ! КВАЛИФИЦИРОВАННЫЙ БРОКЕР - ГАРАНТИЯ УСПЕХА.
+                </div>
+                <div class="section-sales__slider slidethis owl-carousel" data-items="4" data-nav="true"
+                    adata-autoWidth="true">
+                    @foreach ($presale_items as $key => $slider_item)
+                        @if (view()->exists('components.object_slider.' . $slider_item->type->slug))
+                            @include(('components.object_slider.'.$slider_item->type->slug))
+                        @else
+                            @include('components.object_slider.default')
+                        @endif
+                    @endforeach
+                </div>
+                <div class="section-sales__text">
+                    Приобретение недвижимости до официального объявления старта продаж – удел избранных. Выгода от покупки в
+                    закрытых продажах в среднем составляет 20% от стартовой цены, с которой объект выйдет на открытый рынок.
+                    Еще одним из поводов - ограниченное количество лотов. Вы можете выбрать лучшие варианты из
+                    представленных. Объекты, находящиеся в закрытых продажах доступны лишь через ограниченный пул брокеров,
+                    самостоятельно подобные предложения не найти. Более того, профессиональный брокер сможет помочь в выборе
+                    наиболее привлекательного с точки зрения инвестиций лота. И только брокер, имеющий опыт и глубокую
+                    экспертизу рынка может реалистично оценить потенциал будущей покупки.
+                </div>
+            </div>`
+            <div class="section-sales__button-wrapper">
+                <a href="{{ route('site.get_category', $presale_group->slug) }}" class="section-sales__button">
+                    Смотреть варианты
+                </a>
+            </div>
+        </section>
+
+        <section class="section-sales">
+            <div class="container">
+                <div class="section-sales__title">
+                    Арендный бизнес
+                </div>
+
+                <div class="section-sales__description">
+                    ИНВЕСТИЦИИ ОТ 20% ГОДОВЫХ!
+                </div>
+                <div class="section-sales__slider slidethis owl-carousel" data-items="4" data-nav="true"
+                    adata-autoWidth="true">
+                    @foreach ($rent_items as $key => $slider_item)
+                        @if (view()->exists('components.object_slider.' . $slider_item->type->slug))
+                            @include(('components.object_slider.'.$slider_item->type->slug))
+                        @else
+                            @include('components.object_slider.default')
+                        @endif
+                    @endforeach
+                </div>
+                <div class="section-sales__text">
+                    Лучшие варианты недвижимости для сдачи в аренду. Не зная города и рынка аренды недвижимости очень сложно сделать правильны выбор объекта. Может получится так, что два дома рядом стоящих будут существенно отличатся в стоимости аренда. Но мало угадать с домом, нужно еще правильно выбрать район. Это касается не только аренды, но и собственного отдыха, где Вам будет комфортно отдыхать. Для этого и необходим квалифицированный специалист по недвижимости, а не дилетант - риелтор.
+                </div>
+            </div>`
+            <div class="section-sales__button-wrapper">
+                <a href="{{ route('site.get_category', $rent_group->slug) }}" class="section-sales__button">
+                    Смотреть варианты
+                </a>
+            </div>
+        </section>
+
+    </div>
+    <div class="landing d-none">
 
         <div class="hero">
             <div class="container section">
@@ -185,7 +416,8 @@
 
                 <div class="linespacer"></div>
 
-                <h6 class="" style="margin-top: 79px; margin-bottom: 15px;">Оставьте контакты, отправим подборку на почту</h6>
+                <h6 class="" style="margin-top: 79px; margin-bottom: 15px;">Оставьте контакты, отправим
+                    подборку на почту</h6>
                 <form action="#" method="POST" enctype="application/x-www-form-urlencoded" class="w-100 top-form">
                     <div class="row border-gold rounded-pill align-items-center overflow-hidden"
                         style="background: rgba(255, 255, 255, 0.7);">
@@ -280,7 +512,8 @@
 
         <div id="section_zprodazhi" class="container section" style="padding-top: 154px;">
             <h1>ЗАКРЫТЫЕ ПРОДАЖИ</h1>
-            <h2 style="margin-top: 15px; font-size: 24px; margin-bottom: 0;">ИНВЕСТИЦИИ ОТ 60% ГОДОВЫХ! ИНВЕСТИРУЙ НАДЕЖНО И ВЫГОДНО!</h2>
+            <h2 style="margin-top: 15px; font-size: 24px; margin-bottom: 0;">ИНВЕСТИЦИИ ОТ 60% ГОДОВЫХ! ИНВЕСТИРУЙ НАДЕЖНО И
+                ВЫГОДНО!</h2>
 
             <div style="margin-top: 70px; margin-left: -50px; margin-right: -50px;">
                 <div class="object-card-sliders">

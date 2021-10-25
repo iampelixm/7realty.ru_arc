@@ -21328,7 +21328,7 @@ video::-webkit-media-text-track-display {
 .items-slider__item-options-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-evenly;
   margin-top: 24px;
 }
@@ -21538,7 +21538,7 @@ video::-webkit-media-text-track-display {
   font-weight: normal;
   font-size: 14px;
   color: #777;
-  padding: 0 40px;
+  padding: 0 0;
 }
 
 .page-sobstvennikam .section-bullets__buttons-container {
@@ -22139,7 +22139,7 @@ video::-webkit-media-text-track-display {
 .page-sobstvennikam .section-kontrol__subtitle1 {
   font-weight: normal;
   font-size: 14px;
-  color: #777;
+  color: #FFF;
   text-align: center;
   margin-top: 25px;
 }

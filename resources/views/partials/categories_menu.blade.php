@@ -2,9 +2,9 @@
     <nav class="navbar navbar-expand-sm p-0">
         <ul class="navbar-nav d-flex justify-content-between w-100">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="citySelectDropdown" role="button" data-toggle="dropdown"
+                <a class="nav-link dropdown-toggle city-select" href="#" id="citySelectDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <span class="main-header-categories-menu__city-select-icon">
+                    <span class="main-header-categories-menu__city-select-icon color-gold">
                         <x-icon name="map-marker" />
                     </span>
 

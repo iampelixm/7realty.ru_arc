@@ -1,5 +1,6 @@
 @extends('layouts.site_desktop')
-
+@section('categories_menu')
+@show
 
 @section('content')
     <div class="page-sobstvennikam">
