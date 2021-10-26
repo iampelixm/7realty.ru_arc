@@ -94,7 +94,15 @@ Route::prefix('/')->namespace('Site')->name('site.')->middleware('city')->group(
         }
     })->name('standalone.invest');
 
-    Route::view('partneram', 'pages.standalone.partneram')->name('standalone.partneram');
+    // Route::view('partneram', 'pages.standalone.partneram')->name('standalone.partneram');
+    Route::get('/partneram', function () {
+        $agent = new Agent();
+        if ($agent->isMobile()) {
+            return view('pages.standalone.partneram_mobile');
+        } else {
+            return view('pages.standalone.partneram_desktop');
+        }
+    })->name('standalone.partneram');
 
     Route::view('politika', 'pages.standalone.politika')->name('standalone.politika');
 

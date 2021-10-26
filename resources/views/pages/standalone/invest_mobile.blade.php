@@ -1,13 +1,10 @@
-@extends('layouts.site_desktop')
+@extends('layouts.site_mobile')
 
 @section('header')
     <div class="page-invest">
         @parent
     </div>
 @endsection
-
-@section('categories_menu')
-@show
 
 @section('content')
     <div class="page-invest">
@@ -41,20 +38,16 @@
                         <span class="color-gold">инвестиционные</span> варианты
                     </h2>
                 </div>
+                <div class="section-lead__description">
+                    Оставьте контакты, отправим подборку Вам на почту
+                </div>
                 <div class="section-lead__form-wrapper">
                     <form action="#" class="section-lead__form">
                         <input type="text" name="name" class="section-lead__form-input" placeholder="Ваше имя" required>
 
-                        <div class="section-lead__form-chevron">
-                            <x-icon name="chevron-right" />
-                        </div>
-
                         <input type="tel" name="phone" class="section-lead__form-input" placeholder="Номер телефона"
                             required>
 
-                        <div class="section-lead__form-chevron">
-                            <x-icon name="chevron-right" />
-                        </div>
 
                         <input type="email" name="email" class="section-lead__form-input" placeholder="Электронная почта"
                             required>
@@ -64,14 +57,10 @@
                         </button>
                     </form>
                 </div>
-                <div class="section-lead__description-wrapper">
-                    <div class="section-lead__description">
-                        Оставьте контакты, отправим подборку Вам на почту
-                    </div>
-                    <div class="section-lead__form-disclaimer">
-                        Нажимая на кнопку “Получить варианты” Вы соглашаетесь на обработку данных.
-                        <a href="{{ route('site.standalone.politika') }}">Политика конфиденциальности.</a>
-                    </div>
+
+                <div class="section-lead__form-disclaimer">
+                    Нажимая на кнопку “Получить варианты” Вы соглашаетесь на обработку данных.
+                    <a href={{ route('site.standalone.politika') }}>Политика конфиденциальности.</a>
                 </div>
             </div>
         </section>
@@ -87,8 +76,9 @@
                     стартовой цены.
                 </div>
             </div>
-            <div class="section-offer__bullets-wrapper">
-                <div class="section-offer__bullet">
+            <div class="section-offer__bullets-wrapper slidethis owl-carousel" data-items="1" data-autoplay="false"
+                data-margin="0">
+                <div href="#hidden_sales" class="section-offer__bullet">
                     <div class="section-offer__bullet-icon">
                         <x-icon name="lock" />
                     </div>
@@ -96,9 +86,14 @@
                         ЗАКРЫТЫЕ<br>
                         ПРОДАЖИ
                     </div>
+                    <div class="section-offer__buttons-wrapper">
+                        <a href="#hidden_sales" class="section-offer__button">
+                            Смотреть варианты
+                        </a>
+                    </div>
                 </div>
 
-                <div class="section-offer__bullet">
+                <div href="#presale_sales" class="section-offer__bullet">
                     <div class="section-offer__bullet-icon">
                         <x-icon name="house-refill" />
                     </div>
@@ -106,9 +101,14 @@
                         СТРОЯЩИЕСЯ<br>
                         ОБЪЕКТЫ
                     </div>
+                    <div class="section-offer__buttons-wrapper">
+                        <a href="#presale_sales" class="section-offer__button">
+                            Смотреть варианты
+                        </a>
+                    </div>
                 </div>
 
-                <div class="section-offer__bullet">
+                <div href="#rent_sales" class="section-offer__bullet">
                     <div class="section-offer__bullet-icon">
                         <x-icon name="house-moneysun" />
                     </div>
@@ -116,26 +116,13 @@
                         СТРОЯЩИЕСЯ<br>
                         ОБЪЕКТЫ
                     </div>
+                    <div class="section-offer__buttons-wrapper">
+                        <a href="#rent_sales" class="section-offer__button">
+                            Смотреть варианты
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="section-offer__buttons-wrapper">
-                <div class="section-offer__button-container">
-                    <a href="#" class="section-offer__button">
-                        Смотреть варианты
-                    </a>
-                </div>
-                <div class="section-offer__button-container">
-                    <a href="#" class="section-offer__button">
-                        Смотреть варианты
-                    </a>
-                </div>
-                <div class="section-offer__button-container">
-                    <a href="#" class="section-offer__button">
-                        Смотреть варианты
-                    </a>
-                </div>
-            </div>
-
         </section>
         <section class="section-sales">
             <div class="container">
@@ -145,15 +132,12 @@
                 <div class="section-sales__description">
                     ИНВЕСТИЦИИ ОТ 60% ГОДОВЫХ! ИНВЕСТИРУЙ НАДЕЖНО И ВЫГОДНО!
                 </div>
-                <div class="section-sales__slider content-specials-list-slider slidethis owl-carousel" data-items="4"
-                    data-nav="true" adata-autoWidth="true">
-                    @foreach ($hidden_items as $key => $slider_item)
-                        @if (view()->exists('components.object_slider.' . $slider_item->type->slug))
-                            @include(('components.object_slider.'.$slider_item->type->slug))
-                        @else
-                            @include('components.object_slider.default')
-                        @endif
-                    @endforeach
+                <div class="items-block">
+                    <div class="items-block__items-container two-col">
+                        @foreach ($hidden_items->slice(0, 4)->all() as $key => $slider_item)
+                            @include('components.object_slider.default_mobile')
+                        @endforeach
+                    </div>
                 </div>
                 <div class="section-sales__text">
                     Приобретение недвижимости до официального объявления старта продаж – удел избранных. Выгода от покупки в
@@ -181,15 +165,12 @@
                 <div class="section-sales__description">
                     ИНВЕСТИЦИИ ОТ 40% ГОДОВЫХ! КВАЛИФИЦИРОВАННЫЙ БРОКЕР - ГАРАНТИЯ УСПЕХА.
                 </div>
-                <div class="section-sales__slider slidethis owl-carousel" data-items="4" data-nav="true"
-                    adata-autoWidth="true">
-                    @foreach ($presale_items as $key => $slider_item)
-                        @if (view()->exists('components.object_slider.' . $slider_item->type->slug))
-                            @include(('components.object_slider.'.$slider_item->type->slug))
-                        @else
-                            @include('components.object_slider.default')
-                        @endif
-                    @endforeach
+                <div class="items-block">
+                    <div class="items-block__items-container two-col">
+                        @foreach ($hidden_items->slice(0, 4)->all() as $key => $slider_item)
+                            @include('components.object_slider.default_mobile')
+                        @endforeach
+                    </div>
                 </div>
                 <div class="section-sales__text">
                     Приобретение недвижимости до официального объявления старта продаж – удел избранных. Выгода от покупки в
@@ -217,15 +198,12 @@
                 <div class="section-sales__description">
                     ИНВЕСТИЦИИ ОТ 20% ГОДОВЫХ!
                 </div>
-                <div class="section-sales__slider slidethis owl-carousel" data-items="4" data-nav="true"
-                    adata-autoWidth="true">
-                    @foreach ($rent_items as $key => $slider_item)
-                        @if (view()->exists('components.object_slider.' . $slider_item->type->slug))
-                            @include(('components.object_slider.'.$slider_item->type->slug))
-                        @else
-                            @include('components.object_slider.default')
-                        @endif
-                    @endforeach
+                <div class="items-block">
+                    <div class="items-block__items-container two-col">
+                        @foreach ($hidden_items->slice(0, 4)->all() as $key => $slider_item)
+                            @include('components.object_slider.default_mobile')
+                        @endforeach
+                    </div>
                 </div>
                 <div class="section-sales__text">
                     Лучшие варианты недвижимости для сдачи в аренду. Не зная города и рынка аренды недвижимости очень сложно
@@ -304,13 +282,9 @@
                 </div>
             </div>
             <div class="section-form__button-wrapper">
-                <div class="container">
-                    <div class="section-form__button-container">
-                        <button class="section-form__button" onclick="$('#ivest_form').submit()">
-                            Отправить
-                        </button>
-                    </div>
-                </div>
+                <button class="section-form__button" onclick="$('#ivest_form').submit()">
+                    Отправить
+                </button>
             </div>
             <div class="container">
                 <div class="section-form__form-disclaimer">
@@ -318,9 +292,6 @@
                     <a href="{{ route('site.standalone.politika') }}" class="section-form__form-disclaimer-link">Политика
                         конфиденциальности.</a>
                 </div>
-            </div>
-            <div class="container position-relative">
-                <img class="section-form__man" src="/users/image/page-invest-section-form_man.png">
             </div>
         </section>
     </div>

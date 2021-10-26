@@ -4,105 +4,95 @@
         .main-header-categories-menu
             & .navbar .nav-link
                 color: #FFF
+        .main-header__buttons-wrapper
+            background-color: transparent
     .container
-        max-width: 1360px
-        padding: 0
+        amax-width: 1360px
+        apadding: 0
     .section
         &-title
             position: relative
             background-color: #FFF
-            margin-top: -308px
             z-index: 0
-            background-image: url(/users/image/page-invest-section-title_bg.jpg)
-            background-size: auto 100%
-            background-position: bottom right
+            background-image: url(/users/image/mobile/page-invest-section-title_bg.jpg)
+            background-size: 100% auto
+            background-position: top right
             background-repeat: no-repeat
-            min-height: 800px
-            padding: 308px 0 100px 0
+            margin-top: -186px
+            padding: 186px 0 0 0
             &__title
                 font-family: Times New Roman
                 font-style: normal
-                font-weight: normal
-                font-size: 64px
-                line-height: 74px
+                font-weight: 400
+                font-size: 24px
+                line-height: 24px
                 color: $color-gold
-                margin-top: 70px
+                text-align: center
+                margin-top: 25px
             &__words-wrapper
-                display: flex
-                align-items: flex-start
-                justify-content: flex-start
-                margin: 40px 0 0 0
+                margin: 10px 0 0 0
             &__words
-                max-width: 450px
                 text-align: justify
                 color: #333
                 font-weight: normal
-                font-size: 18px
+                font-size: 14px
                 line-height: 23px
-                &:nth-child(2)
-                    margin-left: 40px
+                margin: 15px 0 0 0
         &-lead
-            padding: 70px 0
+            padding: 40px 0
             &__title-wrapper
                 display: flex
                 align-items: center
                 justify-content: center
             &__title
-                max-width: 734px
                 color: #333
                 font-family: Times New Roman
                 font-style: normal
                 font-weight: normal
-                font-size: 64px
-                line-height: 74px
+                font-size: 24px
+                line-height: 28px
                 text-align: center
             &__form-wrapper
                 display: flex
                 align-items: center
                 justify-content: center
-                margin-top: 40px
+                margin: 25px 0 0 0
             &__form
-                border: 1px solid $color-gold
-                display: flex
-                align-items: center
-                justify-content: center
-                border-radius: 50em
-                overflow: hidden
-                font-weight: normal
                 font-size: 14px
             &__form-input
                 position: relative
                 text-align: center
                 color: #333
-                border: none
+                border: 1px solid #777
+                border-radius: 50em
                 box-shadow: none
+                padding: 12px 0 10px 0
+                width: 100%
+                margin: 15px 0 0 0
                 &::placeholder
                     color: #333
                     text-align: center
                 &:focus::placeholder
                     color: transparent
             &__form-button
-                background-color: $color-gold
-                border: none
-                white-space: nowrap
-                height: 100%
-                color: #FFF
-                height: 46px
-                padding: 0 60px
-            &__form-chevron
-                color: $color-gold
-            &__description-wrapper
-                display: flex
-                align-items: center
-                justify-content: center
-                margin-top: 60px
-                flex-direction: column
+                background-color: #FFF
+                border: 1px solid $color-gold
+                color: #333
+                padding: 12px 0 10px 0
+                margin: 15px auto 0 auto
+                display: block
+                border-radius: 50em
+                font-weight: 400
+                text-transform: uppercase
+                width: 80%
             &__description
                 text-align: center
                 font-weight: normal
-                font-size: 18px
+                font-size: 14px
+                margin: 25px 0 0 0
                 color: #333
             &__form-disclaimer
+                margin: 25px 0 0 0
                 color: #777
                 font-weight: normal
                 font-size: 14px
@@ -111,31 +101,43 @@
                     text-decoration: none
                     color: #777
         &-offer
-            padding: 70px 0
+            padding: 25px 0
             background-color: $color-gold
             &__title
                 text-align: center
                 font-family: Times New Roman
                 font-style: normal
-                font-weight: normal
-                font-size: 64px
+                font-weight: 400
+                font-size: 24px
                 color: #FFF
             &__description
-                font-weight: normal
-                font-size: 18px
+                font-weight: 400
+                font-size: 14px
                 color: #333
                 text-align: center
             &__bullets-wrapper
+                margin: 40px 0 0 0
                 display: flex
-                align-items: center
-                justify-content: center
-                margin-top: 50px
+                overflow: hidden
+                .owl-nav
+                    position: absolute
+                    top: 50%
+                    display: flex
+                    width: 100%
+                    justify-content: space-between
+                    transform: translateY(-50%)
+                    z-index: 2000
+                    padding: 0 15px
+                    button
+                        display: flex
+                        align-items: center
+                        justify-content: center
             &__bullet
                 display: flex
                 flex-direction: column
                 align-items: center
                 justify-content: center
-                width: 328px
+                width: 100vw
             &__bullet-icon
                 color: #fff
             &__bullet-title
@@ -152,11 +154,7 @@
                 background-position: center center
                 background-repeat: repeat-x
                 margin: 60px 0 0 0
-            &__button-container
-                width: 328px
-                display: flex
-                align-items: center
-                justify-content: center
+                width: 100%
             &__button
                 color: #333
                 background-color: #FFF
@@ -164,7 +162,7 @@
                 font-weight: normal
                 font-size: 18px
                 text-align: center
-                padding: 14px 40px 10px 40px
+                padding: 9px 40px 9px 40px
                 border-radius: 50em
                 border: 1px solid $color-gold
         &-sales
@@ -172,14 +170,14 @@
                 font-family: Times New Roman
                 font-style: normal
                 font-weight: normal
-                font-size: 64px
+                font-size: 24px
                 color: $color-gold
                 text-align: center
-                margin-top: 70px
+                margin-top: 40px
             &__description
                 text-align: center
-                font-weight: bold
-                font-size: 24px
+                font-weight: 500
+                font-size: 12px
                 color: #333
                 margin-top: 20px
             &__slider
@@ -211,56 +209,43 @@
                 border: 1px solid $color-gold
         &-form
             background-color: $color-gold
-            margin-top: 70px
             background-image: url(/users/image/page-invest-section-form_bg.png)
             background-position: bottom left
             background-repeat: no-repeat
             background-size: auto 90%
             position: relative
-            padding: 40px 0 20px 0
+            padding: 40px 0
+            margin: 40px 0 0 0
             &__form-wrapper
                 margin: 0 0 0 auto
-                width: 768px
-                position: relative
-                z-index: 3
             &__form
                 width: 100%
             &__form-row
-                display: flex
-                width: 100%
-                align-items: center
                 padding: 10px 0
             &__input-title
-                width: 300px
                 color: #333
                 font-weight: normal
-                font-size: 18px
-                display: flex
-                align-items: center
-                justify-content: flex-start
+                font-size: 14px
             &__input
                 width: 100%
                 border-radius: 50em
                 border: none
                 box-shadow: none
-                margin-left: 30px
-                padding: 0 20px
-                flex-grow: 1
-                height: 54px
+                padding: 5px 10px
+                margin: 10px 0
                 &::placeholder
-                    font-size: 14px
+                    font-size: 12px
                     color: #777
             &__button-wrapper
                 display: flex
+                justify-content: center
+                align-items: center
                 background-image: url(/users/image/white-line.jpg)
                 background-position: center center
                 background-repeat: repeat-x
-                margin: 50px 0 0 0
+                margin: 20px 0 0 0
                 position: relative
                 z-index: 1
-            &__button-container
-                display: flex
-                justify-content: flex-end
             &__button
                 color: #333
                 background-color: #FFF
@@ -268,25 +253,15 @@
                 font-weight: normal
                 font-size: 18px
                 text-align: center
-                padding: 14px 40px 10px 40px
+                padding: 12px 40px 10px 40px
                 border-radius: 50em
                 border: 1px solid $color-gold
             &__form-disclaimer
                 font-weight: normal
                 font-size: 14px
                 color: #333
-                text-align: right
+                text-align: center
                 margin: 20px 0 0 0
                 &-link
                     text-decoration: none
                     color: #333
-            &__man
-                position: absolute
-                bottom: -20px
-                left: 0
-                z-index: 2
-
-
-
-
-
