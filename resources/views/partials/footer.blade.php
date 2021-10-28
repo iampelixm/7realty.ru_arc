@@ -42,15 +42,32 @@
                 <img src="/users/image/logo-2.png">
             </div>
             <div style="width: 33.3%; display: flex; align-items: flex-end; flex-direction: column; ">
-                <div style="color: #FFF; font-size: 18px; font-weight: 400">
-                    <x-icon name="envelope" width="17" />
+                <div style="color: #C1A771; font-size: 18px; font-weight: 400">
+                    <x-icon name="envelope" width="22" />
                     <a style="text-decoration: none; color: #FFF; margin-left: 12px"
                         href="mailto:info@7realty.ru">info@7realty.ru</a>
                 </div>
-                <div>
+                <div style="color: #C1A771">
                     <x-icon name="phone-tube" width="24" />
                     <a style="text-decoration: none; color: #FFF; margin-left: 12px; font-size: 24px"
                         href="tel:+79857000077">+ 7 (985) 700-00-77</a>
+                </div>
+                <div class="main-footer__social-link-wrapper" style="color: #C1A771">
+                    <a href="#" class="main-footer__social-link">
+                        <x-icon name="instagram" width="24" />
+                    </a>
+
+                    <a href="#" class="main-footer__social-link">
+                        <x-icon name="facebook" width="24" />
+                    </a>
+
+                    <a href="#" class="main-footer__social-link">
+                        <x-icon name="vkontakte" width="24" />
+                    </a>
+
+                    <a href="#" class="main-footer__social-link">
+                        <x-icon name="odnoklassniki" width="24" />
+                    </a>
                 </div>
             </div>
         </div>

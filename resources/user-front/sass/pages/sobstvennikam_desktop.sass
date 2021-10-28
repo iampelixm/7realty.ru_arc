@@ -166,11 +166,11 @@
                 width: 360px
                 text-align: center
         &-marketing
-            background-image: url(/users/image/page-sobstvennikam-section-marketing_bg.jpg)
-            background-position: top center
-            background-size: cover
-            height: 717px
-            padding: 70px 0 0 0
+            background-image: url(/users/image/page-sobstvennikam-section-marketing_bg2.png), url(/users/image/page-sobstvennikam-section-marketing_bg.jpg)
+            background-position: -200px 100%, center center
+            background-size: auto 100%, cover
+            background-repeat: no-repeat
+            padding: 70px 0 70px 0
             &__title
                 font-family: Times New Roman
                 font-style: normal
@@ -187,10 +187,16 @@
                 font-size: 18px
                 line-height: 23px
                 text-align: right
+                display: flex
+                align-items: flex-end
+                flex-direction: column
+                p
+                    max-width: 600px
             &__bullets-wrapper
                 display: flex
                 align-items: flex-start
                 justify-content: flex-end
+                margin-top: 50px
             &__bullet
                 width: 207px
                 margin-right: 20px
@@ -351,12 +357,18 @@
                 color: #333
                 font-weight: normal
                 font-size: 18px
+            &__title
+                font-family: Times New Roman
+                font-style: normal
+                font-weight: normal
+                font-size: 144px
+                color: #000
             &__offer
                 font-family: Times New Roman
                 font-style: normal
                 font-weight: normal
                 font-size: 64px
-                color: #333
+                color: #000
                 width: 850px
             &__offer-oversize-text
                 font-size: 96px
@@ -442,6 +454,7 @@
                     background-color: $color-gold
                     padding: 70px 70px 40px 70px
                     position: relative
+                    margin: 40px 0 0 0
                 &-container
                     width: 730px
                 &-title
@@ -450,6 +463,7 @@
                     font-style: normal
                     font-weight: normal
                     font-size: 72px
+                    line-height: 72px
                 &-overimage
                     position: absolute
                     right: 120px
@@ -568,6 +582,9 @@
                 font-weight: normal
                 font-size: 18px
                 text-align: center
+                &:hover
+                    color: #333
+                    background-color: $color-gold
         &-form
             display: flex
             &__left-side
@@ -629,7 +646,3 @@
                 font-weight: normal
                 font-size: 18px
                 text-align: center
-
-
-
-

@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="section-offer__button-wrapper">
-                <a href="#" class="section-offer__button">
+                <a href="#form" class="section-offer__button">
                     хочу зарабатывать вместе
                 </a>
             </div>
@@ -147,7 +147,8 @@
                                 100% ГАРАНТИЯ
                             </div>
                             <div class="section-bullets__bullet-left-description">
-                                Все сроки выплат и суммы зафиксированы в договоре. Вы получите свое вознаграждение в полном
+                                Все сроки выплат и суммы зафиксированы в договоре.<br>
+                                Вы получите свое вознаграждение в полном
                                 объеме в оговоренный срок
                             </div>
                         </div>
@@ -200,14 +201,14 @@
                             <x-icon name="microphone-mute" />
                         </div>
                         <div class="section-bullets__bullet-right">
-                            <a href="#" class="section-bullets__button">Стать партнером</a>
+                            <a href="#form" class="section-bullets__button">Стать партнером</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section-form">
+        <section class="section-form" id="form">
             <div class="container">
                 <div class="section-form__container">
                     <div class="section-form__hexagon-wrapper">
@@ -228,7 +229,7 @@
                             <input class="section-form__form-input" name="email" id="email" type="email" required
                                 placeholder="Ваш e-mail">
                             <button class="section-form__form-button">Стать партнером</button>
-                            <div class="section-form__disclaimer">
+                            <div class="section-form__form-disclaimer">
                                 Нажимая на кнопку Вы соглашаетесь на обработку данных.
                                 <a href="{{ route('site.standalone.politika') }}">Политика
                                     конфиденциальности.

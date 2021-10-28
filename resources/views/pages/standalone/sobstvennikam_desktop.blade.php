@@ -13,9 +13,9 @@
                     </h1>
                 </div>
                 <div class="section-offer__people">
-                    <div class="section-offer__button">
+                    <a class="section-offer__button" href="#topform" id="topform">
                         я продаю
-                    </div>
+                    </a>
                 </div>
             </div>
             <div class="section-offer__form-containerr">
@@ -154,16 +154,16 @@
                         <a href="#section_ocenka" class="section-bullets__button">
                             ОЦЕНИТЬ
                         </a>
-                        <a href="#" class="section-bullets__button">
+                        <a href="#section_personal_broker" class="section-bullets__button">
                             Получить помощь
                         </a>
                         <a href="#section_marketing" class="section-bullets__button">
                             ознакомиться
                         </a>
-                        <a href="#" class="section-bullets__button">
+                        <a href="#section_jursoprovod" class="section-bullets__button">
                             узнать больше
                         </a>
-                        <a href="#" class="section-bullets__button">
+                        <a href="#section_kontrol_kachestva" class="section-bullets__button">
                             продать
                         </a>
                     </div>
@@ -187,13 +187,13 @@
             </div>
             <div class="section-ocenka__button-container">
                 <div class="container">
-                    <a href="#" class="section-ocenka__button">
+                    <a href="#form" class="section-ocenka__button">
                         ОСТАВИТЬ ЗАЯВКУ ЭКСПЕРТУ
                     </a>
                 </div>
             </div>
         </section>
-        <section class="section-marketing" id="section-marketing">
+        <section class="section-marketing" id="section_marketing">
             <div class="container">
                 <div class="section-marketing__title">
                     Маркетинговые Технологии
@@ -276,7 +276,7 @@
                 </div>
             </div>
         </section>
-        <section class="section-broker">
+        <section class="section-broker" id="section_personal_broker">
             <div class="container">
                 <div class="section-broker__title">
                     Персональный Брокер
@@ -469,18 +469,20 @@
                     STAGING
                 </div>
                 <div class="section-staging__offer">
-                    <span class="section-staging__offer-oversize-text">1%</span>
-                    ИНВЕСТИРОВАННЫЙ В STAGING ПОВЫШАЕТ СТОИМОСТЬ НЕДВИЖИМОСТИ
+                    <span class="section-staging__offer-oversize-text">1%</span><br>
+                    ИНВЕСТИРОВАННЫЙ В<br>
+                    STAGING ПОВЫШАЕТ <br>
+                    СТОИМОСТЬ НЕДВИЖИМОСТИ <br>
                     НА <span class="section-staging__offer-oversize-text">10-15%</span>
                 </div>
             </div>
             <div class="section-staging__button-wrapper">
-                <a href="#" class="section-staging__button">
+                <a href="#form" class="section-staging__button">
                     ОСТАВИТЬ ЗАЯВКУ
                 </a>
             </div>
         </section>
-        <section class="section-jur">
+        <section class="section-jur" id="section_jursoprovod">
             <img src="/users/image/page-sobstvennikam-section-jur-img1.png" alt="" class="section-jur__overimage">
             <div class="container">
                 <div class="section-jur__title">
@@ -556,7 +558,7 @@
                             <a href="#" class="section-jur__dogovor-button">
                                 ознакомиться с договором
                             </a>
-                            <a href="#" class="section-jur__dogovor-button">
+                            <a href="#form" class="section-jur__dogovor-button">
                                 заключить договор
                             </a>
                         </div>
@@ -564,7 +566,7 @@
                 </div>
             </div>
         </section>
-        <section class="section-kontrol">
+        <section class="section-kontrol" id="section_kontrol_kachestva">
             <div class="section-kontrol__darkner"></div>
             <div class="container">
                 <div class="section-kontrol__title">
@@ -619,12 +621,12 @@
                 </div>
             </div>
             <div class="section-kontrol__button-wrapper">
-                <a href="#" class="section-kontrol__button">
+                <a href="#topform" class="section-kontrol__button">
                     подать заявку
                 </a>
             </div>
         </section>
-        <section class="section-form">
+        <section class="section-form" id="form">
             <div class="section-form__left-side">
                 <img src="/users/image/page-sobstvennikam-section-form-leftimg.png" class="section-form__left-side-img">
             </div>

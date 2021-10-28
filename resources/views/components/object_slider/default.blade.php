@@ -1,6 +1,6 @@
 <div class="content-specials-list-slider-info slider-item">
     <div class="content-specials-heart {{ in_array($slider_item->id, $massFav) ? 'active' : '' }}">
-        <x-icon name="heart" width="40" height="40" />
+        <x-icon name="heart-fill" width="40" height="40" />
     </div>
     <div class="slide-image-div">
         @foreach ($slider_item->imagesActive->take(3) as $key2 => $slider_item_image)

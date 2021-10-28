@@ -8363,13 +8363,18 @@ input[type=number] {
     font-weight: normal;
     font-style: normal;
     font-size: 18px;
-    color: #fff;
+    color: #333;
     margin: 0 0 0 0;
     /* padding: 4px 20px 0px 20px; */
     padding: 20px 70px 16px 70px;
-    background: #c1a771;
-    border-radius: 25px;
+    background: transparent;
+    border-radius: 50em;
+    border: 1px solid #c1a771;
     text-transform: uppercase;
+}
+.content-specials-list-div__h3:hover {
+    color: #fff;
+    background: #c1a771;
 }
 .content-specials-list-link {
     /* max-width: 1226px; */
@@ -27605,6 +27610,35 @@ body {
   color: #C1A771;
 }
 
+.button {
+  color: #333;
+  border: 1px solid #C1A771;
+  border-radius: 50em;
+  padding: 12px 20px 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #FFF;
+}
+
+.button:hover {
+  color: #fff;
+  background-color: #C1A771;
+}
+
+.main-footer__social-link {
+  color: #C1A771;
+  margin: 0 0 0 20px;
+}
+
+.main-footer__social-link svg {
+  width: 25px;
+  height: auto;
+}
+
+.main-footer__social-link-wrapper {
+  margin: 10px 0 0 0;
+}
+
 .main-header {
   position: relative;
   font-size: 14px;
@@ -27847,7 +27881,7 @@ body {
 }
 
 .page-about .section-hexlogo {
-  padding: 110px 0 70px 0;
+  padding: 110px 0 0 0;
 }
 
 .page-about .section-hexlogo__wrapper {
@@ -28255,11 +28289,11 @@ body {
 }
 
 .page-sobstvennikam .section-marketing {
-  background-image: url(/users/image/page-sobstvennikam-section-marketing_bg.jpg);
-  background-position: top center;
-  background-size: cover;
-  height: 717px;
-  padding: 70px 0 0 0;
+  background-image: url(/users/image/page-sobstvennikam-section-marketing_bg2.png), url(/users/image/page-sobstvennikam-section-marketing_bg.jpg);
+  background-position: -200px 100%, center center;
+  background-size: auto 100%, cover;
+  background-repeat: no-repeat;
+  padding: 70px 0 70px 0;
 }
 
 .page-sobstvennikam .section-marketing__title {
@@ -28280,12 +28314,20 @@ body {
   font-size: 18px;
   line-height: 23px;
   text-align: right;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.page-sobstvennikam .section-marketing__text-wrapper p {
+  max-width: 600px;
 }
 
 .page-sobstvennikam .section-marketing__bullets-wrapper {
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
+  margin-top: 50px;
 }
 
 .page-sobstvennikam .section-marketing__bullet {
@@ -28508,12 +28550,20 @@ body {
   font-size: 18px;
 }
 
+.page-sobstvennikam .section-staging__title {
+  font-family: Times New Roman;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 144px;
+  color: #000;
+}
+
 .page-sobstvennikam .section-staging__offer {
   font-family: Times New Roman;
   font-style: normal;
   font-weight: normal;
   font-size: 64px;
-  color: #333;
+  color: #000;
   width: 850px;
 }
 
@@ -28628,6 +28678,7 @@ body {
   background-color: #C1A771;
   padding: 70px 70px 40px 70px;
   position: relative;
+  margin: 40px 0 0 0;
 }
 
 .page-sobstvennikam .section-jur__dogovor-container {
@@ -28640,6 +28691,7 @@ body {
   font-style: normal;
   font-weight: normal;
   font-size: 72px;
+  line-height: 72px;
 }
 
 .page-sobstvennikam .section-jur__dogovor-overimage {
@@ -28792,6 +28844,11 @@ body {
   font-weight: normal;
   font-size: 18px;
   text-align: center;
+}
+
+.page-sobstvennikam .section-kontrol__button:hover {
+  color: #333;
+  background-color: #C1A771;
 }
 
 .page-sobstvennikam .section-form {
@@ -29174,6 +29231,12 @@ body {
   padding: 0 60px;
 }
 
+.page-invest .section-lead__form-button:hover {
+  background-color: #FFF;
+  color: #C1A771;
+  border-color: #FFF;
+}
+
 .page-invest .section-lead__form-chevron {
   color: #C1A771;
 }
@@ -29282,6 +29345,12 @@ body {
   border: 1px solid #C1A771;
 }
 
+.page-invest .section-offer__button:hover {
+  color: #FFF;
+  background-color: #C1A771;
+  border-color: #FFF;
+}
+
 .page-invest .section-sales__title {
   font-family: Times New Roman;
   font-style: normal;
@@ -29333,6 +29402,11 @@ body {
   padding: 14px 40px 10px 40px;
   border-radius: 50em;
   border: 1px solid #C1A771;
+}
+
+.page-invest .section-sales__button:hover {
+  color: #fff;
+  background-color: #C1A771;
 }
 
 .page-invest .section-form {
@@ -29427,6 +29501,12 @@ body {
   border: 1px solid #C1A771;
 }
 
+.page-invest .section-form__button:hover {
+  background-color: #C1A771;
+  color: #fff;
+  border-color: #fff;
+}
+
 .page-invest .section-form__form-disclaimer {
   font-weight: normal;
   font-size: 14px;
@@ -29452,6 +29532,18 @@ body {
 }
 
 .page-partners .main-header .main-header-categories-menu .navbar .nav-link {
+  color: #FFF;
+}
+
+.page-partners .main-header__slogan {
+  color: #FFF;
+}
+
+.page-partners .main-header__tel-link {
+  color: #FFF;
+}
+
+.page-partners .main-header__descriptor {
   color: #FFF;
 }
 
@@ -29583,6 +29675,12 @@ body {
   display: block;
 }
 
+.page-partners .section-offer__button:hover {
+  border-color: #fff;
+  background-color: #C1A771;
+  color: #FFF;
+}
+
 .page-partners .section-bullets {
   padding: 120px 0;
 }
@@ -29623,6 +29721,7 @@ body {
 
 .page-partners .section-bullets__bullet-left-description {
   font-size: 18px;
+  font-weight: normal;
 }
 
 .page-partners .section-bullets__bullet-center {
@@ -29641,6 +29740,11 @@ body {
 
 .page-partners .section-bullets__bullet-right-title {
   font-size: 24px;
+  font-weight: bold;
+}
+
+.page-partners .section-bullets__bullet-right-description {
+  font-weight: normal;
 }
 
 .page-partners .section-bullets__button {
@@ -29649,6 +29753,12 @@ body {
   border: 1px solid #C1A771;
   color: #333;
   text-transform: uppercase;
+}
+
+.page-partners .section-bullets__button:hover {
+  border-color: #fff;
+  background-color: #C1A771;
+  color: #FFF;
 }
 
 .page-partners .section-form {
@@ -29710,12 +29820,19 @@ body {
   margin: 40px 0 0 0;
 }
 
+.page-partners .section-form__form-button:hover {
+  border-color: #fff;
+  background-color: #C1A771;
+  color: #FFF;
+}
+
 .page-partners .section-form__form-disclaimer {
   font-weight: normal;
   font-size: 14px;
   line-height: 18px;
   color: #777;
   margin: 15px 0 0 0;
+  text-align: right;
 }
 
 .page-partners .section-form__form-disclaimer a {

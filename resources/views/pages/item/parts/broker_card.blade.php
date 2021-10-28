@@ -66,12 +66,13 @@
 
         </div>
         <div class="broker-contact" style="z-index: 2; position: absolute; right: 50px; transform: translateY(-50%)">
-            <a class="rounded-circle d-inline-block" href="mailto:{{ $item->user->email ?? 'info@7realty.ru' }}"
-                style="border: 1px solid #C1A771; padding: 11px; background: #FFF">
+            <a class="button" href="#">Запишитесь на просмотр</a>
+            <a class="rounded-circle d-inline-block ml-3" href="mailto:{{ $item->user->email ?? 'info@7realty.ru' }}"
+                style="border: 1px solid #C1A771; color: #C1A771; padding: 11px; background: #FFF">
                 <x-icon name="envelope" />
             </a>
             <a class="ml-3 rounded-circle d-inline-block p-2" href="tel:+79857000077"
-                style="border: 1px solid #C1A771; background: #FFF">
+                style="border: 1px solid #C1A771; color: #C1A771; background: #FFF">
                 <x-icon name="call" />
             </a>
         </div>

@@ -629,13 +629,18 @@
     font-weight: normal;
     font-style: normal;
     font-size: 18px;
-    color: #fff;
+    color: #333;
     margin: 0 0 0 0;
     /* padding: 4px 20px 0px 20px; */
     padding: 20px 70px 16px 70px;
-    background: #c1a771;
-    border-radius: 25px;
+    background: transparent;
+    border-radius: 50em;
+    border: 1px solid #c1a771;
     text-transform: uppercase;
+}
+.content-specials-list-div__h3:hover {
+    color: #fff;
+    background: #c1a771;
 }
 .content-specials-list-link {
     /* max-width: 1226px; */

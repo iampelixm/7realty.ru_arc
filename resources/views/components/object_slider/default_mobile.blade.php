@@ -8,7 +8,7 @@
         @endforeach
     </div>
     <div class="item__heart">
-        <x-icon name="heart" width="25" height="25" />
+        <x-icon name="heart-fill" width="25" height="25" />
     </div>
     <a class="item__title" href="{{ route('site.item.get', $slider_item->slug) }}">
         {{ $slider_item->name }}

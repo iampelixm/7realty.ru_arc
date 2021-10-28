@@ -25,7 +25,7 @@
                     </div>
                     <div class="section-title__words">
                         А благодаря инфляции стоимость зданий растет, даже не смотря на небольшие просадки во время кризиса,
-                        которые всегда отыгрываются. Эксперты компании Seven помогут Вам подобрать оптимальный вариант для
+                        которые всегда отыгрываются. Эксперты компании <span class="color-gold">Seven</span> помогут Вам подобрать оптимальный вариант для
                         вложений Вашего капитала. Заполните форму ниже и начните свой путь успешного инвестора в
                         недвижимость.
                     </div>
@@ -120,24 +120,24 @@
             </div>
             <div class="section-offer__buttons-wrapper">
                 <div class="section-offer__button-container">
-                    <a href="#" class="section-offer__button">
+                    <a href="#hidden_sales" class="section-offer__button button">
                         Смотреть варианты
                     </a>
                 </div>
                 <div class="section-offer__button-container">
-                    <a href="#" class="section-offer__button">
+                    <a href="#presale_sales" class="section-offer__button button">
                         Смотреть варианты
                     </a>
                 </div>
                 <div class="section-offer__button-container">
-                    <a href="#" class="section-offer__button">
+                    <a href="#rent_sales" class="section-offer__button button">
                         Смотреть варианты
                     </a>
                 </div>
             </div>
 
         </section>
-        <section class="section-sales">
+        <section class="section-sales" id="hidden_sales">
             <div class="container">
                 <div class="section-sales__title">
                     Закрытые продажи
@@ -172,7 +172,7 @@
             </div>
         </section>
 
-        <section class="section-sales">
+        <section class="section-sales" id="presale_sales">
             <div class="container">
                 <div class="section-sales__title">
                     Строящиеся объекты
@@ -208,7 +208,7 @@
             </div>
         </section>
 
-        <section class="section-sales">
+        <section class="section-sales" id="rent_sales">
             <div class="container">
                 <div class="section-sales__title">
                     Арендный бизнес
