@@ -12,7 +12,7 @@ class Category extends Model implements HasMedia
 {
     use InteractsWithMedia;
     protected $table = 'categories';
-    protected $fillable = ['name', 'type', 'active', 'main', 'offer_index', 'show_main', 'slug'];
+    protected $fillable = ['name', 'type', 'active', 'main', 'offer_index', 'show_main', 'slug', 'meta_description'];
 
     public function parent()
     {

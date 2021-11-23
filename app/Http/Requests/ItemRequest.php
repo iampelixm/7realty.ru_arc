@@ -52,6 +52,7 @@ class ItemRequest extends FormRequest
             'photos'        =>  'nullable|array|min:3',
             'user_id'       =>  'nullable',
             'remark'        =>  'string|nullable',
+            'meta_description'=>'string|required|min:50'
 
         ];
     }

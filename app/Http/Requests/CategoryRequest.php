@@ -30,6 +30,7 @@ class CategoryRequest extends FormRequest
             'show_main'     =>  'required|boolean',
             'main'          =>  'required|boolean',
             'offer_index'   =>  'nullable|numeric|max:100',
+            'meta_description' => 'string'
         ];
     }
 }

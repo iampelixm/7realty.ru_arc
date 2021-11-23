@@ -1,5 +1,10 @@
 @extends('layouts.site')
-
+@section('meta_description')
+    {{ $item->meta_description ?? '' }}
+@endsection
+@section('page_title')
+    {{ $page_title }}
+@endsection
 @section('content')
     <style>
         .hoverline a {

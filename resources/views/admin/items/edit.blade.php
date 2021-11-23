@@ -48,9 +48,7 @@
                     required="true">
                     <option value="sale" @if ($item->type_order == 'sale') selected @endif>{{ __('admin.item_type_order_sale') }}</option>
                     <option value="orenda" @if ($item->type_order == 'orenda') selected @endif>{{ __('admin.item_type_order_orenda') }}</option>
-
                 </select>
-
             </div>
 
             <div class="form-group">
@@ -112,8 +110,8 @@
             <div class="form-group">
                 <label for="">{{ __('admin.item_description') }}</label>
                 <textarea class="form-control summernote" name="description" required="true">
-                            {{ old('description') ?? ($item->description ?? '') }}
-                        </textarea>
+                                {{ old('description') ?? ($item->description ?? '') }}
+                            </textarea>
 
             </div>
 
@@ -159,7 +157,7 @@
                                                 value="{{ $option->value }}">
                                                 @foreach ($valuesarr as $value)
                                                     <option value="{{ $value }}"
-                                                        {{ ($option->value == $value) ? 'selected' : '' }}>
+                                                        {{ $option->value == $value ? 'selected' : '' }}>
                                                         {{ $value }}
                                                     </option>
                                                 @endforeach
@@ -317,6 +315,18 @@
                 <textarea class="form-control summernote"
                     name="remark">{{ old('remark') ?? ($item->remark ?? '') }}</textarea>
             </div>
+
+            <div class="form-group">
+                <label for="">{{ __('admin.item_meta_description') }}</label>
+                <textarea class="form-control"
+                    name="meta_description">{{ old('meta_description') ?? ($item->meta_description ?? '') }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="">{{ __('admin.item_page_title') }}</label>
+                <input class="form-control" name="page_title" value="{{ $category->page_title ?? '' }}">
+            </div>
+
             <button type="submit" class="btn btn-primary">{{ __('admin.save') }}</button>
         </form>
     </div>
