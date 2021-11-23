@@ -1,5 +1,7 @@
 @extends('layouts.site')
-
+@section('meta_description')
+    {{ $category->meta_description ?? '' }}
+@endsection
 @section('content')
     <div class="content-residential d-md-block mt-4">
         <div class="row no-gutters px-3 px-xl-0">
@@ -9,7 +11,7 @@
             <!-- Блок Формы для подбора объекта -->
 
         @section('category_filter')
-            <div class="d-none">{{$category->slug}}</div>
+            <div class="d-none">{{ $category->slug }}</div>
             @if (view()->exists('pages.category.parts.filter_' . $category->slug))
                 @include('pages.category.parts.filter_'.$category->slug)
             @else

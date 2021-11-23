@@ -36,6 +36,7 @@ class ItemEditRequest extends FormRequest
             'slug'          =>  'unique:items,slug,' . $this->route()->parameter('item')->id,
             'user_id'       =>  'nullable',
             'remark'        =>  'string|nullable',
+            'meta_description'=>'string|required|min:50'
 
         ];
     }

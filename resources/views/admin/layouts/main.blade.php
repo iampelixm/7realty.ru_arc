@@ -15,6 +15,7 @@
 
     <link href="{{ mix('/admins/css/app.css') }}" rel="stylesheet">
 
+
 </head>
 
 <body class="pace-done">

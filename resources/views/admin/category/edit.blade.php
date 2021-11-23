@@ -65,10 +65,11 @@
             <div class="form-group">
                 <label for="main">{{ __('admin.category-main') }}</label>
                 <input type="hidden" name="main" value="0">
-                <input type="checkbox" class="form-control" name="main" onchange="setcategorytype()" @if ($category->main) checked @endif id="main-type" value="1">
+                <input type="checkbox" class="form-control" name="main" onchange="setcategorytype()"
+                    @if ($category->main) checked @endif id="main-type" value="1">
 
             </div>
-        <div id="category-block" style="display: @if ($category->main) none @else
+        <div id="category-block" style="display:  @if ($category->main) none @else
                 block @endif;">
                 <div class="form-group">
                     <label for="">{{ __('admin.category-main-select') }}</label>
@@ -84,7 +85,7 @@
                 </div>
             </div>
 
-            <div id="category-type-block" style="display: @if ($category->main) block
+            <div id="category-type-block" style="display:  @if ($category->main) block
             @else none @endif;">
                 <div class="form-group">
                     <label for="">{{ __('admin.category-type-select') }}</label>
@@ -94,6 +95,17 @@
                     </select>
 
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">{{ __('admin.category_meta_description') }}</label>
+                <textarea class="form-control"
+                    name="meta_description">{{ old('meta_description') ?? ($category->meta_description ?? '') }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="">{{ __('admin.category_page_title') }}</label>
+                <input class="form-control" name="page_title" value="{{ $category->page_title ?? '' }}">
             </div>
 
             <button type="submit" class="btn btn-primary">{{ __('admin.save') }}</button>
@@ -116,7 +128,7 @@
         </form>
     </div>
 
-    @endsection @section('script') <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     </script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
@@ -143,7 +155,6 @@
             }
 
         }
-
     </script>
 
 

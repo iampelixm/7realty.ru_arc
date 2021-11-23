@@ -49,8 +49,8 @@
             <div class="form-group">
                 <label for="main">{{ __('admin.category-main') }}</label>
                 <input type="hidden" name="main" value="0">
-                <input type="checkbox" class="form-control" name="main" onchange="setcategorytype()" checked id="main-type"
-                    value="1">
+                <input type="checkbox" class="form-control" name="main" onchange="setcategorytype()" checked
+                    id="main-type" value="1">
             </div>
             <div id="category-block" style="display: none;">
                 <div class="form-group">
@@ -73,6 +73,16 @@
                     </select>
 
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="">{{ __('admin.category_meta_description') }}</label>
+                <textarea class="form-control" name="meta_description">{{ old('meta_description') ?? '' }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="">{{ __('admin.category_page_title') }}</label>
+                <input class="form-control" name="page_title" value="{{ old('page_title') ?? '' }}">
             </div>
 
             <button type="submit" class="btn btn-primary">{{ __('admin.save') }}</button>
@@ -106,7 +116,6 @@
             }
 
         }
-
     </script>
 
 

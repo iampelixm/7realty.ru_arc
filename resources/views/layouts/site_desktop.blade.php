@@ -9,8 +9,8 @@
     <meta name="item-lon" content='{{ $meta_lon ?? 0 }}' />
     <meta name="item-lat" content='{{ $meta_lat ?? 0 }}' />
     <meta name="data-backend" content='{!! $data_backend ?? '' !!}'>
-    <link rel="manifest" href="{{ asset('manifest.json') }}" />
-
+    <meta name="description" content="@yield('meta_description')" >
+    <meta name="theme-color" content="#C1A771">
     <!-- Bootstrap CSS -->
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> --}}
     <link
@@ -27,7 +27,10 @@
 
     <link href="{{ asset('static/css/2.8f118048.chunk.css') }}" rel="stylesheet">
     <link href="{{ asset('static/css/main.b4c1df24.chunk.css') }}" rel="stylesheet">
-    <title>{{ $page_title ?? $html_title }}</title>
+    <title>
+        @yield('page_title')
+        {{-- {{ $page_title ?? $html_title }} --}}
+    </title>
     @section('head')
     @show
 </head>
