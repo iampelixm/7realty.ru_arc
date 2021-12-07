@@ -107,6 +107,15 @@ Route::prefix('/')->namespace('Site')->name('site.')->middleware('city')->group(
     Route::view('politika', 'pages.standalone.politika')->name('standalone.politika');
 
 
+    // Route::get('/contacts', 'PageController@contacts')->name('contacts');
+    Route::get('/contacts', function () {
+        $agent = new Agent();
+        if ($agent->isMobile()) {
+            return view('pages.standalone.contacts_mobile');
+        } else {
+            return view('pages.standalone.contacts_desktop');
+        }
+    })->name('standalone.contacts');
 
 
     Route::get('/change/city/{city}', 'CityController@changeCity')->name('change_city');
@@ -128,7 +137,7 @@ Route::prefix('/')->namespace('Site')->name('site.')->middleware('city')->group(
     Route::post('/register', 'UserController@register')->name('register');
     Route::post('/setfavorites', 'UserController@setfavorites')->name('set_favorites');
 
-    Route::get('/contacts', 'PageController@contacts')->name('contacts');
+
     Route::get('/favorites', 'UserController@favorites')->name('favorites');
 
     Route::get('/brokers', 'UserController@brokerList')->name('broker.list');

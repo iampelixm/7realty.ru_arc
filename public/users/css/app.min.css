@@ -29879,6 +29879,231 @@ body {
      object-fit: cover;
 }
 
+.page-contacts {
+  overflow: hidden;
+}
+
+.page-contacts .sochi,
+.page-contacts .moscow {
+  transistion: all 300ms ease-in-out;
+  width: 100%;
+}
+
+.page-contacts.city_sochi .moscow {
+  display: none;
+}
+
+.page-contacts.city_moscow .sochi {
+  display: none;
+}
+
+.page-contacts .city-select-wrapper {
+  display: flex;
+  margin: 30px auto 0 auto;
+  max-width: 1178px;
+  border-bottom: 1px solid #C1A771;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-contacts .city-select-wrapper .city-select-button {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 60px;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 0 40px 0 0;
+  color: #C1A771;
+}
+
+.page-contacts .city-select-wrapper .city-select-button .active {
+  font-weight: bold;
+}
+
+.page-contacts .city-select-wrapper .city-select-button .active::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  height: 20px;
+  width: 20px;
+  background-color: red;
+}
+
+.page-contacts .contacts-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 70px 0 0 0;
+}
+
+.page-contacts .contacts-wrapper .contact-item {
+  margin: 0 70px 0 0;
+}
+
+.page-contacts .contacts-wrapper .address {
+  color: #C1A771;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-contacts .contacts-wrapper .address__street {
+  margin: 0 0 0 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  color: #333;
+}
+
+.page-contacts .contacts-wrapper .address__location {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: #333;
+}
+
+.page-contacts .contacts-wrapper .phone {
+  color: #C1A771;
+}
+
+.page-contacts .contacts-wrapper .phone a {
+  color: #333;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  margin: 0 0 0 20px;
+}
+
+.page-contacts .contacts-wrapper .email {
+  color: #C1A771;
+}
+
+.page-contacts .contacts-wrapper .email a {
+  color: #333;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  margin: 0 0 0 20px;
+}
+
+.page-contacts .map {
+  margin: 70px 0 0 0;
+}
+
+.page-contacts .form-wrapper {
+  margin: 60px 0 0 0;
+}
+
+.page-contacts .form-wrapper .title {
+  font-family: Times New Roman;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 74px;
+  text-align: center;
+  color: #C1A771;
+}
+
+.page-contacts .form-wrapper .subtitle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: center;
+  color: #333;
+}
+
+.page-contacts .form-wrapper .form {
+  margin: 70px 0 0 0;
+}
+
+.page-contacts .form-wrapper .form input[type=text] {
+  position: relative;
+  padding: 15px 10px 13px 10px;
+  margin-right: 0;
+  line-height: 18px;
+  flex-grow: 1;
+  border: none;
+}
+
+.page-contacts .form-wrapper .form input[type=text]::-moz-placeholder {
+  color: #000;
+  text-align: center;
+}
+
+.page-contacts .form-wrapper .form input[type=text]:-ms-input-placeholder {
+  color: #000;
+  text-align: center;
+}
+
+.page-contacts .form-wrapper .form input[type=text]::placeholder {
+  color: #000;
+  text-align: center;
+}
+
+.page-contacts .form-wrapper .form .radoigroup {
+  display: flex;
+  border-radius: 50em;
+  overflow: hidden;
+  border: 1px solid #C1A771;
+  align-items: stretch;
+  margin: 40px 0 0 0;
+}
+
+.page-contacts .form-wrapper .form .form-divider {
+  height: 18px;
+  outline: 1px solid #C1A771;
+  width: 0px;
+  align-self: center;
+}
+
+.page-contacts .form-wrapper .form .form-check {
+  margin: 0 0 0 0;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.page-contacts .form-wrapper .form .form-check input[type=radio],
+.page-contacts .form-wrapper .form .form-check input[type=checkbox] {
+  display: none;
+}
+
+.page-contacts .form-wrapper .form .form-check label {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  padding: 15px 10px 13px 10px;
+  text-align: center;
+  margin-right: 0;
+  line-height: 18px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.page-contacts .form-wrapper .form .form-check label:hover {
+  color: #C1A771;
+}
+
+.page-contacts .form-wrapper .form .form-check input[type=radio]:checked + label,
+.page-contacts .form-wrapper .form .form-check input[type=checkbox]:checked + label {
+  background-color: #C1A771;
+}
+
+.page-contacts .form-wrapper .form .form-check input[type=radio]:checked:hover + label,
+.page-contacts .form-wrapper .form .form-check input[type=checkbox]:checked:hover + label {
+  color: #FFF;
+}
+
 .vjs-modal-dialog .vjs-modal-dialog-content,
 .video-js .vjs-modal-dialog,
 .vjs-button > .vjs-icon-placeholder:before,

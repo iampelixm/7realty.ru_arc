@@ -69,7 +69,7 @@
                 |
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('site.contacts') }}">
+                <a class="nav-link" href="{{ route('site.standalone.contacts') }}">
                     Контакты
                 </a>
             </li>
@@ -155,7 +155,7 @@
             <!--<p class="main-header-navi__p"><a href="{{ route('site.get_page', 'about_us') }}">Компания</a></p> -->
         </div>
         <div class="main-header-navi main-header-navi_position">
-            <p class="main-header-navi__p"><a href="{{ route('site.contacts') }}">Контакты</a></p>
+            <p class="main-header-navi__p"><a href="{{ route('site.standalone.contacts') }}">Контакты</a></p>
         </div>
     </div>
 </div>

@@ -1,0 +1,147 @@
+.page-contacts
+    overflow: hidden
+    .sochi, .moscow
+        transistion: all 300ms ease-in-out
+        width: 100%
+    &.city_sochi
+        .moscow
+            display: none
+    &.city_moscow
+        .sochi
+            display: none
+    .city-select-wrapper
+        display: flex
+        margin: 30px auto 0 auto
+        max-width: 1178px
+        border-bottom: 1px solid $color-gold
+        align-items: center
+        justify-content: center
+        .city-select-button
+            font-style: normal
+            font-weight: normal
+            font-size: 48px
+            line-height: 60px
+            text-align: center
+            text-transform: uppercase
+            cursor: pointer
+            margin: 0 40px 0 0
+            color: $color-gold
+            .active
+                font-weight: bold
+                &::after
+                    content: ''
+                    position: absolute
+                    top: 20px
+                    height: 20px
+                    width: 20px
+                    background-color: red
+    .contacts-wrapper
+        display: flex
+        align-items: center
+        justify-content: center
+        margin: 70px 0 0 0
+        .contact-item
+            margin: 0 70px 0 0
+        .address
+            color: $color-gold
+            display: flex
+            align-items: center
+            justify-content: center
+            &__street
+                margin: 0 0 0 20px
+                font-style: normal
+                font-weight: normal
+                font-size: 18px
+                line-height: 23px
+                color: #333
+            &__location
+                font-style: normal
+                font-weight: normal
+                font-size: 14px
+                line-height: 18px
+                color: #333
+        .phone
+            color: $color-gold
+            a
+                color: #333
+                text-decoration: none
+                font-style: normal
+                font-weight: bold
+                font-size: 18px
+                line-height: 23px
+                margin: 0 0 0 20px
+        .email
+            color: $color-gold
+            a
+                color: #333
+                text-decoration: none
+                font-style: normal
+                font-weight: normal
+                font-size: 18px
+                line-height: 23px
+                margin: 0 0 0 20px
+    .map
+        margin: 70px 0 0 0
+
+    .form-wrapper
+        margin: 60px 0 0 0
+        .title
+            font-family: Times New Roman
+            font-style: normal
+            font-weight: normal
+            font-size: 64px
+            line-height: 74px
+            text-align: center
+            color: $color-gold
+        .subtitle
+            font-style: normal
+            font-weight: normal
+            font-size: 18px
+            line-height: 23px
+            text-align: center
+            color: #333
+        .form
+            margin: 70px 0 0 0
+            input[type="text"]
+                position: relative
+                padding: 15px 10px 13px 10px
+                margin-right: 0
+                line-height: 18px
+                flex-grow: 1
+                border: none
+                &::placeholder
+                    color: #000
+                    text-align: center
+            .radoigroup
+                display: flex
+                border-radius: 50em
+                overflow: hidden
+                border: 1px solid $color-gold
+                align-items: stretch
+                margin: 40px 0 0 0
+            .form-divider
+                height: 18px
+                outline: 1px solid $color-gold
+                width: 0px
+                align-self: center
+            .form-check
+                margin: 0 0 0 0
+                padding: 0
+                flex-grow: 1
+                input[type="radio"], input[type="checkbox"]
+                    display: none
+                label
+                    display: block
+                    cursor: pointer
+                    position: relative
+                    padding: 15px 10px 13px 10px
+                    text-align: center
+                    margin-right: 0
+                    line-height: 18px
+                    user-select: none
+                    &:hover
+                        color: $color-gold
+                input[type=radio]:checked + label, input[type=checkbox]:checked + label
+                    background-color: $color-gold
+                input[type=radio]:checked:hover + label, input[type=checkbox]:checked:hover + label
+                    color: #FFF
