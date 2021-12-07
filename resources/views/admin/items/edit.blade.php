@@ -324,7 +324,7 @@
 
             <div class="form-group">
                 <label for="">{{ __('admin.item_page_title') }}</label>
-                <input class="form-control" name="page_title" value="{{ $category->page_title ?? '' }}">
+                <input class="form-control" name="page_title" value="{{ $item->page_title ?? '' }}">
             </div>
 
             <button type="submit" class="btn btn-primary">{{ __('admin.save') }}</button>

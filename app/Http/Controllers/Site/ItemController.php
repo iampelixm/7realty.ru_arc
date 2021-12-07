@@ -54,7 +54,7 @@ class ItemController extends Controller
             ->groupBy('items.id')
             ->get();
 
-        $page_title = $item->name . " | Seven";
+        $page_title = ($item->page_title ?? $item->name) . " | Seven";
         $template_data = compact('item', 'itemoptions', 'similarItems', 'newItems', 'meta_lon', 'meta_lat', 'page_title');
         if (view()->exists('pages.item.' . $item->type->slug)) {
             return view('pages.item.' . $item->type->slug, $template_data);
