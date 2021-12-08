@@ -15,7 +15,7 @@ use Redirect;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
-
+use Jenssegers\Agent\Agent;
 
 class ItemController extends Controller
 {
@@ -56,10 +56,18 @@ class ItemController extends Controller
 
         $page_title = ($item->page_title ?? $item->name) . " | Seven";
         $template_data = compact('item', 'itemoptions', 'similarItems', 'newItems', 'meta_lon', 'meta_lat', 'page_title');
-        if (view()->exists('pages.item.' . $item->type->slug)) {
-            return view('pages.item.' . $item->type->slug, $template_data);
+
+        $agent = new Agent();
+
+        if ($agent->isMobile()) {
+            $base_view = 'pages.item_mobile';
         } else {
-            return view('pages.item.default', $template_data);
+            $base_view = 'pages.item_desktop';
+        }
+        if (view()->exists($base_view . $item->type->slug)) {
+            return view($base_view . $item->type->slug, $template_data);
+        } else {
+            return view($base_view . '.common', $template_data);
         }
     }
 

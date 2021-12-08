@@ -1,49 +1,40 @@
-    <!-- слайдер похожие объекты -->
-    <div class="object-card-sliders">
-        <div class="content-specials-list-outer">
-            <div class="content-specials-list">
-                <div class="content-specials-list-div">
-                    <h3 class="content-specials-list-div__h3">Похожие объекты</h3>
-                </div>
-            </div>
+<div class="items-block">
+    <div class="items-block__header">
+        <div class="items-block__title">
+            Похожие объекты
         </div>
-        <div class="content-specials-list-slider slider-custom__four owl-carousel">
-
-            @foreach ($similarItems as $key => $slider_item)
-                <!-- 5 Block - Размножаем этот блок -->
-                @if (view()->exists('components.object_slider.' . $slider_item->type->slug))
-                    @include(('components.object_slider.'.$slider_item->type->slug))
-                @else
-                    @include('components.object_slider.default')
-                @endif
-            @endforeach
-
-        </div>
-        {{-- </div> --}}
     </div>
-    <!-- слайдер  новинки -->
-    <div class="object-card-sliders mb-5">
-        {{-- <div class="row no-gutters"> --}}
-        <div class="content-specials-list-outer">
-            <div class="content-specials-list">
-                <div class="content-specials-list-div">
-                    <h3 class="content-specials-list-div__h3">Новинки</h3>
-                </div>
-            </div>
-        </div>
-        <div class="content-specials-list-slider slider-custom__four owl-carousel">
-
-            @foreach ($newItems as $key => $slider_item)
-                <!-- 5 Block - Размножаем этот блок -->
-                @if (view()->exists('components.object_slider.' . $slider_item->type->slug))
-                    @include(('components.object_slider.'.$slider_item->type->slug))
-                @else
-                    @include('components.object_slider.default')
-                @endif
-                {{-- @include('components.object_slider.default') --}}
-
-            @endforeach
-
-        </div>
-        {{-- </div> --}}
+    <div class="items-block__items-container two-col">
+        @foreach ($similarItems as $key => $slider_item)
+            @include('components.object_slider.default_mobile')
+        @endforeach
     </div>
+    <div class="items-block__more-link-wrapper d-none">
+        <a class="items-block__more-link"
+            href="">
+            Все спецпредложения
+        </a>
+        <x-icon name="chevron-right" />
+    </div>
+</div>
+
+
+<div class="items-block">
+    <div class="items-block__header">
+        <div class="items-block__title">
+            Новинки
+        </div>
+    </div>
+    <div class="items-block__items-container two-col">
+        @foreach ($newItems as $key => $slider_item)
+            @include('components.object_slider.default_mobile')
+        @endforeach
+    </div>
+    <div class="items-block__more-link-wrapper d-none">
+        <a class="items-block__more-link"
+            href="">
+            Все спецпредложения
+        </a>
+        <x-icon name="chevron-right" />
+    </div>
+</div>
