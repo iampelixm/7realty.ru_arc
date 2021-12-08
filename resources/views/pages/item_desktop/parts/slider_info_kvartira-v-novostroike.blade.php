@@ -1,4 +1,4 @@
-@extends('pages.item.parts.slider_info_common')
+@extends('pages.item_desktop.parts.slider_info_common')
 @section('options')
     <div class="col-lg-6 d-flex" data-option="ploshhad">
         <div class="content-object-card-information-icon">

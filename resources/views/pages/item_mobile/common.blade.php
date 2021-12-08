@@ -104,16 +104,16 @@
     {{-- <div class="object-card-big-slider" style="margin-top: 40px;">
         <div class="d-flex no-gutters">
         @section('image_slider')
-            @include('pages.item.parts.imageSlider')
+            @include('pages.item_mobile.parts.imageSlider')
         @show
         <!-- SLIDER INFO -->
         <div class="item_card" data-card="{{ $item->type->slug }}">
             <div class="content-object-card-information">
                 @section('item_card')
-                    @if (view()->exists('pages.item.parts.slider_info_' . $item->type->slug))
-                        @include('pages.item.parts.slider_info_'.$item->type->slug)
+                    @if (view()->exists('pages.item_mobile.parts.slider_info_' . $item->type->slug))
+                        @include('pages.item_mobile.parts.slider_info_'.$item->type->slug)
                     @else
-                        @include('pages.item.parts.slider_info_default')
+                        @include('pages.item_mobile.parts.slider_info_default')
                     @endif
                 @show
             </div>
@@ -124,12 +124,12 @@
 <div class="container no-gutters mx-auto px-0" style="max-width: 1360px; margin-top: 40px">
     <div class="row no-gutters align-content-stretch">
         <div class="col-lg-8 " style="min-height: 237px;">
-            @include('pages.item.parts.broker_card')
+            @include('pages.item_mobile.parts.broker_card')
         </div>
 
         <div class="col-lg-4" style="padding-top: 32px; padding-bottom: 32px; padding-left: 40px;">
             <div class="row no-gutters px-2 pt-2 " style="outline: 1px solid #C1A771; height: 100%;">
-                @include('pages.item.parts.contact_form')
+                @include('pages.item_mobile.parts.contact_form')
             </div>
 
         </div>
@@ -212,5 +212,5 @@
     </div>
 </div>
 
-@include('pages.item.parts.bottom_sliders') --}}
+@include('pages.item_mobile.parts.bottom_sliders') --}}
 @endsection

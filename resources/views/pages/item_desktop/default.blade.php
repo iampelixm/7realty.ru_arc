@@ -1,1 +1,1 @@
-@extends('pages.item.common')
+@extends('pages.item_desktop.common')

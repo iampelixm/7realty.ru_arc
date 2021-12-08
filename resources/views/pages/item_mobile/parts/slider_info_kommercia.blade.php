@@ -1,4 +1,4 @@
-@extends('pages.item.parts.slider_info_common')
+@extends('pages.item_mobile.parts.slider_info_common')
 
 @section('price-icon')
     <x-icon name="price_dom" />

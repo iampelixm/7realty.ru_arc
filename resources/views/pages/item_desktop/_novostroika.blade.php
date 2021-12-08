@@ -1,7 +1,7 @@
-@extends('pages.item.common')
+@extends('pages.item_desktop.common')
 
 @section('item_card')
-@include('pages.item.parts.slider_info_novostroyka')
+@include('pages.item_desktop.parts.slider_info_novostroyka')
 @show
 
 
@@ -26,12 +26,12 @@ $main_options = [
     <div class="object-card-big-slider">
         <div class="row no-gutters justify-content-between px-3">
 
-            @include('pages.item.parts.imageSlider')
+            @include('pages.item_desktop.parts.imageSlider')
 
             <div class="col-12 col-md-4 px-2 px-md-none">
                 <div class="content-object-card-information">
-                    @include('pages.item.parts.slider_info_novostroika')
-                    @include('pages.item.parts.slider_request_form')
+                    @include('pages.item_desktop.parts.slider_info_novostroika')
+                    @include('pages.item_desktop.parts.slider_request_form')
 
                 </div>
             </div>
@@ -98,8 +98,8 @@ $main_options = [
             </div>
         </div>
     </div>
-    @include('pages.item.parts.comments')
-    @include('pages.item.parts.request_form')
-    @include('pages.item.parts.bottom_sliders')
+    @include('pages.item_desktop.parts.comments')
+    @include('pages.item_desktop.parts.request_form')
+    @include('pages.item_desktop.parts.bottom_sliders')
 
 @endsection --}}

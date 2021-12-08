@@ -1,1 +1,1 @@
-@extends('pages.item.parts.slider_info_common')
+@extends('pages.item_desktop.parts.slider_info_common')
