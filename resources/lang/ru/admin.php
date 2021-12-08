@@ -170,9 +170,16 @@ return [
     'admin-users-edit'            => 'Редактирование пользователя',
     'admin-users-list'            => 'Список пользователей',
 
+    'site_settings'            => 'Общие настройки сайта',
+    'page_section'            => 'Раздел страницы',
+
+
     'menu-objects-novostroiki'      => 'Новостройки',
     'menu-objects-poselki'          => 'Кот. поселки',
     'menu-objects-vtorichka'        => 'Вторичка',
+    'menu-sitesettings'        => 'Настройки сайта',
+    'menu-sitesettings-common'        => 'Общие настройки',
+    'menu-sitesettings-banner'        => 'Баннер на главной',
     'show-menu'                     => 'Показывать в меню',
     'item_user'                     => 'Ответственный',
     'profile'                       => 'Мой профиль',
@@ -184,6 +191,13 @@ return [
     'filter_by_city'                => 'Город',
     'filter_by_broker'              => 'Ответственный',
     'filter_by_active'              => 'Активность',
-    'option_slug'                   => 'Имя карточки. Создается автоматически'
+    'option_slug'                   => 'Имя карточки. Создается автоматически',
+    'menu-pages-top'                => 'Отдельные страницы',
+    'menu-pages-news'               => 'Новости',
+    'menu-pages-webinar'            => 'Вебинары',
+    'menu-pages-analytics'            => 'Аналитика рынка',
+    'item_remark'                => 'Примечание (не выводится на сайте)',
+    'item_meta_description'                => 'SEO Meta описание',
+    'item_page_title'                => 'SEO Заголовок страницы',
 
 ];
