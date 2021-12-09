@@ -49,18 +49,3 @@
     @endforeach
     @show
 </div>
-
-<hr color="#C1A771">
-
-<div class="ad-flex pl-2 d-none">
-    <div>
-        <x-icon name="pdf-icon" />
-    </div>
-    <div>
-        <a class="content-object-card-information-list-text-tile" href="{{ route('site.item.getPdf', $item->slug) }}"
-            target="_blank">Скачать</a>
-        <div class="content-object-card-information-list-text-info">
-            Лот № {{ $item->id }}
-        </div>
-    </div>
-</div>
