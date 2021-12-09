@@ -1,19 +1,28 @@
-@extends('pages.item_mobile.parts.slider_info_common')
-
-@section('price-icon')
-    <x-icon name="price_dom" />
-@endsection
-
-@section('options')
-    <div class="col-lg-6 d-flex" data-option="ploshhad">
-        <div class="content-object-card-information-icon">
+<div class="item-options__price-wrapper">
+    <div class="item-options__price-icon">
+        <x-icon name="price-dom" height="35" width="30" />
+    </div>
+    <div class="item-options__price">
+        @if (view()->exists('pages.item_mobile.parts.price_' . $item->type->slug))
+            @include('pages.item_mobile.parts.price_'.$item->type->slug)
+        @else
+            <div class="item-options__price-description">
+                Цена от
+            </div>
+            {{ number_format($item->price, 0, ',', ' ') }} ₽
+        @endif
+    </div>
+</div>
+<div class="item-options__wrapper" data-card="{{ $item->type->slug }}">
+    <div class="item-options__option" data-option="ploshhad">
+        <div class="item-options__option-icon">
             <x-icon name="ploschad_dom" height="50" width="50" />
         </div>
         <div>
-            <div class="content-object-card-information-list-text-tile">
+            <div class="item-options__option-title">
                 Площадь
             </div>
-            <div class="content-object-card-information-list-text-info">
+            <div class="item-options__option-value">
                 @if (isset($item->options['ploshhad']))
                     {{ $item->options['ploshhad']->value }}
                 @else
@@ -24,15 +33,15 @@
         </div>
     </div>
 
-    <div class="col-lg-6 d-flex" data-option="etaznost">
-        <div class="content-object-card-information-icon">
+    <div class="item-options__option" data-option="etaznost">
+        <div class="item-options__option-icon">
             <x-icon name="etaznost" height="50" width="50" />
         </div>
         <div>
-            <div class="content-object-card-information-list-text-tile">
+            <div class="item-options__option-title">
                 Этажность
             </div>
-            <div class="content-object-card-information-list-text-info">
+            <div class="item-options__option-value">
                 @if (isset($item->options['etaznost']))
                     {{ $item->options['etaznost']->value }}
                     {{trans_choice('site.floor', $item->options['etaznost']->value)}}
@@ -44,15 +53,15 @@
         </div>
     </div>
 
-    <div class="col-lg-6 d-flex" data-option="komnat">
-        <div class="content-object-card-information-icon">
+    <div class="item-options__option" data-option="komnat">
+        <div class="item-options__option-icon">
             <x-icon name="komnat" height="50" width="50" />
         </div>
         <div>
-            <div class="content-object-card-information-list-text-tile">
+            <div class="item-options__option-title">
                 Кол-во комнат
             </div>
-            <div class="content-object-card-information-list-text-info">
+            <div class="item-options__option-value">
                 @if (isset($item->options['komnat']))
                     {{ $item->options['komnat']->value }}
                     {{trans_choice('site.all_rooms', $item->options['komnat']->value)}}
@@ -64,15 +73,15 @@
         </div>
     </div>
 
-    <div class="col-lg-6 d-flex" data-option="spalen">
-        <div class="content-object-card-information-icon">
+    <div class="item-options__option" data-option="spalen">
+        <div class="item-options__option-icon">
             <x-icon name="spalen" height="50" width="50" />
         </div>
         <div>
-            <div class="content-object-card-information-list-text-tile">
+            <div class="item-options__option-title">
                 Спален
             </div>
-            <div class="content-object-card-information-list-text-info">
+            <div class="item-options__option-value">
                 @if (isset($item->options['spalen']))
                     {{ $item->options['spalen']->value }}
                     {{trans_choice('site.bed_rooms', $item->options['spalen']->value)}}
@@ -83,15 +92,15 @@
         </div>
     </div>
 
-    <div class="col-lg-6 d-flex" data-option="ploshhad_ucastka">
-        <div class="content-object-card-information-icon">
+    <div class="item-options__option" data-option="ploshhad_ucastka">
+        <div class="item-options__option-icon">
             <x-icon name="ploschad_uchastka" height="50" width="50" />
         </div>
         <div>
-            <div class="content-object-card-information-list-text-tile">
+            <div class="item-options__option-title">
                 Участок
             </div>
-            <div class="content-object-card-information-list-text-info">
+            <div class="item-options__option-value">
                 @if (isset($item->options['ploshhad_ucastka']))
                     {{ $item->options['ploshhad_ucastka']->value }}
                 @else
@@ -102,15 +111,15 @@
         </div>
     </div>
 
-    <div class="col-lg-6 d-flex" data-option="do_zd_vokzala">
-        <div class="content-object-card-information-icon">
+    <div class="item-options__option" data-option="do_zd_vokzala">
+        <div class="item-options__option-icon">
             <x-icon name="do_zd_vokzala" height="50" width="50" />
         </div>
         <div>
-            <div class="content-object-card-information-list-text-tile">
+            <div class="item-options__option-title">
                 До Ж/Д вокзала
             </div>
-            <div class="content-object-card-information-list-text-info">
+            <div class="item-options__option-value">
                 @if (isset($item->options['do_zd_vokzala']))
                     {{ $item->options['do_zd_vokzala']->value }}
                 @else
@@ -121,15 +130,15 @@
         </div>
     </div>
 
-    <div class="col-lg-6 d-flex" data-option="do_aeroporta">
-        <div class="content-object-card-information-icon">
+    <div class="item-options__option" data-option="do_aeroporta">
+        <div class="item-options__option-icon">
             <x-icon name="do_aeroporta" height="50" width="50" />
         </div>
         <div>
-            <div class="content-object-card-information-list-text-tile">
+            <div class="item-options__option-title">
                 До аэропорта
             </div>
-            <div class="content-object-card-information-list-text-info">
+            <div class="item-options__option-value">
                 @if (isset($item->options['do_aeroporta']))
                     {{ $item->options['do_aeroporta']->value }}
                 @else
@@ -140,15 +149,15 @@
         </div>
     </div>
 
-    <div class="col-lg-6 d-flex" data-option="do_morya">
-        <div class="content-object-card-information-icon">
+    <div class="item-options__option" data-option="do_morya">
+        <div class="item-options__option-icon">
             <x-icon name="do_morya" height="50" width="50" />
         </div>
         <div>
-            <div class="content-object-card-information-list-text-tile">
+            <div class="item-options__option-title">
                 До моря
             </div>
-            <div class="content-object-card-information-list-text-info">
+            <div class="item-options__option-value">
                 @if (isset($item->options['do_morya']))
                     {{ $item->options['do_morya']->value }}
                 @else
@@ -158,5 +167,4 @@
             </div>
         </div>
     </div>
-
-@endsection
+</div>
