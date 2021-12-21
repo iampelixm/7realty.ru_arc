@@ -175,7 +175,7 @@
                 </div>
             </div>
         </div>
-        <div class="row broker-description mt-5">
+        <div class="broker-description mt-5">
 
             @if ($broker->additional->obrazovanie ?? '')
                 <div>
