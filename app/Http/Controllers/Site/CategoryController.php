@@ -9,6 +9,7 @@ use App\Models\Area;
 use App\Models\Item;
 use App\Models\Option;
 use Illuminate\Support\Facades\Cookie;
+use Jenssegers\Agent\Agent;
 
 class CategoryController extends Controller
 {
@@ -139,7 +140,7 @@ class CategoryController extends Controller
         $page_title = $category->name . " | Seven";
         $page_head = $category->name;
         $template_data = compact('category', 'list', 'areasSelect', 'filter', 'data_backend', 'page_title', 'page_head', 'minRooms', 'maxRooms');
-        return view('pages.category.default', $template_data);
+        // return view('pages.category.common', $template_data);
         /* выбор файла карточки происходит в файле default
         if (view()->exists('pages.category.' . $category->slug)) {
             return view('pages.category.' . $category->slug, $template_data);
@@ -147,6 +148,18 @@ class CategoryController extends Controller
 
         }
         */
+        $agent = new Agent();
+
+        if ($agent->isMobile()) {
+            $base_view = 'pages.category_mobile';
+        } else {
+            $base_view = 'pages.category';
+        }
+        if (view()->exists($base_view . $category->slug)) {
+            return view($base_view . $category->slug, $template_data);
+        } else {
+            return view($base_view . '.common', $template_data);
+        }
     }
 
     public function listSpecial(Request $r, Category $category)

@@ -9,7 +9,7 @@
     <meta name="item-lon" content='{{ $meta_lon ?? 0 }}' />
     <meta name="item-lat" content='{{ $meta_lat ?? 0 }}' />
     <meta name="data-backend" content='{!! $data_backend ?? '' !!}'>
-    <meta name="description" content="@section('meta_description')@show" >
+    <meta name="description" content="@section('meta_description')@show">
     <meta name="theme-color" content="#C1A771">
     <!-- Bootstrap CSS -->
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> --}}
@@ -36,23 +36,24 @@
 </head>
 
 @section('body')
-<body class="{{ $body_class ?? '' }}">
+
+    <body class="{{ $body_class ?? '' }}">
         <!-- Header -->
     @section('header')
         <header class="main-header main-header_position">
-            @section('top_menu')
-                @include('partials.top_menu_desktop')
-            @show
+        @section('top_menu')
+            @include('partials.top_menu_desktop')
+        @show
 
-            @section('header_logo')
-                @include('partials.header_logo')
-            @show
+        @section('header_logo')
+            @include('partials.header_logo')
+        @show
 
-            @section('categories_menu')
-                @include('partials.categories_menu')
-            @show
-        </header>
-    @show
+        @section('categories_menu')
+            @include('partials.categories_menu')
+        @show
+    </header>
+@show
 
 <!-- Конец Header -->
 <!-- main content -->
@@ -64,10 +65,44 @@
 
 {{-- этот пиздец засирает страницу --}}
 {{-- @include('partials/modals') --}}
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
+<div class="modal modal-form fade" id="modalForm" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="border-radius: 40px; padding: 0">
+            <div class="modal-body">
+                <div class="modal-form__content-wrapper">
+                    <h1 class="modal-form__title">
+                        Оставьте ваши контакты
+                        и получите ответ эксперта
+                        уже <span class="text-gold">сегодня</span>
+                    </h1>
+                </div>
+                <form action="/form" method="POST" enctype="application/x-www-form-urlencoded">
+                    <div class="modal-form__content-wrapper">
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Ваше имя"
+                            required>
+                        <input type="tel" name="phone" id="phone" class="form-control"
+                            placeholder="Ваш номер телефона" required>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Ваш вопрос"
+                            required>
+                    </div>
+                    <div class="modal-form__button-wrapper">
+                        <div class="modal-form__content-wrapper">
+                            <button class="mx-auto button w-100">
+                                ОТПРАВИТЬ ЗАЯВКУ
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-form__content-wrapper">
+                        <div class="modal-form__disclaimer">
+                            Нажимая на кнопку “Отправить” Вы соглашаетесь на обработку данных.
+                            <a href="">Политика конфиденциальности.</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="{{ mix('/users/js/app.min.js') }}"></script>
 
