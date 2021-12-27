@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<div class="items-block">
+<div class="items-block" style="margin-top: 40px">
     <div class="items-block__items-container two-col">
         @foreach ($list as $slider_item)
             @include('components.object_slider.default_mobile')
@@ -27,4 +27,5 @@
         {{ $list->links() }}
     </div>
 </div>
+<div style="height:40px"></div>
 @endsection
