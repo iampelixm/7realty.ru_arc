@@ -10,12 +10,9 @@
             </div>
 
         @section('category_filter')
-            <div class="">{{ $category->slug }}</div>
-            @if (view()->exists('pages.category_mobile.parts.filter_' . $category->slug))
-                @include('pages.category_mobile.parts.filter_'.$category->slug)
-            @else
+            <div class="items-filter">
                 @include('pages.category_mobile.parts.filter_default')
-            @endif
+            </div>
         @show
     </div>
 </div>
@@ -26,7 +23,7 @@
             @include('components.object_slider.default_mobile')
         @endforeach
     </div>
-    <div class="items-block__pages-list>
+    <div class="items-block__pages-list">
         {{ $list->links() }}
     </div>
 </div>

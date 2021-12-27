@@ -11,5 +11,50 @@
     &__image
         height: 100px
 
-.color-gold
+.color-gold, .text-gold
     color: $color-gold
+
+.items-filter
+    background-color: $color-gold
+    border-radius: 8px
+    width: 100%
+    &__form
+        padding: 40px 10px
+    &__title
+        text-align: center
+    &__field
+        margin: 10px 0 0 0
+        width: 100%
+        border-radius: 50rem
+        border: 1px solid #EAEAEA
+        background-color: #fff
+        padding: 9px 20px 6px
+        color: #333
+        font-style: normal
+        font-weight: normal
+        font-size: 14px
+        line-height: 18px
+        .dropdown-toggle
+            border: none
+            background-color: transparent
+            cursor: pointer
+            &::after
+                position: absolute
+                right: 0
+                top: 30%
+                color: $color-gold
+    &__price
+        display: flex
+        align-items: center
+    &__square
+        display: flex
+        align-items: center
+    &__label
+        white-space: nowrap
+        margin: 0 5px
+    &__input
+        border: none
+        color: $color-gold
+        width: 100%
+        border-bottom: 1px solid $color-gold
+

@@ -21016,8 +21016,72 @@ video::-webkit-media-text-track-display {
   height: 100px;
 }
 
-.color-gold {
+.color-gold,
+.text-gold {
   color: #C1A771;
+}
+
+.items-filter {
+  background-color: #C1A771;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.items-filter__form {
+  padding: 40px 10px;
+}
+
+.items-filter__title {
+  text-align: center;
+}
+
+.items-filter__field {
+  margin: 10px 0 0 0;
+  width: 100%;
+  border-radius: 50rem;
+  border: 1px solid #EAEAEA;
+  background-color: #fff;
+  padding: 9px 20px 6px;
+  color: #333;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.items-filter__field .dropdown-toggle {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.items-filter__field .dropdown-toggle::after {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  color: #C1A771;
+}
+
+.items-filter__price {
+  display: flex;
+  align-items: center;
+}
+
+.items-filter__square {
+  display: flex;
+  align-items: center;
+}
+
+.items-filter__label {
+  white-space: nowrap;
+  margin: 0 5px;
+}
+
+.items-filter__input {
+  border: none;
+  color: #C1A771;
+  width: 100%;
+  border-bottom: 1px solid #C1A771;
 }
 
 .page-about .section-slogan {

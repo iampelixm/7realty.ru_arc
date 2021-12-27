@@ -145,6 +145,8 @@
         </noscript>
         <!-- /Yandex.Metrika counter -->
     </div>
+@stack('javascript')
+
 </body>
 
 </html>
