@@ -1,21 +1,22 @@
-<div class="d-flex align-items-center">
-
-    <div style="white-space: nowrap;">
+<div class="items-filter__square">
+    <div class="items-filter__label">
         Площадь от
     </div>
-    <input style="width: 40px" type="text" name="area-uchastka-min" id="areamin" placeholder="6"
-        class="form-control py-2 pr-0 text-gold" value="{{$filter['area-uchastka-min'] ?? ''}}">
-
-    <div class="text-gold">
-        сот.
+    <div class="items-filter__input-wrapper">
+        <input type="text" name="area-uchastka-min" id="area-uchastka-min" placeholder="3" class="items-filter__input"
+            value="{{ $filter['area-uchastka-min'] ?? '3' }}">
     </div>
-    <div style="margin-left: 7px">
+    <div class="items-filter__label text-gold">
+        сот
+    </div>
+    <div class="items-filter__label">
         до
     </div>
-    <input style="width: 40px" type="text" name="area-uchastka-max" id="areamax" placeholder="77"
-        class="form-control py-2 pr-0 text-gold" value="{{$filter['area-uchastka-max'] ?? ''}}">
-
-    <div class="text-gold">
-        сот.
+    <div class="items-filter__input-wrapper">
+        <input type="text" name="area-uchastka-max" id="area-uchastka-max" placeholder="20" class="items-filter__input"
+            value="{{ $filter['squareto'] ?? '20' }}">
+    </div>
+    <div class="items-filter__label text-gold">
+        сот
     </div>
 </div>

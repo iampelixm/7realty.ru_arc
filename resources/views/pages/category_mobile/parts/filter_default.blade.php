@@ -24,6 +24,9 @@ if (isset($filter_fields_set[$category->slug])) {
             @include('pages.category_mobile.parts.filter_'.$field)
         </div>
     @endforeach
+    <button class="items-filter__submit">
+Показать варианты
+    </button>
 </form>
 @push('javascript')
     <script>

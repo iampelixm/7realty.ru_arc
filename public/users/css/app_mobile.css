@@ -21084,6 +21084,23 @@ video::-webkit-media-text-track-display {
   border-bottom: 1px solid #C1A771;
 }
 
+.items-filter__submit {
+  border: 1px solid #C1A771;
+  width: 100%;
+  margin: 30px 0 0 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 9px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border-radius: 50em;
+  background-color: #fff;
+}
+
 .page-about .section-slogan {
   position: relative;
   background-color: #000;
