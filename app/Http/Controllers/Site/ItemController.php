@@ -193,7 +193,7 @@ class ItemController extends Controller
         }
 
         if (($item->latitude != '') and ($item->longitude != '') ){
-            $url = "https://maps.googleapis.com/maps/api/staticmap?center=".$item->latitude.",".$item->longitude."&zoom=12&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C".$item->latitude.",".$item->longitude."&key=AIzaSyAF9v4WuIgVrPmLxnTnkvXLRE47jODg0Pw";
+            $url = "https://maps.googleapis.com/maps/api/staticmap?center=".$item->latitude.",".$item->longitude."&zoom=12&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C".$item->latitude.",".$item->longitude."&key=";
 
             $maps = file_get_contents($url);
             $image_path = public_path('/pdf/map_image'.$item->id.'.png');
